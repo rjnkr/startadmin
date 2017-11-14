@@ -1,0 +1,119 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "FlarmStart_Model",
+        "idProperty": "ID"
+    },
+    "designerId": "d36dd04d-9392-4fde-b846-696741602e1c",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ID"
+            },
+            "name": "MyField120",
+            "designerId": "b753642a-2eaa-434f-b66a-377cb044b28f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DATUM"
+            },
+            "name": "MyField121",
+            "designerId": "6f507f2a-c933-4d69-8ff2-758b5b46433b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "REG_CALL"
+            },
+            "name": "MyField122",
+            "designerId": "03f6ddb1-2ab4-456d-8136-41e00c07fd4e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "FLARM_CODE"
+            },
+            "name": "MyField123",
+            "designerId": "e0810cca-30b4-431d-8bce-63c9b7f04f35"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "STARTTIJD"
+            },
+            "name": "MyField124",
+            "designerId": "c7148f9f-ccad-4d69-babc-f33a925af618"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "LANDINGSTIJD"
+            },
+            "name": "MyField125",
+            "designerId": "ab3dd138-147b-41dd-8fcd-30017b9372c4"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "VLIEGTUIG_ID"
+            },
+            "name": "MyField126",
+            "designerId": "a15575f2-0b9f-46d7-b9fd-5ed74dd295dd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "BAAN"
+            },
+            "name": "MyField127",
+            "designerId": "c61aad66-9315-4fab-8eaf-d655ebbab30b"
+        }
+    ]
+}

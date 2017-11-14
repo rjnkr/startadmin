@@ -1,0 +1,218 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "CopyLandingstijdWindow",
+        "designer|userClassName": "CopyLandingstijdWindow",
+        "height": 148,
+        "id": "StarttijdWindow2",
+        "modal": true,
+        "resizable": [
+            "false"
+        ],
+        "title": "Starttijd overnemen",
+        "width": 274
+    },
+    "designerId": "7b8e2331-323a-4172-ac36-6ffe67fba7c7",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|snapToGrid": 10,
+                "height": 115,
+                "id": "LandingCopyForm",
+                "layout": "absolute",
+                "primaryFilterOnKeyInput": "true",
+                "resizable": null,
+                "title": "",
+                "trackResetOnLoad": true,
+                "url": "php/main.php?Action=Controle.SaveLandingsTijd",
+                "width": 265
+            },
+            "name": "MyForm4",
+            "designerId": "24bec8b9-092f-424a-83ac-bdc97d6a6123",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "primaryFilterOnKeyInput",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "",
+                        "hideEmptyLabel": false,
+                        "id": "CopyLandingstijd_ID",
+                        "labelWidth": 0,
+                        "layout|x": 35,
+                        "layout|y": 210,
+                        "name": "ID",
+                        "width": 50
+                    },
+                    "name": "MyHiddenField7",
+                    "designerId": "d478a274-d753-4437-b8f2-f25f74247513"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "formBind": true,
+                        "height": 30,
+                        "icon": null,
+                        "iconCls": null,
+                        "id": "LandingCopy_Overnemen",
+                        "layout|x": 75,
+                        "layout|y": 40,
+                        "text": "Overnemen",
+                        "width": 75
+                    },
+                    "name": "MyButton19",
+                    "designerId": "01769928-d8a4-4171-b1b9-daa18eb4a3e2",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onLandingCopy_OvernemenClick",
+                                "implHandler": [
+                                    "Ext.Controle.onLandingCopy_OvernemenClick(button, e, eOpts);\r",
+                                    "\r",
+                                    "// Geeft de opslaan button een kleurtje op basis van de data velden\r",
+                                    "Ext.AanpassenButtonOpslaan(Ext.getCmp('LandingCopyForm'), Ext.getCmp('LandingCopy_Opslaan'));"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onLandingCopy_OvernemenClick",
+                            "designerId": "849c5735-26d9-41f2-826e-3f6728a4ef60"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "formBind": true,
+                        "height": 40,
+                        "icon": null,
+                        "iconCls": null,
+                        "id": "LandingCopy_Opslaan",
+                        "layout|x": 170,
+                        "layout|y": 65,
+                        "text": "Opslaan",
+                        "width": 80
+                    },
+                    "name": "MyButton20",
+                    "designerId": "e731de1d-2353-4304-ac3e-6a36cb3c7549",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onLandingCopy_OpslaanClick",
+                                "implHandler": [
+                                    "Ext.Controle.onLandingCopy_OpslaanClick(button, e, eOpts);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onLandingCopy_OpslaanClick",
+                            "designerId": "728a9573-e48a-449f-bb9a-82f90d04c2fc"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Landingstijd",
+                        "id": "LandingSA_Text",
+                        "labelWidth": 60,
+                        "layout|x": 10,
+                        "layout|y": 10,
+                        "name": "SA_LANDINGSTIJD",
+                        "readOnly": true,
+                        "width": 140
+                    },
+                    "name": "MyTextField18",
+                    "designerId": "07fe7bd3-c60a-46a0-b622-837eb23cd831"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Flarm",
+                        "id": "LandingFlarm_Text",
+                        "labelWidth": 60,
+                        "layout|x": 10,
+                        "layout|y": 80,
+                        "name": "FLARM_LANDINGSTIJD",
+                        "readOnly": true,
+                        "width": 140
+                    },
+                    "name": "MyTextField19",
+                    "designerId": "66d1a86b-13de-4879-b456-7a199ef7e8f8"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "Ext.Controle.onLandingCopyWindowShow(component, eOpts, this.ID);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onWindowShow",
+            "designerId": "ff999c41-d1bc-4c80-9b60-0b517c26fe63"
+        }
+    ]
+}

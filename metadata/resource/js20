@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js20",
+        "url": "js/clearButton.js",
+        "x-compile": true
+    },
+    "designerId": "181475c3-548f-442c-921d-4ee97c0fdc21"
+}

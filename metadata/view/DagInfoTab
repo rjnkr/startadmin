@@ -1,0 +1,1420 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "collapsible": true,
+        "container|align": "stretch",
+        "designer|userAlias": "daginfotab",
+        "designer|userClassName": "DagInfoTab",
+        "html": null,
+        "id": "Daginfo",
+        "itemId": "",
+        "layout": "vbox",
+        "title": "Daginfo"
+    },
+    "name": "MyPanel4",
+    "designerId": "fb7052c5-9591-4586-ac1c-0cd243ced9b9",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "disabled": true,
+                "frameHeader": false,
+                "height": 393,
+                "id": "DaginfoForm",
+                "layout": null,
+                "layout|flex": 1,
+                "title": "",
+                "trackResetOnLoad": true,
+                "url": "php/main.php?Action=Daginfo.SaveObject",
+                "waitTitle": "Even wachten"
+            },
+            "name": "MyForm",
+            "designerId": "48a2e8b8-cb15-4629-9ab6-d3310cf78af6",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "name": "ID"
+                    },
+                    "name": "MyHiddenField",
+                    "designerId": "f44df10a-6dae-4916-b339-4181cb1c198d"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "DagInfoDatum",
+                        "layout|anchor": "100%",
+                        "name": "DATUM"
+                    },
+                    "name": "MyHiddenField1",
+                    "designerId": "d5820153-d073-45c0-b99a-1c2d68353e71"
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 0,
+                        "layout": "table",
+                        "margin": 10,
+                        "title": null
+                    },
+                    "name": "MyPanel5",
+                    "designerId": "85f65bf6-b418-41f7-8ef0-9568c2af6769",
+                    "cn": [
+                        {
+                            "type": "Ext.panel.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|snapToGrid": 10,
+                                "height": 95,
+                                "layout": "absolute",
+                                "margin": "0 10 0 0",
+                                "title": "Vliegveld",
+                                "width": 288
+                            },
+                            "name": "MyPanel6",
+                            "designerId": "c652b27f-f249-44d7-9a85-4bb909ccb829",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "blankText": null,
+                                        "displayField": "OMSCHRIJVING",
+                                        "fieldLabel": "Vliegveld",
+                                        "forceSelection": true,
+                                        "id": "ComboboxInfoVliegveld",
+                                        "labelAlign": "right",
+                                        "layout|x": -29,
+                                        "layout|y": 10,
+                                        "msgTarget": "side",
+                                        "name": "VELD_ID",
+                                        "queryMode": "local",
+                                        "store": "Types_Vliegvelden_Store",
+                                        "typeAhead": true,
+                                        "valueField": "ID",
+                                        "width": 300
+                                    },
+                                    "name": "MyComboBox",
+                                    "designerId": "d9859bec-77f4-4924-a21e-c4098868589b",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onComboboxInfoBanenRender1",
+                                                "implHandler": [
+                                                    "Ext.QuickTips.register({\r",
+                                                    "    target: component.getEl(),\r",
+                                                    "    text: 'De baan waarop vandaag gestart wordt. Bij omstellen dit veld aanpassen.'\r",
+                                                    "});"
+                                                ],
+                                                "name": "render",
+                                                "scope": "me"
+                                            },
+                                            "name": "onComboboxInfoBanenRender1",
+                                            "designerId": "1a9e8c50-fdde-44ae-99c9-ad11e1a8f0b5"
+                                        },
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onComboboxInfoVliegveldChange",
+                                                "implHandler": [
+                                                    "Ext.Daginfo.DynamischFormulier();"
+                                                ],
+                                                "name": "change",
+                                                "scope": "me"
+                                            },
+                                            "name": "onComboboxInfoVliegveldChange",
+                                            "designerId": "d750ce8f-2844-443e-84e9-cb669504f753"
+                                        },
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value"
+                                                ],
+                                                "fn": "validator",
+                                                "implHandler": [
+                                                    "return Ext.Daginfo.ValiderenVliegveld(value);"
+                                                ]
+                                            },
+                                            "name": "validator",
+                                            "designerId": "9ff22442-57d7-4eff-aab7-fc16c804ba0c"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "blankText": null,
+                                        "displayField": "OMSCHRIJVING",
+                                        "fieldLabel": "Baan",
+                                        "forceSelection": true,
+                                        "id": "ComboboxInfoBanen",
+                                        "labelAlign": "right",
+                                        "layout|x": -29,
+                                        "layout|y": 40,
+                                        "msgTarget": "side",
+                                        "name": "BAAN_ID",
+                                        "queryMode": "local",
+                                        "store": "Types_Banen_Store",
+                                        "typeAhead": true,
+                                        "valueField": "ID",
+                                        "width": 180
+                                    },
+                                    "name": "MyComboBox1",
+                                    "designerId": "bf761311-92db-4c42-8fac-484b5263b92b",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onComboboxInfoBanenRender",
+                                                "implHandler": [
+                                                    "Ext.QuickTips.register({\r",
+                                                    "    target: component.getEl(),\r",
+                                                    "    text: 'De baan waarop vandaag gestart wordt. Bij omstellen dit veld aanpassen. Vul \"-\" in voor wanneer er niet op Terlet gevlogen wordt.'\r",
+                                                    "});"
+                                                ],
+                                                "name": "render",
+                                                "scope": "me"
+                                            },
+                                            "name": "onComboboxInfoBanenRender",
+                                            "designerId": "46e80379-a1c2-4aa1-84a4-d8d6b7ded503"
+                                        },
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value"
+                                                ],
+                                                "fn": "validator",
+                                                "implHandler": [
+                                                    "return Ext.Daginfo.ValiderenBaan(value);"
+                                                ]
+                                            },
+                                            "name": "validator",
+                                            "designerId": "53d491f8-a4f5-4aee-8507-fae286c18d36"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.panel.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|snapToGrid": 10,
+                                "height": 95,
+                                "id": "WindPanel",
+                                "layout": "absolute",
+                                "title": "Wind",
+                                "width": 377
+                            },
+                            "name": "MyPanel7",
+                            "designerId": "b7916aee-17af-4160-869b-ff0ffd8b768b",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "blankText": null,
+                                        "displayField": "OMSCHRIJVING",
+                                        "fieldLabel": "Richting",
+                                        "forceSelection": true,
+                                        "id": "ComboboxInfoWindRichting",
+                                        "labelAlign": "right",
+                                        "labelWidth": 75,
+                                        "layout|x": 0,
+                                        "layout|y": 10,
+                                        "msgTarget": "side",
+                                        "name": "WINDRICHTING_ID",
+                                        "queryMode": "local",
+                                        "store": "Types_WindRichting_Store",
+                                        "typeAhead": true,
+                                        "valueField": "ID",
+                                        "width": 275
+                                    },
+                                    "name": "MyComboBox2",
+                                    "designerId": "b2142c37-bfec-426a-9b79-8105ab3b72c7",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onComboboxInfoWindRichtingRender",
+                                                "implHandler": [
+                                                    "Ext.QuickTips.register({\r",
+                                                    "    target: component.getEl(),\r",
+                                                    "    text: 'Bij benadering de windrichting.'\r",
+                                                    "});"
+                                                ],
+                                                "name": "render",
+                                                "scope": "me"
+                                            },
+                                            "name": "onComboboxInfoWindRichtingRender",
+                                            "designerId": "47b2088a-f593-45ed-b052-820ad595c4ce"
+                                        },
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value"
+                                                ],
+                                                "fn": "validator",
+                                                "implHandler": [
+                                                    "return Ext.Daginfo.ValiderenWindrichting(value);"
+                                                ]
+                                            },
+                                            "name": "validator",
+                                            "designerId": "85f3e66e-926c-4551-8502-524062a3181f"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "blankText": null,
+                                        "displayField": "OMSCHRIJVING",
+                                        "fieldLabel": "Kracht",
+                                        "forceSelection": true,
+                                        "id": "ComboboxInfoWindKracht",
+                                        "labelAlign": "right",
+                                        "labelWidth": 75,
+                                        "layout|x": 0,
+                                        "layout|y": 40,
+                                        "msgTarget": "side",
+                                        "name": "WINDKRACHT_ID",
+                                        "queryMode": "local",
+                                        "store": "Types_WindKracht_Store",
+                                        "typeAhead": true,
+                                        "valueField": "ID",
+                                        "width": 275
+                                    },
+                                    "name": "MyComboBox3",
+                                    "designerId": "d6e45329-eb0a-44a7-9e22-7de4311cf750",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onComboboxInfoWindKrachtRender",
+                                                "implHandler": [
+                                                    "  Ext.QuickTips.register({\r",
+                                                    "    target: component.getEl(),\r",
+                                                    "    text: 'Bij benadering de windkracht'\r",
+                                                    "  });"
+                                                ],
+                                                "name": "render",
+                                                "scope": "me"
+                                            },
+                                            "name": "onComboboxInfoWindKrachtRender",
+                                            "designerId": "a89b6fe6-6a8c-486d-85e6-31cd28bd4bef"
+                                        },
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value"
+                                                ],
+                                                "fn": "validator",
+                                                "implHandler": [
+                                                    "return Ext.Daginfo.ValiderenWindkracht(value);"
+                                                ]
+                                            },
+                                            "name": "validator",
+                                            "designerId": "380ed1ec-fb8b-4cbb-b059-0965146de92e"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 102,
+                        "layout": "absolute",
+                        "margin": 10,
+                        "title": "Vliegbedrijf",
+                        "width": 675
+                    },
+                    "name": "MyPanel8",
+                    "designerId": "b295e9b7-8c56-4814-b68c-ec5dc9cb104a",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "OMSCHRIJVING",
+                                "fieldLabel": "Start methode",
+                                "forceSelection": true,
+                                "id": "ComboboxInfoStartMethode",
+                                "labelAlign": "right",
+                                "labelWidth": 90,
+                                "layout|x": 285,
+                                "layout|y": 10,
+                                "matchFieldWidth": false,
+                                "msgTarget": "side",
+                                "name": "STARTMETHODE_ID",
+                                "primaryFilterOnKeyInput": "true",
+                                "queryMode": "local",
+                                "store": "Types_StartMethode_Store",
+                                "typeAhead": true,
+                                "valueField": "ID",
+                                "width": 290
+                            },
+                            "name": "MyComboBox4",
+                            "designerId": "1ffb033e-84c1-42ed-bb91-a07ac4f1aa8e",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilterBy",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilterOnKeyInput",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxInfoStartMethodeRender",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({\r",
+                                            "    target: component.getEl(),\r",
+                                            "    text: 'De startmethode die voor de meeste vliegtuigen gebruikt wordt. Kan geduurende de dag veranderen.'\r",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onComboboxInfoStartMethodeRender",
+                                    "designerId": "d186a792-9221-45e7-abe8-9b054e0369df"
+                                },
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.Daginfo.ValiderenStartMethode(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "97a23b89-9254-4510-be59-f8307a485eb0"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processComboboxInfoStartMethode",
+                                        "implHandler": [
+                                            "config.plugins = ['clearbutton']; \r",
+                                            "return config; "
+                                        ]
+                                    },
+                                    "name": "processComboboxInfoStartMethode",
+                                    "designerId": "582c4934-d38e-4c04-b17b-ac878b99e59f"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "displayField": "OMSCHRIJVING",
+                                "fieldLabel": "Club",
+                                "forceSelection": true,
+                                "id": "ComboboxInfoClub",
+                                "labelAlign": "right",
+                                "layout|x": -29,
+                                "layout|y": 10,
+                                "matchFieldWidth": false,
+                                "msgTarget": "side",
+                                "name": "BEDRIJF_ID",
+                                "primaryFilterOnKeyInput": "true",
+                                "queryMode": "local",
+                                "store": "Types_Club_Store",
+                                "typeAhead": true,
+                                "valueField": "ID",
+                                "width": 300
+                            },
+                            "name": "MyComboBox5",
+                            "designerId": "73dcb030-372e-4864-a7fe-bc180ea6cafd",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilterBy",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilterOnKeyInput",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxInfoStartMethodeRender1",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({\r",
+                                            "    target: component.getEl(),\r",
+                                            "    text: 'Welke club is verantwoordeijk voor het vliegbedrijf.'\r",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onComboboxInfoStartMethodeRender1",
+                                    "designerId": "02c76c9d-6946-4cf2-86bc-dd0c1c5b664d"
+                                },
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.Daginfo.ValiderenClub(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "e5b7f7bf-aba4-45eb-b6fb-05ce847de7e6"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxInfoClubChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onComboboxInfoClubChange",
+                                    "designerId": "05cec69a-802a-4183-a461-17f5cef9df5a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "displayField": "OMSCHRIJVING",
+                                "fieldLabel": "Bedrijf",
+                                "forceSelection": true,
+                                "id": "ComboboxInfoSoortBedrijf",
+                                "labelAlign": "right",
+                                "layout|x": -29,
+                                "layout|y": 40,
+                                "matchFieldWidth": false,
+                                "msgTarget": "side",
+                                "name": "SOORTBEDRIJF_ID",
+                                "primaryFilterOnKeyInput": "true",
+                                "queryMode": "local",
+                                "store": "Types_SoortBedrijf_Store",
+                                "typeAhead": true,
+                                "valueField": "ID",
+                                "width": 300
+                            },
+                            "name": "MyComboBox6",
+                            "designerId": "c68b1a61-f9af-4c6f-bd43-8aec892a8719",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilterBy",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilterOnKeyInput",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxInfoStartMethodeRender11",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({\r",
+                                            "    target: component.getEl(),\r",
+                                            "    text: 'Geef aan of we ook een DDWV bedrijf hebben.'\r",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onComboboxInfoStartMethodeRender11",
+                                    "designerId": "fed0e988-41d2-416c-8fb9-522f7e340de4"
+                                },
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.Daginfo.ValiderenSoortBedrijf(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "9c5c5fb0-4a50-40ef-992b-3d8fcdbd4ecc"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxInfoSoortBedrijfChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onComboboxInfoSoortBedrijfChange",
+                                    "designerId": "60e07095-5882-4ca5-9242-a5006c94e400"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": null,
+                        "designer|snapToGrid": 10,
+                        "height": 130,
+                        "layout": "absolute",
+                        "margin": 10,
+                        "title": "Ochtend",
+                        "width": 675
+                    },
+                    "name": "MyPanel9",
+                    "designerId": "cb813259-4c90-41d9-b5da-22bbb8fa748f",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "enableKeyEvents": null,
+                                "fieldLabel": "DDI",
+                                "formBind": null,
+                                "id": "TextboxInfoOchtendDDI",
+                                "labelAlign": "right",
+                                "layout|x": -29,
+                                "layout|y": 10,
+                                "msgTarget": "side",
+                                "name": "OCHTEND_DDI",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField3",
+                            "designerId": "327f87b3-6021-41e6-abfe-c4f2282e3783",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextboxInfoOchtendDDIChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTextboxInfoOchtendDDIChange",
+                                    "designerId": "8a973f40-fc68-47cd-bc90-b431d9b38f48"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Instructeur",
+                                "formBind": null,
+                                "id": "TextboxInfoOchtendInstructeur",
+                                "labelAlign": "right",
+                                "labelWidth": 75,
+                                "layout|x": 300,
+                                "layout|y": 10,
+                                "msgTarget": "side",
+                                "name": "OCHTEND_INSTRUCTEUR",
+                                "selectOnFocus": true,
+                                "width": 275
+                            },
+                            "name": "MyTextField4",
+                            "designerId": "8ca7ebf3-83b7-4b4c-91fb-4f8779795307",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextboxInfoOchtendInstructeurChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();\r",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTextboxInfoOchtendInstructeurChange",
+                                    "designerId": "8cfdcc6e-39f6-47da-8b4b-69f0074754aa"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Lierist",
+                                "id": "TextboxInfoOchtendLierist",
+                                "labelAlign": "right",
+                                "layout|x": -29,
+                                "layout|y": 40,
+                                "msgTarget": "side",
+                                "name": "OCHTEND_LIERIST",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "90acaf1c-a09e-45a6-a92f-f20b3eaf64af",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextboxInfoOchtendLieristChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();\r",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTextboxInfoOchtendLieristChange",
+                                    "designerId": "60db3173-ddf7-4644-b980-3d1eb1f52764"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Hulplierist",
+                                "id": "TextboxInfoOchtendHulpLierist",
+                                "labelAlign": "right",
+                                "labelWidth": 75,
+                                "layout|x": 300,
+                                "layout|y": 40,
+                                "msgTarget": "side",
+                                "name": "OCHTEND_HULPLIERIST",
+                                "selectOnFocus": true,
+                                "width": 275
+                            },
+                            "name": "MyTextField6",
+                            "designerId": "d59aee04-3bb9-41c4-8dac-c6568bad8f53",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextboxInfoOchtendHulpLieristChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();\r",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTextboxInfoOchtendHulpLieristChange",
+                                    "designerId": "4dd3f5a1-7ada-4a3e-b17d-49c284591489"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Startleider",
+                                "id": "TextboxInfoOchtendStartleider",
+                                "labelAlign": "right",
+                                "layout|x": -29,
+                                "layout|y": 70,
+                                "msgTarget": "side",
+                                "name": "OCHTEND_STARTLEIDER",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField7",
+                            "designerId": "7505e1db-f1e4-40b0-909f-186c0663bcf6",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextboxInfoOchtendStartleiderChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTextboxInfoOchtendStartleiderChange",
+                                    "designerId": "68d26e1b-568b-4944-8598-1bf11c27af5b"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 130,
+                        "hidden": true,
+                        "id": "Daginfo_MiddagContainer",
+                        "layout": "absolute",
+                        "margin": 10,
+                        "title": "Middag",
+                        "width": 675
+                    },
+                    "name": "MyPanel10",
+                    "designerId": "df805227-74df-4650-8b44-48c402d1882f",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "DDI",
+                                "id": "TextboxInfoMiddagDDI",
+                                "labelAlign": "right",
+                                "layout|x": -28,
+                                "layout|y": 10,
+                                "msgTarget": "side",
+                                "name": "MIDDAG_DDI",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField8",
+                            "designerId": "ca5ef25d-fbdf-4da0-890d-80ceb8fced22",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextboxInfoMiddagDDIChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTextboxInfoMiddagDDIChange",
+                                    "designerId": "66fae281-8d2d-4b3a-bf63-546a90493f33"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Instructeur",
+                                "id": "TextboxInfoMiddagInstructeur",
+                                "labelAlign": "right",
+                                "labelWidth": 75,
+                                "layout|x": 300,
+                                "layout|y": 10,
+                                "msgTarget": "side",
+                                "name": "MIDDAG_INSTRUCTEUR",
+                                "selectOnFocus": true,
+                                "width": 275
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "43bcf43f-a732-4b50-8164-dd971b3fdce8",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextboxInfoMiddagInstructeurChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTextboxInfoMiddagInstructeurChange",
+                                    "designerId": "92a6d948-0ec4-45da-9f05-17dbeb730135"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Lierist",
+                                "id": "TextboxInfoMiddagLierist",
+                                "labelAlign": "right",
+                                "layout|x": -28,
+                                "layout|y": 40,
+                                "msgTarget": "side",
+                                "name": "MIDDAG_LIERIST",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "b5eda731-64e3-40ee-897d-dac20c51d4a5",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextboxInfoMiddagLieristChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTextboxInfoMiddagLieristChange",
+                                    "designerId": "f760dbed-faf2-47b5-a161-238273f4a875"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Hulplierist",
+                                "id": "TextboxInfoMiddagHulpLierist",
+                                "labelAlign": "right",
+                                "labelWidth": 75,
+                                "layout|x": 300,
+                                "layout|y": 40,
+                                "msgTarget": "side",
+                                "name": "MIDDAG_HULPLIERIST",
+                                "selectOnFocus": true,
+                                "width": 275
+                            },
+                            "name": "MyTextField11",
+                            "designerId": "a81ef6d4-bc24-4c9d-8181-ce958d805f5e",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextboxInfoMiddagHulpLieristChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTextboxInfoMiddagHulpLieristChange",
+                                    "designerId": "b2854e73-e297-4525-a9d6-bd9a3e7f95de"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Startleider",
+                                "id": "TextboxInfoMiddagStartleider",
+                                "labelAlign": "right",
+                                "layout|x": -28,
+                                "layout|y": 70,
+                                "msgTarget": "side",
+                                "name": "MIDDAG_STARTLEIDER",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField12",
+                            "designerId": "f5fee5d7-984d-4e02-9bce-6f9a67dbe5e9",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextboxInfoMiddagStartleiderChange",
+                                        "implHandler": [
+                                            "Ext.Daginfo.DynamischFormulier();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTextboxInfoMiddagStartleiderChange",
+                                    "designerId": "fd4ac7df-d533-4a22-9ee0-deff74d38f7e"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onDaginfoFormAfterRender",
+                        "implHandler": [
+                            "Ext.getCmp('ComboboxInfoBanen').validate();\r",
+                            "Ext.getCmp('ComboboxInfoWindRichting').validate();\r",
+                            "Ext.getCmp('ComboboxInfoWindKracht').validate();"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onDaginfoFormAfterRender",
+                    "designerId": "6c664f96-0cc1-482a-ada9-cf160d7a9717"
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 0,
+                        "designer|snapToGrid": 10,
+                        "frameHeader": false,
+                        "height": 120,
+                        "layout": "absolute",
+                        "margin": 10,
+                        "title": null,
+                        "width": 675
+                    },
+                    "name": "MyPanel11",
+                    "designerId": "40921bbe-209d-4c62-9f3c-43a4152ce567",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.TextArea",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Opmerking",
+                                "id": "TextboxInfoOpmerkingen",
+                                "labelAlign": "right",
+                                "layout|anchor": "100%",
+                                "layout|x": -29,
+                                "layout|y": 0,
+                                "maxWidth": 600,
+                                "minWidth": 600,
+                                "name": "OPMERKINGEN",
+                                "width": 600
+                            },
+                            "name": "MyTextArea",
+                            "designerId": "d0688cfe-9af9-4bca-8673-275eea4405da"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "formBind": false,
+                                "height": 40,
+                                "icon": null,
+                                "id": "OpslaanDaginfoButton",
+                                "layout|x": 590,
+                                "layout|y": 20,
+                                "text": "Opslaan",
+                                "width": 80
+                            },
+                            "name": "MyButton5",
+                            "designerId": "537e394c-383c-4a3a-adf3-c468fc74013e",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "Ext.Daginfo.onButtonClick(button, e, eOpts);\r",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "aa0a0913-4f93-4834-9bbe-89c2cab7274b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 25,
+                                "icon": "images/calendar.png",
+                                "id": "DagInfoRooster",
+                                "layout|x": 0,
+                                "layout|y": 35,
+                                "text": "Rooster"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "dc31ec92-196d-405f-9f7d-649a9633f292",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick3",
+                                        "implHandler": [
+                                            "\r",
+                                            "var view = Ext.widget('RoosterWindow');\r",
+                                            "view.show();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick3",
+                                    "designerId": "38a2d11b-1329-4848-b43e-449fbf9e993e"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDagInfoActivate",
+                "implHandler": [
+                    "InitStores();\t\t// voor het geval dat de gebruiker eerder dit tab activeert dan dat de sores geladen zijn",
+                    "",
+                    "ComboBoxStartMethode = Ext.getCmp('ComboboxInfoStartMethode');",
+                    "",
+                    "ComboBoxStartMethode.primaryFilterBy =",
+                    "\"function myfilter(record,id) \" +",
+                    "\"{\" +",
+                    "    \"    if (record.data.ID == '501') return true;\" +",
+                    "    \"    if (record.data.ID.substring(0,2) == '55') return true;\" +",
+                    "    \"    return false;\" +",
+                    "\"}\";",
+                    "",
+                    "ComboBoxStartMethode.store.clearFilter();",
+                    "eval(\"var f =\" + ComboBoxStartMethode.primaryFilterBy)",
+                    "ComboBoxStartMethode.store.filterBy(f);"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onDagInfoActivate",
+            "designerId": "96051beb-baed-41bd-a9c7-10b01c8a9f77"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDagInfoDeactivate",
+                "implHandler": [
+                    "\r",
+                    "ComboBoxStartMethode = Ext.getCmp('ComboboxInfoStartMethode');\r",
+                    "ComboBoxStartMethode.primaryFilterBy = null;\r",
+                    "ComboBoxStartMethode.store.clearFilter();\r",
+                    ""
+                ],
+                "name": "deactivate",
+                "scope": "me"
+            },
+            "name": "onDagInfoDeactivate",
+            "designerId": "1ff6d259-d1f7-4ce1-93af-16f5e0a15c6b"
+        }
+    ]
+}

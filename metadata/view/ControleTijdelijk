@@ -1,0 +1,331 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "controletijdelijk",
+        "designer|userClassName": "ControleTijdelijk",
+        "layout": "hbox",
+        "title": "Starts tijdelijke leden"
+    },
+    "name": "ExportTab1",
+    "designerId": "685de20b-72e5-4a2e-9e3e-4371eea587e2",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": null,
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "forceFit": false,
+                "id": "StartlijstTijdelijkGrid",
+                "layout|flex": 1,
+                "store": "ControleStartlijstTijdelijk_Store",
+                "title": ""
+            },
+            "name": "MyGridPanel",
+            "designerId": "cda7a08a-a4be-4b51-a981-4b532add9416",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": null,
+                        "emptyText": "<div class=\"noData\" ></div>",
+                        "height": null,
+                        "id": "StartlijstTijdelijkView",
+                        "minHeight": 20
+                    },
+                    "name": "MyGridView",
+                    "designerId": "d00d998e-17a5-44e8-804d-22bacdf3af06"
+                },
+                {
+                    "type": "Ext.toolbar.Paging",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "afterPageText": "van {0}",
+                        "beforePageText": "Pagina",
+                        "displayInfo": true,
+                        "displayMsg": "Weergave {0} - {1} tot {2}",
+                        "dock": "bottom",
+                        "emptyMsg": "Geen data aanwezig",
+                        "firstText": "Eerste pagina",
+                        "height": 32,
+                        "id": "StartlijstTijdelijk_Bladwijzer",
+                        "lastText": "Laatste pagina",
+                        "nextText": "Volgende pagina",
+                        "prevText": "Vorige pagina",
+                        "refreshText": "Verversen",
+                        "store": "ControleStartlijstTijdelijk_Store",
+                        "width": null
+                    },
+                    "name": "MyPagingToolbar6",
+                    "designerId": "2a95743c-b20a-4e90-8c03-19443b3cb032"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DATUM",
+                        "text": "Datum",
+                        "width": 90
+                    },
+                    "name": "MyColumn16",
+                    "designerId": "3aa97338-6f34-42e0-ac03-d2bbbe83b709"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DAGNUMMER",
+                        "text": "#",
+                        "width": 40
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "1aceed87-d551-44ee-8952-b8511c7e72ae"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "REG_CALL",
+                        "text": "Registratie",
+                        "width": 100
+                    },
+                    "name": "MyColumn18",
+                    "designerId": "beb827db-9784-4635-a837-c9a5ca6c0667"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VLIEGERNAAM",
+                        "text": "Voorin",
+                        "width": 200
+                    },
+                    "name": "MyColumn11",
+                    "designerId": "09e4d0e1-2c49-4d92-ad61-7b196568b788",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (value === null)",
+                                    "{",
+                                    "    return;",
+                                    "}",
+                                    "",
+                                    "metaData.tdAttr = 'data-qtip=\"Aanpassen vlieger voor deze vlucht\"';",
+                                    "",
+                                    "var retValue = null;",
+                                    "",
+                                    "if (record.data.VLIEGER_LIDTYPE_ID == 609)",
+                                    "{",
+                                    "    retValue = \"<a href=javascript:Ext.Controle.AanpassenTijdelijkLidWindow(\" + record.data.ID + \");><b><font color='red'>\" + value + \"</font><b></a>\";",
+                                    "}",
+                                    "else",
+                                    "{",
+                                    "    retValue = value;",
+                                    "}",
+                                    "",
+                                    "return retValue;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "78b2b407-9797-4c5b-b7f6-b41cfd1523f6"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "INZITTENDENAAM",
+                        "text": "Achterin",
+                        "width": 200
+                    },
+                    "name": "MyColumn12",
+                    "designerId": "041a71f5-a3bb-4169-90e0-a4cf7ac9865f",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (record.data.INZITTENDE_LIDTYPE_ID == 609)",
+                                    "    return \"<b><font color='red'>\" + value + \"</font><b>\";",
+                                    "",
+                                    "return value;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "c38a70be-271d-49a2-ac43-488e7f169e59"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "STARTTIJD",
+                        "text": "Start",
+                        "width": 50
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "18879854-e754-4ac1-adc4-d273d8f9bea5"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "LANDINGSTIJD",
+                        "text": "Landing",
+                        "width": 50
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "63ce8369-57fc-45c5-9106-c1c24200b533"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DUUR",
+                        "text": "Duur",
+                        "width": 50
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "5279cdfd-4090-417e-8641-afaeb3e8633e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "OPMERKING",
+                        "text": "Opmerking",
+                        "width": 250
+                    },
+                    "name": "MyColumn7",
+                    "designerId": "4d5dc0cd-3667-442f-bb40-67a8b0547f4e"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onStartlijstTijdelijkGridItemDblClick",
+                        "implHandler": [
+                            "Ext.Hoofdscherm.StartlijstTijdelijk_GridviewItemDblClick(dataview, record, item, index, e, eOpts);"
+                        ],
+                        "name": "itemdblclick",
+                        "scope": "me"
+                    },
+                    "name": "onStartlijstTijdelijkGridItemDblClick",
+                    "designerId": "9eddd2ba-c816-42c5-b6a8-04ed0f0421ef"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender",
+                "implHandler": [
+                    "Ext.Hoofdscherm.ToonControleTijdelijkGrid();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onPanelAfterRender",
+            "designerId": "7e5f445e-ac52-42ce-9516-603be5e848f7"
+        }
+    ]
+}

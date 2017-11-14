@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js13",
+        "url": "js/win.js",
+        "x-compile": true
+    },
+    "designerId": "5e9396e9-7745-4282-bab4-9a0454676ae5"
+}

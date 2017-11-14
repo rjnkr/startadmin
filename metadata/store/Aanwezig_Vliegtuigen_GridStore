@@ -1,0 +1,115 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "LaatsteAanpassing": "-1",
+        "autoSync": true,
+        "designer|userClassName": "Aanwezig_Vliegtuigen_GridStore",
+        "model": "VliegtuigenLijst_Model",
+        "remoteSort": true,
+        "storeId": "MyJsonStore13"
+    },
+    "designerId": "b5f44ca2-5478-48fa-8cd0-57839330cced",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "LaatsteAanpassing",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "simpleSortMode": true,
+                "url": "php/main.php?Action=Aanwezig.VliegtuigenAanwezigJSON"
+            },
+            "name": "MyAjaxProxy6",
+            "designerId": "aae4bf0e-49a0-47f1-97f7-7e7ad639aea2",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "idProperty": "ID",
+                        "root": "results"
+                    },
+                    "name": "MyJsonReader6",
+                    "designerId": "83ad8af8-8328-4d8a-8ecf-ca2d660de766"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onAjaxproxyException",
+                        "implHandler": [
+                            "HandleStoreLoadException(proxy, response, operation, eOpts);\t// toon de gebruiker dat er een fout is opgetreden"
+                        ],
+                        "name": "exception",
+                        "scope": "me"
+                    },
+                    "name": "onAjaxproxyException",
+                    "designerId": "660b9910-347c-4553-bd52-e2d7fc2c30db"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreLoad",
+                "implHandler": [
+                    "Ext.win.showLoading(false, store.storeId);\t// verwijder window met melding van \"ophalen data\"\r",
+                    "\r",
+                    "// toon hoe veel tijd nodig is geweest voor het laden \r",
+                    "console.log(sprintf(\"%s: storeLoad storeId=%s processing time=%d msec\", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));\t\r",
+                    "\r",
+                    "this.laatsteAanpassingOpslaan();"
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "name": "onJsonstoreLoad",
+            "designerId": "5b89a9b5-d61d-4251-a059-362bd1929b69"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreBeforeLoad",
+                "implHandler": [
+                    "Ext.data.storeLoadStart[store.storeId] = new Date().getTime();\t// zet een begintijd om de performance te meten"
+                ],
+                "name": "beforeload",
+                "scope": "me"
+            },
+            "name": "onJsonstoreBeforeLoad",
+            "designerId": "c98aa149-1b62-48ea-8435-03f308d601a6"
+        }
+    ]
+}

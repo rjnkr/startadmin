@@ -1,0 +1,313 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "LandingstijdWindow",
+        "designer|userClassName": "LandingstijdWindow",
+        "height": 100,
+        "id": "LandingstijdWindow",
+        "modal": true,
+        "resizable": [
+            "false"
+        ],
+        "title": "Landingstijd invoeren",
+        "width": 300
+    },
+    "designerId": "77a77ae2-19d8-4747-9de9-85511bbb80cd",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|snapToGrid": 10,
+                "height": 66,
+                "id": "StartInvoer_LandingstijdForm",
+                "layout": "absolute",
+                "title": "",
+                "trackResetOnLoad": true,
+                "url": "php/main.php?Action=Startlijst.SaveLandingsTijd",
+                "width": 288
+            },
+            "name": "MyForm5",
+            "designerId": "a176c18c-0fa5-4a53-aee6-e74541335533",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "",
+                        "hideEmptyLabel": false,
+                        "id": "StartInvoerLandingstijd_ID",
+                        "labelWidth": 0,
+                        "layout|x": 35,
+                        "layout|y": 210,
+                        "name": "ID",
+                        "width": 50
+                    },
+                    "name": "MyHiddenField8",
+                    "designerId": "efde3352-6bb1-4282-a1ff-860e36575a0e"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "StartInvoer_StartTijd",
+                        "name": "STARTTIJD"
+                    },
+                    "name": "MyHiddenField9",
+                    "designerId": "bb6318c9-1892-4d3b-b214-300e879bac46"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "tijd",
+                        "emptyText": "uu:mm",
+                        "enableKeyEvents": true,
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Landing",
+                        "forceSelection": true,
+                        "id": "StartInvoer_LandingsTijd",
+                        "invalidText": "Er is een ongeldige tijd ingevoerd",
+                        "labelAlign": "right",
+                        "labelWidth": 50,
+                        "maskRe": null,
+                        "maxLength": 5,
+                        "maxLengthText": "Tijd formaat bestaat uit UU:MM",
+                        "msgTarget": "side",
+                        "name": "LANDINGSTIJD",
+                        "queryDelay": 100,
+                        "queryMode": "local",
+                        "regex": null,
+                        "size": 8,
+                        "valueField": "tijd",
+                        "width": 140
+                    },
+                    "name": "MyComboBox9",
+                    "designerId": "81d004d8-1879-4240-b553-be5669d1118c",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_LandingsTijdKeypress",
+                                "implHandler": [
+                                    "\r",
+                                    "// iemand heeft een toets op het toetsenbord ingedrukt\r",
+                                    "// alleen cijfers, backspace en delete zijn toegestaan\r",
+                                    "if (e.getKey() != Ext.EventObject.BACKSPACE && e.getKey() != Ext.EventObject.DELETE)\r",
+                                    "{\r",
+                                    "    if (e.getKey() > 57 || e.getKey() < 48) \r",
+                                    "    {\t\r",
+                                    "        e.stopEvent();\r",
+                                    "        return false;\r",
+                                    "    }\r",
+                                    "}\r",
+                                    "\r",
+                                    "// als er goede toets is ingedrukt, voer het volgende script uit.\r",
+                                    "Ext.StartlijstTijdenForm.onStartInvoer_Keypress(textfield, e, eOpts);"
+                                ],
+                                "name": "keypress",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_LandingsTijdKeypress",
+                            "designerId": "7cdc8f7a-c4d9-415d-8f12-f4caa6f14410"
+                        },
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value"
+                                ],
+                                "fn": "validator",
+                                "implHandler": [
+                                    "// voer dit script uit om te zien of alles goed is ingevuld\r",
+                                    "return Ext.StartlijstTijdenForm.ValidateLandingsTijd(value);"
+                                ]
+                            },
+                            "name": "validator",
+                            "designerId": "0e06cd59-5c4a-4872-b2ac-8a0ebab6eade"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_LandingsTijdChange",
+                                "implHandler": [
+                                    "Ext.StartlijstTijdenForm.onChangeTijd(field);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_LandingsTijdChange",
+                            "designerId": "737de7e5-9f47-4cfc-b8cc-f9d32fd4ca8d"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_LandingsTijdSpecialkey",
+                                "implHandler": [
+                                    "// als de gebruiker de ENTER toets indrukt, dan slaan we de tijd op\r",
+                                    "if(e.getKey() == Ext.EventObject.ENTER)\r",
+                                    "{\r",
+                                    "    Ext.StartlijstTijdenForm.SaveLandingsTijd(field);\r",
+                                    "}\r",
+                                    "else\r",
+                                    "{\r",
+                                    "    // het was dus niet de ENTER toets, maar een andere speciale toets\r",
+                                    "    Ext.StartlijstTijdenForm.onStartInvoer_Keypress(field, e, eOpts);\r",
+                                    "}"
+                                ],
+                                "name": "specialkey",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_LandingsTijdSpecialkey",
+                            "designerId": "b68da6ac-137e-4ded-a082-e225925f3795"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_LandingsTijdSelect",
+                                "implHandler": [
+                                    "// we zetten nu een variable zodat we het veld niet meer automatisch voorzien van de actuele tijd\r",
+                                    "combo.manualInput = true;"
+                                ],
+                                "name": "select",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_LandingsTijdSelect",
+                            "designerId": "d42b5452-1091-4adf-9742-65e30bf4df5a"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "fn": "processStartInvoer_LandingsTijd",
+                                "implHandler": [
+                                    "// Toon in het invoerveld een kruisje om het veld met 1 muisklik leeg te maken \r",
+                                    "config.plugins = ['clearbutton']; \r",
+                                    "return config; "
+                                ]
+                            },
+                            "name": "processStartInvoer_LandingsTijd",
+                            "designerId": "baa2bf2a-86f2-4738-9616-841b4731ab5e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "formBind": true,
+                        "height": 40,
+                        "icon": null,
+                        "iconCls": null,
+                        "id": "StartInvoerLandingstijd_Opslaan",
+                        "layout|x": 190,
+                        "layout|y": 10,
+                        "text": "Opslaan",
+                        "width": 80
+                    },
+                    "name": "MyButton21",
+                    "designerId": "8b5ec7fc-2e52-40c3-a482-2550a32a54eb",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonLandingstijdOpslaan",
+                                "implHandler": [
+                                    "// voer dit script uit om de tijd op te slaan in de database\r",
+                                    "Ext.StartlijstTijdenForm.SaveLandingsTijd(button, e, eOpts);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonLandingstijdOpslaan",
+                            "designerId": "f631f6ad-64d8-46b5-8141-6d3beb12c09e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "// functie die uitgevoerd wordt bij het openen van het window\r",
+                    "Ext.StartlijstTijdenForm.onLandingstijdWindowShow(component, eOpts, this.ID);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onWindowShow",
+            "designerId": "ab9deb0e-eb41-40d8-a27c-fd4605bf4130"
+        }
+    ]
+}

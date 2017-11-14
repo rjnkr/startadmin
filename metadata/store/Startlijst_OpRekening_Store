@@ -1,0 +1,55 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoSync": true,
+        "designer|userClassName": "Startlijst_OpRekening_Store",
+        "model": "LedenAanwezig_Model",
+        "remoteSort": true,
+        "storeId": "Startlijst_OpRekening_Store"
+    },
+    "designerId": "dc94d0a0-e68f-45f5-b318-1f75027ac8dc",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreBeforeLoad",
+                "implHandler": [
+                    "Ext.data.storeLoadStart[store.storeId] = new Date().getTime();\t// zet een begintijd om de performance te meten"
+                ],
+                "name": "beforeload",
+                "scope": "me"
+            },
+            "name": "onJsonstoreBeforeLoad",
+            "designerId": "66833d21-caf7-4a9b-b3b9-13fc86b5e10c"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreLoad",
+                "implHandler": [
+                    "console.log(sprintf(\"%s: storeLoad storeId=%s processing time=%d msec\", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));\t\r",
+                    ""
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "name": "onJsonstoreLoad",
+            "designerId": "f4d4e827-b109-422c-bb7f-168ab775248e"
+        }
+    ]
+}

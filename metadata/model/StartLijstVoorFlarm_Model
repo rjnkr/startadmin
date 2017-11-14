@@ -1,0 +1,79 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StartLijstVoorFlarm_Model"
+    },
+    "designerId": "14aa88cd-703b-4ed8-b4da-d9535916d29b",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "VLIEGTUIG_ID"
+            },
+            "name": "MyField128",
+            "designerId": "c1a75ba1-8517-40ac-9cf5-6039b00685f2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DAGNUMMER"
+            },
+            "name": "MyField129",
+            "designerId": "590a6310-de3f-4fe4-acff-8b14589b68c3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "REG_CALL"
+            },
+            "name": "MyField130",
+            "designerId": "bd11e94f-2090-4187-82a9-57a56c86bcc2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "STARTTIJD"
+            },
+            "name": "MyField131",
+            "designerId": "355abf76-bb11-4ca3-a725-8a1853ee6f34"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "LANDINGSTIJD"
+            },
+            "name": "MyField132",
+            "designerId": "dc0d748a-2551-4108-95d6-ceed3f3f45c5"
+        }
+    ]
+}

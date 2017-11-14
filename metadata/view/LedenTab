@@ -1,0 +1,916 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "ledentab",
+        "designer|userClassName": "LedenTab",
+        "layout": "vbox",
+        "title": "Leden"
+    },
+    "name": "MyPanel12",
+    "designerId": "7732724d-d588-433f-91bd-fea97d2f8703",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "frameHeader": false,
+                "id": "LedenlijstGrid",
+                "layout|flex": 1,
+                "store": "LedenLijst_GridStore",
+                "title": ""
+            },
+            "name": "MyGridPanel3",
+            "designerId": "1d02e02c-893d-40ef-a07e-e02b1074ec33",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "<div class=\"noData\" ></div>",
+                        "id": "refLedenView"
+                    },
+                    "name": "MyGridView3",
+                    "designerId": "6ca2a85d-f11e-41ab-a2e9-e28834dadfec",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "Leden_GridviewItemDblClick",
+                                "implHandler": [
+                                    "Ext.Hoofdscherm.Leden_GridviewItemDblClick(dataview, record, item, index, e, eOpts);"
+                                ],
+                                "name": "itemdblclick",
+                                "scope": "me"
+                            },
+                            "name": "Leden_GridviewItemDblClick",
+                            "designerId": "dd89fdb1-7da2-46c3-acb1-7f174835d815"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "name",
+                        "flex": 1,
+                        "maxWidth": 75,
+                        "minWidth": 75,
+                        "text": "",
+                        "width": 75
+                    },
+                    "name": "MyColumn24",
+                    "designerId": "8d65fd39-1fb5-45ea-9e8a-e9c2f6418e1a",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "",
+                                    "var verwijderMode = Ext.getCmp('ButtonVerwijderenLid').pressed;",
+                                    "",
+                                    "",
+                                    "if (verwijderMode === true)",
+                                    "{",
+                                    "    if (record.data.LIDTYPE_ID == 609) // 609 = 'nieuw lid, nog niet verwerkt in ledenadministratie'",
+                                    "    {",
+                                    "        var ret= \"<a href=javascript:VerwijderenLid(\" + value + \");>\";",
+                                    "        ret = ret + \"<IMG SRC='images/delete.png' border=0></a>\";",
+                                    "        metaData.tdAttr = 'data-qtip=\"Verwijderen \" + record.data.NAAM + \" uit de start administratie\"';",
+                                    "        return ret;",
+                                    "    }",
+                                    "}"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "92fdb978-2974-4a55-84d3-3a7a2655bb4c"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "NAAM",
+                        "flex": 3,
+                        "text": "Naam"
+                    },
+                    "name": "MyColumn25",
+                    "designerId": "fbcbecc9-72b4-4129-9380-046c7f4f90a3",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var ret = value;",
+                                    "",
+                                    "if ((record.data.AVATAR !== \"\") && (record.data.AVATAR !== null))",
+                                    "{",
+                                    "    ret= \"<a href=javascript:ToonAvatar('\" +record.data.AVATAR + \"');>\";",
+                                    "    ret = ret + value + \"</a>\";",
+                                    "}",
+                                    "return ret;",
+                                    ""
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "d72dcbee-30af-4e82-afbd-3f6ea245dd70"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ACHTERNAAM",
+                        "flex": 2,
+                        "text": "Achternaam"
+                    },
+                    "name": "MyColumn26",
+                    "designerId": "835f074c-369b-47ce-bf4b-331f4215fc83"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "MOBIEL",
+                        "flex": 2,
+                        "text": "Telefoon 1"
+                    },
+                    "name": "MyColumn27",
+                    "designerId": "be85b8da-e79d-4ba5-aedb-282505af69c9"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "TELEFOON",
+                        "flex": 2,
+                        "text": "Telefoon 2"
+                    },
+                    "name": "MyColumn28",
+                    "designerId": "4529b100-a7f2-46dc-a0a8-f0cb604b858e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "GPL_VERLOOPT",
+                        "flex": 1,
+                        "sortable": false,
+                        "text": "GPL"
+                    },
+                    "name": "MyColumn29",
+                    "designerId": "dee2d020-63d0-44bc-a176-7dba4a2c8013",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "",
+                                    "var retVal = \"\";",
+                                    "if (record.data.LIDTYPE_ID != '625')",
+                                    "{",
+                                    "    if (value === null)",
+                                    "    retVal = '<IMG SRC=\"images/min.png\" border=0>';",
+                                    "    else",
+                                    "    retVal = '<IMG SRC=\"images/ok.png\" border=0>';",
+                                    "}",
+                                    "",
+                                    "return retVal;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "e48f6f48-934e-4e79-8598-dd9ae5fb2ecc"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "INSTRUCTEUR",
+                        "flex": 1,
+                        "text": "Instructeur"
+                    },
+                    "name": "MyColumn30",
+                    "designerId": "e03c33f7-be71-4d13-abb3-364b65fcea54",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var retVal = \"\";",
+                                    "",
+                                    "",
+                                    "if (value == \"1\")",
+                                    "    retVal = '<IMG SRC=\"images/ok.png\" border=0>';",
+                                    "",
+                                    "return retVal;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "a5acbb15-41a5-4896-8d2e-6e2ff59a1db8"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "LIERIST",
+                        "flex": 1,
+                        "text": "Lierist"
+                    },
+                    "name": "MyColumn31",
+                    "designerId": "f1161f05-54a4-4f04-aae2-1c5df9f01de0",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var retVal = \"\";",
+                                    "",
+                                    "",
+                                    "if (value == \"1\")",
+                                    "    retVal = '<IMG SRC=\"images/ok.png\" border=0>';",
+                                    "",
+                                    "return retVal;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "840d97f4-698f-4938-9a9e-ae2da1e43e62"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "STARTLEIDER",
+                        "flex": 1,
+                        "text": "Startleider"
+                    },
+                    "name": "MyColumn32",
+                    "designerId": "cf787425-d55d-4add-9018-2df6251724f2",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var retVal = \"\";",
+                                    "",
+                                    "",
+                                    "if (value == \"1\")",
+                                    "    retVal = '<IMG SRC=\"images/ok.png\" border=0>';",
+                                    "",
+                                    "return retVal;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "958aca29-19d0-4d2b-a098-517f472d4304"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "LIDTYPE",
+                        "flex": 2,
+                        "text": "Lidtype"
+                    },
+                    "name": "MyColumn33",
+                    "designerId": "3d5a069b-30ac-434a-a48b-ea01c758ff3c"
+                },
+                {
+                    "type": "Ext.toolbar.Paging",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "afterPageText": "van {0}",
+                        "beforePageText": "Pagina",
+                        "displayInfo": true,
+                        "displayMsg": "Weergave {0} - {1} tot {2}",
+                        "dock": "bottom",
+                        "emptyMsg": "Geen data aanwezig",
+                        "firstText": "Eerste pagina",
+                        "id": "Leden_Bladwijzer",
+                        "lastText": "Laatste pagina",
+                        "nextText": "Volgende pagina",
+                        "prevText": "Vorige pagina",
+                        "refreshText": "Verversen",
+                        "store": "LedenLijst_GridStore",
+                        "width": 360
+                    },
+                    "name": "MyPagingToolbar3",
+                    "designerId": "4f7016a2-1e9b-4753-8210-14d69b16b041"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "18ef125a-75e5-4640-a5ec-c2b882ab1257",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "enableToggle": true,
+                                "icon": "images/filter.png",
+                                "id": "Leden.FilterAanwezig",
+                                "layout|flex": null,
+                                "text": "Filter"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "ac90646f-7847-4768-8390-825f201d4767",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "Leden_FilterAanwezigToggle",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.Leden_FilterAanwezigToggle(button, pressed, eOpts);\r",
+                                            "\r",
+                                            "\r",
+                                            ""
+                                        ],
+                                        "name": "toggle",
+                                        "scope": "me"
+                                    },
+                                    "name": "Leden_FilterAanwezigToggle",
+                                    "designerId": "f23c1e0c-767b-4058-8d1f-9092713df1e4"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onLedenFilterAanwezigRender",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({\r",
+                                            "    target: component.getEl(),\r",
+                                            "    text: 'Laat alleen de leden zien die vandaag aanwezig zijn geweest'\r",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onLedenFilterAanwezigRender",
+                                    "designerId": "c1827558-fdd5-4069-b527-0b2c424ebdce"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/add.gif",
+                                "id": "ButtonNieuwLid",
+                                "layout|flex": null,
+                                "text": "Nieuw lid"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "5b3311d2-e8f8-42b4-bedf-7610abcc0ffb",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "var view = Ext.widget('LidBeheerWindow', {'ID': -1});\r",
+                                            "view.show();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "62b00919-cd1c-4dab-9cc6-facb0f28ac50"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Zoeken",
+                                "id": "Leden.ZoekenInLedenLijst",
+                                "labelAlign": "right",
+                                "layout|flex": 2,
+                                "maxWidth": 300,
+                                "minWidth": 300,
+                                "vtype": null,
+                                "width": 300
+                            },
+                            "name": "MyTextField13",
+                            "designerId": "12ebc835-6b47-4129-9659-bbfc77ef92c8",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "buffer": 500,
+                                        "delay": 500,
+                                        "fn": "Leden_ZoekenChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.Leden_ZoekenChange(field, newValue, oldValue, eOpts);\r",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me",
+                                        "single": false
+                                    },
+                                    "name": "Leden_ZoekenChange",
+                                    "designerId": "270172e4-a2e3-4896-80f3-b49485ffddf9"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processLedenZoekenInLedenLijst",
+                                        "implHandler": [
+                                            "config.plugins = ['clearbutton']; \r",
+                                            "return config; "
+                                        ]
+                                    },
+                                    "name": "processLedenZoekenInLedenLijst",
+                                    "designerId": "9472a479-7c3a-479c-8c7a-ea54a1ff00af"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "width": 30
+                            },
+                            "name": "MySpacer2",
+                            "designerId": "97c480bf-6239-4d35-a21e-b2cff820985c"
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Instructeurs",
+                                "fieldLabel": "",
+                                "id": "Leden.InstructeurFilter",
+                                "layout|flex": null,
+                                "width": 100
+                            },
+                            "name": "MyCheckbox",
+                            "designerId": "89965501-d489-4339-a9c3-098990dbc421",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "buffer": 500,
+                                        "delay": 500,
+                                        "fn": "Leden_InstructeurFilterChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.Leden_InstructeurFilterChange(field, newValue, oldValue, eOpts);\r",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "Leden_InstructeurFilterChange",
+                                    "designerId": "110a72c4-1266-419b-ba2f-46f4b5946d29"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Lieristen",
+                                "fieldLabel": "",
+                                "id": "Leden.LieristFilter",
+                                "layout|flex": null,
+                                "width": 100
+                            },
+                            "name": "MyCheckbox1",
+                            "designerId": "91ac89eb-5f58-49f8-be27-1a9815990993",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "buffer": 500,
+                                        "delay": 500,
+                                        "fn": "Leden_LieristFilterChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.Leden_LieristFilterChange(field, newValue, oldValue, eOpts);\r",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "Leden_LieristFilterChange",
+                                    "designerId": "faafafb9-fb63-42e3-9ff0-57a88c2af7dc"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Startleiders",
+                                "fieldLabel": "",
+                                "id": "Leden.StartleiderFilter",
+                                "labelWidth": 0,
+                                "layout|flex": null,
+                                "width": 100
+                            },
+                            "name": "MyCheckbox2",
+                            "designerId": "9caac95c-b644-414c-aa29-21d72b54c620",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "buffer": 500,
+                                        "delay": 500,
+                                        "fn": "Leden_StartleiderFilterChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.Leden_StartleiderFilterChange(field, newValue, oldValue, eOpts);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "Leden_StartleiderFilterChange",
+                                    "designerId": "97105839-08fe-481f-9c7b-38a31fd893cd"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Leden",
+                                "fieldLabel": "",
+                                "id": "Leden.LedenFilter",
+                                "labelWidth": 0,
+                                "layout|flex": null,
+                                "width": 100
+                            },
+                            "name": "MyCheckbox3",
+                            "designerId": "232eda6d-d84c-4107-8d9d-2c854c3597ba",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "buffer": 500,
+                                        "delay": 500,
+                                        "fn": "Leden_LedenFilterChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.Leden_LedenFilterChange (field, newValue, oldValue, eOpts);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "Leden_LedenFilterChange",
+                                    "designerId": "2825f1c5-dca1-4ab7-915d-8fc086a779cc"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "name": "MySpacer3",
+                            "designerId": "6d37fc84-d492-4e5f-ad7e-b0af94137715"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "enableToggle": true,
+                                "icon": "images/delete.png",
+                                "id": "ButtonVerwijderenLid",
+                                "layout|flex": null,
+                                "text": "Verwijderen"
+                            },
+                            "name": "MyButton9",
+                            "designerId": "170c298e-cf37-4f08-9c0c-b227a45a919a",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonVerwijderenLidRender",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({\r",
+                                            "    target: component.getEl(),\r",
+                                            "    text: 'Verwijderen van een lid.'\r",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonVerwijderenLidRender",
+                                    "designerId": "bc933f3d-12f1-4425-ac45-33afce11f558"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonVerwijderenLidToggle",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.Leden_ButtonVerwijderenLid(button, pressed, eOpts);"
+                                        ],
+                                        "name": "toggle",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonVerwijderenLidToggle",
+                                    "designerId": "b9840c0f-3c83-417a-b2f9-9ab3f753ed7b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelActivateLeden",
+                "implHandler": [
+                    "InitStores();\t\t// voor het geval dat de gebruiker eerder dit tab activeert dan dat de sores geladen zijn",
+                    "",
+                    "if (!Ext.Hoofdscherm.CalcLedenGrid())",
+                    "{",
+                    "    Ext.data.StoreManager.lookup('LedenLijst_GridStore').slimLaden();",
+                    "    Ext.data.StoreManager.lookup('Types_Lid_Store').slimLaden();",
+                    "}"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onPanelActivateLeden",
+            "designerId": "43e5ad8d-c229-431a-98e0-b647f5b6cdee"
+        }
+    ]
+}

@@ -1,0 +1,669 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "collapsible": true,
+        "container|align": "stretch",
+        "designer|userAlias": "vliegtuigentab",
+        "designer|userClassName": "VliegtuigenTab",
+        "layout": "vbox",
+        "title": "Vliegtuigen"
+    },
+    "name": "MyPanel13",
+    "designerId": "0ad13a65-4ad0-4bec-a281-60cedce5c4d8",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "frameHeader": false,
+                "id": "VliegtuigenlijstGrid",
+                "layout|flex": 1,
+                "store": "VliegtuigenLijst_GridStore",
+                "title": ""
+            },
+            "name": "MyGridPanel4",
+            "designerId": "25d7f0f8-0937-4266-98d2-87d29b9478bb",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "<div class=\"noData\" ></div>",
+                        "id": "refVliegtuigenView"
+                    },
+                    "name": "MyGridView4",
+                    "designerId": "8eb797a9-2fc7-4fe5-9705-b469642afc09",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "Vliegtuigen_GridviewItemDblClick",
+                                "implHandler": [
+                                    "Ext.Hoofdscherm.Vliegtuigen_GridviewItemDblClick(dataview, record, item, index, e, eOpts);"
+                                ],
+                                "name": "itemdblclick",
+                                "scope": "me"
+                            },
+                            "name": "Vliegtuigen_GridviewItemDblClick",
+                            "designerId": "55ef8dc8-a3a2-4dba-9b18-a70d019be9c2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "ID",
+                        "text": "",
+                        "width": 75
+                    },
+                    "name": "MyColumn34",
+                    "designerId": "03145a10-edcd-4252-9529-6cf53903e8fa",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "",
+                                    "var verwijderMode = Ext.getCmp('ButtonVerwijderenVliegtuig').pressed;",
+                                    "",
+                                    "",
+                                    "if (verwijderMode === true)",
+                                    "{",
+                                    "    var ret= \"<a href=javascript:VerwijderenVliegtuig(\" + value + \");>\";",
+                                    "    ret = ret + \"<IMG SRC='images/delete.png' border=0></a>\";",
+                                    "    metaData.tdAttr = 'data-qtip=\"' + record.data.REGISTRATIE + '(' + record.data.CALLSIGN + ')  verwijderen uit de start administratie.\"';",
+                                    "    return ret;",
+                                    "}",
+                                    "else",
+                                    "{",
+                                    "    if (appSettings.Aanwezigheid)",
+                                    "    {",
+                                    "        var ret= \"<a href=javascript:AanmeldenVliegtuig(\" + value + \");>\";",
+                                    "        ret = ret + \"<IMG SRC='images/aanmelden.png' border=0></a>\";",
+                                    "",
+                                    "        metaData.tdAttr = 'data-qtip=\"' + record.data.REGISTRATIE + '(' + record.data.CALLSIGN + ')  aanmelden voor vandaag.\"';",
+                                    "",
+                                    "        return ret;",
+                                    "    }",
+                                    "}"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "8a9a2119-0281-48fa-a4dd-feff2a00b7bf"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "REGISTRATIE",
+                        "text": "Registratie"
+                    },
+                    "name": "MyColumn35",
+                    "designerId": "9005d537-87bc-491a-b3d7-d6f7153110ce"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "CALLSIGN",
+                        "text": "Callsign"
+                    },
+                    "name": "MyColumn36",
+                    "designerId": "3b442da2-2807-4d5f-8448-84b92bd6d36c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "ZITPLAATSEN",
+                        "text": "Zitplaatsen"
+                    },
+                    "name": "MyColumn37",
+                    "designerId": "44e283c7-b4bf-4eac-b0ac-5b00f80ba0ae",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var ret = '<IMG SRC=\"images/seat.png\" border=0>';",
+                                    "if (value == 2)",
+                                    "{",
+                                    "    ret = ret + '<IMG SRC=\"images/seat.png\" border=0>';",
+                                    "}",
+                                    "return ret;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "32ed92ed-fb3a-4860-9086-25c177231b53"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "CLUBKIST",
+                        "falseText": " ",
+                        "text": "Clubkist",
+                        "trueText": "<IMG SRC=\"images/ok.png\" border=0>"
+                    },
+                    "name": "MyBooleanColumn1",
+                    "designerId": "306c261a-9bf1-48ae-89c1-648bf03adf3e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VLIEGTUIGTYPE",
+                        "text": "Type",
+                        "width": 200
+                    },
+                    "name": "MyColumn38",
+                    "designerId": "0f03c72c-7b0c-43fc-94ce-3c9675c62238"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "FLARM_CODE",
+                        "id": "Flarm",
+                        "text": "<IMG SRC='images/flarm.gif' border=0>"
+                    },
+                    "name": "MyColumn39",
+                    "designerId": "2e36464b-6650-4a20-9963-b0fa2da4a56b"
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "ZELFSTART",
+                        "falseText": " ",
+                        "text": "Zelfstart",
+                        "trueText": "<IMG SRC=\"images/ok.png\" border=0>"
+                    },
+                    "name": "MyBooleanColumn2",
+                    "designerId": "aea3c233-c078-487d-a907-fd83be832df3"
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "SLEEPKIST",
+                        "falseText": " ",
+                        "text": "Sleepkist",
+                        "trueText": "<IMG SRC=\"images/ok.png\" border=0>"
+                    },
+                    "name": "MyBooleanColumn3",
+                    "designerId": "87cda01c-8a79-44f4-a05a-1a5d10876205"
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "dataIndex": "TMG",
+                        "falseText": " ",
+                        "text": "TMG",
+                        "trueText": "<IMG SRC=\"images/ok.png\" border=0>"
+                    },
+                    "name": "MyBooleanColumn4",
+                    "designerId": "42347991-d699-4b31-951c-c058b876daa8"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "Logboek",
+                        "text": ""
+                    },
+                    "name": "MyColumn69",
+                    "designerId": "6ad8051e-5ee0-4493-b46a-032fc929fbf3",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if ((record.data.CLUBKIST === \"true\") || appSettings.isBeheerder)",
+                                    "    return \"<a href=javascript:Ext.Hoofdscherm.Vliegtuigen_OpenLogboekWindow(\" + record.data.ID + \");>Logboek</a>\";",
+                                    "else",
+                                    "    return \"\";"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "b2518a3d-7347-40da-87f8-9795b4ed423d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Paging",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "afterPageText": "van {0}",
+                        "beforePageText": "Pagina",
+                        "displayInfo": true,
+                        "displayMsg": "Weergave {0} - {1} tot {2}",
+                        "dock": "bottom",
+                        "emptyMsg": "Geen data aanwezig",
+                        "firstText": "Eerste pagina",
+                        "id": "Vliegtuigen_Bladwijzer",
+                        "lastText": "Laatste pagina",
+                        "nextText": "Volgende pagina",
+                        "prevText": "Vorige pagina",
+                        "refreshText": "Verversen",
+                        "store": "VliegtuigenLijst_GridStore",
+                        "width": 360
+                    },
+                    "name": "MyPagingToolbar4",
+                    "designerId": "8088f4cd-8483-41fb-9328-3372fedb7162"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar4",
+                    "designerId": "7cf81de6-540f-4b4d-a2ea-afb230e1c1c5",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/add.gif",
+                                "id": "ButtonNieuwVliegtuig",
+                                "layout|flex": null,
+                                "text": "Nieuw vliegtuig"
+                            },
+                            "name": "MyButton10",
+                            "designerId": "b68dba5c-65e9-44d5-8e44-3454d176e6ae",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick2",
+                                        "implHandler": [
+                                            "var view = Ext.widget('VliegtuigBeheerWindow', {'ID': -1});\r",
+                                            "view.show();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick2",
+                                    "designerId": "814c72ef-6e74-457e-9004-ff72389aef8e"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Zoeken",
+                                "id": "Vliegtuigen_ZoekenInVliegtuigenlijst",
+                                "labelAlign": "right",
+                                "layout|flex": null,
+                                "maxWidth": 200,
+                                "minWidth": 200,
+                                "vtype": null,
+                                "width": 200
+                            },
+                            "name": "MyTextField14",
+                            "designerId": "b6569d4b-f00a-47ef-8e39-e1b882d4cbe3",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "buffer": 500,
+                                        "delay": 500,
+                                        "fn": "Vliegtuigen_ZoekenChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.Vliegtuigen_ZoekenChange(field, newValue, oldValue, eOpts);\r",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me",
+                                        "single": false
+                                    },
+                                    "name": "Vliegtuigen_ZoekenChange",
+                                    "designerId": "5c6e2c71-9cb5-4348-96be-db2828a41bc1"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processVliegtuigen_ZoekenInVliegtuigenlijst",
+                                        "implHandler": [
+                                            "config.plugins = ['clearbutton']; \r",
+                                            "return config; "
+                                        ]
+                                    },
+                                    "name": "processVliegtuigen_ZoekenInVliegtuigenlijst",
+                                    "designerId": "5a82e8f4-7c5c-42a1-a5a8-17e90b7aa224"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "width": 30
+                            },
+                            "name": "MySpacer4",
+                            "designerId": "0ddbb030-2370-47fb-877a-8a51654677d5"
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Clubkisten",
+                                "fieldLabel": "",
+                                "id": "Vliegtuigen_ClubkistFilter",
+                                "labelWidth": 0,
+                                "layout|flex": null,
+                                "width": 100
+                            },
+                            "name": "MyCheckbox4",
+                            "designerId": "39cd35a0-c073-4496-bdd1-a8ebcbd68e0e",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "buffer": 500,
+                                        "delay": 500,
+                                        "fn": "Vliegtuigen_ClubkistFilterChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.Vliegtuigen_ClubkistFilterChange (field, newValue, oldValue, eOpts);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "Vliegtuigen_ClubkistFilterChange",
+                                    "designerId": "17ee28bd-39b6-496a-8f67-12e7bd24a4d5"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onVliegtuigenClubkistFilterRender",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({\r",
+                                            "    target: component.getEl(),\r",
+                                            "    text: 'Laat alleen de vliegtuigen van de club in het overzicht zien.'\r",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onVliegtuigenClubkistFilterRender",
+                                    "designerId": "e724b0a7-7077-4dea-bf6e-1ed7a5582b85"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "name": "MySpacer5",
+                            "designerId": "5c5f9901-885b-4651-b37c-a7c3314706b3"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "enableToggle": true,
+                                "icon": "images/delete.png",
+                                "id": "ButtonVerwijderenVliegtuig",
+                                "layout|flex": null,
+                                "text": "Verwijderen"
+                            },
+                            "name": "MyButton11",
+                            "designerId": "6be9844e-c02d-4b06-9c15-64512cf63639",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonVerwijderenVliegtuigRender",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({\r",
+                                            "    target: component.getEl(),\r",
+                                            "    text: 'Verwijderen van een vliegtuig.'\r",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonVerwijderenVliegtuigRender",
+                                    "designerId": "12b0cb30-d9f7-49ab-bf88-b308787fe5f0"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonVerwijderenVliegtuigToggle",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.Vliegtuigen_ButtonVerwijderenVliegtuig(button, pressed, eOpts);"
+                                        ],
+                                        "name": "toggle",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonVerwijderenVliegtuigToggle",
+                                    "designerId": "f9bde35b-46bd-4aea-8146-588644ed3b99"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelActivateVliegtuigen",
+                "implHandler": [
+                    "InitStores();\t\t// voor het geval dat de gebruiker eerder dit tab activeert dan dat de sores geladen zijn",
+                    "",
+                    "if (!Ext.Hoofdscherm.CalcVliegtuigenGrid())",
+                    "{",
+                    "    var store = Ext.data.StoreManager.lookup('VliegtuigenLijst_GridStore');",
+                    "    store.slimLaden();",
+                    "}"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onPanelActivateVliegtuigen",
+            "designerId": "f6f060b0-61c1-45a0-bdbd-7b654fbd8f7a"
+        }
+    ]
+}

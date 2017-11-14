@@ -1,0 +1,198 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoSync": null,
+        "designer|userClassName": "AppSettings_Store",
+        "model": "AppSettings_Model",
+        "remoteSort": true,
+        "storeId": "MyJsonStore20"
+    },
+    "designerId": "043e7000-8f55-4dd4-9b0a-76f522624ee7",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "simpleSortMode": null,
+                "url": "php/main.php?Config"
+            },
+            "name": "MyAjaxProxy28",
+            "designerId": "25547c7f-55da-4b73-9880-5af441e19692",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "idProperty": null,
+                        "root": null
+                    },
+                    "name": "MyJsonReader28",
+                    "designerId": "9f819d07-9ed0-4443-98c0-4d3d6984e476"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onAjaxproxyException",
+                        "implHandler": [
+                            "HandleStoreLoadException(proxy, response, operation, eOpts);\t// toon de gebruiker dat er een fout is opgetreden"
+                        ],
+                        "name": "exception",
+                        "scope": "me"
+                    },
+                    "name": "onAjaxproxyException",
+                    "designerId": "fef6a5ab-fc5c-47b2-9de8-e2c5b6a29f7f"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreLoad",
+                "implHandler": [
+                    "Ext.win.showLoading(false, store.storeId);\t\t// verwijder window met melding van \"ophalen data\"",
+                    "",
+                    "// toon hoe veel tijd nodig is geweest voor het laden",
+                    "console.log(sprintf(\"%s: storeLoad storeId=%s processing time=%d msec\", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));",
+                    "",
+                    "appSettings = records[0].data;",
+                    "",
+                    "if(successful)",
+                    "{",
+                    "    var h = Ext.getCmp('HoofdScherm');",
+                    "",
+                    "",
+                    "    if (appSettings.isLocal)",
+                    "    {",
+                    "        h.child('#KaartTab').tab.show();\t// toon de kaart niet (mag alleen in de toren)",
+                    "    }",
+                    "    else",
+                    "    {",
+                    "        // als we in de starttoren werken, mag er geen datum gekozen worden",
+                    "        Ext.getCmp('StartlijstDatum').show();",
+                    "    }",
+                    "",
+                    "",
+                    "    // Als we niet mogen schrijven dan moeten we een aantal zaken verbergen",
+                    "    if (!appSettings.MagSchrijven)",
+                    "    {",
+                    "        Ext.getCmp('DaginfoForm').disable();",
+                    "",
+                    "        Ext.getCmp('ButtonNieuweVlucht').hide();",
+                    "        Ext.getCmp('ButtonVerwijderenVlucht').hide();",
+                    "",
+                    "        Ext.getCmp('ButtonNieuwLid').hide();",
+                    "        Ext.getCmp('ButtonVerwijderenLid').hide();",
+                    "",
+                    "        Ext.getCmp('ButtonNieuwVliegtuig').hide();",
+                    "        Ext.getCmp('ButtonVerwijderenVliegtuig').hide();",
+                    "    }",
+                    "    else",
+                    "    {",
+                    "        Ext.getCmp('DaginfoForm').enable();",
+                    "",
+                    "        Ext.getCmp('ButtonNieuweVlucht').show();",
+                    "        Ext.getCmp('ButtonVerwijderenVlucht').show();",
+                    "",
+                    "        Ext.getCmp('ButtonNieuwLid').show();",
+                    "        Ext.getCmp('ButtonVerwijderenLid').show();",
+                    "",
+                    "        Ext.getCmp('ButtonNieuwVliegtuig').show();",
+                    "        Ext.getCmp('ButtonVerwijderenVliegtuig').show();",
+                    "",
+                    "    }",
+                    "",
+                    "    if ((appSettings.isBeheerder) || (appSettings.isBeheerderDDWV))",
+                    "    {",
+                    "        h.child('#ControleTab').tab.show();",
+                    "    }",
+                    "",
+                    "    // De beheerder kan de data exporteren",
+                    "    if (appSettings.isBeheerder)",
+                    "    {",
+                    "        Ext.getCmp('ExporteerButton').show();",
+                    "    }",
+                    "    else",
+                    "    {",
+                    "        Ext.getCmp('ExporteerButton').hide();",
+                    "    }",
+                    "",
+                    "",
+                    "    var vandaag = new Date();",
+                    "    var v = sprintf(\"%s-%s-%s\", vandaag.getFullYear(), vandaag.getMonth()+1, vandaag.getDate());",
+                    "",
+                    "    var datumVeld = Ext.getCmp('StartlijstDatum').getValue();",
+                    "    if (datumVeld === null)",
+                    "        datumVeld = new Date();",
+                    "",
+                    "    // voor de dag van vandaag kunnen we het rooster tonen",
+                    "    var d = sprintf(\"%s-%s-%s\", datumVeld.getFullYear(), datumVeld.getMonth()+1, datumVeld.getDate());",
+                    "    if (v == d)",
+                    "    {",
+                    "        Ext.getCmp('DagInfoRooster').show();",
+                    "    }",
+                    "    else",
+                    "    {",
+                    "        Ext.getCmp('DagInfoRooster').hide();",
+                    "    }",
+                    "",
+                    "}"
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "name": "onJsonstoreLoad",
+            "designerId": "931e864b-df3f-4127-a0d9-f4d3e63483f3"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreBeforeLoad",
+                "implHandler": [
+                    "Ext.win.showLoading(true, store.storeId);\t\t\t\t\t\t// toon window met melding van \"ophalen data\"\r",
+                    "\r",
+                    "Ext.data.storeLoadStart[store.storeId] = new Date().getTime();\t// zet een begintijd om de performance te meten\r",
+                    "\r",
+                    "var datumVeld = Ext.getCmp('StartlijstDatum').getValue();\r",
+                    "\r",
+                    "if (datumVeld !== null)\r",
+                    "{\r",
+                    "    var d = sprintf(\"%s-%s-%s\", datumVeld.getFullYear(), datumVeld.getMonth()+1, datumVeld.getDate());\r",
+                    "    store.getProxy().setExtraParam('_:datum', d);\r",
+                    "}"
+                ],
+                "name": "beforeload",
+                "scope": "me"
+            },
+            "name": "onJsonstoreBeforeLoad",
+            "designerId": "443d48d1-0a2c-479b-bf11-482a5a68f354"
+        }
+    ]
+}

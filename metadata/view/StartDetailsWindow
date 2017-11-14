@@ -1,0 +1,848 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyBorder": false,
+        "border": 0,
+        "cls": "startdetails",
+        "designer|userAlias": "StartDetailsWindow",
+        "designer|userClassName": "StartDetailsWindow",
+        "frameHeader": false,
+        "headerPosition": null,
+        "height": 222,
+        "id": "StartDetailsWindow",
+        "layout": null,
+        "margin": 0,
+        "modal": true,
+        "plain": true,
+        "style": [
+            "font-weight:bold;"
+        ],
+        "title": null,
+        "titleCollapse": true,
+        "width": 395,
+        "x": null
+    },
+    "designerId": "c20889bb-eb65-4a67-b582-2787952e2d2e",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "baseCls": "startdetails",
+                "bodyBorder": false,
+                "bodyPadding": 0,
+                "border": 0,
+                "cls": "",
+                "container|align": "stretch",
+                "frame": true,
+                "frameHeader": false,
+                "height": 250,
+                "id": "StartDetailsForm",
+                "layout": "hbox",
+                "title": null,
+                "titleCollapse": true,
+                "width": null
+            },
+            "name": "MyForm12",
+            "designerId": "329a0024-bb25-45a1-904e-c15658962da2",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyStyle": [
+                            "background:transparent;"
+                        ],
+                        "designer|snapToGrid": 10,
+                        "frameHeader": false,
+                        "hideCollapseTool": null,
+                        "id": "StartDetailsPanel0",
+                        "layout": "absolute",
+                        "overlapHeader": null,
+                        "preventHeader": null,
+                        "title": null,
+                        "width": 125
+                    },
+                    "name": "MyPanel28",
+                    "designerId": "36f4784b-7a26-4571-8297-9d5152d6f185",
+                    "cn": [
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": null,
+                                "formBind": false,
+                                "frame": false,
+                                "layout|x": 10,
+                                "layout|y": 14,
+                                "style": [
+                                    "text-align:right;\r",
+                                    "font-weight:normal;"
+                                ],
+                                "text": "Vliegtuig:",
+                                "width": 100
+                            },
+                            "name": "MyLabel4",
+                            "designerId": "06bd8749-2b58-4e0d-894a-6b7b51516d77"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": null,
+                                "formBind": false,
+                                "frame": false,
+                                "layout|x": 10,
+                                "layout|y": 44,
+                                "style": [
+                                    "text-align:right;\r",
+                                    "font-weight:normal;"
+                                ],
+                                "text": "Startmethode:",
+                                "width": 100
+                            },
+                            "name": "MyLabel5",
+                            "designerId": "34061697-3ac2-4351-8467-30d643063d08"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": null,
+                                "formBind": false,
+                                "frame": false,
+                                "layout|x": 10,
+                                "layout|y": 74,
+                                "style": [
+                                    "text-align:right;\r",
+                                    "font-weight:normal;"
+                                ],
+                                "text": "Voorin:",
+                                "width": 100
+                            },
+                            "name": "MyLabel6",
+                            "designerId": "71db990d-8399-4b17-aa10-8600c492f8a0"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": null,
+                                "formBind": false,
+                                "frame": false,
+                                "layout|x": 10,
+                                "layout|y": 104,
+                                "style": [
+                                    "text-align:right;\r",
+                                    "font-weight:normal;"
+                                ],
+                                "text": "Achterin:",
+                                "width": 100
+                            },
+                            "name": "MyLabel7",
+                            "designerId": "2c21821e-74ff-4dc8-a599-06f5aef54f54"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": null,
+                                "formBind": false,
+                                "frame": false,
+                                "layout|x": 10,
+                                "layout|y": 134,
+                                "style": [
+                                    "text-align:right;\r",
+                                    "font-weight:normal;"
+                                ],
+                                "text": "Soort vlucht:",
+                                "width": 100
+                            },
+                            "name": "MyLabel8",
+                            "designerId": "8987ab7e-954d-45a3-9c10-73a287b9b310"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": null,
+                                "formBind": false,
+                                "frame": false,
+                                "layout|x": 10,
+                                "layout|y": 164,
+                                "style": [
+                                    "text-align:right;\r",
+                                    "font-weight:normal;"
+                                ],
+                                "text": "Op rekening:",
+                                "width": 100
+                            },
+                            "name": "MyLabel9",
+                            "designerId": "1286e829-9d95-479e-b563-39b00f7f97c7"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyStyle": [
+                            "background:transparent;"
+                        ],
+                        "designer|snapToGrid": 10,
+                        "frameHeader": false,
+                        "height": 250,
+                        "id": "StartDetailsPanel1",
+                        "layout": "absolute",
+                        "title": null,
+                        "width": 260
+                    },
+                    "name": "MyPanel29",
+                    "designerId": "ebdeb27c-29e2-4dc3-90e2-bafb5de3c6e0",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabledCls": null,
+                                "fieldLabel": null,
+                                "fieldStyle": "font-weight:bold;font-size: 12px;",
+                                "hideEmptyLabel": false,
+                                "id": "StartDetailsVliegtuig",
+                                "labelAlign": "right",
+                                "labelStyle": "bold",
+                                "labelWidth": 0,
+                                "layout|x": 10,
+                                "layout|y": 10,
+                                "name": "REG_CALL",
+                                "readOnly": true,
+                                "width": 200
+                            },
+                            "name": "MyTextField41",
+                            "designerId": "75eaa114-7d93-4c0f-91b6-c915b3099953"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabledCls": null,
+                                "fieldLabel": null,
+                                "fieldStyle": "font-weight:bold;font-size: 12px;",
+                                "hideEmptyLabel": false,
+                                "id": "StartDetailsStartMethode",
+                                "labelAlign": "right",
+                                "labelWidth": 0,
+                                "layout|x": 10,
+                                "layout|y": 40,
+                                "name": "STARTMETHODE_OMS",
+                                "readOnly": true,
+                                "width": 230
+                            },
+                            "name": "MyTextField42",
+                            "designerId": "3f4de806-601d-449d-907e-f39a811aba33"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": null,
+                                "disabledCls": null,
+                                "fieldLabel": null,
+                                "fieldStyle": "font-weight:bold;font-size: 12px;",
+                                "hideEmptyLabel": false,
+                                "id": "StartDetailsVoorin",
+                                "labelAlign": "right",
+                                "labelWidth": 0,
+                                "layout|x": 10,
+                                "layout|y": 70,
+                                "msgTarget": "side",
+                                "name": "VLIEGERNAAM",
+                                "readOnly": true,
+                                "width": 200
+                            },
+                            "name": "MyTextField43",
+                            "designerId": "914dfe31-d9d0-43d7-99aa-589c96a126c9",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.StartlijstDetailWindow.ValiderenVlieger(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "344147f1-d992-4422-a148-e624993253a8"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabledCls": null,
+                                "fieldLabel": null,
+                                "fieldStyle": "font-weight:bold;font-size: 12px;",
+                                "hideEmptyLabel": false,
+                                "id": "StartDetailsAchterin",
+                                "labelAlign": "right",
+                                "labelWidth": 0,
+                                "layout|x": 10,
+                                "layout|y": 100,
+                                "msgTarget": "side",
+                                "name": "INZITTENDENAAM",
+                                "readOnly": true,
+                                "width": 200
+                            },
+                            "name": "MyTextField44",
+                            "designerId": "6afc6ff0-bded-4a2c-ab17-5a9200568671",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.StartlijstDetailWindow.ValiderenInzittende(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "d792e5dc-ee19-454e-a908-d35ae46aa31d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabledCls": null,
+                                "fieldLabel": null,
+                                "fieldStyle": "font-weight:bold;font-size: 12px;",
+                                "hideEmptyLabel": false,
+                                "id": "StartDetailsSoortVlucht",
+                                "labelAlign": "right",
+                                "labelWidth": 0,
+                                "layout|x": 10,
+                                "layout|y": 130,
+                                "name": "SOORTVLUCHT_OMS",
+                                "readOnly": true,
+                                "width": 230
+                            },
+                            "name": "MyTextField45",
+                            "designerId": "864ea9e9-fd44-49d3-851a-18bbbea28514"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabledCls": null,
+                                "fieldLabel": null,
+                                "fieldStyle": "font-weight:bold;font-size: 12px;",
+                                "hideEmptyLabel": false,
+                                "id": "StartDetailsOpRekening",
+                                "labelAlign": "right",
+                                "labelWidth": 0,
+                                "layout|x": 10,
+                                "layout|y": 160,
+                                "msgTarget": "side",
+                                "name": "LEDEN_OPREKENING_NAAM",
+                                "readOnly": true,
+                                "width": 200
+                            },
+                            "name": "MyTextField46",
+                            "designerId": "dcf2f4f4-a08f-4d94-96bc-dd1f948f5a09",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.StartlijstDetailWindow.ValiderenOpRekening(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "f51a85a2-8b93-43b9-96b6-806c7a39e1a3"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "id": "StartDetailsWijzigStart",
+                                "layout|x": 205,
+                                "layout|y": 220,
+                                "text": "Wijzig"
+                            },
+                            "name": "MyButton40",
+                            "designerId": "7d7ad64f-fb67-45b6-8c33-e7fc45b33246",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "Ext.StartlijstDetailWindow.onButtonClick(button, e, eOpts);"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "68891130-8a02-4ece-8921-6d0d18405586"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "images/icon_edit.gif",
+                                "id": "StartDetailsEditVlieger",
+                                "layout|x": 225,
+                                "layout|y": 70,
+                                "text": ""
+                            },
+                            "name": "MyButton41",
+                            "designerId": "fa47bb11-6cd4-4975-a5a9-b321386aa6be",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartDetailsEditVliegerClick",
+                                        "implHandler": [
+                                            "Ext.StartlijstDetailWindow.onStartDetailsEditVliegerClick(button, e, eOpts);"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartDetailsEditVliegerClick",
+                                    "designerId": "777f22ad-5ba8-4297-a333-ec4461d7bd0a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "images/icon_edit.gif",
+                                "id": "StartDetailsEditInzittende",
+                                "layout|x": 225,
+                                "layout|y": 100,
+                                "text": ""
+                            },
+                            "name": "MyButton42",
+                            "designerId": "c4ee0d60-3c05-4d00-9e02-6e255f63f972",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartDetailsEditInzittendeClick",
+                                        "implHandler": [
+                                            "Ext.StartlijstDetailWindow.onStartDetailsEditInzittendeClick(button, e, eOpts);"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartDetailsEditInzittendeClick",
+                                    "designerId": "7cb4b58e-e41b-4d46-be2c-61a58e0b7997"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "images/icon_edit.gif",
+                                "id": "StartDetailsEditOpRekening",
+                                "layout|x": 225,
+                                "layout|y": 160,
+                                "text": ""
+                            },
+                            "name": "MyButton43",
+                            "designerId": "06cd4838-ef66-4562-8418-76303db072d2",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartDetailsEditOpRekeningClick",
+                                        "implHandler": [
+                                            "Ext.StartlijstDetailWindow.onStartDetailsEditOpRekeningClick(button, e, eOpts);"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartDetailsEditOpRekeningClick",
+                                    "designerId": "4f534ab8-e675-4206-a6c2-1c4922398200"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 16,
+                                "id": "Stoel1",
+                                "layout|x": 145,
+                                "layout|y": 12,
+                                "src": "images/seat.png",
+                                "width": 16
+                            },
+                            "name": "MyImg4",
+                            "designerId": "7e5e3685-2dca-4b2e-a572-d4dd3f6fdd5f"
+                        },
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 16,
+                                "hidden": true,
+                                "id": "Stoel2",
+                                "layout|x": 160,
+                                "layout|y": 12,
+                                "src": "images/seat.png",
+                                "width": 16
+                            },
+                            "name": "MyImg5",
+                            "designerId": "e10096de-d8a3-4b45-ad88-05c6b79fdd64"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsZitplaatsen",
+                                "name": "ZITPLAATSEN"
+                            },
+                            "name": "MyHiddenField14",
+                            "designerId": "977c5a95-b500-4057-9654-e6b3ecbed07e"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsZelfstart",
+                                "name": "ZELFSTART"
+                            },
+                            "name": "MyHiddenField15",
+                            "designerId": "a80355b7-5f91-4226-8c3c-1607fc4505da"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsOpRekeningType",
+                                "name": "LEDEN_OPREKENING_OMS"
+                            },
+                            "name": "MyHiddenField16",
+                            "designerId": "9a420bc1-7c41-47a4-89a8-36a9c4572d36"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsVliegerType",
+                                "name": "LEDEN_VLIEGER_OMS"
+                            },
+                            "name": "MyHiddenField17",
+                            "designerId": "a1e366f0-afd4-434f-b9b8-79b7ea913d45"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsInzittendeType",
+                                "name": "LEDEN_INZITTENDE_OMS"
+                            },
+                            "name": "MyHiddenField18",
+                            "designerId": "ed5448f3-020b-4964-9544-3c0c9a667990"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsVliegerAlert",
+                                "name": "VliegerAlert"
+                            },
+                            "name": "MyHiddenField19",
+                            "designerId": "5f670f4a-ef01-4636-a565-dd860caa1eba"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsOpRekeningAlert",
+                                "name": "OpRekeningAlert"
+                            },
+                            "name": "MyHiddenField20",
+                            "designerId": "b1a22c1e-d655-45f8-b953-bfc086a52b56"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsID",
+                                "name": "ID"
+                            },
+                            "name": "MyHiddenField21",
+                            "designerId": "a1cff7f6-b2b5-48dd-9cf5-e62f9ad4ec70"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsInzittendeID",
+                                "name": "InzittendeID"
+                            },
+                            "name": "MyHiddenField22",
+                            "designerId": "414c82b1-af68-49e5-8b04-94eae512a3c6"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsOpRekeningID",
+                                "name": "OpRekeningID"
+                            },
+                            "name": "MyHiddenField23",
+                            "designerId": "ccff4048-7bdd-4b7e-9902-00b0e1678fc7"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsInzittendeAlert",
+                                "name": "InzittendeAlert"
+                            },
+                            "name": "MyHiddenField24",
+                            "designerId": "c972d91f-23a6-4663-bb4d-11a15b6f5740"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "StartDetailsVliegerID",
+                                "inputId": null,
+                                "name": "VliegerID"
+                            },
+                            "name": "MyHiddenField25",
+                            "designerId": "60cbdce5-c3ac-49b5-a9b9-efc08859bf05"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "Ext.StartlijstDetailWindow.onStartDetailsWindowShow(component, eOpts, this.ID);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onWindowShow",
+            "designerId": "c56d288e-3bd8-4883-923f-d265a124170e"
+        }
+    ]
+}

@@ -1,0 +1,367 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "CommStatusWindow",
+        "designer|userClassName": "CommStatusWindow",
+        "height": 332,
+        "hidden": false,
+        "id": "CommStatusWindow",
+        "layout": "vbox",
+        "maintainFlex": true,
+        "modal": true,
+        "resizable": [
+            "false"
+        ],
+        "title": "Communicatie status",
+        "width": 547
+    },
+    "designerId": "1faec200-7f71-4643-9a74-d22c09fc211a",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "border": "0px",
+                "container|align": "stretch",
+                "height": 300,
+                "id": "CommStatusForm",
+                "layout": "vbox",
+                "standardSubmit": false,
+                "title": "",
+                "url": "/php/main.php?CommStatus=ForceSync",
+                "width": 400
+            },
+            "name": "MyForm10",
+            "designerId": "f33289af-32c4-48f7-b069-74e6da2699ca",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableColumnHide": false,
+                        "enableColumnMove": false,
+                        "enableColumnResize": false,
+                        "forceFit": true,
+                        "frameHeader": false,
+                        "headerPosition": null,
+                        "hideHeaders": true,
+                        "id": "CommStatusNextSync_Grid",
+                        "minHeight": 20,
+                        "preventHeader": true,
+                        "sortableColumns": false,
+                        "store": "CommStatusNextSync_Store",
+                        "title": ""
+                    },
+                    "name": "MyGridPanel11",
+                    "designerId": "3ce2b5a6-bb8f-48c3-af2f-d267009c20ca",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "tekst",
+                                "flex": 2,
+                                "text": ""
+                            },
+                            "name": "MyColumn65",
+                            "designerId": "e1afa510-d742-4a16-ad23-e84d48fae188"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "localNextSync",
+                                "flex": 1,
+                                "text": ""
+                            },
+                            "name": "MyColumn66",
+                            "designerId": "e3631123-6a34-4882-9819-36c19d4698df"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "remoteNextSync",
+                                "flex": 1,
+                                "text": ""
+                            },
+                            "name": "MyColumn67",
+                            "designerId": "da6077c0-3c18-4bd4-ab3a-21cfa5236cbf"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disableSelection": true,
+                                "stripeRows": false
+                            },
+                            "name": "MyGridView11",
+                            "designerId": "23e40b17-2f85-4e6f-be8c-d0a927fb2ea5"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": null,
+                        "enableColumnHide": false,
+                        "enableColumnMove": false,
+                        "forceFit": true,
+                        "frameHeader": false,
+                        "height": null,
+                        "id": "CommStatusWindowGrid",
+                        "layout|flex": 1,
+                        "minHeight": null,
+                        "sortableColumns": false,
+                        "store": "CommStatusDetails_Store",
+                        "title": ""
+                    },
+                    "name": "MyGridPanel12",
+                    "designerId": "391cecf7-2237-4f48-8fbe-513e29289085",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "table",
+                                "flex": 1,
+                                "maintainFlex": true,
+                                "text": "Tabel"
+                            },
+                            "name": "MyColumn68",
+                            "designerId": "7a9198f0-b7ac-4e5e-a21c-0b4babaede1c"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "localStatus",
+                                "flex": 2,
+                                "maintainFlex": true,
+                                "text": "Lokaal"
+                            },
+                            "name": "MyColumn69",
+                            "designerId": "0b620834-5cae-4776-aff2-e40852713dc5"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "remoteStatus",
+                                "flex": 2,
+                                "maintainFlex": true,
+                                "text": "Server"
+                            },
+                            "name": "MyColumn70",
+                            "designerId": "2645bc79-1573-4d0c-8815-9b7fbae4bf02"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disableSelection": true,
+                                "emptyText": "Geen verbinding met de software"
+                            },
+                            "name": "MyGridView12",
+                            "designerId": "2b4e88f3-79a0-472b-9538-7f93a983c258"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 0,
+                        "designer|snapToGrid": 10,
+                        "height": 48,
+                        "layout": "absolute",
+                        "title": ""
+                    },
+                    "name": "MyPanel27",
+                    "designerId": "3707016b-847a-41d4-a242-6b722e6bfd6b",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 40,
+                                "id": "SyncButton",
+                                "layout|x": 430,
+                                "layout|y": 5,
+                                "text": "Synchoniseren",
+                                "type": null,
+                                "width": 80
+                            },
+                            "name": "MyButton38",
+                            "designerId": "44ec3f9e-eb0e-42a3-ad57-9f747e247703",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "SyncButtonClick();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "25b6fa8a-cbd2-48bb-a9eb-cb28138d8c6e"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "bodyBorder": false,
+                                "bodyPadding": 10,
+                                "border": 0,
+                                "designer|snapToGrid": 10,
+                                "height": 50,
+                                "id": "SendEmailForm",
+                                "layout": "absolute",
+                                "layout|x": 0,
+                                "layout|y": 0,
+                                "padding": 0,
+                                "title": null,
+                                "url": "/php/main.php?CommStatus=SendEmail",
+                                "width": 130
+                            },
+                            "name": "MyForm11",
+                            "designerId": "03235323-3f23-4832-9697-a71bbb343590",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 40,
+                                        "id": "EmailButton",
+                                        "layout|x": 0,
+                                        "layout|y": 5,
+                                        "text": "Email beheerder",
+                                        "type": null,
+                                        "width": 100
+                                    },
+                                    "name": "MyButton39",
+                                    "designerId": "57e4999d-5512-4f0b-94aa-2b903c5f658d",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onEmailButtonClick",
+                                                "implHandler": [
+                                                    "EmailButtonClick();"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onEmailButtonClick",
+                                            "designerId": "9be336ad-05b3-4333-8cb5-59a0cf513097"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "OphalenCommStatusDetails();"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onWindowShow",
+            "designerId": "234c0512-a274-41cd-8164-b3853d8a7b91"
+        }
+    ]
+}

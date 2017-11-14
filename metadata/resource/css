@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css",
+        "url": "css/startadmin.css"
+    },
+    "designerId": "c8621920-95cf-468c-a951-cbc6bf7e09fb"
+}

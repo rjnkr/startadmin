@@ -1,0 +1,135 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "controletab",
+        "designer|userClassName": "ControleTab",
+        "hidden": true,
+        "id": "ControleTab",
+        "layout": "vbox",
+        "title": "Controle"
+    },
+    "name": "MyPanel16",
+    "designerId": "a5dcd9b6-e8cf-46be-8e6f-695a5a57fb86",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "activeTab": 0,
+                "layout|flex": 1
+            },
+            "name": "MyTabPanel2",
+            "designerId": "3509bbf6-9e7f-44bf-bcdd-0dd42855171d",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Startlijst - Flarm"
+                    },
+                    "name": "controlestartliijstflarmtab",
+                    "designerId": "e1fdd8bc-babc-4c5c-a8be-88b0fd97db4d",
+                    "masterInstanceId": "87b9751f-fe7f-490f-9fea-8fb14aae95dd",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig12",
+                            "designerId": "c9c04c47-dc97-41e7-bf3e-d0fbdd16aa06"
+                        }
+                    ]
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "controledagoverzichttab",
+                    "designerId": "5265f6ff-6676-4182-8347-8204c633a237",
+                    "masterInstanceId": "d78c765e-6e2c-4e3a-ac20-af13c4301a3f",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig9",
+                            "designerId": "4e2dafbe-f970-4f7c-8617-a5d34fcd13a6"
+                        }
+                    ]
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Export"
+                    },
+                    "name": "exporttab",
+                    "designerId": "e3c2c3bb-4771-476c-9203-5346863f1ab1",
+                    "masterInstanceId": "e5667260-3154-400f-a815-287f29ebe217",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig10",
+                            "designerId": "331f69d6-3674-4b02-9e00-748310c5b133"
+                        }
+                    ]
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "controletijdelijk1",
+                    "designerId": "68724b80-471d-401a-ad95-a2c62a8e3db4",
+                    "masterInstanceId": "685de20b-72e5-4a2e-9e3e-4371eea587e2",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig13",
+                            "designerId": "77bf3324-d88d-40ec-9090-81a62fa1b252"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

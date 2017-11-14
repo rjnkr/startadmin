@@ -1,0 +1,71 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CommStatusDetails_Store",
+        "model": "CommStatusDetails_Model",
+        "storeId": "MyJsonStore26"
+    },
+    "designerId": "0a1895ae-5d36-4b08-beb9-8c054a3b3fdc",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "directionParam": "undefined",
+                "filterParam": "undefined",
+                "groupParam": "undefined",
+                "limitParam": "undefined",
+                "noCache": false,
+                "pageParam": "undefined",
+                "sortParam": "undefined",
+                "startParam": "undefined",
+                "url": "php/main.php?CommStatus=StatusDetails"
+            },
+            "name": "MyAjaxProxy24",
+            "designerId": "fb4cc06b-6ba2-4c14-ba9b-35ebc95e3f92",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader24",
+                    "designerId": "070befc1-0386-482c-933b-cf590ab503f7"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onAjaxproxyException",
+                        "implHandler": [
+                            "HandleStoreLoadException(proxy, response, operation, eOpts);\t// toon de gebruiker dat er een fout is opgetreden\r",
+                            "\r",
+                            "// gooi alle records weg\r",
+                            "var store = Ext.data.StoreManager.lookup('CommStatusDetails_Store');\r",
+                            "store.removeAll();"
+                        ],
+                        "name": "exception",
+                        "scope": "me"
+                    },
+                    "name": "onAjaxproxyException",
+                    "designerId": "ce76284a-be64-4c6f-99c8-f65ae5cc0981"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js1",
+        "url": "extjs-4.1.0/locale/ext-lang-nl.js",
+        "x-compile": true
+    },
+    "designerId": "7318b791-80d6-47f8-bcd2-368a6fc048fc"
+}

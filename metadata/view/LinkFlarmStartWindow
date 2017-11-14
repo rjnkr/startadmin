@@ -1,0 +1,303 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "LinkFlarmStartWindow",
+        "designer|userClassName": "LinkFlarmStartWindow",
+        "height": 262,
+        "layout": "fit",
+        "renderTo": null,
+        "resizable": [
+            "false"
+        ],
+        "title": "Koppelen Flarm start",
+        "width": 408
+    },
+    "designerId": "c3a2c6d4-64cf-4a69-965c-2343ba9ce58d",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "bodyStyle": null,
+                "designer|snapToGrid": 10,
+                "id": "LinkFlarmStartForm",
+                "layout": "absolute",
+                "title": null,
+                "url": "/php/main.php?Action=Flarm.UpdateFlarmCode"
+            },
+            "name": "MyForm14",
+            "designerId": "86b1b2c3-6bd4-40a4-81d0-75ba07ac8d6e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": null,
+                        "cls": "",
+                        "fieldLabel": "Vliegtuig",
+                        "fieldStyle": "font-weight:bold;font-size: 12px;",
+                        "frame": null,
+                        "id": "REGCALL",
+                        "labelAlign": "right",
+                        "layout|anchor": "100%",
+                        "maxWidth": 220,
+                        "minWidth": 220,
+                        "name": "REG_CALL",
+                        "readOnly": true,
+                        "width": 220
+                    },
+                    "name": "MyTextField48",
+                    "designerId": "965f2464-7161-4721-ba19-d9ced2e32b64"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Flarm code",
+                        "fieldStyle": "font-weight:bold;font-size: 12px;",
+                        "frame": null,
+                        "id": "FLARM_CODE",
+                        "labelAlign": "right",
+                        "layout|anchor": "100%",
+                        "layout|x": 10,
+                        "layout|y": 40,
+                        "maxWidth": 180,
+                        "minWidth": 180,
+                        "name": "FLARM_CODE",
+                        "readOnly": true,
+                        "width": 180
+                    },
+                    "name": "MyTextField49",
+                    "designerId": "a279079d-e9ba-4a07-8cba-a5db4564e822"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Start",
+                        "fieldStyle": "font-weight:bold;font-size: 12px;",
+                        "id": "STARTTIJD",
+                        "labelAlign": "right",
+                        "layout|anchor": "100%",
+                        "layout|x": 10,
+                        "layout|y": 70,
+                        "name": "STARTTIJD",
+                        "readOnly": true
+                    },
+                    "name": "MyTextField50",
+                    "designerId": "ee2fbfb0-3303-4ea9-a5d4-12a32f2ee9a6"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Landing",
+                        "fieldStyle": "font-weight:bold;font-size: 12px;",
+                        "id": "LANDINGSTIJD",
+                        "labelAlign": "right",
+                        "layout|anchor": "100%",
+                        "layout|x": 10,
+                        "layout|y": 100,
+                        "name": "LANDINGSTIJD",
+                        "readOnly": true
+                    },
+                    "name": "MyTextField51",
+                    "designerId": "f2647b26-37e9-4482-8d4b-451ea8720b80"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "REGCALL",
+                        "fieldLabel": "Nieuw vliegtuig",
+                        "labelAlign": "right",
+                        "layout|anchor": "100%",
+                        "layout|x": 10,
+                        "layout|y": 130,
+                        "name": "NIEUW_VLIEGTUIG_ID",
+                        "renderTo": null,
+                        "store": "StartLijstVoorFlarm_Store",
+                        "valueField": "VLIEGTUIG_ID"
+                    },
+                    "name": "MyComboBox16",
+                    "designerId": "c6f3a158-ce87-468d-adea-386064ccee22",
+                    "cn": [
+                        {
+                            "type": "Ext.view.BoundList",
+                            "reference": {
+                                "name": "listConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemSelector": "div"
+                            },
+                            "name": "MyBoundList",
+                            "designerId": "075bafd8-5f36-438d-b71e-7027bea652c2",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "<table\r",
+                                            "    <tpl for=\".\">\r",
+                                            "        <tr>\r",
+                                            "\t\t\t<td width=\"20px\">{DAGNUMMER}</td>\r",
+                                            "\t\t\t<td width=\"100px\">{REGCALL}</td>\r",
+                                            "\t\t\t<td width=\"80px\">{STARTTIJD}</td>\r",
+                                            "\t\t\t<td width=\"80px\">{LANDINGSTIJD}</td>\r",
+                                            "\t\t</tr>\r",
+                                            "    </tpl>\r",
+                                            "</table>\r",
+                                            ""
+                                        ]
+                                    },
+                                    "name": "tpl",
+                                    "designerId": "ab5ce283-e73a-4127-90dc-6ad28265c070"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 40,
+                        "layout|x": 295,
+                        "layout|y": 170,
+                        "text": "Opslaan",
+                        "width": 80
+                    },
+                    "name": "MyButton44",
+                    "designerId": "e60e6b14-125a-43dc-9fd9-6085d55ebd8c",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "Ext.FlarmForm.onButtonClick(button, e, eOpts);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "772f0006-e695-46ff-8e43-5baceab87f36"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "fieldLabel": "Label",
+                        "name": "VLIEGTUIG_ID",
+                        "width": 100
+                    },
+                    "name": "MyHiddenField26",
+                    "designerId": "fd677096-30da-4d79-abee-bfd901585f62"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "name": "DATUM"
+                    },
+                    "name": "MyHiddenField27",
+                    "designerId": "9f9b36ff-1d17-472e-839a-384265155202"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "\r",
+                    "var form = Ext.getCmp(\"LinkFlarmStartForm\");\t\r",
+                    "var fs = Ext.data.StoreManager.lookup('FlarmStart_Store');\r",
+                    "var record = fs.getById(this.ID);\t\r",
+                    "\r",
+                    "\r",
+                    "form.getForm().loadRecord(record);\r",
+                    "\r",
+                    "\r",
+                    "var store = Ext.data.StoreManager.lookup('StartLijstVoorFlarm_Store');\r",
+                    "store.proxy.extraParams = \r",
+                    "{\r",
+                    "    '_:starttijd': record.data.STARTTIJD,\r",
+                    "    '_:landingstijd': record.data.LANDINGSTIJD\r",
+                    "}\r",
+                    "store.load();\r",
+                    "\r",
+                    ""
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onWindowShow",
+            "designerId": "34f89baa-e2af-4ecb-b445-37fe625b2e59"
+        }
+    ]
+}

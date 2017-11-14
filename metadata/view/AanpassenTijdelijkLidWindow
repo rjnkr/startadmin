@@ -1,0 +1,174 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AanpassenTijdelijkLidWindow",
+        "height": 148,
+        "id": "StarttijdWindow3",
+        "modal": true,
+        "resizable": [
+            "false"
+        ],
+        "title": "Aanpassen lid",
+        "width": 274
+    },
+    "name": "CopyStarttijdWindow1",
+    "designerId": "9bfdeab4-fe9b-4a18-8e6a-419214a7eaee",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|snapToGrid": 10,
+                "height": 115,
+                "id": "AanpassenLidForm",
+                "layout": "absolute",
+                "primaryFilterOnKeyInput": "true",
+                "resizable": null,
+                "title": "",
+                "trackResetOnLoad": true,
+                "url": "php/main.php?Action=Controle.SaveStartTijd",
+                "width": 265
+            },
+            "name": "MyForm3",
+            "designerId": "0e980643-464f-42d1-9708-c07143ab952e",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "primaryFilterOnKeyInput",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "",
+                        "hideEmptyLabel": false,
+                        "id": "ID",
+                        "labelWidth": 0,
+                        "layout|x": 35,
+                        "layout|y": 210,
+                        "name": "ID",
+                        "width": 50
+                    },
+                    "name": "MyHiddenField6",
+                    "designerId": "6cb0e7ee-67a2-477c-a659-8551e31cf12e"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "formBind": true,
+                        "height": 40,
+                        "icon": null,
+                        "iconCls": null,
+                        "id": "AanpassenLid_Opslaan",
+                        "layout|x": 170,
+                        "layout|y": 65,
+                        "text": "Opslaan",
+                        "width": 80
+                    },
+                    "name": "MyButton18",
+                    "designerId": "50de328c-f20e-472a-aea1-5533d30557f1",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartCopy_OpslaanClick",
+                                "implHandler": [
+                                    "Ext.Controle.onStartCopy_OpslaanClick(button, e, eOpts);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onStartCopy_OpslaanClick",
+                            "designerId": "a925a1c0-7c17-4181-beb6-38b5f6f00da5"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Startlijst",
+                        "id": "LidStartlijst_Text",
+                        "labelWidth": 60,
+                        "layout|x": 10,
+                        "layout|y": 10,
+                        "name": "SA_STARTTIJD",
+                        "readOnly": true,
+                        "width": 225
+                    },
+                    "name": "MyTextField16",
+                    "designerId": "7c10e666-c437-4d1d-9272-d910daaa250f"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Lid",
+                        "id": "Lid_Combobox",
+                        "labelWidth": 60,
+                        "layout|x": 10,
+                        "layout|y": 40,
+                        "name": "FLARM_STARTTIJD",
+                        "readOnly": true,
+                        "width": 225
+                    },
+                    "name": "MyComboBox",
+                    "designerId": "867e77e9-f234-4c27-8158-a2ccaf79faa0"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "Ext.Controle.onAanpassenLidWindowShow(component, eOpts, this.ID);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onWindowShow",
+            "designerId": "7a17dc55-c4ed-440a-84a5-8913d0f62234"
+        }
+    ]
+}

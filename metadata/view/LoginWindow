@@ -1,0 +1,272 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyBorder": false,
+        "bodyCls": [
+            "achtergrondlogo"
+        ],
+        "border": false,
+        "closable": false,
+        "designer|userAlias": "LoginWindow",
+        "designer|userClassName": "LoginWindow",
+        "draggable": false,
+        "frame": true,
+        "frameHeader": false,
+        "height": 241,
+        "modal": true,
+        "plain": true,
+        "resizable": [
+            "false"
+        ],
+        "title": null,
+        "width": 512
+    },
+    "designerId": "275c60a7-59f1-4ad3-9be8-1b6ddc293726",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyBorder": false,
+                "bodyCls": [
+                    "doorzichtig"
+                ],
+                "bodyPadding": 10,
+                "border": false,
+                "cls": "",
+                "componentCls": "",
+                "designer|snapToGrid": 10,
+                "dock": null,
+                "frameHeader": false,
+                "height": 150,
+                "iconCls": null,
+                "id": "LoginForm",
+                "layout": "absolute",
+                "title": "",
+                "url": "php/main.php?Action=Login.verkrijgToegang",
+                "width": 510
+            },
+            "name": "MyForm2",
+            "designerId": "a6523206-6951-4ca5-adf6-0f056a9f2452",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Gebruiker",
+                        "id": "LoginGebruiker",
+                        "labelAlign": "right",
+                        "labelWidth": 75,
+                        "layout|anchor": "100%",
+                        "layout|x": 160,
+                        "layout|y": 40,
+                        "maxWidth": 150,
+                        "msgTarget": "side",
+                        "name": "USERNAME",
+                        "width": 150
+                    },
+                    "name": "MyTextField19",
+                    "designerId": "1a5e854d-73c7-4bf8-98ee-3c733caf8b13"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Wachtwoord",
+                        "id": "LoginWachtwoord",
+                        "inputType": "password",
+                        "labelAlign": "right",
+                        "labelWidth": 75,
+                        "layout|anchor": "100%",
+                        "layout|x": 160,
+                        "layout|y": 70,
+                        "maxWidth": 150,
+                        "msgTarget": "side",
+                        "name": "PASSWORD",
+                        "width": 150
+                    },
+                    "name": "MyTextField20",
+                    "designerId": "8f2c2034-68a3-463b-8b7d-4694db5f40b6",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onLoginWachtwoordSpecialkey",
+                                "implHandler": [
+                                    "if(e.getKey() == Ext.EventObject.ENTER)\r",
+                                    "{\r",
+                                    "    var form = Ext.getCmp('LoginForm');\r",
+                                    "    form.getForm().submit\r",
+                                    "    ({\r",
+                                    "        success: function(req,res) \r",
+                                    "        {   \r",
+                                    "            button.up('.window').close();\r",
+                                    "            location.reload();\r",
+                                    "        },        \r",
+                                    "        failure: function(req,res) \r",
+                                    "        {\r",
+                                    "            Ext.getCmp('VerkeerdWachtwoord').show();\r",
+                                    "\r",
+                                    "        }\r",
+                                    "    });\r",
+                                    "}"
+                                ],
+                                "name": "specialkey",
+                                "scope": "me"
+                            },
+                            "name": "onLoginWachtwoordSpecialkey",
+                            "designerId": "c688a49d-b8bb-47cd-af30-64f41b15a1f7"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": null,
+                        "hidden": true,
+                        "id": "VerkeerdWachtwoord",
+                        "layout|x": 315,
+                        "layout|y": 75,
+                        "src": "images/alert.png",
+                        "width": null
+                    },
+                    "name": "MyImg2",
+                    "designerId": "0b65bb65-8143-4677-9453-163a3c55ff88",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onVerkeerdWachtwoordAfterRender",
+                                "implHandler": [
+                                    "Ext.QuickTips.register({\r",
+                                    "    target: component.getEl(),\r",
+                                    "    text: 'De combinatie gebruikersnaam / wachtwoord is ongeldig.'\r",
+                                    "});"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "name": "onVerkeerdWachtwoordAfterRender",
+                            "designerId": "dd2a5fbd-96f6-4711-9569-0ea6191b73f2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "formBind": true,
+                        "height": 40,
+                        "icon": null,
+                        "iconCls": null,
+                        "id": "Inloggen",
+                        "layout|x": 170,
+                        "layout|y": 100,
+                        "margin": "0px 240px",
+                        "padding": "",
+                        "text": "Inloggen",
+                        "width": 80
+                    },
+                    "name": "MyButton16",
+                    "designerId": "c0c60533-ae43-4fba-a615-05ac9f27f214",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick11",
+                                "implHandler": [
+                                    "Ext.getCmp('Inloggen').disable();\r",
+                                    "Ext.win.showLogin(true);\r",
+                                    "\r",
+                                    "var form = Ext.getCmp('LoginForm');\r",
+                                    "form.getForm().submit\r",
+                                    "({\r",
+                                    "    success: function(req,res) \r",
+                                    "    {   \r",
+                                    "        Ext.win.showLogin(false);\r",
+                                    "        button.up('.window').close();\r",
+                                    "        location.reload();\r",
+                                    "    },        \r",
+                                    "    failure: function(req,res) \r",
+                                    "    {\r",
+                                    "        Ext.win.showLogin(false);\r",
+                                    "        Ext.getCmp('Inloggen').enable();\r",
+                                    "\r",
+                                    "        Ext.getCmp('VerkeerdWachtwoord').show();\r",
+                                    "\r",
+                                    "    }\r",
+                                    "});\t"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick11",
+                            "designerId": "967c5a6c-f4f1-4d6e-b2ff-6d384ed94a6c"
+                        }
+                    ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onLoginFormShow",
+                        "implHandler": [
+                            "Ext.getCmp('LoginForm').getForm().isValid();"
+                        ],
+                        "name": "show",
+                        "scope": "me"
+                    },
+                    "name": "onLoginFormShow",
+                    "designerId": "f4292d1f-1274-45e9-90ae-cf76e563c1e1"
+                }
+            ]
+        }
+    ]
+}

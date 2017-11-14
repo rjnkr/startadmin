@@ -1,0 +1,399 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "DagOverzichtTab",
+        "designer|userClassName": "ControleDagOverzichtTab",
+        "id": "DagOverzichtTab",
+        "layout": "vbox",
+        "title": "Dag overzicht"
+    },
+    "name": "MyPanel18",
+    "designerId": "d78c765e-6e2c-4e3a-ac20-af13c4301a3f",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "id": "ControleDagOverzicht",
+                "layout|flex": 1,
+                "store": "ControleDagOverzicht_GridStore",
+                "title": null
+            },
+            "name": "MyGridPanel7",
+            "designerId": "59b7d30f-eef6-435f-993a-62e5f0994857",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView7",
+                    "designerId": "929f171d-65f9-49bc-9a4c-8f7371768043"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "NAAM",
+                        "flex": 3,
+                        "id": null,
+                        "maxWidth": 250,
+                        "text": "Naam",
+                        "width": 200
+                    },
+                    "name": "MyColumn54",
+                    "designerId": "ac9146bb-fec7-4cb8-95e3-1f324113d532",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "metaData.tdAttr = 'data-qtip=\"Bekijk details\"';\r",
+                                    "\r",
+                                    "var retValue = \"<a href=javascript:Ext.Controle.OpenControleDetailsWindow(\" + record.data.ID + \");>\" + value + \"</a>\";\r",
+                                    "\r",
+                                    "\r",
+                                    "return retValue;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "c4e8d7bc-2fc0-40d8-9e8f-3613e0ad9cc3"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "STARTS",
+                        "flex": 1,
+                        "id": null,
+                        "maxWidth": 100,
+                        "text": "Starts"
+                    },
+                    "name": "MyColumn55",
+                    "designerId": "67c3f529-a868-472e-823b-59f237473df3",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (value == \"0\")\r",
+                                    "{\r",
+                                    "    return \"-\"\r",
+                                    "}\r",
+                                    "return value;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "9ac674a7-c83c-4704-b7d1-c8bec4e87ba2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VLIEGER",
+                        "flex": 1,
+                        "maxWidth": 100,
+                        "text": "Voorin"
+                    },
+                    "name": "MyColumn56",
+                    "designerId": "b7e56a52-4f06-42f2-8f72-f46a7a662884",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (value == \"0\")\r",
+                                    "{\r",
+                                    "    return \"-\"\r",
+                                    "}\r",
+                                    "return value;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "0c777d61-3222-49fa-9909-05a8fae241fa"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "INZITTENDE",
+                        "flex": 1,
+                        "maxWidth": 100,
+                        "text": "Achterin"
+                    },
+                    "name": "MyColumn57",
+                    "designerId": "0f8223f3-61d7-4ee6-80be-389fa7683539",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (value == \"0\")\r",
+                                    "{\r",
+                                    "    return \"-\"\r",
+                                    "}\r",
+                                    "return value;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "b230552e-1682-44db-a2e2-3d4faa95957e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DDWV",
+                        "flex": 1,
+                        "maxWidth": 100,
+                        "text": "DDWV"
+                    },
+                    "name": "MyColumn58",
+                    "designerId": "0c5b8f0d-8f37-420c-be25-cbe3707fafee",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (value == \"0\")\r",
+                                    "{\r",
+                                    "    return \"-\"\r",
+                                    "}\r",
+                                    "return value;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "fa8a5e91-6872-4038-82e5-9aa87d21de16"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "SLEEP",
+                        "flex": 1,
+                        "maxWidth": 100,
+                        "text": "Sleep"
+                    },
+                    "name": "MyColumn59",
+                    "designerId": "b41898d2-bdfa-473a-8d1c-aa0827e163c0",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (value == \"0\")\r",
+                                    "{\r",
+                                    "    return \"-\"\r",
+                                    "}\r",
+                                    "return value;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "4b982f2b-be79-4da0-ab91-499b9d57a396"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "OPREKENING",
+                        "flex": 1,
+                        "maxWidth": 100,
+                        "text": "Op rekening"
+                    },
+                    "name": "MyColumn60",
+                    "designerId": "622c8920-78f2-4bbe-9692-b6801e6ba992",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (value == \"0\")\r",
+                                    "{\r",
+                                    "    return \"-\"\r",
+                                    "}\r",
+                                    "return value;\r",
+                                    ""
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "0ff6fd7a-cf00-4324-a386-e5441f517782"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "OPMERKING",
+                        "flex": 5,
+                        "id": null,
+                        "text": "Opmerkingen"
+                    },
+                    "name": "MyColumn61",
+                    "designerId": "877759a1-5945-4cc3-8b93-27117264a0ab"
+                }
+            ]
+        }
+    ]
+}

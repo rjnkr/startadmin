@@ -1,0 +1,1798 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "ID": -1,
+        "designer|userAlias": "StartInvoerWindow",
+        "designer|userClassName": "StartInvoerWindow",
+        "height": null,
+        "id": "StartInvoerWindow",
+        "maxWidth": null,
+        "modal": true,
+        "resizable": [
+            "false"
+        ],
+        "title": "Start gegevens",
+        "width": null
+    },
+    "designerId": "0f93041c-3bc2-44c9-92a3-597cdb283a04",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "ID",
+            "type": "number"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "baseCls": "title",
+                "cls": null,
+                "height": 48,
+                "layout": "table",
+                "maxHeight": 100,
+                "title": ""
+            },
+            "name": "MyPanel19",
+            "designerId": "d8c19398-9e63-45d5-b9f9-a8e5252a8464",
+            "cn": [
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": null,
+                        "src": "images/start_add.png",
+                        "width": null
+                    },
+                    "name": "MyImg1",
+                    "designerId": "3104ff9a-d513-4f4b-b342-d9a3b94260f1"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": null,
+                        "cls": "titel",
+                        "dock": null,
+                        "frame": true,
+                        "id": "StartInvoer_Titel",
+                        "padding": "20px",
+                        "text": "Nieuwe vlucht",
+                        "width": null
+                    },
+                    "name": "MyLabel1",
+                    "designerId": "0efeee31-ec6a-4be8-9cff-feb3d2688e77"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoRender": true,
+                "bodyPadding": 10,
+                "frameHeader": false,
+                "height": null,
+                "id": "StartInvoer_InvoerForm",
+                "layout": null,
+                "maxHeight": null,
+                "minHeight": null,
+                "title": "",
+                "trackResetOnLoad": true,
+                "url": "php/main.php?Action=Startlijst.SaveObject",
+                "width": 455
+            },
+            "name": "MyForm6",
+            "designerId": "ac01870c-ac96-4e05-a4cd-6ce568520920",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 25,
+                        "id": "StartInvoer_VliegtuigContainer",
+                        "layout": "absolute"
+                    },
+                    "name": "MyContainer6",
+                    "designerId": "c38253e8-3b12-4577-abb4-89e0b79962c5",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "blankText": null,
+                                "displayField": "REG_CALL",
+                                "emptyText": "vul registratie in",
+                                "fieldLabel": "Vliegtuig",
+                                "forceSelection": true,
+                                "id": "StartInvoer_Vliegtuig",
+                                "labelAlign": "right",
+                                "layout|x": -15,
+                                "layout|y": 0,
+                                "minChars": 1,
+                                "msgTarget": "side",
+                                "name": "VLIEGTUIG_ID",
+                                "plugins": null,
+                                "primaryFilter": null,
+                                "primaryFilterOnKeyInput": "false",
+                                "queryDelay": 100,
+                                "queryMode": "local",
+                                "store": "Startlijst_Vliegtuigen_Store",
+                                "tabIndex": 10,
+                                "valueField": "ID",
+                                "width": 240
+                            },
+                            "name": "MyComboBox10",
+                            "designerId": "7f857b32-fa88-43bc-883e-e25d15a223c3",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilter",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilterOnKeyInput",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "plugins",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "secondFilter",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onFocusInvoerVliegtuig",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onFocusInvoerVliegtuig(field, eOpts);"
+                                        ],
+                                        "name": "focus",
+                                        "scope": "me"
+                                    },
+                                    "name": "onFocusInvoerVliegtuig",
+                                    "designerId": "5706d7c5-c147-49b5-b0c3-00308765cb36"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoerVliegtuigChange",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onStartInvoerVliegtuigChange(field, newValue, oldValue, eOpts);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoerVliegtuigChange",
+                                    "designerId": "b64be331-20cc-4d66-bc41-80ab5d787ebd"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_VliegtuigSpecialkey",
+                                        "implHandler": [
+                                            "if(e.getKey() == Ext.EventObject.ENTER)\r",
+                                            "{\r",
+                                            "    Ext.StartlijstInvoerForm.onEnter();\r",
+                                            "}"
+                                        ],
+                                        "name": "specialkey",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_VliegtuigSpecialkey",
+                                    "designerId": "ae64c76c-d99c-4179-8647-b5a96daba048"
+                                },
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.StartlijstInvoerForm.ValiderenVliegtuig(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "44d85777-d6dd-4d8d-8766-6050588d026f"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processStartInvoer_Vliegtuig",
+                                        "implHandler": [
+                                            "config.plugins = ['clearbutton']; \r",
+                                            "return config; "
+                                        ]
+                                    },
+                                    "name": "processStartInvoer_Vliegtuig",
+                                    "designerId": "8a066404-3e7f-42bd-9b8c-f98c78d4d0b4"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_VliegtuigKeydown",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onStartInvoerVliegtuigKeydown(textfield, e, eOpts);"
+                                        ],
+                                        "name": "keydown",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_VliegtuigKeydown",
+                                    "designerId": "9ed22ca0-e610-47b8-a4c2-9ed1052b32a1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/add.gif",
+                                "id": "StartInvoer_ToevoegenNieuwVliegtuig",
+                                "layout|x": 230,
+                                "layout|y": 0,
+                                "text": ""
+                            },
+                            "name": "MyButton22",
+                            "designerId": "3d48a6e9-7a23-49fc-9c7a-d514dadeac32",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_ToevoegenNieuwVliegtuigClick",
+                                        "implHandler": [
+                                            "var view = Ext.widget('VliegtuigBeheerWindow', {'ID': -1});\r",
+                                            "view.show();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_ToevoegenNieuwVliegtuigClick",
+                                    "designerId": "300b0075-038c-43af-bfe2-645ea5f7e87f"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "REG_CALL",
+                                "emptyText": "vul registratie in",
+                                "fieldLabel": "Sleper",
+                                "forceSelection": true,
+                                "id": "StartInvoer_Sleepkist",
+                                "labelAlign": "right",
+                                "labelWidth": 40,
+                                "layout|x": 260,
+                                "layout|y": 0,
+                                "msgTarget": "side",
+                                "name": "SLEEPKIST_ID",
+                                "queryDelay": 100,
+                                "queryMode": "local",
+                                "store": "Startlijst_SleepKisten_Store",
+                                "tabIndex": 15,
+                                "valueField": "ID",
+                                "width": 165
+                            },
+                            "name": "MyComboBox11",
+                            "designerId": "5d02218d-b3ba-4963-b17d-df1a660dd28e",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBlurInvoerSleepkist",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onBlurInvoerSleepkist(field, eOpts);"
+                                        ],
+                                        "name": "blur",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBlurInvoerSleepkist",
+                                    "designerId": "87e022d9-d04f-4cab-ae8c-dc8f93c13539"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onFocusInvoerSleepkist",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onFocusInvoerSleepkist(field, eOpts);"
+                                        ],
+                                        "name": "focus",
+                                        "scope": "me"
+                                    },
+                                    "name": "onFocusInvoerSleepkist",
+                                    "designerId": "1a6f7ac4-da38-4fab-9c86-2f182e0c4b7c"
+                                },
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.StartlijstInvoerForm.ValiderenSleepvliegtuig(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "a13fcc01-a122-49a9-a316-41b8fd4485ab"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_SleepkistSpecialkey",
+                                        "implHandler": [
+                                            "if(e.getKey() == Ext.EventObject.ENTER)\r",
+                                            "{\r",
+                                            "    Ext.StartlijstInvoerForm.onEnter();\r",
+                                            "}"
+                                        ],
+                                        "name": "specialkey",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_SleepkistSpecialkey",
+                                    "designerId": "519a03fb-9911-47e5-9df2-f38c1244f923"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processStartInvoer_Sleepkist",
+                                        "implHandler": [
+                                            "config.plugins = ['clearbutton']; \r",
+                                            "return config; "
+                                        ]
+                                    },
+                                    "name": "processStartInvoer_Sleepkist",
+                                    "designerId": "6c9c35d8-e965-4b8f-831a-cbdba15edc97"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 0,
+                        "container|align": null,
+                        "height": null,
+                        "id": "StartInvoer_StartMethodePanel",
+                        "layout": "hbox",
+                        "maxWidth": null,
+                        "minHeight": null,
+                        "resizeHandles": "n",
+                        "title": "",
+                        "width": 400
+                    },
+                    "name": "MyPanel20",
+                    "configAlternates": {
+                        "resizable": "boolean"
+                    },
+                    "designerId": "9eed78da-a9dc-4365-8a67-a0bc9b20ef09",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "animCollapse": false,
+                                "baseCls": null,
+                                "bodyBorder": false,
+                                "bodyStyle": [
+                                    "border: 0px;",
+                                    ""
+                                ],
+                                "cls": "AITV-grid",
+                                "collapseFirst": false,
+                                "enableColumnHide": false,
+                                "enableColumnMove": false,
+                                "enableColumnResize": false,
+                                "forceFit": false,
+                                "formBind": false,
+                                "frameHeader": false,
+                                "height": null,
+                                "hideHeaders": true,
+                                "id": "StartInvoer_StartMethode",
+                                "layout|flex": 1,
+                                "maxHeight": null,
+                                "maxWidth": 370,
+                                "scroll": "vertical",
+                                "sortableColumns": false,
+                                "store": "Types_StartMethode_Store",
+                                "title": null,
+                                "width": null
+                            },
+                            "name": "MyGridPanel9",
+                            "designerId": "7d5cd07e-dd8a-43c8-ad5b-e9bf5910dc83",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "baseCls": null,
+                                        "border": null,
+                                        "cls": null,
+                                        "dataIndex": "OMSCHRIJVING",
+                                        "flex": 1,
+                                        "hideable": false,
+                                        "id": "StartInvoer_StartMethodeOmschrijving",
+                                        "maintainFlex": null,
+                                        "tdCls": null,
+                                        "text": ""
+                                    },
+                                    "name": "MyColumn63",
+                                    "designerId": "704b5b92-ea20-4349-bc83-c395fbdc251b"
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "border": null,
+                                        "cls": null,
+                                        "frame": false,
+                                        "height": null,
+                                        "id": null,
+                                        "itemCls": null,
+                                        "margin": "0px 0px 0px 85px",
+                                        "maxHeight": null,
+                                        "minHeight": null,
+                                        "overCls": null,
+                                        "selectedItemCls": null,
+                                        "stripeRows": false,
+                                        "width": null
+                                    },
+                                    "name": "MyGridView9",
+                                    "designerId": "710f42e9-8be0-48c5-8292-a2c7f11b5499"
+                                },
+                                {
+                                    "type": "Ext.selection.CheckboxModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": "Ext.selection.CheckboxModel",
+                                    "userConfig": {
+                                        "checkOnly": true,
+                                        "mode": "SINGLE"
+                                    },
+                                    "name": "MyCheckboxSelectionModel1",
+                                    "designerId": "3c298b22-3c5d-4f8d-8ad2-5e0e2a50fc54"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onAanwezigInvoerTypeVliegtuigSelectionChange1",
+                                        "implHandler": [
+                                            "// De startmethode is aangepast, voer onderstaande scripts uit\r",
+                                            "Ext.StartlijstInvoerForm.onStartInvoer_StartMethodeSelectionChange();"
+                                        ],
+                                        "name": "selectionchange",
+                                        "scope": "me"
+                                    },
+                                    "name": "onAanwezigInvoerTypeVliegtuigSelectionChange1",
+                                    "designerId": "96a8d024-a625-4ff3-a1c1-452417504c83"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "baseBodyCls": null,
+                                "baseCls": null,
+                                "border": 0,
+                                "clearCls": null,
+                                "dirtyCls": null,
+                                "errorMsgCls": null,
+                                "fieldCls": null,
+                                "fieldLabel": null,
+                                "focusCls": null,
+                                "formItemCls": null,
+                                "hideLabel": true,
+                                "id": "StartInvoer_StartMethodeID",
+                                "invalidCls": "q",
+                                "labelCls": null,
+                                "labelWidth": null,
+                                "msgTarget": "side",
+                                "name": "STARTMETHODE_ID",
+                                "readOnly": true,
+                                "readOnlyCls": null,
+                                "size": null,
+                                "tabIndex": 100,
+                                "width": 30
+                            },
+                            "name": "MyTextField20",
+                            "designerId": "83bbde6d-4cfc-4dfa-8070-53787be19eac",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.StartlijstInvoerForm.ValiderenStartMethode(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "2b11c4b8-1b43-4c9c-8678-d3da61de5e9f"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 25,
+                        "id": "StartInvoer_GezagvoerderContainer",
+                        "layout": "absolute"
+                    },
+                    "name": "MyContainer7",
+                    "designerId": "436d1091-795a-4e9b-b331-1f961de4adf2",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "NAAM",
+                                "emptyText": "Kies naam uit de lijst",
+                                "enableKeyEvents": true,
+                                "fieldLabel": "Voorin",
+                                "forceSelection": true,
+                                "id": "StartInvoer_Gezagvoerder",
+                                "labelAlign": "right",
+                                "labelWidth": 80,
+                                "layout|x": 5,
+                                "layout|y": null,
+                                "minChars": null,
+                                "msgTarget": "side",
+                                "name": "VLIEGER_ID",
+                                "primaryFilterOnKeyInput": "true",
+                                "queryDelay": 100,
+                                "queryMode": "local",
+                                "store": "Startlijst_Vlieger_Store",
+                                "tabIndex": 20,
+                                "typeAhead": true,
+                                "valueField": "ID",
+                                "width": 390
+                            },
+                            "name": "MyComboBox12",
+                            "designerId": "7f685f13-2c48-40c1-8569-24cb213f6681",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilterOnKeyInput",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onKeyPressInvoerGezagvoerder",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onKeyPressInvoerGezagvoerder(textfield, e, eOpts);"
+                                        ],
+                                        "name": "keypress",
+                                        "scope": "me"
+                                    },
+                                    "name": "onKeyPressInvoerGezagvoerder",
+                                    "designerId": "5715aa3d-230e-4363-90e9-b5bffcfa1203"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onFocusInvoerGezagvoerder",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onFocusInvoerGezagvoerder(field, eOpts);"
+                                        ],
+                                        "name": "focus",
+                                        "scope": "me"
+                                    },
+                                    "name": "onFocusInvoerGezagvoerder",
+                                    "designerId": "76be4449-156d-497b-8bb5-ec7ffca607a7"
+                                },
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.StartlijstInvoerForm.ValiderenGezagvoerder(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "3dc6bfc1-d839-4998-b912-ffc62e30dd0e"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_GezagvoerderChange",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onChangeInvoerGezagvoerder(field, eOpts);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_GezagvoerderChange",
+                                    "designerId": "8435c037-ef51-48e4-baa0-2d84289da69a"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_GezagvoerderRender",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({\r",
+                                            "    target: component.getEl(),\r",
+                                            "    dismissDelay: 10000, // Hide after 10 seconds hover\r",
+                                            "    text: 'Vul hier de gezagvoerder in uit het ledenbestand. <hr>Alternatief : Kies de naam van een zusterclub als een kist van de ander club start. Gebruik \"Oprotkabel\" voor een gestande vlieger.'\r",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_GezagvoerderRender",
+                                    "designerId": "6a3a18d4-7fb6-4f18-97e2-5880efad6ccb"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_GezagvoerderSpecialkey",
+                                        "implHandler": [
+                                            "if(e.getKey() == Ext.EventObject.ENTER)\r",
+                                            "{\r",
+                                            "    Ext.StartlijstInvoerForm.onEnter();\r",
+                                            "}"
+                                        ],
+                                        "name": "specialkey",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_GezagvoerderSpecialkey",
+                                    "designerId": "eb58a070-4203-4dbd-bc2a-4a8367d4f085"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processStartInvoer_Gezagvoerder",
+                                        "implHandler": [
+                                            "config.plugins = ['clearbutton']; \r",
+                                            "return config; "
+                                        ]
+                                    },
+                                    "name": "processStartInvoer_Gezagvoerder",
+                                    "designerId": "2b772ed8-c7c8-4adc-a57f-74f307a48398"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 16,
+                                "id": "Euro",
+                                "layout|x": 360,
+                                "layout|y": 3,
+                                "src": "images/euro-16.gif",
+                                "width": 16
+                            },
+                            "name": "MyImg2",
+                            "designerId": "2713a366-0591-4676-9065-e80dbfbbf195"
+                        },
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 16,
+                                "id": "PapierenControle",
+                                "layout|x": 345,
+                                "layout|y": 3,
+                                "src": "images/alert.gif",
+                                "width": 16
+                            },
+                            "name": "MyImg6",
+                            "designerId": "cdda0763-ab43-4cdc-9b5f-52f89511bca6"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/add.gif",
+                                "id": "StartInvoer_ToevoegenLidAlsGezagvoerder",
+                                "layout|x": 405,
+                                "layout|y": null,
+                                "text": ""
+                            },
+                            "name": "MyButton23",
+                            "designerId": "15d54c72-0583-48dc-8bd4-f0ad31b11b3b",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_ToevoegenLidAlsGezagvoerderClick",
+                                        "implHandler": [
+                                            "var view = Ext.widget('LidBeheerWindow', {'ID': -1});\r",
+                                            "view.show();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_ToevoegenLidAlsGezagvoerderClick",
+                                    "designerId": "6b3af3c3-145a-40a8-8595-9837922400be"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "De naam van de gezagvoerder is verplicht",
+                        "emptyText": "Voer naam via toetsenbord",
+                        "fieldLabel": "Naam",
+                        "id": "StartInvoer_GezagvoerderNaam",
+                        "labelAlign": "right",
+                        "labelWidth": 85,
+                        "margin": null,
+                        "maxLength": 45,
+                        "maxLengthText": "Dit veld mag maximaaal {0} tekens bevatten",
+                        "msgTarget": "side",
+                        "name": "VLIEGERNAAM",
+                        "tabIndex": 21,
+                        "width": 400
+                    },
+                    "name": "MyTextField21",
+                    "designerId": "b71ccc7d-18ad-43b4-bb65-134a4b162e73",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value"
+                                ],
+                                "fn": "validator",
+                                "implHandler": [
+                                    "return Ext.StartlijstInvoerForm.ValiderenGezagvoerderNaam(value);"
+                                ]
+                            },
+                            "name": "validator",
+                            "designerId": "ed116e61-a983-4cfa-a60e-f89bc7a3e34c"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_GezagvoerderNaamSpecialkey",
+                                "implHandler": [
+                                    "if(e.getKey() == Ext.EventObject.ENTER)\r",
+                                    "{\r",
+                                    "    Ext.StartlijstInvoerForm.onEnter();\r",
+                                    "}"
+                                ],
+                                "name": "specialkey",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_GezagvoerderNaamSpecialkey",
+                            "designerId": "3bec4b56-7d56-456f-a596-82bd6bbcc4c9"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "fn": "processStartInvoer_GezagvoerderNaam",
+                                "implHandler": [
+                                    "config.plugins = ['clearbutton']; \r",
+                                    "return config; "
+                                ]
+                            },
+                            "name": "processStartInvoer_GezagvoerderNaam",
+                            "designerId": "e4474659-a07c-4590-a054-1f1261b19028"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 25,
+                        "id": "StartInvoer_InzittendeContainer",
+                        "layout": "absolute"
+                    },
+                    "name": "MyContainer8",
+                    "designerId": "83c9dcec-49aa-4af9-be91-e01ebe10232e",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "NAAM",
+                                "emptyText": "Kies naam uit de lijst",
+                                "enableKeyEvents": true,
+                                "fieldLabel": "Achterin",
+                                "forceSelection": true,
+                                "id": "StartInvoer_Inzittende",
+                                "labelAlign": "right",
+                                "labelWidth": 85,
+                                "minChars": null,
+                                "msgTarget": "side",
+                                "name": "INZITTENDE_ID",
+                                "primaryFilterOnKeyInput": "true",
+                                "queryDelay": 100,
+                                "queryMode": "local",
+                                "store": "Startlijst_Inzittende_Store",
+                                "tabIndex": 30,
+                                "valueField": "ID",
+                                "width": 395
+                            },
+                            "name": "MyComboBox13",
+                            "designerId": "5f575341-874d-42c5-a041-44285be31c38",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilter",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilterOnKeyInput",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "primaryFilterBy",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onFocusInvoerInzittende",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onFocusInvoerInzittende(field, eOpts);"
+                                        ],
+                                        "name": "focus",
+                                        "scope": "me"
+                                    },
+                                    "name": "onFocusInvoerInzittende",
+                                    "designerId": "115783b8-3fd8-4fa5-90d7-414c707bbd3b"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_InzittendeChange",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onStartInvoer_InzittendeChange(field, newValue, oldValue, eOpts);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_InzittendeChange",
+                                    "designerId": "cd629da3-baf9-4c21-bd90-77366ade1bb4"
+                                },
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.StartlijstInvoerForm.ValiderenInzittende(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "daea9380-bed4-45ee-a66b-1f78dc1e80c0"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_InzittendeSpecialkey",
+                                        "implHandler": [
+                                            "if(e.getKey() == Ext.EventObject.ENTER)\r",
+                                            "{\r",
+                                            "    Ext.StartlijstInvoerForm.onEnter();\r",
+                                            "}"
+                                        ],
+                                        "name": "specialkey",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_InzittendeSpecialkey",
+                                    "designerId": "f8df6a2d-0ded-4f72-9d5b-68da66117e21"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processStartInvoer_Inzittende",
+                                        "implHandler": [
+                                            "config.plugins = ['clearbutton']; \r",
+                                            "return config; "
+                                        ]
+                                    },
+                                    "name": "processStartInvoer_Inzittende",
+                                    "designerId": "8f7bdbec-ddde-46b2-8b30-af2758489d5a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/change.gif",
+                                "id": "StartInvoer_WisselVliegerInzittende",
+                                "layout|x": 405,
+                                "layout|y": null,
+                                "text": ""
+                            },
+                            "name": "MyButton24",
+                            "designerId": "7021a261-2047-4c41-b4d4-97293ec46f17",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_WisselVliegerInzittenderClick",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.WisselVliegerInzittende();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_WisselVliegerInzittenderClick",
+                                    "designerId": "d3bafbe9-93f4-433f-9c2f-e5219a9758a1"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Voer naam in via toetsenbord",
+                        "fieldLabel": "Achterin",
+                        "id": "StartInvoer_InzittendeNaam",
+                        "labelAlign": "right",
+                        "labelWidth": 80,
+                        "margin": "5px 5px  5px 0",
+                        "maxLength": 45,
+                        "maxLengthText": "Dit veld mag maximaaal {0} tekens bevatten",
+                        "msgTarget": "side",
+                        "name": "INZITTENDENAAM",
+                        "tabIndex": 31,
+                        "width": 395
+                    },
+                    "name": "MyTextField22",
+                    "designerId": "f580b1bf-5366-4327-b3cf-91767dbbb044",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_InzittendeNaamSpecialkey",
+                                "implHandler": [
+                                    "if(e.getKey() == Ext.EventObject.ENTER)\r",
+                                    "{\r",
+                                    "    Ext.StartlijstInvoerForm.onEnter();\r",
+                                    "}"
+                                ],
+                                "name": "specialkey",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_InzittendeNaamSpecialkey",
+                            "designerId": "4a9ae381-41db-4452-85e9-788380978bfe"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "fn": "processStartInvoer_InzittendeNaam",
+                                "implHandler": [
+                                    "config.plugins = ['clearbutton']; \r",
+                                    "return config; "
+                                ]
+                            },
+                            "name": "processStartInvoer_InzittendeNaam",
+                            "designerId": "3bbcb960-1321-4a87-9930-d62f95dabb47"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 0,
+                        "container|align": null,
+                        "height": null,
+                        "id": "StartInvoer_SoortVluchtPanel",
+                        "layout": "hbox",
+                        "minHeight": null,
+                        "resizeHandles": "n",
+                        "title": "",
+                        "width": 400
+                    },
+                    "name": "MyPanel21",
+                    "configAlternates": {
+                        "resizable": "boolean"
+                    },
+                    "designerId": "c7e6dcb4-2138-481f-8835-aa2cfe7e48e3",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "animCollapse": false,
+                                "baseCls": null,
+                                "bodyBorder": false,
+                                "bodyStyle": [
+                                    "border: 0px;",
+                                    ""
+                                ],
+                                "cls": "AITV-grid",
+                                "collapseFirst": false,
+                                "enableColumnHide": false,
+                                "enableColumnMove": false,
+                                "enableColumnResize": false,
+                                "forceFit": false,
+                                "formBind": false,
+                                "frameHeader": false,
+                                "height": null,
+                                "hideHeaders": true,
+                                "id": "StartInvoer_SoortVlucht",
+                                "layout|flex": 1,
+                                "maxHeight": null,
+                                "maxWidth": 370,
+                                "scroll": "vertical",
+                                "sortableColumns": false,
+                                "store": "Types_SoortVlucht_Store",
+                                "title": null,
+                                "width": null
+                            },
+                            "name": "MyGridPanel10",
+                            "designerId": "c667addf-7f6c-478a-ae3d-ea57618b6691",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "baseCls": null,
+                                        "border": null,
+                                        "dataIndex": "OMSCHRIJVING",
+                                        "flex": 1,
+                                        "hideable": false,
+                                        "id": null,
+                                        "maintainFlex": null,
+                                        "text": ""
+                                    },
+                                    "name": "MyColumn64",
+                                    "designerId": "c9ea5625-5895-4eed-b38f-eea0104f201c"
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "border": null,
+                                        "frame": false,
+                                        "height": null,
+                                        "id": null,
+                                        "margin": "0px 85px",
+                                        "maxHeight": 180,
+                                        "selectedItemCls": null,
+                                        "stripeRows": false
+                                    },
+                                    "name": "MyGridView10",
+                                    "designerId": "3ced5c65-ec05-48d2-9b5b-956131ddd4c7"
+                                },
+                                {
+                                    "type": "Ext.selection.CheckboxModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": "Ext.selection.CheckboxModel",
+                                    "userConfig": {
+                                        "allowDeselect": true,
+                                        "checkOnly": true,
+                                        "mode": "SINGLE"
+                                    },
+                                    "name": "MyCheckboxSelectionModel2",
+                                    "designerId": "f77619e0-65d9-4927-a785-c5e73db74124"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_SoortVluchtSelectionChange",
+                                        "implHandler": [
+                                            "// De soort vlucht is aangepast, voer onderstaande scripts uit\r",
+                                            "Ext.StartlijstInvoerForm.onStartInvoer_SoortVluchtSelectionChange(model, selected, eOpts);"
+                                        ],
+                                        "name": "selectionchange",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_SoortVluchtSelectionChange",
+                                    "designerId": "5a2d0eea-44c4-47c0-80a9-5496a92c15df"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_SoortVluchtItemClick",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onStartInvoer_SoortVluchtItemClick(dataview, record, item, index, e, eOpts);"
+                                        ],
+                                        "name": "itemclick",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_SoortVluchtItemClick",
+                                    "designerId": "1bc74d5b-5693-4a2a-8a62-0bc0817a9618"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "hideEmptyLabel": null,
+                                "hideLabel": true,
+                                "id": "StartInvoer_SoortVluchtID",
+                                "invalidCls": "q",
+                                "layout|flex": null,
+                                "msgTarget": "side",
+                                "name": "SOORTVLUCHT_ID",
+                                "readOnly": true,
+                                "tabIndex": 110,
+                                "width": 30
+                            },
+                            "name": "MyTextField23",
+                            "designerId": "edef6e48-d00d-4f5d-8d28-291b72f2cf12",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "return Ext.StartlijstInvoerForm.ValiderenSoortVlucht(value);"
+                                        ]
+                                    },
+                                    "name": "validator",
+                                    "designerId": "5d6a2b71-76a7-4a14-b645-a8b374f2bdd6"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "NAAM",
+                        "emptyText": "Kies naam uit de lijst",
+                        "fieldLabel": "Op rekening",
+                        "forceSelection": true,
+                        "id": "StartInvoer_OpRekening",
+                        "labelAlign": "right",
+                        "labelWidth": 85,
+                        "msgTarget": "side",
+                        "name": "OP_REKENING_ID",
+                        "primaryFilterOnKeyInput": "false",
+                        "queryDelay": 100,
+                        "queryMode": "local",
+                        "store": "Startlijst_OpRekening_Store",
+                        "tabIndex": 40,
+                        "typeAhead": true,
+                        "valueField": "ID",
+                        "vtypeText": "Invullen wie de rekening betaald",
+                        "width": 395
+                    },
+                    "name": "MyComboBox14",
+                    "designerId": "b20f2a64-c1e0-4f00-a60b-2c2ae2885a29",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "primaryFilterBy",
+                            "type": "string"
+                        },
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "primaryFilter",
+                            "type": "string"
+                        },
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "primaryFilterOnKeyInput",
+                            "type": "string"
+                        }
+                    ],
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoerOpRekeningFocus",
+                                "implHandler": [
+                                    "// Het veld op wie zijn rekening de vlucht komt krijgt nu de focus, voer het onderstaande script uit\r",
+                                    "Ext.StartlijstInvoerForm.onStartInvoerOpRekeningFocus(field, eOpts);"
+                                ],
+                                "name": "focus",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoerOpRekeningFocus",
+                            "designerId": "76c70a4a-7e2d-495f-94be-81a47d3bc616"
+                        },
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value"
+                                ],
+                                "fn": "validator",
+                                "implHandler": [
+                                    "return Ext.StartlijstInvoerForm.ValiderenOpRekening(value);"
+                                ]
+                            },
+                            "name": "validator",
+                            "designerId": "8f5099e7-9eb7-4590-971e-9f3bf387a78b"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_OpRekeningChange",
+                                "implHandler": [
+                                    "// Het veld op wie zijn rekening de vlucht komt is gewijzigd, voer het onderstaande script uit\r",
+                                    "Ext.StartlijstInvoerForm.onStartInvoer_OpRekeningChange(field, newValue, oldValue, eOpts);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_OpRekeningChange",
+                            "designerId": "95c9d57c-c129-4556-b6c4-7e50b01ddbaa"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 0,
+                        "designer|snapToGrid": 10,
+                        "height": 70,
+                        "layout": "absolute",
+                        "title": ""
+                    },
+                    "name": "MyPanel22",
+                    "designerId": "f6fac9ed-45b1-4cd7-8d1c-ee6d109edad9",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "...",
+                                "fieldLabel": "Opmerking",
+                                "growMax": null,
+                                "height": null,
+                                "id": "StartInvoer_Opmerking",
+                                "labelAlign": "right",
+                                "labelWidth": 85,
+                                "msgTarget": "side",
+                                "name": "OPMERKING",
+                                "tabIndex": 50,
+                                "width": 395
+                            },
+                            "name": "MyTextField24",
+                            "designerId": "c92c4128-c53d-4b23-8dac-5a8244526b86",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_OpmerkingSpecialkey",
+                                        "implHandler": [
+                                            "if(e.getKey() == Ext.EventObject.ENTER)\r",
+                                            "{\r",
+                                            "    Ext.StartlijstInvoerForm.onEnter();\r",
+                                            "}"
+                                        ],
+                                        "name": "specialkey",
+                                        "scope": "me"
+                                    },
+                                    "name": "onStartInvoer_OpmerkingSpecialkey",
+                                    "designerId": "626cfbf9-fd3f-4642-9da9-a73c26adf554"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processStartInvoer_Opmerking",
+                                        "implHandler": [
+                                            "config.plugins = ['clearbutton']; \r",
+                                            "return config; "
+                                        ]
+                                    },
+                                    "name": "processStartInvoer_Opmerking",
+                                    "designerId": "774eecc0-76be-4ff8-8674-6ff24d0c6c0e"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "formBind": false,
+                                "height": 40,
+                                "icon": null,
+                                "iconCls": null,
+                                "id": "StartInvoer_Opslaan",
+                                "layout|y": 30,
+                                "margin": "0px 320px",
+                                "padding": "",
+                                "tabIndex": 60,
+                                "text": "Opslaan",
+                                "width": 80
+                            },
+                            "name": "MyButton25",
+                            "designerId": "e1607290-4240-45ed-aa2a-c76633eeccfb",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onButtonClick(button, e, eOpts);"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "4cd2e392-617d-426d-a8bc-9477952b69bf"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "StartInvoer_ID",
+                        "name": "ID"
+                    },
+                    "name": "MyHiddenField10",
+                    "designerId": "c2a9fe29-122b-4495-8246-2edcd14d4116"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "StartInvoer_Datum",
+                        "layout|anchor": "100%",
+                        "name": "DATUM"
+                    },
+                    "name": "MyHiddenField11",
+                    "designerId": "dbde60fb-5624-41c7-a94a-03bf3c4655cf"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onStartInvoerWindowShow",
+                "implHandler": [
+                    "// Voer dit script uit bij het openen van het invoer window",
+                    "Ext.StartlijstInvoerForm.onStartInvoerWindowShow(component, eOpts, this.ID, this.GRID, this.GRIDPAGE);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onStartInvoerWindowShow",
+            "designerId": "abda3e9d-050e-4f60-a793-fab3505ecc56"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onStartInvoerWindowBeforeClose",
+                "implHandler": [
+                    "Ext.StartlijstInvoerForm.beforeClose(panel, eOpts);"
+                ],
+                "name": "beforeclose",
+                "scope": "me"
+            },
+            "name": "onStartInvoerWindowBeforeClose",
+            "designerId": "aacdcd1e-4d00-4d62-9cc3-02a867c87c41"
+        }
+    ]
+}

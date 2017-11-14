@@ -1,0 +1,114 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoSync": true,
+        "designer|userClassName": "StartLijstVoorFlarm_Store",
+        "model": "StartLijstVoorFlarm_Model",
+        "remoteSort": true,
+        "storeId": "StartLijstVoorFlarm_Store"
+    },
+    "designerId": "31fffc4b-7232-48e3-8052-9b6a36d42cd2",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "simpleSortMode": true,
+                "url": "php/main.php?Action=Startlijst.StartLijstVoorFlarmJSON"
+            },
+            "name": "MyAjaxProxy27",
+            "designerId": "7456e692-405a-4ecd-aff6-63cfbdfb2ac8",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "idProperty": "ID",
+                        "root": "results"
+                    },
+                    "name": "MyJsonReader27",
+                    "designerId": "e86de580-969f-408a-92e6-3e3d1cc874e1"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onAjaxproxyException",
+                        "implHandler": [
+                            "HandleStoreLoadException(proxy, response, operation, eOpts);\t// toon de gebruiker dat er een fout is opgetreden"
+                        ],
+                        "name": "exception",
+                        "scope": "me"
+                    },
+                    "name": "onAjaxproxyException",
+                    "designerId": "9bf7c067-6d65-4998-952f-0ded25bce47a"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "delay": null,
+                "fn": "onJsonstoreLoad",
+                "implHandler": [
+                    "\r",
+                    "Ext.win.showLoading(false, store.storeId);\t// verwijder window met melding van \"ophalen data\"\r",
+                    "\r",
+                    "// toon hoe veel tijd nodig is geweest voor het laden \r",
+                    "console.log(sprintf(\"%s: storeLoad storeId=%s processing time=%d msec\", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));\t"
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "name": "onJsonstoreLoad",
+            "designerId": "5daecd41-1bdb-43ed-9a10-99d4b0a69598"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreBeforeLoad",
+                "implHandler": [
+                    "var datumVeld = Ext.getCmp('StartlijstDatum').getValue();\r",
+                    "Ext.data.storeLoadStart[store.storeId] = new Date().getTime();\t// zet een begintijd om de performance te meten\r",
+                    "\r",
+                    "if (datumVeld !== null)\r",
+                    "{\r",
+                    "    var d = sprintf(\"%s-%s-%s\", datumVeld.getFullYear(), datumVeld.getMonth()+1, datumVeld.getDate());\r",
+                    "    store.getProxy().setExtraParam('_:datum', d);\r",
+                    "}"
+                ],
+                "name": "beforeload",
+                "scope": "me"
+            },
+            "name": "onJsonstoreBeforeLoad",
+            "designerId": "7cb7218d-3531-424c-9c01-cf17b27b1d49"
+        }
+    ]
+}

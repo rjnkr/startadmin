@@ -1,0 +1,218 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "CopyStarttijdWindow",
+        "designer|userClassName": "CopyStarttijdWindow",
+        "height": 148,
+        "id": "StarttijdWindow1",
+        "modal": true,
+        "resizable": [
+            "false"
+        ],
+        "title": "Starttijd overnemen",
+        "width": 274
+    },
+    "designerId": "02ba24b8-3ad9-45c5-960d-0b3170fbac24",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|snapToGrid": 10,
+                "height": 115,
+                "id": "StartCopyForm",
+                "layout": "absolute",
+                "primaryFilterOnKeyInput": "true",
+                "resizable": null,
+                "title": "",
+                "trackResetOnLoad": true,
+                "url": "php/main.php?Action=Controle.SaveStartTijd",
+                "width": 265
+            },
+            "name": "MyForm3",
+            "designerId": "be789878-38f1-46a6-89c9-a218cba1e08d",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "primaryFilterOnKeyInput",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "",
+                        "hideEmptyLabel": false,
+                        "id": "CopyStarttijd_ID",
+                        "labelWidth": 0,
+                        "layout|x": 35,
+                        "layout|y": 210,
+                        "name": "ID",
+                        "width": 50
+                    },
+                    "name": "MyHiddenField6",
+                    "designerId": "56e1fc5e-8cc3-4c80-8d68-4a106d867281"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "formBind": true,
+                        "height": 30,
+                        "icon": null,
+                        "iconCls": null,
+                        "id": "StartCopy_Overnemen",
+                        "layout|x": 75,
+                        "layout|y": 40,
+                        "text": "Overnemen",
+                        "width": 75
+                    },
+                    "name": "MyButton17",
+                    "designerId": "df4c3441-0d3c-4e98-9190-70ad8ff05ad2",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartCopy_OvernemenClick",
+                                "implHandler": [
+                                    "Ext.Controle.onStartCopy_OvernemenClick(button, e, eOpts);\r",
+                                    "\r",
+                                    "// Geeft de opslaan button een kleurtje op basis van de data velden\r",
+                                    "Ext.AanpassenButtonOpslaan(Ext.getCmp('StartCopyForm'), Ext.getCmp('StartCopy_Opslaan'));"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onStartCopy_OvernemenClick",
+                            "designerId": "d6c24678-6fe7-4e88-80a5-187fe83f35fa"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "formBind": true,
+                        "height": 40,
+                        "icon": null,
+                        "iconCls": null,
+                        "id": "StartCopy_Opslaan",
+                        "layout|x": 170,
+                        "layout|y": 65,
+                        "text": "Opslaan",
+                        "width": 80
+                    },
+                    "name": "MyButton18",
+                    "designerId": "28ea3b38-c867-4aac-a93b-9d89897f4082",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartCopy_OpslaanClick",
+                                "implHandler": [
+                                    "Ext.Controle.onStartCopy_OpslaanClick(button, e, eOpts);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onStartCopy_OpslaanClick",
+                            "designerId": "531ff7e0-002a-4b43-baf4-06d3743f1d90"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Starttijd",
+                        "id": "StartSA_Text",
+                        "labelWidth": 60,
+                        "layout|x": 10,
+                        "layout|y": 10,
+                        "name": "SA_STARTTIJD",
+                        "readOnly": true,
+                        "width": 140
+                    },
+                    "name": "MyTextField16",
+                    "designerId": "d7c976db-98ec-4376-9737-e915bdd05229"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Flarm",
+                        "id": "StartFlarm_Text",
+                        "labelWidth": 60,
+                        "layout|x": 10,
+                        "layout|y": 80,
+                        "name": "FLARM_STARTTIJD",
+                        "readOnly": true,
+                        "width": 140
+                    },
+                    "name": "MyTextField17",
+                    "designerId": "c0d9d067-c093-40e1-8231-e1fb2c0e9b43"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "Ext.Controle.onStartCopyWindowShow(component, eOpts, this.ID);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onWindowShow",
+            "designerId": "414c7b42-e5b3-4941-b09b-4afc7f66710f"
+        }
+    ]
+}

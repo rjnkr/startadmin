@@ -1,0 +1,102 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StartLijst_VliegtuigenTreeview_Store",
+        "folderSort": true,
+        "model": "Startlijst_VliegtuigenTreeview_Model",
+        "root": null,
+        "storeId": "StartLijst_VliegtuigenTreeview_Store"
+    },
+    "name": "StartLijst_VliegerTreeview_Store1",
+    "designerId": "b379f0de-75a9-4b65-a56a-b09e1661881e",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "php/main.php?Action=Startlijst.VliegtuigenTreeviewJSON"
+            },
+            "name": "MyAjaxProxy3",
+            "designerId": "6d4701bd-16a7-4b7a-8352-7283ce7bd600",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "idProperty": null,
+                        "record": null,
+                        "root": null
+                    },
+                    "name": "MyJsonReader3",
+                    "designerId": "d19cfc62-db55-4af8-a0a5-265aa411114e"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTreeStoreBeforeLoad",
+                "implHandler": [
+                    "\r",
+                    "try\r",
+                    "{ \r",
+                    "    var datumVeld = Ext.getCmp('StartlijstDatum').getValue();\r",
+                    "    Ext.data.storeLoadStart[store.storeId] = new Date().getTime();\t// zet een begintijd om de performance te meten\r",
+                    "    \r",
+                    "    if (datumVeld !== null)\r",
+                    "    {\r",
+                    "        var d = sprintf(\"%s-%s-%s\", datumVeld.getFullYear(), datumVeld.getMonth()+1, datumVeld.getDate());\r",
+                    "        store.getProxy().setExtraParam('_:datum', d);\r",
+                    "    }\r",
+                    "}\r",
+                    "catch(err)\r",
+                    "{\r",
+                    "}\r",
+                    ""
+                ],
+                "name": "beforeload",
+                "scope": "me"
+            },
+            "name": "onTreeStoreBeforeLoad",
+            "designerId": "fe28301b-522f-4c60-8d43-604300dca66f"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTreeStoreLoad",
+                "implHandler": [
+                    "// toon hoe veel tijd nodig is geweest voor het laden \r",
+                    "console.log(sprintf(\"%s: storeLoad storeId=%s processing time=%d msec\", TijdStempel(), treestore.storeId, (new Date().getTime() - Ext.data.storeLoadStart[treestore.storeId])));\t\r",
+                    ""
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "name": "onTreeStoreLoad",
+            "designerId": "bb8be662-4bb5-4ef5-8869-766bc4687dd3"
+        }
+    ]
+}

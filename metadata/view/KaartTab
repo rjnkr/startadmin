@@ -1,0 +1,257 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "kaarttab",
+        "designer|userClassName": "KaartTab",
+        "hidden": true,
+        "id": "KaartTab",
+        "title": "Kaart"
+    },
+    "name": "MyPanel14",
+    "designerId": "218709af-1741-47cb-808f-b24287cd0f9e",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "hbox",
+                "minHeight": 200
+            },
+            "name": "MyContainer2",
+            "designerId": "55bb9fb1-6723-4198-a775-478fc2aba6e7",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frameHeader": false,
+                        "html": [
+                            "<div style=\"width:100%; height:100%\" id=\"map\"></div>"
+                        ],
+                        "id": "mapPanel",
+                        "layout": "fit",
+                        "layout|flex": 5,
+                        "minHeight": 100,
+                        "title": null,
+                        "width": 150
+                    },
+                    "name": "MyPanel15",
+                    "designerId": "5ea8a004-f255-4ca9-ac20-e1d5d6e34a95"
+                },
+                {
+                    "type": "Ext.resizer.Splitter",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MySplitter2",
+                    "designerId": "01752396-1719-4d29-8c4e-99e16315b4d9"
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frameHeader": false,
+                        "hideHeaders": true,
+                        "layout|flex": 1,
+                        "maxWidth": 170,
+                        "store": "FlarmPosities_Store",
+                        "title": null
+                    },
+                    "name": "MyGridPanel5",
+                    "designerId": "295d72ef-2cdb-4434-a41d-8d10cf4f202a",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "REG_CALL",
+                                "flex": 1,
+                                "text": "Registratie"
+                            },
+                            "name": "MyColumn40",
+                            "designerId": "117ee2b8-c4e2-40c5-8c07-a6a5c7329a5c",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "var ret = \"<b>\" + value + \"</b><br>\";\r",
+                                            "ret = ret + \"<table><tr>\"\r",
+                                            "ret = ret + \"<td width=50px>\" + record.data.SPEED + \" km/h </td>\";\r",
+                                            "ret = ret + \"<td width=40px>\" + record.data.VERTICAL + \" m </td>\";\r",
+                                            "ret = ret + \"<td width=30px>\" + record.data.ROC + \" m/s </td>\";\r",
+                                            "ret = ret + \"</tr></table>\";\r",
+                                            "\r",
+                                            "return ret;"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "7413e96a-6ef1-494a-b522-a7325cf4c9b7"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView5",
+                            "designerId": "3e3477b8-fc4e-4d5a-a49f-528a62cd3411"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onKaartTabAfterRender",
+                "implHandler": [
+                    "var KaartTab = Ext.getCmp(\"KaartTab\");\r",
+                    "var mapPanel = Ext.getCmp(\"mapPanel\");\r",
+                    "\r",
+                    "mapPanel.setHeight(KaartTab.getHeight());\r",
+                    "InitializeKaart();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onKaartTabAfterRender",
+            "designerId": "1c3a0ff3-4424-4fa0-9c43-91ef6cd0502c"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onKaartTabResize",
+                "implHandler": [
+                    "var KaartTab = Ext.getCmp(\"KaartTab\");\r",
+                    "var mapPanel = Ext.getCmp(\"mapPanel\");\r",
+                    "\r",
+                    "mapPanel.setHeight(KaartTab.getHeight());\r",
+                    "ResizeKaart();"
+                ],
+                "name": "resize",
+                "scope": "me"
+            },
+            "name": "onKaartTabResize",
+            "designerId": "3590d9c3-5dc2-4a1d-8245-22164822a6a4"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "height": null
+            },
+            "name": "MyToolbar5",
+            "designerId": "8565f10f-4e83-44b7-b81e-5291a2b4c74e",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableToggle": true,
+                        "icon": "images/filter.png",
+                        "id": "FilterOnderdrukKistenOpdeGrond",
+                        "layout|flex": null,
+                        "text": "Filter"
+                    },
+                    "name": "MyButton12",
+                    "designerId": "aa0d194b-5c28-4b19-8149-38768bac363d",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onFilterOnderdrukKistenOpdeGrondToggle",
+                                "implHandler": [
+                                    "// Verwijder alle vliegtuigen van de kaart\r",
+                                    "ClearMarkers();\r",
+                                    "\r",
+                                    "// Als de knop FILTER is veranderd dan opnieuw laden van de store. Gevolg is dat de lijst\r",
+                                    "// met vliegtuigen ververst wordt. Door Push = true wordt door de server ook alle vliegtuigen\r",
+                                    "// verstuurd op de websocket. Gevolgs is dat de kaart ook aangepast wordt\r",
+                                    "var store = Ext.data.StoreManager.lookup('FlarmPosities_Store');\t\r",
+                                    "store.load({\r",
+                                    "    params: \r",
+                                    "    {\r",
+                                    "        'Push':true\r",
+                                    "    }\r",
+                                    "});\r",
+                                    ""
+                                ],
+                                "name": "toggle",
+                                "scope": "me"
+                            },
+                            "name": "onFilterOnderdrukKistenOpdeGrondToggle",
+                            "designerId": "90bf5929-d5c0-4806-953b-13058cb4474b"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

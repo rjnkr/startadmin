@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js17",
+        "url": "js/Hoofdscherm.js",
+        "x-compile": true
+    },
+    "designerId": "8b9353f9-65b9-4184-aebb-b585ad4c3e7a"
+}

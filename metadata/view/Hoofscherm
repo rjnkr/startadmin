@@ -1,0 +1,181 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "activeTab": 0,
+        "designer|userAlias": "Hoofdscherm",
+        "designer|userClassName": "Hoofscherm",
+        "hidden": true,
+        "hideCollapseTool": true,
+        "id": "HoofdScherm",
+        "itemId": "",
+        "maxTabWidth": 90
+    },
+    "name": "MyTabPanel",
+    "designerId": "3f43bd28-5a5e-4664-863d-e4670bc00c40",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onHoofdSchermResize",
+                "implHandler": [
+                    "Ext.Hoofdscherm.CalcStarlijstGrid();",
+                    "Ext.Hoofdscherm.CalcLedenGrid();",
+                    "Ext.Hoofdscherm.CalcVliegtuigenGrid();",
+                    "Ext.Hoofdscherm.CalcControleGrid();"
+                ],
+                "name": "resize",
+                "scope": "me"
+            },
+            "name": "onHoofdSchermResize",
+            "designerId": "18568e89-83bb-4cc3-a1b7-5a4ef35efb7b"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "startlijsttab",
+            "designerId": "5d1dbf12-f94c-4ff2-9f21-0b59abd6c492",
+            "masterInstanceId": "ac1fd164-b83f-4cf8-875b-2805e437e6bb",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig",
+                    "designerId": "3540d731-d4b4-4ed3-b787-2927ffeb7093"
+                }
+            ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "daginfotab",
+            "designerId": "db1aa419-3bf6-49d3-a857-c6edd1d34f6b",
+            "masterInstanceId": "fb7052c5-9591-4586-ac1c-0cd243ced9b9",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig4",
+                    "designerId": "c48b98cf-c506-4caf-83fb-12f1414799f0"
+                }
+            ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "ledentab",
+            "designerId": "ba039f2d-d59f-4d9b-ad66-fec27e442347",
+            "masterInstanceId": "7732724d-d588-433f-91bd-fea97d2f8703",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig5",
+                    "designerId": "e6497d67-f21d-4877-9a72-fdd5fffdb5e0"
+                }
+            ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "vliegtuigentab",
+            "designerId": "0c5dcde5-af97-41f3-8e6c-0fc929814b76",
+            "masterInstanceId": "0ad13a65-4ad0-4bec-a281-60cedce5c4d8",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig6",
+                    "designerId": "95edb907-9df9-4ca5-80f6-e49d86055d89"
+                }
+            ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "kaarttab",
+            "designerId": "0ecbf2f5-dc71-4a71-a23b-cb298a804fd4",
+            "masterInstanceId": "218709af-1741-47cb-808f-b24287cd0f9e",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig7",
+                    "designerId": "c3132835-ddfc-4117-b085-af7076f33d90"
+                }
+            ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "controletab",
+            "designerId": "aad7bc47-724d-4cd7-a0e5-4f08013904b4",
+            "masterInstanceId": "a5dcd9b6-e8cf-46be-8e6f-695a5a57fb86",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig8",
+                    "designerId": "65e4dd72-528b-4d92-8260-971001451cfb"
+                }
+            ]
+        }
+    ]
+}

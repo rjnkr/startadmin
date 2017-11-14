@@ -1,0 +1,799 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "RoosterWindow",
+        "designer|userClassName": "RoosterWindow",
+        "height": null,
+        "id": "RoosterWindow",
+        "modal": true,
+        "resizable": [
+            "false"
+        ],
+        "title": "Rooster",
+        "width": 656
+    },
+    "designerId": "2953f153-ba40-4aad-8d70-12b61d12ac09",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "baseCls": "title",
+                "cls": null,
+                "height": 48,
+                "layout": "table",
+                "title": ""
+            },
+            "name": "MyPanel24",
+            "designerId": "a7cf4ff6-128d-49d5-ba83-a8328d8c5d5d",
+            "cn": [
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": null,
+                        "src": "images/rooster.png",
+                        "width": null
+                    },
+                    "name": "MyImg3",
+                    "designerId": "b704cace-9eab-4c79-ad13-eaaf8970f74b"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": null,
+                        "cls": "titel",
+                        "dock": null,
+                        "frame": true,
+                        "id": "Rooster_Titel",
+                        "padding": "10px",
+                        "text": "Rooster",
+                        "width": null
+                    },
+                    "name": "MyLabel3",
+                    "designerId": "398a1eb9-66d0-4359-a4ba-e79aedf32ed7"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "defaults": null,
+                "frameHeader": false,
+                "id": "RoosterForm",
+                "title": "",
+                "url": null
+            },
+            "name": "MyForm9",
+            "designerId": "5724f390-c449-4e9a-80b6-db75638f59df",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": null,
+                        "designer|snapToGrid": 10,
+                        "height": 130,
+                        "layout": "absolute",
+                        "margin": 10,
+                        "title": "Ochtend",
+                        "width": 606
+                    },
+                    "name": "MyPanel25",
+                    "designerId": "8b3c9561-f2e7-4d2f-9056-01c6f3f90a62",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "disabledCls": "x-item",
+                                "enableKeyEvents": null,
+                                "fieldLabel": "DDI",
+                                "formBind": null,
+                                "id": "TextboxRoosterOchtendDDI",
+                                "labelAlign": "right",
+                                "layout|x": -29,
+                                "layout|y": 10,
+                                "msgTarget": "side",
+                                "name": "OCHTEND_DDI",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField31",
+                            "designerId": "458e8c46-d8d6-410b-80b7-bd0c087d04be"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/ictxt.gif",
+                                "iconCls": null,
+                                "id": "ButtonCopyOchtendDDI",
+                                "layout|x": 280,
+                                "layout|y": 10,
+                                "text": "",
+                                "width": 20
+                            },
+                            "name": "MyButton28",
+                            "designerId": "67278442-7472-4c90-afed-f27968104718",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonCopyOchtendDDIClick",
+                                        "implHandler": [
+                                            "Ext.getCmp('TextboxInfoOchtendDDI').setValue(Ext.getCmp('TextboxRoosterOchtendDDI').getValue());"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonCopyOchtendDDIClick",
+                                    "designerId": "1c3b50ff-8997-4fb0-ae92-813d1d6fca48"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "disabledCls": "x-item",
+                                "fieldLabel": "Instructeur",
+                                "formBind": null,
+                                "id": "TextboxRoosterOchtendInstructeur",
+                                "labelAlign": "right",
+                                "labelWidth": 75,
+                                "layout|x": 300,
+                                "layout|y": 10,
+                                "name": "OCHTEND_INSTRUCTEUR",
+                                "selectOnFocus": true,
+                                "width": 270
+                            },
+                            "name": "MyTextField32",
+                            "designerId": "b140e0b0-c87b-4224-9321-c90e276ea796"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/ictxt.gif",
+                                "iconCls": null,
+                                "id": "ButtonCopyOchtendInstructeur",
+                                "layout|x": 580,
+                                "layout|y": 10,
+                                "text": "",
+                                "width": 20
+                            },
+                            "name": "MyButton29",
+                            "designerId": "84af9d7c-3f6f-4c6d-bb82-70df302ef5a0",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonCopyOchtendInstructeurClick",
+                                        "implHandler": [
+                                            "Ext.getCmp('TextboxInfoOchtendInstructeur').setValue(Ext.getCmp('TextboxRoosterOchtendInstructeur').getValue());"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonCopyOchtendInstructeurClick",
+                                    "designerId": "2bda7659-dcea-49e7-9ab6-69dce0d1105d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "disabledCls": "x-item",
+                                "fieldLabel": "Lierist",
+                                "id": "TextboxRoosterOchtendLierist",
+                                "labelAlign": "right",
+                                "layout|x": -29,
+                                "layout|y": 40,
+                                "name": "OCHTEND_LIERIST",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField33",
+                            "designerId": "98216cbe-6102-490f-b939-7356b31aac00"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/ictxt.gif",
+                                "iconCls": null,
+                                "id": "ButtonCopyOchtendLierist",
+                                "layout|x": 280,
+                                "layout|y": 40,
+                                "text": "",
+                                "width": 20
+                            },
+                            "name": "MyButton30",
+                            "designerId": "30be2984-cb7f-4c81-9bf6-cea065e4b501",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonCopyOchtendLieristClick",
+                                        "implHandler": [
+                                            "Ext.getCmp('TextboxInfoOchtendLierist').setValue(Ext.getCmp('TextboxRoosterOchtendLierist').getValue());"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonCopyOchtendLieristClick",
+                                    "designerId": "188a1182-f2a8-4ed9-a781-d0833c62a1f1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "disabledCls": "x-item",
+                                "fieldLabel": "Hulplierist",
+                                "id": "TextboxRoosterOchtendHulpLierist",
+                                "labelAlign": "right",
+                                "labelWidth": 75,
+                                "layout|x": 300,
+                                "layout|y": 40,
+                                "name": "OCHTEND_HULPLIERIST",
+                                "selectOnFocus": true,
+                                "width": 270
+                            },
+                            "name": "MyTextField34",
+                            "designerId": "2493c7c3-713e-46a9-9b70-f8b4b54f13fe"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/ictxt.gif",
+                                "iconCls": null,
+                                "id": "ButtonCopyOchtendHulpLierist",
+                                "layout|x": 580,
+                                "layout|y": 40,
+                                "text": "",
+                                "width": 20
+                            },
+                            "name": "MyButton31",
+                            "designerId": "2820614c-80ba-45a0-95b8-819077e51468",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonCopyOchtendHulpLieristClick",
+                                        "implHandler": [
+                                            "Ext.getCmp('TextboxInfoOchtendHulpLierist').setValue(Ext.getCmp('TextboxRoosterOchtendHulpLierist').getValue());"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonCopyOchtendHulpLieristClick",
+                                    "designerId": "99935120-7cf1-4a60-81cb-79d67ceeea50"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "disabledCls": "x-item",
+                                "fieldLabel": "Startleider",
+                                "id": "TextboxRoosterOchtendStartleider",
+                                "labelAlign": "right",
+                                "layout|x": -29,
+                                "layout|y": 70,
+                                "name": "OCHTEND_STARTLEIDER",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField35",
+                            "designerId": "5056ed04-3bd1-48ea-a428-f478fdc3d0dc"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/ictxt.gif",
+                                "iconCls": null,
+                                "id": "ButtonCopyOchtendStartleider",
+                                "layout|x": 280,
+                                "layout|y": 70,
+                                "text": "",
+                                "width": 20
+                            },
+                            "name": "MyButton32",
+                            "designerId": "283c03ac-01cc-46f3-ae0e-8d5769ede5c3",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonCopyOchtendStartleiderClick",
+                                        "implHandler": [
+                                            "Ext.getCmp('TextboxInfoOchtendStartleider').setValue(Ext.getCmp('TextboxRoosterOchtendStartleider').getValue());"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonCopyOchtendStartleiderClick",
+                                    "designerId": "87101bae-2736-4aec-975c-7226ff075cea"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 130,
+                        "layout": "absolute",
+                        "margin": 10,
+                        "title": "Middag",
+                        "width": 607
+                    },
+                    "name": "MyPanel26",
+                    "designerId": "8ffa4267-9268-4252-9490-98ed2ced1e81",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "disabledCls": "x-item",
+                                "fieldLabel": "DDI",
+                                "id": "TextboxRoosterMiddagDDI",
+                                "labelAlign": "right",
+                                "layout|x": -28,
+                                "layout|y": 10,
+                                "msgTarget": "side",
+                                "name": "MIDDAG_DDI",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField36",
+                            "designerId": "099d4041-ec6a-4d4b-976d-441a2b1a355c"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/ictxt.gif",
+                                "iconCls": null,
+                                "id": "ButtonCopyMiddagDDI",
+                                "layout|x": 280,
+                                "layout|y": 10,
+                                "text": "",
+                                "width": 20
+                            },
+                            "name": "MyButton33",
+                            "designerId": "854bf686-789c-4f82-91e4-febf8163ddf9",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonCopyMiddagDDIClick",
+                                        "implHandler": [
+                                            "Ext.getCmp('TextboxInfoMiddagDDI').setValue(Ext.getCmp('TextboxRoosterMiddagDDI').getValue());"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonCopyMiddagDDIClick",
+                                    "designerId": "8804e9eb-2115-46ee-b38f-e9b41ec4f4e6"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "disabledCls": "x-item",
+                                "fieldLabel": "Instructeur",
+                                "id": "TextboxRoosterMiddagInstructeur",
+                                "labelAlign": "right",
+                                "labelWidth": 75,
+                                "layout|x": 300,
+                                "layout|y": 10,
+                                "name": "MIDDAG_INSTRUCTEUR",
+                                "selectOnFocus": true,
+                                "width": 270
+                            },
+                            "name": "MyTextField37",
+                            "designerId": "9966cc60-3b9e-4927-8ef3-6f1c743f265e"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/ictxt.gif",
+                                "iconCls": null,
+                                "id": "ButtonCopyMiddagLierist",
+                                "layout|x": 280,
+                                "layout|y": 40,
+                                "text": "",
+                                "width": 20
+                            },
+                            "name": "MyButton34",
+                            "designerId": "caa94a25-8ab6-44c4-b46f-dff292beee2f",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonCopyMiddagLieristClick",
+                                        "implHandler": [
+                                            "Ext.getCmp('TextboxInfoMiddagLierist').setValue(Ext.getCmp('TextboxRoosterMiddagLierist').getValue());"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonCopyMiddagLieristClick",
+                                    "designerId": "cbaafb25-8826-46ca-8401-69a486a60546"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "disabledCls": "x-item",
+                                "fieldLabel": "Lierist",
+                                "id": "TextboxRoosterMiddagLierist",
+                                "labelAlign": "right",
+                                "layout|x": -28,
+                                "layout|y": 40,
+                                "name": "MIDDAG_LIERIST",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField38",
+                            "designerId": "ecf871f2-0dd1-44e4-bb2d-698633c76b77"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/ictxt.gif",
+                                "iconCls": null,
+                                "id": "ButtonCopyMiddagStartleider",
+                                "layout|x": 280,
+                                "layout|y": 70,
+                                "text": "",
+                                "width": 20
+                            },
+                            "name": "MyButton35",
+                            "designerId": "6c224538-59b5-4e8b-81ae-d597d54005c0",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonCopyMiddagStartleiderClick",
+                                        "implHandler": [
+                                            "Ext.getCmp('TextboxInfoMiddagStartleider').setValue(Ext.getCmp('TextboxRoosterMiddagStartleider').getValue());"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonCopyMiddagStartleiderClick",
+                                    "designerId": "8498cc64-b965-4e27-ac3e-8c2eba2802d2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "disabledCls": "x-item",
+                                "fieldLabel": "Hulplierist",
+                                "id": "TextboxRoosterMiddagHulpLierist",
+                                "labelAlign": "right",
+                                "labelWidth": 75,
+                                "layout|x": 300,
+                                "layout|y": 40,
+                                "name": "MIDDAG_HULPLIERIST",
+                                "selectOnFocus": true,
+                                "width": 270
+                            },
+                            "name": "MyTextField39",
+                            "designerId": "7327750c-c291-4379-a323-c6f41ff319c7"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/ictxt.gif",
+                                "iconCls": null,
+                                "id": "ButtonCopyMiddagInstructeur",
+                                "layout|x": 580,
+                                "layout|y": 10,
+                                "text": "",
+                                "width": 20
+                            },
+                            "name": "MyButton36",
+                            "designerId": "96e37a4c-0860-49f9-8e55-757fa570f87a",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonCopyMiddagInstructeurClick",
+                                        "implHandler": [
+                                            "Ext.getCmp('TextboxInfoMiddagInstructeur').setValue(Ext.getCmp('TextboxRoosterMiddagInstructeur').getValue());"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonCopyMiddagInstructeurClick",
+                                    "designerId": "2f1e4864-9e1d-401e-8543-97c1c61b97c9"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "disabledCls": "x-item",
+                                "fieldLabel": "Startleider",
+                                "id": "TextboxRoosterMiddagStartleider",
+                                "labelAlign": "right",
+                                "layout|x": -28,
+                                "layout|y": 70,
+                                "name": "MIDDAG_STARTLEIDER",
+                                "selectOnFocus": true,
+                                "width": 300
+                            },
+                            "name": "MyTextField40",
+                            "designerId": "5f83988a-aee5-46ac-932a-2af4007df8ef"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/ictxt.gif",
+                                "iconCls": null,
+                                "id": "ButtonCopyMiddagHulpLierist",
+                                "layout|x": 580,
+                                "layout|y": 40,
+                                "text": "",
+                                "width": 20
+                            },
+                            "name": "MyButton37",
+                            "designerId": "8a8bbdc7-f587-4d6c-8058-e75610505a56",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonCopyMiddagHulpLieristClick",
+                                        "implHandler": [
+                                            "Ext.getCmp('TextboxInfoMiddagHulpLierist').setValue(Ext.getCmp('TextboxRoosterMiddagHulpLierist').getValue());"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonCopyMiddagHulpLieristClick",
+                                    "designerId": "0bd35ee1-697f-41a6-ba54-659225e45d3b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onRoosterWindowShow",
+                "implHandler": [
+                    "console.log(sprintf(\"%s: onRoosterWindowShow()\", TijdStempel()));\r",
+                    "\r",
+                    "var store = Ext.data.StoreManager.lookup('Rooster_Store');\r",
+                    "store.load(\r",
+                    "{\r",
+                    "    callback: function(records, operation, success)\t// Deze functie wordt aangeroepen zodra de data van de server terug\r",
+                    "    {\r",
+                    "        if(!success)\r",
+                    "        {\r",
+                    "            Ext.MessageBox.alert ('Fout bij ophalen data', operation.response.responseText);\t\t\t\t\t\t\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            var store = Ext.data.StoreManager.lookup('Rooster_Store');\r",
+                    "\r",
+                    "            if (store.getCount() > 0)\r",
+                    "            {\r",
+                    "                var record = store.getAt(0);\r",
+                    "\r",
+                    "                var form = Ext.getCmp('RoosterForm');\r",
+                    "                form.loadRecord(record); \t\t// laad het record in het formulier  \r",
+                    "            }\r",
+                    "        }\r",
+                    "    }\r",
+                    "});"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onRoosterWindowShow",
+            "designerId": "013f1178-76b2-4364-a138-03e40c4f87a1"
+        }
+    ]
+}

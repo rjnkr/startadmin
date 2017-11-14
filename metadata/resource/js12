@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js12",
+        "url": "js/Vliegtijd.js",
+        "x-compile": true
+    },
+    "designerId": "457c68b6-cf96-475f-a45d-ffabe1e41d75"
+}

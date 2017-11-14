@@ -1,0 +1,259 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ControleDetailsWindow",
+        "designer|userClassName": "ControleDetailsWindow",
+        "height": 190,
+        "id": "ControleDetailsWindow",
+        "modal": true,
+        "title": "My Window",
+        "width": 1167
+    },
+    "designerId": "d8433093-b86e-4aab-b923-03790c3f8d95",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "id": "ControleDetailsGrid",
+                "scroll": "none",
+                "store": "ControleDagOverzichtLidStore",
+                "title": null
+            },
+            "name": "MyGridPanel",
+            "designerId": "6551ce58-d079-46cf-8dd8-9f0a3fb90e11",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DAGNUMMER",
+                        "defaultWidth": 40,
+                        "text": "#",
+                        "width": 40
+                    },
+                    "name": "MyColumn",
+                    "designerId": "d498f74b-4eb3-4ed2-85eb-d482622f32d7"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "REG_CALL",
+                        "text": "Registratie"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "ffea6576-f226-4c8b-bbff-f18d31876441"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "STARTMETHODE",
+                        "flex": 3,
+                        "text": "Start methode"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "469332ab-b916-4549-847c-50bc2d78981b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VLIEGERNAAM",
+                        "text": "Voorin",
+                        "width": 200
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "d9c5f93e-f548-41c7-a7de-4138f81abe01"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "INZITTENDENAAM",
+                        "text": "Achterin",
+                        "width": 200
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "3de7edea-ab78-46ac-af75-2af211efd13f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "STARTTIJD",
+                        "text": "Start",
+                        "width": 50
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "44b86a7e-588f-4dd3-b03f-4b16c4ad8842"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "LANDINGSTIJD",
+                        "text": "Landing",
+                        "width": 50
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "d291b4f0-7e66-4f85-bb8a-45b3fb06cdc8"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DUUR",
+                        "text": "Duur",
+                        "width": 50
+                    },
+                    "name": "MyColumn7",
+                    "designerId": "046b19d2-6790-48c4-b6c4-c1ab46a18009"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "OP_REKENING",
+                        "text": "Op rekening",
+                        "width": 200
+                    },
+                    "name": "MyColumn8",
+                    "designerId": "1bc33d00-b0f4-4948-ae46-bb050447a0b1"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "SOORTVLUCHT",
+                        "flex": 5,
+                        "text": "Soort vlucht"
+                    },
+                    "name": "MyColumn9",
+                    "designerId": "6c869539-badd-4d33-942a-3dbf051dd51a"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView",
+                    "designerId": "b43e2cb5-c0e3-4909-a070-6347d6b831ff"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onControleDetailsGridItemDblClick",
+                        "implHandler": [
+                            "Ext.Hoofdscherm.Startlijst_GridviewItemDblClick(dataview, record, item, index, e, eOpts);"
+                        ],
+                        "name": "itemdblclick",
+                        "scope": "me"
+                    },
+                    "name": "onControleDetailsGridItemDblClick",
+                    "designerId": "2da9976b-2579-40f6-b569-23cb784902f7"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "Ext.Controle.onControleDetailsWindowShow(component, eOpts, this.ID);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onWindowShow",
+            "designerId": "ed12a15f-b7eb-4018-a175-1fdb15342406"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onControleDetailsWindowAfterRender",
+                "implHandler": [
+                    "setTimeout(function()\r",
+                    "           {\r",
+                    "               var grid = Ext.getCmp('ControleDetailsGrid');\r",
+                    "               var win = Ext.getCmp('ControleDetailsWindow');\r",
+                    "               \r",
+                    "               win.setHeight(grid.getHeight()+32);\r",
+                    "           },100);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onControleDetailsWindowAfterRender",
+            "designerId": "f67e715f-7a9b-4bf1-b1d1-897fe32a49d6"
+        }
+    ]
+}

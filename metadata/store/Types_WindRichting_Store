@@ -1,0 +1,64 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoSync": true,
+        "designer|userClassName": "Types_WindRichting_Store",
+        "model": "Types_Model",
+        "remoteSort": null,
+        "storeId": "MyJsonStore6"
+    },
+    "designerId": "b9e51179-cbaa-4f23-a859-aab31d617d23",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "php/main.php?Action=Types.GetObjectsJSON&_:TYPEGROUP_ID=2"
+            },
+            "name": "MyAjaxProxy14",
+            "designerId": "932f95a6-b8f3-482a-ae0b-f91756a36169",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "idProperty": "ID"
+                    },
+                    "name": "MyJsonReader14",
+                    "designerId": "74124953-e02f-451a-86b3-9b3b7065aa80"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onAjaxproxyException",
+                        "implHandler": [
+                            "HandleStoreLoadException(proxy, response, operation, eOpts);\t// toon de gebruiker dat er een fout is opgetreden"
+                        ],
+                        "name": "exception",
+                        "scope": "me"
+                    },
+                    "name": "onAjaxproxyException",
+                    "designerId": "9a52eef9-8578-4671-9b77-af5baaaf4a5d"
+                }
+            ]
+        }
+    ]
+}

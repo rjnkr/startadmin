@@ -1,0 +1,53 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CommStatusDetails_Model"
+    },
+    "designerId": "b13ba141-f31d-4b32-b8a4-9c417d0cc6c3",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "table"
+            },
+            "name": "MyField25",
+            "designerId": "156fd268-658e-4b63-9a43-db5af036e1db"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "localStatus"
+            },
+            "name": "MyField26",
+            "designerId": "796ad10b-925a-4b68-ac0f-556dea7f2578"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "remoteStatus"
+            },
+            "name": "MyField46",
+            "designerId": "201f9482-0e8a-43b6-b8b5-c2704379e1de"
+        }
+    ]
+}

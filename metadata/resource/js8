@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js8",
+        "url": "js/StartlijstInvoerForm.js",
+        "x-compile": true
+    },
+    "designerId": "de7e6b30-7d25-4af6-9b9e-549d6263a2b6"
+}

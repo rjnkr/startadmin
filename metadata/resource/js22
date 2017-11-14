@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js22",
+        "url": "js/Controle.js",
+        "x-compile": true
+    },
+    "designerId": "08ae34c3-5295-42ec-9833-ce835021f2b0"
+}

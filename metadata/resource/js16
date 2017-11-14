@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js16",
+        "url": "js/flarm.js",
+        "x-compile": true
+    },
+    "designerId": "be9663ab-03ea-43b2-a394-aaf8f696c66b"
+}

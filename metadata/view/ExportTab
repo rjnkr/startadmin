@@ -1,0 +1,654 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "exporttab",
+        "designer|userClassName": "ExportTab",
+        "layout": "hbox",
+        "title": "Startlijst"
+    },
+    "name": "StartlijstTab1",
+    "designerId": "e5667260-3154-400f-a815-287f29ebe217",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": null,
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "forceFit": false,
+                "id": "StartlijstExportGrid",
+                "layout|flex": 1,
+                "store": "Export_GridStore",
+                "title": ""
+            },
+            "name": "MyGridPanel",
+            "designerId": "52081537-f685-4942-b50a-e8e01161c712",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": null,
+                        "emptyText": "<div class=\"noData\" ></div>",
+                        "height": null,
+                        "id": "StartlijstExportView",
+                        "minHeight": 20
+                    },
+                    "name": "MyGridView",
+                    "designerId": "797e1726-83cc-4549-8530-ef739980ac21"
+                },
+                {
+                    "type": "Ext.toolbar.Paging",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "afterPageText": "van {0}",
+                        "beforePageText": "Pagina",
+                        "displayInfo": true,
+                        "displayMsg": "Weergave {0} - {1} tot {2}",
+                        "dock": "bottom",
+                        "emptyMsg": "Geen data aanwezig",
+                        "firstText": "Eerste pagina",
+                        "height": 32,
+                        "id": "Export_Bladwijzer",
+                        "lastText": "Laatste pagina",
+                        "nextText": "Volgende pagina",
+                        "prevText": "Vorige pagina",
+                        "refreshText": "Verversen",
+                        "store": "Export_GridStore",
+                        "width": null
+                    },
+                    "name": "MyPagingToolbar6",
+                    "designerId": "d7840690-9c63-49aa-8696-b1e7703d8594"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "id": "VandaagToolbar2"
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "296594a2-0c78-4cae-ad6b-02e7c8a178bd",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Vanaf",
+                                "id": "Export.DatumVanaf",
+                                "labelAlign": "right",
+                                "labelWidth": 40,
+                                "layout|flex": null,
+                                "width": 150
+                            },
+                            "name": "MyDateField2",
+                            "designerId": "1b160aad-0c09-4756-9ae7-c8c6071891dc",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onDatumVanafChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.ToonExportGrid();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onDatumVanafChange",
+                                    "designerId": "f4347251-d74a-4b68-8d98-2500edb2a0ad"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "T/m",
+                                "id": "Export.DatumTot",
+                                "labelAlign": "right",
+                                "labelWidth": 40,
+                                "layout|flex": null,
+                                "width": 150
+                            },
+                            "name": "MyDateField3",
+                            "designerId": "19330e5f-63d2-4bb5-af97-0fadab9b9f50",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onDatumTotChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.ToonExportGrid();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onDatumTotChange",
+                                    "designerId": "4a1a0856-0c29-4235-b14a-5034cf643707"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Zoeken",
+                                "id": "Export.Zoeken",
+                                "labelAlign": "right",
+                                "layout|flex": 1,
+                                "maxWidth": 300,
+                                "vtype": null
+                            },
+                            "name": "MyTextField",
+                            "designerId": "ec606912-fcd4-4050-a032-df345c70a329",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onZoekenStartlijstRender",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({\r",
+                                            "    target: component.getEl(),\r",
+                                            "    text: 'Zoek in de startlijst. Bijvoorbeeld op naam, registratie of callsign'\r",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onZoekenStartlijstRender",
+                                    "designerId": "1da3aa93-16e8-4414-9314-be08fa946f99"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "Export_ZoekenChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.ToonExportGrid();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "Export_ZoekenChange",
+                                    "designerId": "3ab836a2-a816-4431-8e8f-4b87081c8e50"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processExportZoeken",
+                                        "implHandler": [
+                                            "config.plugins = ['clearbutton']; \r",
+                                            "return config; "
+                                        ]
+                                    },
+                                    "name": "processExportZoeken",
+                                    "designerId": "8d9ee218-3915-492a-ac85-625abb6f2ae2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.resizer.Splitter",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "width": 30
+                            },
+                            "name": "MySplitter4",
+                            "designerId": "53d2a91c-aa7f-4779-967a-e3b27baf62af"
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Clubkisten",
+                                "fieldLabel": "",
+                                "id": "Export_ClubkistFilter",
+                                "labelWidth": 0,
+                                "layout|flex": null,
+                                "width": 100
+                            },
+                            "name": "MyCheckbox5",
+                            "designerId": "1476abe7-9bcc-44b1-b8b1-e5396161f24e",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "buffer": 500,
+                                        "delay": 500,
+                                        "fn": "Export_ClubkistFilterChange",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.ToonExportGrid();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "Export_ClubkistFilterChange",
+                                    "designerId": "1b3b43d6-51b5-4660-bdb2-d6f4216d1c3d"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onExportClubkistFilterRender",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({\r",
+                                            "    target: component.getEl(),\r",
+                                            "    text: 'Laat alleen de vliegtuigen van de club in het overzicht zien.'\r",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onExportClubkistFilterRender",
+                                    "designerId": "c80393ed-6700-449a-ad1a-c85900b914dd"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.resizer.Splitter",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "name": "MySplitter3",
+                            "designerId": "eec83bce-f0d6-48d7-b119-458533d5905e"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/icon_export.gif",
+                                "id": "ExporteerButton",
+                                "layout|flex": null,
+                                "text": "Exporteer"
+                            },
+                            "name": "MyButton14",
+                            "designerId": "c37d1b7c-f160-4299-915b-28743bc3c5d0",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onExporteerButtonClick",
+                                        "implHandler": [
+                                            "Ext.Hoofdscherm.onExporteerButtonClick(button, e, eOpts);"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onExporteerButtonClick",
+                                    "designerId": "40e74b21-5b80-4db1-a986-482406ae802c"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DATUM",
+                        "text": "Datum"
+                    },
+                    "name": "MyColumn63",
+                    "designerId": "2edfb12b-2a48-41cb-b5e1-52a227f69f0a"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VLIEGERNAAM",
+                        "text": "VliegerNaam"
+                    },
+                    "name": "MyColumn64",
+                    "designerId": "33de6c3a-0213-4fa2-89a5-f609c34a5b43"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VLIEGERLIDNR",
+                        "text": "VliegerLidnr"
+                    },
+                    "name": "MyColumn71",
+                    "designerId": "fc322724-a717-4356-96e0-dd9e182aa5e7"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VLIEGERLIDTYPE",
+                        "text": "VliegerLidType"
+                    },
+                    "name": "MyColumn72",
+                    "designerId": "76bf9e99-4986-4922-8701-974c52b2552b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "INZITTENDENAAM",
+                        "text": "Inzittende"
+                    },
+                    "name": "MyColumn73",
+                    "designerId": "230fb57f-e52d-46c4-8fdc-10996dbdc2b1"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "INZTTENDELIDNR",
+                        "text": "InzittendeLidnr"
+                    },
+                    "name": "MyColumn74",
+                    "designerId": "e403ab37-5286-4dea-8c3a-5e0935206264"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "INZITTENDELIDTYPE",
+                        "text": "InzittendeLidType"
+                    },
+                    "name": "MyColumn75",
+                    "designerId": "3c1a5241-4f84-4d08-b0a6-78378920983c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "REGISTRATIE",
+                        "text": "Registratie"
+                    },
+                    "name": "MyColumn76",
+                    "designerId": "787e6dd8-e78c-4580-8016-ce2929c3e8dd"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "CALLSIGN",
+                        "text": "Callsign"
+                    },
+                    "name": "MyColumn77",
+                    "designerId": "b168e8ad-f3d7-4d24-8a31-8bcae3ae8f32"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "STARTTIJD",
+                        "text": "Starttijd"
+                    },
+                    "name": "MyColumn78",
+                    "designerId": "59a97883-b2af-4e60-a5ae-82b4881d5544"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "LANDINGSTIJD",
+                        "text": "Landingstijd"
+                    },
+                    "name": "MyColumn79",
+                    "designerId": "bc7f31ad-ff96-4868-af1b-e019e149e48c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DUUR",
+                        "text": "Duur"
+                    },
+                    "name": "MyColumn80",
+                    "designerId": "a33d6c11-1b86-4575-b004-0860c65c048c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "OPMERKING",
+                        "text": "Opmerking"
+                    },
+                    "name": "MyColumn81",
+                    "designerId": "d46467e8-97aa-4ec4-b9de-1416e4530615"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "STARTMETHODE",
+                        "text": "Startmethode"
+                    },
+                    "name": "MyColumn82",
+                    "designerId": "45c162c3-cbbd-4644-8697-ac640df995d0"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "BETAALDDOOR",
+                        "text": "BetaaldDoor"
+                    },
+                    "name": "MyColumn84",
+                    "designerId": "7f0857fc-49c9-45c8-826b-174cde1a0d18"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "BETAALDLIDNR",
+                        "text": "BetaaldLidnr"
+                    },
+                    "name": "MyColumn85",
+                    "designerId": "2f41f7ed-caa6-4c1e-904d-1e6e0de6f763"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "SOORTVLUCHT",
+                        "text": "SoortVlucht"
+                    },
+                    "name": "MyColumn86",
+                    "designerId": "d3981d69-2e1d-4e80-a011-ec2c8a6944bb"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onStartlijstExportGridItemDblClick",
+                        "implHandler": [
+                            "Ext.Hoofdscherm.StartlijstExport_GridviewItemDblClick(dataview, record, item, index, e, eOpts);"
+                        ],
+                        "name": "itemdblclick",
+                        "scope": "me"
+                    },
+                    "name": "onStartlijstExportGridItemDblClick",
+                    "designerId": "5945d05e-7dd0-4c53-977c-6361e12925fb"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender",
+                "implHandler": [
+                    "Ext.Hoofdscherm.ToonExportGrid();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onPanelAfterRender",
+            "designerId": "0f8b7a62-e356-4e3a-8081-26f5a45a11d6"
+        }
+    ]
+}

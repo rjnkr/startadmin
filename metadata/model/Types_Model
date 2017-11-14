@@ -1,0 +1,85 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Types_Model",
+        "idProperty": "ID"
+    },
+    "designerId": "ca743c5e-2fe6-428a-adf9-f3bb5167e4e8",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ID",
+                "type": null
+            },
+            "name": "MyField17",
+            "designerId": "6443c480-d66f-4910-9c37-4f6beabdd1e8"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "TYPEGROUP_ID",
+                "type": null
+            },
+            "name": "MyField18",
+            "designerId": "5f1acddd-f86c-4dd9-9c56-3e59ddf6b859"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CODE",
+                "type": null
+            },
+            "name": "MyField19",
+            "designerId": "5e8d4571-70ff-4581-a93e-e24bafb9f76f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "OMSCHRIJVING",
+                "type": null
+            },
+            "name": "MyField20",
+            "designerId": "69197745-3bdf-42dd-9472-d4df92ae150c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "EXT_REF",
+                "type": null
+            },
+            "name": "MyField21",
+            "designerId": "1c36b027-3361-4c2b-9c5f-2d2ab9e14802"
+        }
+    ]
+}

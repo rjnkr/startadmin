@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js21",
+        "url": "js/Kaart.js",
+        "x-compile": true
+    },
+    "designerId": "6cfbfe97-ba7b-4834-9e5f-1f200b1c488c"
+}

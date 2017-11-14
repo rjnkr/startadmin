@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js19",
+        "url": "js/StartlijstDetailWindow.js",
+        "x-compile": true
+    },
+    "designerId": "03769a6e-bf4a-49ff-8dd9-d997bf55465e"
+}

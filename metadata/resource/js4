@@ -1,0 +1,15 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defer": false,
+        "designer|userClassName": "js4",
+        "url": "js/clock.js",
+        "x-compile": true
+    },
+    "designerId": "eb4515c3-f085-4bca-afdd-fad57f770b34"
+}

@@ -1,0 +1,326 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "StarttijdWindow",
+        "designer|userClassName": "StarttijdWindow",
+        "height": 100,
+        "id": "StarttijdWindow",
+        "modal": true,
+        "resizable": [
+            "false"
+        ],
+        "title": "Starttijd invoeren",
+        "width": 300
+    },
+    "designerId": "d205ea48-d1f5-41bd-8435-8fb5b6a28d23",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|snapToGrid": 10,
+                "height": 66,
+                "id": "StartInvoer_StarttijdForm",
+                "layout": "absolute",
+                "primaryFilterOnKeyInput": "true",
+                "resizable": null,
+                "title": "",
+                "trackResetOnLoad": true,
+                "url": "php/main.php?Action=Startlijst.SaveStartTijd",
+                "width": 288
+            },
+            "name": "MyForm2",
+            "designerId": "6edec7a9-0b1c-4852-b731-fc3b87f37c52",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "primaryFilterOnKeyInput",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "",
+                        "hideEmptyLabel": false,
+                        "id": "StartInvoerStarttijd_ID",
+                        "labelWidth": 0,
+                        "layout|x": 35,
+                        "layout|y": 210,
+                        "name": "ID",
+                        "width": 50
+                    },
+                    "name": "MyHiddenField4",
+                    "designerId": "a2b59ecc-8243-42b4-8120-250db9797bb9"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "StartInvoer_LandingsTijd",
+                        "name": "LANDINGSTIJD"
+                    },
+                    "name": "MyHiddenField5",
+                    "designerId": "c84b93e9-dec5-41b9-8398-5b650dfc8ba4"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "tijd",
+                        "emptyText": "uu:mm",
+                        "enableKeyEvents": true,
+                        "enforceMaxLength": true,
+                        "fieldLabel": "Start",
+                        "forceSelection": true,
+                        "formBind": true,
+                        "id": "StartInvoer_StartTijd",
+                        "invalidText": "Er is een ongeldige tijd ingevoerd",
+                        "labelAlign": "right",
+                        "labelWidth": 50,
+                        "maxLength": 5,
+                        "maxLengthText": "Tijd formaat bestaat uit UU:MM",
+                        "minChars": null,
+                        "msgTarget": "side",
+                        "name": "STARTTIJD",
+                        "queryDelay": 100,
+                        "queryMode": "local",
+                        "size": 8,
+                        "valueField": "tijd",
+                        "width": 140
+                    },
+                    "name": "MyComboBox8",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "203229d7-5c1d-4b07-97d4-bd721fd26715",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_StartTijdKeypress",
+                                "implHandler": [
+                                    "\r",
+                                    "// iemand heeft een toets op het toetsenbord ingedrukt\r",
+                                    "// alleen cijfers, backspace en delete zijn toegestaan\r",
+                                    "if (e.getKey() != Ext.EventObject.BACKSPACE && e.getKey() != Ext.EventObject.DELETE)\r",
+                                    "{\r",
+                                    "    if (e.getKey() > 57 || e.getKey() < 48) \r",
+                                    "    {\t\r",
+                                    "        e.stopEvent();\r",
+                                    "        return false;\r",
+                                    "    }\r",
+                                    "}\r",
+                                    "\r",
+                                    "// als er goede toets is ingedrukt, voer het volgende script uit.\r",
+                                    "Ext.StartlijstTijdenForm.onStartInvoer_Keypress(textfield, e, eOpts);"
+                                ],
+                                "name": "keypress",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_StartTijdKeypress",
+                            "designerId": "3e6998a7-661d-4a46-a97c-1785f4e5084d"
+                        },
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value"
+                                ],
+                                "fn": "validator",
+                                "implHandler": [
+                                    "// voer dit script uit om te zien of alles goed is ingevuld\r",
+                                    "return Ext.StartlijstTijdenForm.ValidateStartTijd(value);"
+                                ]
+                            },
+                            "name": "validator",
+                            "designerId": "96884de0-3b1b-45e2-b0be-8eed5d8b0cf4"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_StartTijdChange",
+                                "implHandler": [
+                                    "\r",
+                                    "// de tijd is gewijzigd. Voer het script uit.\r",
+                                    "Ext.StartlijstTijdenForm.onChangeTijd(field);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_StartTijdChange",
+                            "designerId": "986dad18-d6e4-48e6-b6f0-496676ffb785"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_StartTijdSpecialkey",
+                                "implHandler": [
+                                    "// als de gebruiker de ENTER toets indrukt, dan slaan we de tijd op\r",
+                                    "if(e.getKey() == Ext.EventObject.ENTER)\r",
+                                    "{\r",
+                                    "    Ext.StartlijstTijdenForm.SaveStartTijd(field);\r",
+                                    "}\r",
+                                    "else\r",
+                                    "{\r",
+                                    "    // het was dus niet de ENTER toets, maar een andere speciale toets\r",
+                                    "    Ext.StartlijstTijdenForm.onStartInvoer_Keypress(field, e, eOpts);\r",
+                                    "}"
+                                ],
+                                "name": "specialkey",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_StartTijdSpecialkey",
+                            "designerId": "6f4795f1-7194-4be6-9e3f-362fb40eb30f"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onStartInvoer_StartTijdSelect",
+                                "implHandler": [
+                                    "// we zetten nu een variable zodat we het veld niet meer automatisch voorzien van de actuele tijd\r",
+                                    "combo.manualInput = true;"
+                                ],
+                                "name": "select",
+                                "scope": "me"
+                            },
+                            "name": "onStartInvoer_StartTijdSelect",
+                            "designerId": "ecb2850d-6a86-46f7-ac0a-ce504ac97740"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "fn": "processStartInvoer_StartTijd",
+                                "implHandler": [
+                                    "// Toon in het invoerveld een kruisje om het veld met 1 muisklik leeg te maken \r",
+                                    "config.plugins = ['clearbutton']; \r",
+                                    "return config; "
+                                ]
+                            },
+                            "name": "processStartInvoer_StartTijd",
+                            "designerId": "5b90b9e9-ccaf-4664-bf94-0f07722019a2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "formBind": true,
+                        "height": 40,
+                        "icon": null,
+                        "iconCls": null,
+                        "id": "StartInvoerStarttijd_Opslaan",
+                        "layout|x": 190,
+                        "layout|y": 10,
+                        "text": "Opslaan",
+                        "width": 80
+                    },
+                    "name": "MyButton16",
+                    "designerId": "ab41aaba-d8f4-4115-a7ff-8eeb01afd321",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonStarttijdOpslaan",
+                                "implHandler": [
+                                    "// voer dit script uit om de tijd op te slaan in de database\r",
+                                    "Ext.StartlijstTijdenForm.SaveStartTijd(button, e, eOpts);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonStarttijdOpslaan",
+                            "designerId": "09805e2f-1135-4a37-bcba-09a682d5e0a2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "Ext.StartlijstTijdenForm.onStarttijdWindowShow(component, eOpts, this.ID);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onWindowShow",
+            "designerId": "6e54dc46-ff76-43bd-9816-31fbea689a1d"
+        }
+    ]
+}

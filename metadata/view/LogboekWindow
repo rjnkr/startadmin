@@ -1,0 +1,397 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "LogboekWindow",
+        "designer|userClassName": "LogboekWindow",
+        "height": 271,
+        "id": "LogboekWindow",
+        "layout": "fit",
+        "title": "Logboek",
+        "width": 581
+    },
+    "name": "MyWindow",
+    "designerId": "3be0aba5-4155-4e9a-a7f1-36e5f62f37e0",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "store": "VliegtuigLogboek_Store",
+                "title": null
+            },
+            "name": "MyGridPanel8",
+            "designerId": "1e530add-c310-46c6-9cd7-b48155e973ab",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView8",
+                    "designerId": "5025de1c-fbe6-454e-a9f3-e3eaf4cd3bda"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar7",
+                    "designerId": "94f914f5-b2bb-425f-a81f-7d130fbf2521",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Vanaf",
+                                "id": "LogboekDatumVanaf",
+                                "labelAlign": "right",
+                                "labelWidth": 40,
+                                "layout|flex": null,
+                                "width": 150
+                            },
+                            "name": "MyDateField",
+                            "designerId": "0b44eb8d-9032-4215-b879-cf0b4358125b",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onLogboekDatumVanafChange",
+                                        "implHandler": [
+                                            "Ext.data.StoreManager.lookup('VliegtuigLogboek_Store').load();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onLogboekDatumVanafChange",
+                                    "designerId": "c14691f2-2c15-48eb-8a68-3abd4c0b6e72"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "T/m",
+                                "id": "LogboekDatumTot",
+                                "labelAlign": "right",
+                                "labelWidth": 40,
+                                "layout|flex": null,
+                                "width": 150
+                            },
+                            "name": "MyDateField1",
+                            "designerId": "05cf7a26-1a44-4eb9-a803-7a71c8245884",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onLogboekDatumTotChange",
+                                        "implHandler": [
+                                            "Ext.data.StoreManager.lookup('VliegtuigLogboek_Store').load();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onLogboekDatumTotChange",
+                                    "designerId": "9e4c2e5a-ab07-47d0-8c19-d242b8fbdc98"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "LogboekVliegtuigID",
+                                "layout|flex": null
+                            },
+                            "name": "MyHiddenField3",
+                            "designerId": "8c2ad7c8-f20e-4601-93b0-591c3e77c33b"
+                        },
+                        {
+                            "type": "Ext.resizer.Splitter",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "name": "MySplitter",
+                            "designerId": "c6798b51-6836-41db-9a4c-0c5c37acb487"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/list.png",
+                                "layout|flex": null,
+                                "text": "Totaal",
+                                "width": 75
+                            },
+                            "name": "MyButton",
+                            "designerId": "4431b63b-7239-47c5-a862-6111e3c7f8e3",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "        var store = Ext.data.StoreManager.lookup('VliegtuigLogboek_Store');",
+                                            "        var totaalTijd = 0, totaalLier=0, totaalSleep=0;",
+                                            "",
+                                            "        store.each(function(r)",
+                                            "        {",
+                                            "            totaalLier = totaalLier + r.data.LIERSTARTS*1;",
+                                            "            totaalSleep = totaalSleep + r.data.SLEEPSTARTS*1;",
+                                            "            ",
+                                            "            totaalTijd = totaalTijd + r.data.VLIEGTIJD.substring(0,2)*60 + r.data.VLIEGTIJD.substring(3,5)*1; ",
+                                            "        });",
+                                            "",
+                                            "var msgStr = sprintf(\"<table><col width='100'><tr><td>Aantal vluchten </td><td>:</td><td align='right'>%d</td><tr><tr><td>Aantal lierstarts </td><td>:</td><td align='right'>%d</td><tr><tr><td>Aantal sleepstarts </td><td>:</td><td align='right'>%d</td><tr><tr><td>Totale vliegtijd </td><td>:</td><td align='right'>%02d:%02d</td></tr></table>\", ",
+                                            "                        totaalLier+totaalSleep, ",
+                                            "                        totaalLier, ",
+                                            "                        totaalSleep, ",
+                                            "                        totaalTijd/60, ",
+                                            "                        totaalTijd%60);",
+                                            "",
+                                            "        Ext.MessageBox.alert (\"Logboek totaal\", msgStr);"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "35520e58-e31c-4c60-b93f-0ab1f586e4c2"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DATUM",
+                        "text": "Datum"
+                    },
+                    "name": "MyColumn70",
+                    "designerId": "fb4d02e3-0bf5-40d3-9274-61d4d96de627"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VLUCHTEN",
+                        "format": "0",
+                        "text": "Totaal starts"
+                    },
+                    "name": "MyNumberColumn",
+                    "designerId": "4c90a435-ac36-479e-9650-e858e6d8b1fb"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "LIERSTARTS",
+                        "text": "Lier starts"
+                    },
+                    "name": "MyColumn68",
+                    "designerId": "c7b55df7-a2f0-40bc-8dfc-d51259d36271",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (value == 0)",
+                                    "    return \"\";",
+                                    "else",
+                                    "    return value;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "a5451f98-1301-4967-8979-683e1f168a1c"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "SLEEPSTARTS",
+                        "text": "Sleep starts"
+                    },
+                    "name": "MyColumn66",
+                    "designerId": "d76b62bb-6995-4c13-8988-8133dfe8b180",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (value == 0)",
+                                    "    return \"\";",
+                                    "else",
+                                    "    return value;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "bd7a233e-562a-4643-9340-4c261d8783a9"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VLIEGTIJD",
+                        "text": "Vliegtijd"
+                    },
+                    "name": "MyColumn67",
+                    "designerId": "2c515805-94ed-4c64-b2cb-54abbada4fe3",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return value.substring(0,5);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "e5cacd1e-9c8e-4667-abfa-5e8a80345d6b"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLogboekWindowAfterRender",
+                "implHandler": [
+                    "Ext.getCmp('LogboekVliegtuigID').setValue(this.ID);",
+                    "Ext.data.StoreManager.lookup('VliegtuigLogboek_Store').load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onLogboekWindowAfterRender",
+            "designerId": "4a481b2f-353a-4148-8624-5a1edbaf6499"
+        }
+    ]
+}

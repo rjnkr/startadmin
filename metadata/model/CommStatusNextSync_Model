@@ -1,0 +1,53 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CommStatusNextSync_Model"
+    },
+    "designerId": "15edeb54-6e24-48bd-8b38-80995471989b",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "tekst"
+            },
+            "name": "MyField22",
+            "designerId": "9b349cf9-709d-4f2c-af55-daa242016767"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "localNextSync"
+            },
+            "name": "MyField23",
+            "designerId": "51a86afd-5b03-4967-9cd5-d7723dd825ab"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "remoteNextSync"
+            },
+            "name": "MyField24",
+            "designerId": "ba182655-8fdb-4f1e-96b6-b94139abe9ee"
+        }
+    ]
+}

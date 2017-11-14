@@ -1,0 +1,282 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "FlarmStartWindow",
+        "designer|userClassName": "FlarmStartWindow",
+        "height": 641,
+        "layout": "fit",
+        "resizable": [
+            "false"
+        ],
+        "title": "Flarm starts",
+        "width": 450
+    },
+    "designerId": "46581440-dcac-463c-a3e8-b87b32e86db1",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowBeforeShow",
+                "implHandler": [
+                    "\r",
+                    "var store = Ext.data.StoreManager.lookup('FlarmStart_Store');\r",
+                    "store.proxy.extraParams = \r",
+                    "{\r",
+                    "    '_:query': \"\"\r",
+                    "}\r",
+                    "store.load();"
+                ],
+                "name": "beforeshow",
+                "scope": "me"
+            },
+            "name": "onWindowBeforeShow",
+            "designerId": "4ae612b2-a362-4ebb-a927-9fce59616fe0"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": null,
+                "id": "FlarmStartWindow",
+                "layout": "fit",
+                "title": null
+            },
+            "name": "MyForm13",
+            "designerId": "e8682e99-812d-48fd-967f-8849589bc15c",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableColumnMove": false,
+                        "enableColumnResize": false,
+                        "forceFit": true,
+                        "frameHeader": false,
+                        "store": "FlarmStart_Store",
+                        "title": ""
+                    },
+                    "name": "MyGridPanel14",
+                    "designerId": "42a9cfdd-4696-4d7d-9d0f-682e83ffcb99",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Paging",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "afterPageText": "van {0}",
+                                "beforePageText": "Pagina",
+                                "displayInfo": true,
+                                "displayMsg": "Weergave {0} - {1} tot {2}",
+                                "dock": "bottom",
+                                "emptyMsg": "Geen data aanwezig",
+                                "firstText": "Eerste pagina",
+                                "lastText": "Laatste pagina",
+                                "nextText": "Volgende pagina",
+                                "prevText": "Vorige pagina",
+                                "refreshText": "Verversen",
+                                "store": "FlarmStart_Store",
+                                "width": 360
+                            },
+                            "name": "MyPagingToolbar6",
+                            "designerId": "5b3f24ac-4a19-4db3-bae4-0d640bd6bdc6"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "<div class=\"noData\" ></div>"
+                            },
+                            "name": "MyGridView14",
+                            "designerId": "7bd0b3c9-beae-49be-a83e-a3c59e8dd77c"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "REG_CALL",
+                                "flex": 5,
+                                "text": "Vliegtuig"
+                            },
+                            "name": "MyColumn81",
+                            "designerId": "294f574c-7265-48d1-bbbe-01c2a82b8772"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "FLARM_CODE",
+                                "flex": 4,
+                                "text": "Flarm"
+                            },
+                            "name": "MyColumn82",
+                            "designerId": "8849e180-b41e-4729-adb3-c05d9b0abbda"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "STARTTIJD",
+                                "flex": 3,
+                                "text": "Start"
+                            },
+                            "name": "MyColumn83",
+                            "designerId": "8ba58a18-f573-47bf-93bf-b8ee4fdf3b92"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "LANDINGSTIJD",
+                                "flex": 3,
+                                "text": "Landing"
+                            },
+                            "name": "MyColumn84",
+                            "designerId": "c1a6f820-f97e-4696-9102-239afabb1f58"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "BAAN",
+                                "flex": 2,
+                                "text": "Baan"
+                            },
+                            "name": "MyColumn85",
+                            "designerId": "cbeceb3a-df2b-4469-8a5c-1dfba24e086e"
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "bottom"
+                            },
+                            "name": "MyToolbar7",
+                            "designerId": "d265630d-71a9-4db9-afad-a6f1ae72e959",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Zoeken",
+                                        "id": "ZoekenFlarmStart",
+                                        "labelAlign": "right",
+                                        "labelWidth": 70,
+                                        "layout|flex": null,
+                                        "maxWidth": 200,
+                                        "minWidth": 200,
+                                        "size": 5,
+                                        "width": 100
+                                    },
+                                    "name": "MyTextField47",
+                                    "designerId": "ec72b3e0-dde8-43ce-b83b-9d83a5961d69",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onZoekenFlarmStartChange",
+                                                "implHandler": [
+                                                    "var store = Ext.data.StoreManager.lookup('FlarmStart_Store');\r",
+                                                    "\r",
+                                                    "store.proxy.extraParams = \r",
+                                                    "{\r",
+                                                    "    '_:query': Ext.getCmp('ZoekenFlarmStart').getValue()\r",
+                                                    "}\r",
+                                                    "store.loadPage(1);"
+                                                ],
+                                                "name": "change",
+                                                "scope": "me"
+                                            },
+                                            "name": "onZoekenFlarmStartChange",
+                                            "designerId": "1a44cfe7-0872-4d48-a595-65b4702f0a6f"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGridpanelItemDblClick",
+                                "implHandler": [
+                                    "var appSettingsStore = Ext.data.StoreManager.lookup('AppSettings_Store');\r",
+                                    "var appSettings = appSettingsStore.getAt(0);\r",
+                                    "if (appSettings.data.isBeheerder)\r",
+                                    "{\r",
+                                    "    Ext.FlarmForm.FlarmStart_GridviewItemClick(dataview, record, item, index, e, eOpts);\r",
+                                    "}"
+                                ],
+                                "name": "itemdblclick",
+                                "scope": "me"
+                            },
+                            "name": "onGridpanelItemDblClick",
+                            "designerId": "21f45712-58c2-4f06-825d-6233a0b79b7d"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

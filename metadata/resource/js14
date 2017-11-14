@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js14",
+        "url": "js/vliegtuigBeheer.js",
+        "x-compile": true
+    },
+    "designerId": "988c2b46-6ad1-4e40-aebd-04fb84275d98"
+}

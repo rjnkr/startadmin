@@ -1,0 +1,414 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "activeTab": 0,
+        "collapseDirection": "right",
+        "designer|userAlias": "DetailsPanel",
+        "designer|userClassName": "DetailsPanel",
+        "height": 250,
+        "tabPosition": "bottom",
+        "width": 400
+    },
+    "name": "MyTabPanel3",
+    "designerId": "1e82c1ea-b96a-4b8f-846d-a398520c82e9",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapseFirst": false,
+                "layout": "fit",
+                "title": "Vliegers"
+            },
+            "name": "MyPanel12",
+            "designerId": "1e5facca-e3cb-449b-98e1-cd3a45f097d1",
+            "cn": [
+                {
+                    "type": "Ext.tree.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "animCollapse": null,
+                        "collapseDirection": null,
+                        "collapsed": null,
+                        "dock": null,
+                        "enableColumnHide": false,
+                        "enableColumnMove": false,
+                        "enableColumnResize": false,
+                        "forceFit": true,
+                        "frameHeader": false,
+                        "headerPosition": null,
+                        "hideHeaders": true,
+                        "id": "VliegersTreeView",
+                        "rootVisible": false,
+                        "sortableColumns": false,
+                        "store": "StartLijst_VliegerTreeview_Store",
+                        "title": "&nbsp;",
+                        "width": 300
+                    },
+                    "name": "MyTreePanel",
+                    "designerId": "ebaf9dd4-52f6-4804-b31a-c1329d33f077",
+                    "cn": [
+                        {
+                            "type": "Ext.tree.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyTreeView",
+                            "designerId": "348c6543-5999-46f1-82b4-e029984bd41d"
+                        },
+                        {
+                            "type": "Ext.tree.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "TEXT",
+                                "flex": 4,
+                                "text": "MyTreeColumn3"
+                            },
+                            "name": "MyTreeColumn",
+                            "designerId": "6f9feba2-dc59-4ca2-bb72-1f1d548ddfce"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "STARTTIJD",
+                                "flex": 1,
+                                "text": "MyColumn207"
+                            },
+                            "name": "MyColumn9",
+                            "designerId": "13969776-3be7-4e96-be1d-e0b87f87237f"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "DUUR",
+                                "flex": 1,
+                                "text": "MyColumn208"
+                            },
+                            "name": "MyColumn10",
+                            "designerId": "ce26ad16-ba12-4ded-9d74-bccad400fade"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig15",
+                    "designerId": "b76236d4-2881-48e3-9581-8b0f064b715e"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "fit",
+                "title": "Club kisten"
+            },
+            "name": "MyPanel13",
+            "designerId": "b56f52fc-3184-43e3-a18e-53cc32ff6bf6",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig16",
+                    "designerId": "eab5510a-d8df-4b5b-93ec-7533c6d4ad26"
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "title": null
+                    },
+                    "name": "MyPanel",
+                    "designerId": "9c52f124-1033-40d3-926d-9dc43413e6bb",
+                    "cn": [
+                        {
+                            "type": "Ext.tree.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "collapseFirst": null,
+                                "enableColumnHide": false,
+                                "enableColumnMove": false,
+                                "enableColumnResize": false,
+                                "forceFit": true,
+                                "hideHeaders": true,
+                                "id": "ClubKistenTreeView",
+                                "layout|flex": 3,
+                                "rootVisible": false,
+                                "sortableColumns": false,
+                                "store": "StartLijst_VliegtuigenTreeview_Store",
+                                "title": "&nbsp; "
+                            },
+                            "name": "MyTreePanel1",
+                            "designerId": "8af54f47-7d53-43bf-8073-6f2c08f205d7",
+                            "cn": [
+                                {
+                                    "type": "Ext.tree.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyTreeView1",
+                                    "designerId": "22383cbc-3cda-477c-b225-c9062218c411"
+                                },
+                                {
+                                    "type": "Ext.tree.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "TEXT",
+                                        "flex": 3,
+                                        "text": "MyTreeColumn1"
+                                    },
+                                    "name": "MyTreeColumn1",
+                                    "designerId": "b44c51ca-b8f5-463b-9012-9bb16d39da4c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "VLUCHTEN",
+                                        "flex": 1,
+                                        "text": "MyColumn87"
+                                    },
+                                    "name": "MyColumn87",
+                                    "designerId": "e0b46f20-2220-48b8-8533-d904bbeacae9"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "DUUR",
+                                        "flex": 1,
+                                        "text": "MyColumn88"
+                                    },
+                                    "name": "MyColumn88",
+                                    "designerId": "c2c42cf0-83ee-498a-9711-a2445ec6c344",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "metaData",
+                                                    "record",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "store",
+                                                    "view"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "var retVal = value;",
+                                                    "if (record.data.GEEN_LANDINGSTIJD > 0)",
+                                                    "{",
+                                                    "    retVal = '<IMG SRC=\"images/alert.gif\" border=0>';",
+                                                    "    metaData.tdAttr = 'data-qtip=\"Er zijn nog vluchten die niet geland zijn\"';",
+                                                    "}",
+                                                    "",
+                                                    "",
+                                                    "return retVal;"
+                                                ]
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "181664ea-d128-4826-b7a1-d68acd1abf38"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onClubKistenTreeViewSelect",
+                                        "implHandler": [
+                                            "        Ext.Hoofdscherm.ClubKistenTreeViewSelect(rowmodel, record, index, eOpts);"
+                                        ],
+                                        "name": "select",
+                                        "scope": "me"
+                                    },
+                                    "name": "onClubKistenTreeViewSelect",
+                                    "designerId": "1f555130-a394-48f2-8371-6c889fb32327"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "ClubKistenLogDetails",
+                                "layout|flex": 1,
+                                "store": "VliegtuigLogboek_Store",
+                                "title": "Logboek details"
+                            },
+                            "name": "MyGridPanel6",
+                            "designerId": "312e9895-359c-418f-87e3-ad8feda7e55c",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyGridView8",
+                                    "designerId": "a3d463ec-54cb-4586-8bd7-e73272dfbd5f"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "DATUM",
+                                        "flex": 2,
+                                        "text": "Datum"
+                                    },
+                                    "name": "MyColumn66",
+                                    "designerId": "b2a95828-7423-4eda-b365-ee877ba05efe"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "VLUCHTEN",
+                                        "flex": 1,
+                                        "text": "Vluchten"
+                                    },
+                                    "name": "MyColumn83",
+                                    "designerId": "d24ec14f-b3b6-4abd-a7a5-77ebfa52883c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "LIERSTARTS",
+                                        "flex": 1,
+                                        "text": "Lier"
+                                    },
+                                    "name": "MyColumn67",
+                                    "designerId": "7122e2c1-cb04-4747-a28b-c3d6803a2904"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "SLEEPSTARTS",
+                                        "flex": 1,
+                                        "text": "Sleep"
+                                    },
+                                    "name": "MyColumn68",
+                                    "designerId": "0b38c137-e404-4b3c-9485-f70b3e4c0b3c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "VLIEGTIJD",
+                                        "flex": 2,
+                                        "text": "Tijd"
+                                    },
+                                    "name": "MyColumn70",
+                                    "designerId": "c1a07e4d-fc52-40d2-9d8c-dec6cad63afb"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

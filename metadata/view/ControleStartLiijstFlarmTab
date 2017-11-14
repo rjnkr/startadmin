@@ -1,0 +1,764 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "cls": null,
+        "designer|userAlias": "ControleStartLiijstFlarmTab",
+        "designer|userClassName": "ControleStartLiijstFlarmTab",
+        "enableColumnHide": false,
+        "enableColumnMove": false,
+        "forceFit": false,
+        "id": "ControleStartLijstFlarm",
+        "store": "ControleStartlijstFlarm_Store",
+        "title": ""
+    },
+    "name": "MyGridPanel6",
+    "designerId": "87b9751f-fe7f-490f-9fea-8fb14aae95dd",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": null,
+                "emptyText": "<div class=\"noData\" ></div>",
+                "height": null,
+                "id": "ControleStartLijstFlarmGrid",
+                "minHeight": 20
+            },
+            "name": "MyGridView6",
+            "designerId": "6a7b4533-2b2f-4d9e-87a6-a2dcb97b2c1a",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onControleStartLijstFlarmGridItemDblClick",
+                        "implHandler": [
+                            "Ext.Hoofdscherm.StartlijstFlarm_GridviewItemDblClick(dataview, record, item, index, e, eOpts);"
+                        ],
+                        "name": "itemdblclick",
+                        "scope": "me"
+                    },
+                    "name": "onControleStartLijstFlarmGridItemDblClick",
+                    "designerId": "d7c19392-44ae-4eda-8f47-2f045d995e44"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoRender": true,
+                "dataIndex": "DAGNUMMER",
+                "defaultWidth": 40,
+                "text": "#",
+                "width": 40
+            },
+            "name": "MyColumn41",
+            "designerId": "23e2e350-59e0-43f0-b226-613cf644f3ab",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "",
+                            "var ret;",
+                            "",
+                            "if (value !== null)",
+                            "{",
+                            "    ret= \"<a href=javascript:ToonStartDetails('\" +record.data.ID + \"');>\";",
+                            "    ret = ret + value + \"</a>\";",
+                            "}",
+                            "",
+                            "",
+                            "return ret;"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "5992ed1f-6c9f-4b60-b8ec-5f95be22bd1f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "SA_REG_CALL",
+                "defaultWidth": null,
+                "text": "Registratie",
+                "width": 110
+            },
+            "name": "MyColumn42",
+            "designerId": "2b46e38d-5b62-4cc7-89f4-95f2e309f7be"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "SA_VLIEGERNAAM",
+                "text": "Voorin",
+                "width": 200
+            },
+            "name": "MyColumn43",
+            "designerId": "ee26c7ea-6f99-4c48-9447-2fcf54df4dd2"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "SA_INZITTENDENAAM",
+                "text": "Achterin",
+                "width": 200
+            },
+            "name": "MyColumn44",
+            "designerId": "f2934eb9-6204-4991-a1e1-541fe5ccd8a8",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "var retVal = value;",
+                            "if ((value === null) && (record.data.SOORTVLUCHT_ID == 809)) // 809 = instructie start",
+                            "{",
+                            "    retVal = '<IMG SRC=\"images/alert.gif\" border=0>';",
+                            "    metaData.tdAttr = 'data-qtip=\"De instructeur is niet ingevoerd.\"';",
+                            "}",
+                            "return retVal;"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "4eced25c-d580-47eb-910f-7c4525ac1d38"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "SA_SOORTVLUCHT",
+                "text": "Soort Vlucht",
+                "width": 200
+            },
+            "name": "MyColumn65",
+            "designerId": "ac097258-e33d-40dc-b4c8-1a2f74faa533"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "SA_STARTMETHODE",
+                "defaultWidth": 30,
+                "text": "",
+                "width": 30
+            },
+            "name": "MyColumn62",
+            "designerId": "cdcd2112-2bb1-4031-b817-28ed484ff5b2",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if (value !== null)",
+                            "    return value.substring(0,1);"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "0d69fc94-6447-4e42-9866-690b59d31a45"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "align": "center",
+                "dataIndex": "SA_STARTTIJD",
+                "text": "Start",
+                "width": 50
+            },
+            "name": "MyColumn45",
+            "designerId": "857d492f-120f-4ff3-bdc9-3148b49ddb2d",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if (value === null)",
+                            "{",
+                            "    return;",
+                            "}",
+                            "",
+                            "metaData.tdAttr = 'data-qtip=\"Overnemen starttijd voor deze vlucht\"';",
+                            "",
+                            "var retValue = \"<a href=javascript:Ext.Controle.OpenStartCopyWindow(\" + record.data.ID + \");>\";",
+                            "",
+                            "if (record.data.dSTARTTIJD < 120)",
+                            "{",
+                            "    retValue = retValue + value;",
+                            "}",
+                            "else",
+                            "{",
+                            "    retValue = retValue + \"<b><font color='red'>\" + value + \"</font><b>\";",
+                            "}",
+                            "",
+                            "return retValue + \"</a>\";"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "a5a85e96-9287-4dda-8ef6-484416200cf6"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "align": "center",
+                "dataIndex": "SA_LANDINGSTIJD",
+                "text": "Landing",
+                "width": 50
+            },
+            "name": "MyColumn46",
+            "designerId": "c3183e6c-4dd5-4d9c-84b9-5e2cfcff9898",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if (value === null)",
+                            "{",
+                            "    return;",
+                            "}",
+                            "",
+                            "metaData.tdAttr = 'data-qtip=\"Overnemen landingstijd voor deze vlucht\"';",
+                            "",
+                            "var retValue = \"<a href=javascript:Ext.Controle.OpenLandingCopyWindow(\" + record.data.ID + \");>\";",
+                            "",
+                            "if (record.data.dLANDINGSTIJD < 120)",
+                            "{",
+                            "    retValue = retValue + value;",
+                            "}",
+                            "else",
+                            "{",
+                            "    retValue = retValue + \"<b><font color='red'>\" + value + \"</font><b>\";",
+                            "}",
+                            "",
+                            "return retValue + \"</a>\";"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "b5ecbc39-7ef4-41d2-8d95-a385f000e20d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "SA_DUUR",
+                "text": "Duur",
+                "width": 50
+            },
+            "name": "MyColumn47",
+            "designerId": "b5cef99e-cbff-4615-a893-1666ea21c1bb"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "WAARSCHUWING",
+                "text": null
+            },
+            "name": "MyColumn48",
+            "designerId": "c7fb0574-183d-4b43-ba36-728f8ad49070",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "",
+                            "var retVal = \"\";",
+                            "",
+                            "if ((record.data.dSTARTTIJD > appSettings.ControleTolerantie) || (record.data.dLANDINGSTIJD > appSettings.ControleTolerantie))",
+                            "{",
+                            "    retVal = '<IMG SRC=\"images/alert.gif\" border=0>';",
+                            "    metaData.tdAttr = 'data-qtip=\"Er is een afwijking van starttijd en/of landingstijd\"';",
+                            "}",
+                            "else if ((record.data.dSTARTTIJD !== null)&& (record.data.dLANDINGSTIJD !== null) && (record.data.dSTARTTIJD < appSettings.ControleTolerantie) && (record.data.dLANDINGSTIJD < appSettings.ControleTolerantie))",
+                            "{",
+                            "    retVal = '<IMG SRC=\"images/ok.png\" border=0>';",
+                            "}",
+                            "",
+                            "return retVal;"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "8d0fc077-d1a7-4fc7-a2d8-fba2cb34a137"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "FLARM_STARTTIJD",
+                "text": "Flarm Starttijd",
+                "width": 100
+            },
+            "name": "MyColumn49",
+            "designerId": "99f5ec6d-db0d-4eb7-9474-0d7b6e15cb64",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "var retValue = value;",
+                            "",
+                            "if (record.data.dSTARTTIJD > 120)",
+                            "{",
+                            "    retValue = \"<b>\" + value + \"<b>\";",
+                            "}",
+                            "return retValue;"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "c5e78448-0ca7-4122-bf1a-057361f1911a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "FLARM_LANDINGSTIJD",
+                "text": "Flarm Landingstijd",
+                "width": 100
+            },
+            "name": "MyColumn50",
+            "designerId": "e96b829f-acde-4819-89f6-ddb9301ec3b2",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "var retValue = value;",
+                            "",
+                            "if (record.data.dLANDINGSTIJD > 120)",
+                            "{",
+                            "    retValue = \"<b>\" + value + \"<b>\";",
+                            "}",
+                            "return retValue;"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "20b94fac-1d7e-472b-b6e1-9190675845d1"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "FLARM_CODE",
+                "id": "FlarmStartCode",
+                "text": "<IMG SRC='images/flarm.gif' border=0>"
+            },
+            "name": "MyColumn51",
+            "designerId": "7a19837c-f719-4d22-92f1-830b036a8c82"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "FLARM_REG_CALL",
+                "text": "Registratie",
+                "width": 110
+            },
+            "name": "MyColumn52",
+            "designerId": "dc8b600a-9941-4852-915d-c404831f4aff"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "FLARM_BAAN",
+                "text": "Baan"
+            },
+            "name": "MyColumn53",
+            "designerId": "54dc1c6a-e819-4728-b3ea-39fd0c07e725"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "afterPageText": "van {0}",
+                "beforePageText": "Pagina",
+                "displayInfo": true,
+                "displayMsg": "Weergave {0} - {1} tot {2}",
+                "dock": "bottom",
+                "emptyMsg": "Geen data aanwezig",
+                "firstText": "Eerste pagina",
+                "height": 32,
+                "id": "StartlijstFlarm_Bladwijzer",
+                "lastText": "Laatste pagina",
+                "nextText": "Volgende pagina",
+                "prevText": "Vorige pagina",
+                "refreshText": "Verversen",
+                "store": "ControleStartlijstFlarm_Store",
+                "width": null
+            },
+            "name": "MyPagingToolbar5",
+            "designerId": "44550f8b-6d7a-436c-8f59-ba231a330dfa"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "id": "VandaagToolbar1"
+            },
+            "name": "MyToolbar6",
+            "designerId": "f8845517-3761-41de-9236-9483b55b4ab1",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableToggle": true,
+                        "icon": "images/filter.png",
+                        "id": "Controle_Filter",
+                        "layout|flex": null,
+                        "text": "Filter"
+                    },
+                    "name": "MyButton13",
+                    "designerId": "c02bbd53-f71f-4ec0-9006-24221c9b198a",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onControle_FilterRender",
+                                "implHandler": [
+                                    "Ext.QuickTips.register({\r",
+                                    "    target: component.getEl(),\r",
+                                    "    text: 'Verberg de goede vluchten.'\r",
+                                    "});"
+                                ],
+                                "name": "render",
+                                "scope": "me"
+                            },
+                            "name": "onControle_FilterRender",
+                            "designerId": "c7dbea00-3c12-40d0-896c-fa25afcedcbb"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onControle_FilterToggle",
+                                "implHandler": [
+                                    "Ext.Hoofdscherm.ToonControleGrid(1);"
+                                ],
+                                "name": "toggle",
+                                "scope": "me"
+                            },
+                            "name": "onControle_FilterToggle",
+                            "designerId": "eee0c82c-065d-4107-86ba-7934070db434"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Zoeken",
+                        "id": "ZoekenControleLijst",
+                        "labelAlign": "right",
+                        "labelWidth": 50,
+                        "layout|flex": 1,
+                        "maxWidth": 300,
+                        "vtype": null
+                    },
+                    "name": "MyTextField15",
+                    "designerId": "e0c0b00d-e98a-48d8-a8a6-20e7099227b9",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onZoekenControleStartlijstRender",
+                                "implHandler": [
+                                    "Ext.QuickTips.register({\r",
+                                    "    target: component.getEl(),\r",
+                                    "    text: 'Zoek in de lijst. Bijvoorbeeld op naam, registratie of callsign'\r",
+                                    "});"
+                                ],
+                                "name": "render",
+                                "scope": "me"
+                            },
+                            "name": "onZoekenControleStartlijstRender",
+                            "designerId": "b00ab02b-982d-4393-95cd-de7d1cd6306f"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "Startlijst_ZoekenControleChange",
+                                "implHandler": [
+                                    "Ext.Hoofdscherm.ToonControleGrid(1);\t"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "Startlijst_ZoekenControleChange",
+                            "designerId": "48365825-d380-415f-8d96-08758a500a43"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "fn": "processZoekenControleStartlijst",
+                                "implHandler": [
+                                    "config.plugins = ['clearbutton']; \r",
+                                    "return config; "
+                                ]
+                            },
+                            "name": "processZoekenControleStartlijst",
+                            "designerId": "92476f53-7344-496d-bf01-2f86753d1305"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

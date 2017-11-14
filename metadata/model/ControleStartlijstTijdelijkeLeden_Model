@@ -1,0 +1,280 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ControleStartlijstTijdelijkeLeden_Model",
+        "idProperty": "ID"
+    },
+    "name": "Startlijst_Model1",
+    "designerId": "d7f388d2-d7e7-40a7-9dd8-dece3ae3e359",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ID",
+                "type": null
+            },
+            "name": "MyField47",
+            "designerId": "0578ec84-dd2e-44eb-8b32-b420f59d6fa4"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DAGNUMMER",
+                "type": null
+            },
+            "name": "MyField48",
+            "designerId": "02c02482-bf9f-44aa-8ff9-f17e4ade0d8d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "STARTTIJD"
+            },
+            "name": "MyField50",
+            "designerId": "fb11cdc6-4723-4fdf-b82b-ee1ad228cb18"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "LANDINGSTIJD"
+            },
+            "name": "MyField51",
+            "designerId": "e526cce3-b070-4c07-9ff4-e527ce55bfaa"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DUUR"
+            },
+            "name": "MyField52",
+            "designerId": "e22973ef-a81e-4139-abed-c5f01ee9c9dd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "OPMERKING"
+            },
+            "name": "MyField54",
+            "designerId": "0380a605-1ddd-4004-909a-68159db4bbc3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "VLIEGER_ID",
+                "type": null
+            },
+            "name": "MyField56",
+            "designerId": "b97244f5-0893-45db-bbf3-5b9e0346633a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "INZITTENDE_ID",
+                "type": null
+            },
+            "name": "MyField57",
+            "designerId": "47d7be00-6ef6-46a1-b9fd-bf6729ac402e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "VLIEGERNAAM"
+            },
+            "name": "MyField58",
+            "designerId": "6d90e08d-ed08-42a2-93ea-f4e1ca1341bc"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "INZITTENDENAAM"
+            },
+            "name": "MyField59",
+            "designerId": "cabe1725-96dc-4f6f-8a2e-531e96c46d37"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "REGISTRATIE"
+            },
+            "name": "MyField60",
+            "designerId": "c8f4eaf5-995c-4eb3-8761-689ac67a0b21"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CALLSIGN"
+            },
+            "name": "MyField61",
+            "designerId": "115acb9c-6134-43b4-a148-1a4988399bc4"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DATUM"
+            },
+            "name": "MyField64",
+            "designerId": "d1e44014-3c42-41e5-a113-a9ba324a30e4"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SOORTVLUCHT"
+            },
+            "name": "MyField65",
+            "designerId": "1229ee7a-64b5-455c-a916-f1b3e0f1a64d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "REG_CALL"
+            },
+            "name": "MyField66",
+            "designerId": "44b70be8-6725-4f8f-ae17-707a67ae55e0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "STARTMETHODE"
+            },
+            "name": "MyField67",
+            "designerId": "a28b252c-1280-4122-9da4-8d1698be7c7f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "INZITTENDE_LIDTYPE_ID"
+            },
+            "name": "MyField22",
+            "designerId": "d0cb7f61-8c16-4a8a-a391-292e38b50948"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "VLIEGER_LIDTYPE_ID"
+            },
+            "name": "MyField23",
+            "designerId": "0a242a07-7b4f-4c8a-816a-85ccc8d4b17d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "INZITTENDE_BESTE_LID_ID"
+            },
+            "name": "MyField24",
+            "designerId": "97a1e530-ea5a-473d-aace-85b1c1701f8c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "VLIEGER_BESTE_LID_ID"
+            },
+            "name": "MyField25",
+            "designerId": "eeecd3f6-9a89-4824-bc21-8376c7bd8d0a"
+        }
+    ]
+}

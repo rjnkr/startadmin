@@ -1,0 +1,71 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Startlijst_VliegersTreeview_Model"
+    },
+    "designerId": "82d9fe4f-5fb7-4b3d-9643-eb57d0aa895d",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "TEXT"
+            },
+            "name": "MyField69",
+            "designerId": "5613aa6c-ee51-4326-a0aa-22ffa3e50092"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaultValue": null,
+                "name": "STARTTIJD",
+                "type": null
+            },
+            "name": "MyField70",
+            "designerId": "c42d4759-a062-45d3-bf1d-dce29a53a9b4"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DUUR"
+            },
+            "name": "MyField71",
+            "designerId": "58449f23-bad4-4e66-a13b-5ef8bc87d142"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaultValue": [
+                    "x-tree-noicon"
+                ],
+                "name": "iconCls"
+            },
+            "name": "MyField72",
+            "designerId": "e4d7473d-27df-4d81-9f27-c25e7a85799e"
+        }
+    ]
+}

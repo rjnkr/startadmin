@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js",
+        "url": "OpenLayers.js",
+        "x-compile": true
+    },
+    "designerId": "f88b6169-3170-4ae7-a011-dd9f7089afb8"
+}
