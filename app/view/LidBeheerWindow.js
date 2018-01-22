@@ -118,6 +118,23 @@ Ext.define('GeZC_StartAdministratie.view.LidBeheerWindow', {
                             maxLength: 13,
                             maxLengthText: 'Het telefoonnummer mag maximaal 13 cijfers bevatten'
                         }),
+                        me.processLidBeheer_Noodnummer({
+                            xtype: 'textfield',
+                            validator: function(value) {
+                                return Ext.LidBeheer.ValiderenTelefoonNummer(value);
+
+                            },
+                            anchor: '100%',
+                            id: 'LidBeheer_Noodnummer',
+                            width: 370,
+                            fieldLabel: 'Noodnummer',
+                            labelAlign: 'right',
+                            labelWidth: 80,
+                            msgTarget: 'side',
+                            name: 'NOODNUMMER',
+                            maxLength: 13,
+                            maxLengthText: 'Het telefoonnummer mag maximaal 13 cijfers bevatten'
+                        }),
                         {
                             xtype: 'combobox',
                             validator: function(value) {
@@ -237,6 +254,11 @@ Ext.define('GeZC_StartAdministratie.view.LidBeheerWindow', {
         return config;
     },
 
+    processLidBeheer_Noodnummer: function(config) {
+        config.plugins = ['clearbutton'];
+        return config;
+    },
+
     onLidBeheer_LidtypeChange: function(field, newValue, oldValue, eOpts) {
         Ext.LidBeheer.onLidBeheer_LidtypeChange(field, newValue, oldValue, eOpts);
     },
@@ -270,28 +292,6 @@ Ext.define('GeZC_StartAdministratie.view.LidBeheerWindow', {
                 store = Ext.data.StoreManager.lookup('LedenLijst_GridStore');
                 store.load();
                 button.up('.window').close();
-
-                // als we aangeroepen zijn door het start invoer scherm moeten we de gezagvoerder aanpassen
-                var InvoerGezagvoerder = Ext.getCmp('StartInvoer_Gezagvoerder');
-                if (InvoerGezagvoerder != null)
-                {
-                    InvoerGezagvoerder.store.load(
-                    {
-                        params:
-                        {
-                            '_:VliegerID': res.result.ID
-                        },
-                        scope : this,
-                        callback: function(records, operation, success)
-                        {
-                            if(success)
-                            {
-                                InvoerGezagvoerder.setValue(res.result.ID.toString());
-                            }
-                        }
-                    });
-
-                }
             },
             failure: function(req,res)
             {

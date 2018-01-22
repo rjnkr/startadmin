@@ -72,13 +72,29 @@ Ext.define('GeZC_StartAdministratie.view.ControleStartLiijstFlarmTab', {
                 {
                     xtype: 'gridcolumn',
                     width: 110,
-                    dataIndex: 'SA_REG_CALL',
+                    dataIndex: 'REG_CALL',
                     text: 'Registratie'
                 },
                 {
                     xtype: 'gridcolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        var retVal = value;
+                        if (value === null)
+                        {
+                            retVal = '<IMG SRC="images/alert.gif" border=0>';
+                            metaData.tdAttr = 'data-qtip="De gezagvoerder is niet ingevoerd."';
+                        }
+                        else
+                        {
+                            if (record.data.VLIEGERNAAM !== null)
+                            {
+                                retVal = value + "(" + record.data.VLIEGERNAAM + ")";
+                            }
+                        }
+                        return retVal;
+                    },
                     width: 200,
-                    dataIndex: 'SA_VLIEGERNAAM',
+                    dataIndex: 'VLIEGERNAAM_LID',
                     text: 'Voorin'
                 },
                 {
@@ -90,16 +106,23 @@ Ext.define('GeZC_StartAdministratie.view.ControleStartLiijstFlarmTab', {
                             retVal = '<IMG SRC="images/alert.gif" border=0>';
                             metaData.tdAttr = 'data-qtip="De instructeur is niet ingevoerd."';
                         }
+
+                        if (record.data.INZITTENDENAAM !== null)
+                        {
+                            if (record.data.INZITTENDENAAM.length > 0)
+                            retVal = record.data.INZITTENDENAAM;
+                        }
+
                         return retVal;
                     },
                     width: 200,
-                    dataIndex: 'SA_INZITTENDENAAM',
+                    dataIndex: 'INZITTENDENAAM_LID',
                     text: 'Achterin'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 200,
-                    dataIndex: 'SA_SOORTVLUCHT',
+                    dataIndex: 'LAATSTE_AANPASSING',
                     text: 'Soort Vlucht'
                 },
                 {
@@ -110,7 +133,7 @@ Ext.define('GeZC_StartAdministratie.view.ControleStartLiijstFlarmTab', {
                     },
                     width: 30,
                     defaultWidth: 30,
-                    dataIndex: 'SA_STARTMETHODE',
+                    dataIndex: 'STARTMETHODE',
                     text: ''
                 },
                 {
@@ -138,7 +161,7 @@ Ext.define('GeZC_StartAdministratie.view.ControleStartLiijstFlarmTab', {
                     },
                     width: 50,
                     align: 'center',
-                    dataIndex: 'SA_STARTTIJD',
+                    dataIndex: 'STARTTIJD',
                     text: 'Start'
                 },
                 {
@@ -166,13 +189,13 @@ Ext.define('GeZC_StartAdministratie.view.ControleStartLiijstFlarmTab', {
                     },
                     width: 50,
                     align: 'center',
-                    dataIndex: 'SA_LANDINGSTIJD',
+                    dataIndex: 'LANDINGSTIJD',
                     text: 'Landing'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 50,
-                    dataIndex: 'SA_DUUR',
+                    dataIndex: 'DUUR',
                     text: 'Duur'
                 },
                 {

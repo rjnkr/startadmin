@@ -30,6 +30,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "api": null,
                 "simpleSortMode": true,
                 "url": "php/main.php?Action=Startlijst.StartlijstVandaagJSON"
             },
@@ -67,6 +68,16 @@
                     },
                     "name": "onAjaxproxyException",
                     "designerId": "75bb8e53-8b54-42e0-8300-bd431f7cfa80"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonWriter",
+                    "designerId": "b810cfc4-61da-4257-853c-29a12365ae09"
                 }
             ]
         },

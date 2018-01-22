@@ -216,6 +216,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "delay": 250,
                                         "fn": "Export_ZoekenChange",
                                         "implHandler": [
                                             "Ext.Hoofdscherm.ToonExportGrid();"
@@ -396,11 +397,44 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "VLIEGERNAAM",
+                        "dataIndex": "VLIEGERNAAM_LID",
                         "text": "VliegerNaam"
                     },
                     "name": "MyColumn64",
-                    "designerId": "33de6c3a-0213-4fa2-89a5-f609c34a5b43"
+                    "designerId": "33de6c3a-0213-4fa2-89a5-f609c34a5b43",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var retVal = value;",
+                                    "",
+                                    "if (record.data.VLIEGERNAAM !== null)",
+                                    "{",
+                                    "    retVal = value + \"(\" + record.data.VLIEGERNAAM + \")\";",
+                                    "}",
+                                    "return retVal;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "661d0bb9-bd79-49e9-ab50-ecd1e45cee19"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -438,11 +472,47 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "INZITTENDENAAM",
+                        "dataIndex": "INZITTENDENAAM_LID",
                         "text": "Inzittende"
                     },
                     "name": "MyColumn73",
-                    "designerId": "230fb57f-e52d-46c4-8fdc-10996dbdc2b1"
+                    "designerId": "230fb57f-e52d-46c4-8fdc-10996dbdc2b1",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var retVal = value;",
+                                    "",
+                                    "if (record.data.INZITTENDENAAM !== null)",
+                                    "{",
+                                    "    if (record.data.INZITTENDENAAM.length > 0)",
+                                    "        retVal = record.data.INZITTENDENAAM;",
+                                    "}",
+                                    "",
+                                    "",
+                                    "return retVal;"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "e83ae1ce-6ffe-4c66-ad5a-40a387cb01c9"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -611,6 +681,21 @@
                     },
                     "name": "MyColumn86",
                     "designerId": "d3981d69-2e1d-4e80-a011-ec2c8a6944bb"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "BAAN",
+                        "id": "Baan",
+                        "text": "Baan"
+                    },
+                    "name": "MyColumn13",
+                    "designerId": "525b892e-9777-4864-ab49-fb0d99a666e7"
                 },
                 {
                     "type": "basiceventbinding",

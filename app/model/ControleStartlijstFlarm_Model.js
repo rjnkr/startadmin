@@ -24,7 +24,7 @@ Ext.define('GeZC_StartAdministratie.model.ControleStartlijstFlarm_Model', {
 
     fields: [
         {
-            mapping: 'SA_ID',
+            mapping: 'ID',
             name: 'ID'
         },
         {
@@ -33,28 +33,61 @@ Ext.define('GeZC_StartAdministratie.model.ControleStartlijstFlarm_Model', {
             useNull: true
         },
         {
-            name: 'SA_REG_CALL'
+            name: 'VLIEGTUIG_ID'
         },
         {
-            name: 'SA_VLIEGERNAAM'
+            name: 'SLEEPKIST_ID'
         },
         {
-            name: 'SA_INZITTENDENAAM'
+            name: 'STARTTIJD'
         },
         {
-            name: 'SA_STARTTIJD'
+            name: 'LANDINGSTIJD'
         },
         {
-            name: 'SA_LANDINGSTIJD'
+            name: 'DUUR'
         },
         {
-            name: 'SA_DUUR'
+            name: 'OPMERKING'
         },
         {
-            name: 'SA_SOORTVLUCHT'
+            name: 'OP_REKENING_ID'
         },
         {
-            name: 'SA_STARTMETHODE'
+            name: 'VLIEGER_ID'
+        },
+        {
+            name: 'VLIEGERNAAM_LID'
+        },
+        {
+            name: 'VLIEGERNAAM'
+        },
+        {
+            name: 'INZITTENDE_ID'
+        },
+        {
+            name: 'INZITTENDENAAM_LID'
+        },
+        {
+            name: 'INZITTENDENAAM'
+        },
+        {
+            name: 'REG_CALL'
+        },
+        {
+            name: 'STARTMETHODE'
+        },
+        {
+            name: 'STARTMETHODE_ID'
+        },
+        {
+            name: 'SOORTVLUCHT'
+        },
+        {
+            name: 'SOORTVLUCHT_ID'
+        },
+        {
+            name: 'LAATSTE_AANPASSING'
         },
         {
             name: 'FLARM_ID',

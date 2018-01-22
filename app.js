@@ -96,7 +96,6 @@ Ext.application({
         'Types_SoortVlucht_Store',
         'Aanmelden_Lid_Store',
         'AppSettings_Store',
-        'Startlijst_Edit_Store',
         'Types_Club_Store',
         'Types_Vliegvelden_Store',
         'Rooster_Store',
@@ -207,91 +206,84 @@ Ext.application({
             success: function(responseObject)
             {
                 Ext.data.StoreManager.lookup('AppSettings_Store').load(
-                {
-                    callback: function(records, operation, success)
                     {
-                        // De server verteld ons wat de zonsopkomst en zonsondergang is voor vandaag
-                        // We vliegen alleen overdag dus kunnen we voorkomen dat er verkeerde tijden
-                        // ingevoerd worden in de starttoren
-                        var connOp = new Ext.data.Connection();
-                        connOp.request
-                        ({
-                            url:"php/main.php?Action=ZonOpOnder.ZonOpkomst",
-                            success: function(response)
-                            {
-                                console.log(sprintf("%s: zonOpkomst=%s",TijdStempel(), response.responseText));
-
-                                if (response.responseText !== "")
+                        callback: function(records, operation, success)
+                        {
+                            // De server verteld ons wat de zonsopkomst en zonsondergang is voor vandaag
+                            // We vliegen alleen overdag dus kunnen we voorkomen dat er verkeerde tijden
+                            // ingevoerd worden in de starttoren
+                            var connOp = new Ext.data.Connection();
+                            connOp.request
+                            ({
+                                url:"php/main.php?Action=ZonOpOnder.ZonOpkomst",
+                                success: function(response)
                                 {
-                                    var t = response.responseText.split(":");
+                                    console.log(sprintf("%s: zonOpkomst=%s",TijdStempel(), response.responseText));
 
-                                    zonOpkomst = new Date();
-                                    zonOpkomst.setHours(t[0]);
-                                    zonOpkomst.setMinutes(t[1]);
-                                    console.log(sprintf("%s: zonOpkomst=%s",TijdStempel(), zonOpkomst));
+                                    if (response.responseText !== "")
+                                    {
+                                        var t = response.responseText.split(":");
+
+                                        zonOpkomst = new Date();
+                                        zonOpkomst.setHours(t[0]);
+                                        zonOpkomst.setMinutes(t[1]);
+                                        console.log(sprintf("%s: zonOpkomst=%s",TijdStempel(), zonOpkomst));
+                                    }
                                 }
-                            }
-                        });
+                            });
 
-                        var connOnder = new Ext.data.Connection();
-                        connOnder.request
-                        ({
-                            url:"php/main.php?Action=ZonOpOnder.ZonOnder",
-                            success: function(response)
-                            {
-                                console.log(sprintf("%s: zonOndergang=%s",TijdStempel(), response.responseText));
-
-
-                                if (response.responseText !== "")
+                            var connOnder = new Ext.data.Connection();
+                            connOnder.request
+                            ({
+                                url:"php/main.php?Action=ZonOpOnder.ZonOnder",
+                                success: function(response)
                                 {
-                                    var t = response.responseText.split(":");
+                                    console.log(sprintf("%s: zonOndergang=%s",TijdStempel(), response.responseText));
 
-                                    zonOndergang = new Date();
-                                    zonOndergang.setHours(t[0]);
-                                    zonOndergang.setMinutes(t[1]);
-                                    console.log(sprintf("%s: zonOpkomst=%s",TijdStempel(), zonOndergang));
+
+                                    if (response.responseText !== "")
+                                    {
+                                        var t = response.responseText.split(":");
+
+                                        zonOndergang = new Date();
+                                        zonOndergang.setHours(t[0]);
+                                        zonOndergang.setMinutes(t[1]);
+                                        console.log(sprintf("%s: zonOpkomst=%s",TijdStempel(), zonOndergang));
+                                    }
                                 }
-                            }
-                        });
+                            });
 
-                        // Het kan zijn dat de database nog niet klaar is met opstarten. Als we op de lokale computer
-                        // werken wordt alles tegelijk opgestart. De browser is dan sneller dan het opstarten van de database
-                        // Bovenstaande aanroepen naar applicatie server zijn niet database gedreven
-                        var loadDelay = 0;
-                        if (appSettings.isLocal)
-                            loadDelay = 15;
-
-                        // Zorg dat de store's geladen zijn met de laatste data
-                        setTimeout(InitStores, loadDelay * 1000);
+                            // Zorg dat de store's geladen zijn met de laatste data
+                            setTimeout(InitStores, 1 * 1000);
 
 
-                        // Een aantal stores worden automatisch geladen, start het laden over 15 seconden. De vertraging is bedoeld
-                        // om een hoge load bij het opstarten te voorkomen
-                        setTimeout(AutomatischLaden,15 * 1000);
+                            // Een aantal stores worden automatisch geladen, start het laden over 15 seconden. De vertraging is bedoeld
+                            // om een hoge load bij het opstarten te voorkomen
+                            setTimeout(AutomatischLaden,5 * 1000);
 
-                        // Wanneer de dag informatie niet is ingevuld wordt er een waarschuwing gegeven
-                        // Wacht 2 minuten voordat de eerste melding komt
-                        setTimeout(Ext.Daginfo.DagInfoWaarschuwing,120 * 1000);
+                            // Wanneer de dag informatie niet is ingevuld wordt er een waarschuwing gegeven
+                            // Wacht 2 minuten voordat de eerste melding komt
+                            setTimeout(Ext.Daginfo.DagInfoWaarschuwing,120 * 1000);
 
-                        // Als er een vliegtuig gestart is zonder dat de piloot, dan wordt er een melding gegeven dat er informatie
-                        // ontbreekt. Dit voorkomt dat er achteraf een zoektocht moet worden gehouden naar de piloot
-                        setTimeout(Ext.Hoofdscherm.StartZonderPilootWaarschuwing,120 * 1000);
+                            // Als er een vliegtuig gestart is zonder dat de piloot, dan wordt er een melding gegeven dat er informatie
+                            // ontbreekt. Dit voorkomt dat er achteraf een zoektocht moet worden gehouden naar de piloot
+                            setTimeout(Ext.Hoofdscherm.StartZonderPilootWaarschuwing,120 * 1000);
 
-                        // vliegtijd automatisch aanpassen in javascript, zonder data op te halen uit de database
-                        setTimeout(BijhoudenVliegtijd,60 * 1000);
+                            // vliegtijd automatisch aanpassen in javascript, zonder data op te halen uit de database
+                            setTimeout(BijhoudenVliegtijd,60 * 1000);
 
-                        // Communicatie status van GeZC Sync windows service, laat status op het hoofdscherm zien
-                        setTimeout(OphalenSyncStatus, 10 * 1000);
+                            // Communicatie status van GeZC Sync windows service, laat status op het hoofdscherm zien
+                            setTimeout(OphalenSyncStatus, 10 * 1000);
 
-                        // Flarm status van GeZC Sync windows service, laat status op het hoofdscherm zien
-                        setTimeout(OphalenFlarmStatus, 10 * 1000);
+                            // Flarm status van GeZC Sync windows service, laat status op het hoofdscherm zien
+                            setTimeout(OphalenFlarmStatus, 10 * 1000);
 
 
 
-                        // Nu alles geladen is laten we het hoofdscherm zien
-                        Ext.getCmp('HoofdScherm').show();
-                    }
-                });
+                            // Nu alles geladen is laten we het hoofdscherm zien
+                            Ext.getCmp('HoofdScherm').show();
+                        }
+                    });
             },
             failure: function()
             {

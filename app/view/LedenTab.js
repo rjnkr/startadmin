@@ -123,6 +123,12 @@ Ext.define('GeZC_StartAdministratie.view.LedenTab', {
                         },
                         {
                             xtype: 'gridcolumn',
+                            dataIndex: 'NOODNUMMER',
+                            text: 'Noodnummer',
+                            flex: 2
+                        },
+                        {
+                            xtype: 'gridcolumn',
                             renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
 
                                 var retVal = "";

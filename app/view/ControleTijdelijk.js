@@ -102,7 +102,7 @@ Ext.define('GeZC_StartAdministratie.view.ControleTijdelijk', {
 
                                 if (record.data.VLIEGER_LIDTYPE_ID == 609)
                                 {
-                                    retValue = "<a href=javascript:Ext.Controle.AanpassenTijdelijkLidWindow(" + record.data.ID + ");><b><font color='red'>" + value + "</font><b></a>";
+                                    retValue = "<a href=javascript:Ext.Controle.AanpassenTijdelijkLidWindow(" + record.data.ID + ");><b><font color='red'>" + value + "(" + record.data.VLIEGERNAAM + ")" + "</font><b></a>";
                                 }
                                 else
                                 {
@@ -112,19 +112,19 @@ Ext.define('GeZC_StartAdministratie.view.ControleTijdelijk', {
                                 return retValue;
                             },
                             width: 200,
-                            dataIndex: 'VLIEGERNAAM',
+                            dataIndex: 'VLIEGERNAAM_LID',
                             text: 'Voorin'
                         },
                         {
                             xtype: 'gridcolumn',
                             renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
                                 if (record.data.INZITTENDE_LIDTYPE_ID == 609)
-                                return "<b><font color='red'>" + value + "</font><b>";
+                                return "<b><font color='red'>" + record.data.VLIEGERNAAM + "</font><b>";
 
                                 return value;
                             },
                             width: 200,
-                            dataIndex: 'INZITTENDENAAM',
+                            dataIndex: 'INZITTENDENAAM_LID',
                             text: 'Achterin'
                         },
                         {

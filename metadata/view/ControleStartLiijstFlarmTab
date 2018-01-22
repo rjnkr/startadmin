@@ -118,7 +118,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "SA_REG_CALL",
+                "dataIndex": "REG_CALL",
                 "defaultWidth": null,
                 "text": "Registratie",
                 "width": 110
@@ -134,12 +134,52 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "SA_VLIEGERNAAM",
+                "dataIndex": "VLIEGERNAAM_LID",
                 "text": "Voorin",
                 "width": 200
             },
             "name": "MyColumn43",
-            "designerId": "ee26c7ea-6f99-4c48-9447-2fcf54df4dd2"
+            "designerId": "ee26c7ea-6f99-4c48-9447-2fcf54df4dd2",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "var retVal = value;",
+                            "if (value === null)",
+                            "{",
+                            "    retVal = '<IMG SRC=\"images/alert.gif\" border=0>';",
+                            "    metaData.tdAttr = 'data-qtip=\"De gezagvoerder is niet ingevoerd.\"';",
+                            "}",
+                            "else",
+                            "{",
+                            "    if (record.data.VLIEGERNAAM !== null)",
+                            "    {",
+                            "        retVal = value + \"(\" + record.data.VLIEGERNAAM + \")\";",
+                            "    }",
+                            "}",
+                            "return retVal;"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "62f50efa-0fe8-4262-8933-ad8f218037e3"
+                }
+            ]
         },
         {
             "type": "Ext.grid.column.Column",
@@ -149,7 +189,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "SA_INZITTENDENAAM",
+                "dataIndex": "INZITTENDENAAM_LID",
                 "text": "Achterin",
                 "width": 200
             },
@@ -181,6 +221,13 @@
                             "    retVal = '<IMG SRC=\"images/alert.gif\" border=0>';",
                             "    metaData.tdAttr = 'data-qtip=\"De instructeur is niet ingevoerd.\"';",
                             "}",
+                            "",
+                            "if (record.data.INZITTENDENAAM !== null)",
+                            "{",
+                            "    if (record.data.INZITTENDENAAM.length > 0)",
+                            "        retVal = record.data.INZITTENDENAAM;",
+                            "}",
+                            "",
                             "return retVal;"
                         ]
                     },
@@ -197,7 +244,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "SA_SOORTVLUCHT",
+                "dataIndex": "LAATSTE_AANPASSING",
                 "text": "Soort Vlucht",
                 "width": 200
             },
@@ -212,7 +259,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "SA_STARTMETHODE",
+                "dataIndex": "STARTMETHODE",
                 "defaultWidth": 30,
                 "text": "",
                 "width": 30
@@ -257,7 +304,7 @@
             "codeClass": null,
             "userConfig": {
                 "align": "center",
-                "dataIndex": "SA_STARTTIJD",
+                "dataIndex": "STARTTIJD",
                 "text": "Start",
                 "width": 50
             },
@@ -318,7 +365,7 @@
             "codeClass": null,
             "userConfig": {
                 "align": "center",
-                "dataIndex": "SA_LANDINGSTIJD",
+                "dataIndex": "LANDINGSTIJD",
                 "text": "Landing",
                 "width": 50
             },
@@ -378,7 +425,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "SA_DUUR",
+                "dataIndex": "DUUR",
                 "text": "Duur",
                 "width": 50
             },

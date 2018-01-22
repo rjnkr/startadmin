@@ -22,7 +22,7 @@
 		{
 			$currentTime = time();
 			$middag = mktime(14,00,00);
-			$ochtend = mktime(08,00,00);
+			$ochtend = mktime(8,00,00);
 			
 			$retVal[0] = null;
 			

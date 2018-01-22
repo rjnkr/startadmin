@@ -24,7 +24,8 @@ Ext.StartlijstInvoerForm = function(){
 		
 			console.log(sprintf("%s: onStartInvoerWindowShow(%s)", TijdStempel(), ID));
 			var form = Ext.getCmp('StartInvoer_InvoerForm');
-			form.hide();		// verbergen als we aan het laden zijn
+			form.show();
+			DisableFormEvents(form);	// ivm performance, schakel alls events uit	
 			
 			var InvoerVliegtuig = Ext.getCmp('StartInvoer_Vliegtuig');			// combobox vliegtuig
 			var InvoerSoortVlucht = Ext.getCmp('StartInvoer_SoortVlucht');		// checkbox grid
@@ -35,6 +36,7 @@ Ext.StartlijstInvoerForm = function(){
 			Ext.data.StoreManager.lookup('Startlijst_SleepKisten_Store').slimLaden(null, false);
 			Ext.data.StoreManager.lookup('Startlijst_Vlieger_Store').slimLaden(null, false);
 			
+			// Welke vliegtuigen worden standaard getoond in de combobox 
 			if (appSettings.Aanwezigheid)
 			{
 				console.log(sprintf("%s: onStartInvoerWindowShow, aanwezig vliegtuigen", TijdStempel()));
@@ -90,12 +92,11 @@ Ext.StartlijstInvoerForm = function(){
 			lstore.slimLaden(null, false);
 
 			// koppel de Startlijst_Vlieger_Store aan de combobox
-			Ext.getCmp('StartInvoer_Gezagvoerder').bindStore(lstore);
-			
+			Ext.getCmp('StartInvoer_Gezagvoerder').bindStore(lstore);		
 			
 			// haal startlijst record op, of maak een nieuw record
 			var record;
-			if (ID == -1)
+			if (ID == -1)		// nieuwe start
 			{
 				Ext.getCmp('StartInvoer_Titel').setText('Nieuwe vlucht');
 			
@@ -108,115 +109,222 @@ Ext.StartlijstInvoerForm = function(){
 					ID: -1,
 					DATUM: sprintf("%s-%s-%s", datum.getFullYear(), datum.getMonth()+1, datum.getDate())
 				});				
-				DisableFormEvents(form);	// ivm performance, schakel alls events uit	
-				form.loadRecord(record); 	// laad het record in het formulier
 				
-				form.OpRekeningOvernemen = true;
+				form.loadRecord(record); 	// laad het record in het formulier
+				form.OpRekeningOvernemen = true;	// bij het wijzigen van de vlieger wordt ook de op rekening automatisch aangepast
 				
 				console.log(sprintf("%s: Tonen start invoer form", TijdStempel()));
-				form.show();		// ok, laat het nieuwe record maar zien
-				EnableFormEvents(form);
 				Ext.StartlijstInvoerForm.DynamischFormulier();
 				InvoerVliegtuig.focus(false, true);				
 			}
-			else
+			else				// aanpassen bestaande start
 			{
 				Ext.getCmp('StartInvoer_Titel').setText('Aanpassen vlucht');
 				
-				var store = Ext.data.StoreManager.lookup('Startlijst_Edit_Store');
-				Ext.win.showLoading(true, store.storeId);
-				store.load(
+				var store = Ext.data.StoreManager.lookup(StartlijstInvoerForm_GRID); 
+
+				// We halen de data opnieuw uit de datbase op, de data in get grid zou door een andere gebruiker aangepast kunnen zijn
+				Ext.Ajax.request(
 				{
+					url: 'php/main.php?Action=Startlijst.GetObjectJSON',
+					method: 'GET',
 					params: 
 					{
 						'_:ID':ID
 					},
-					callback: function(records, operation, success)	// Deze functie wordt aangeroepen zodra de data van de server terug
+					failure: function(record, operation) 
 					{
-						var record;
-						var form = Ext.getCmp('StartInvoer_InvoerForm');
-						
-						DisableFormEvents(form);
-						if(!success)
+						Ext.MessageBox.alert ('Fout bij ophalen data', operation.response.responseText);
+					},
+					success: function(result, request)
+					{					
+						if (Ext.getCmp('StartInvoer_InvoerForm') != undefined)	// controleer of het form nog aanwezig is, het window kan afgesloten zijn
 						{
-							Ext.MessageBox.alert ('Fout bij ophalen data', operation.response.responseText);						
-						}
-						else
-						{
-							record = store.getById(ID);
+							// We hebben nu de data uit de grid store en het record uit de database
+							// Het kan zijn dat het grid niet de laatste informatie bevat, we moeten dan de database gegevens gebruiken
+							// Wanneer we de velden in het form overschrijven, dan worden de wijzingen door de gebruiker ondertussen gemaakt zijn, overschreven
+							// Dat gaat we dus slimmer doen, helaas wel meer code
+							var recordDB =  Ext.decode(result.responseText);
+							var recordForm = form.getRecord();
 							
-							if (record.data.VLIEGER_ID == record.data.OP_REKENING_ID)
-								form.OpRekeningOvernemen = true;
-							else
-								form.OpRekeningOvernemen = false;
-							
-							if ((record.data.STARTTIJD == "") || (record.data.STARTTIJD == null))
+							if (recordDB.data.LAATSTE_AANPASSING != recordForm.data.LAATSTE_AANPASSING) 	// ok, er zijn wijzigingen
 							{
-								Ext.StartlijstInvoerForm.OphalenGezagvoerders(record.data.VLIEGTUIG_ID, record.data.VLIEGER_ID);
-							}
-							else
-							{
-								var lstore = Ext.data.StoreManager.lookup('Startlijst_Vlieger_Store');
-								lstore.clearFilter();
-								if (appSettings.Aanwezigheid)
+								if (recordDB.data.VLIEGTUIG_ID != recordForm.data.VLIEGTUIG_ID)		// Data is ongelijk
 								{
-									var storeFilterBy = 
-									"function myfilter(record, id)" 											+ 
-									"{"																			+ 
-									"	if (record.data.LIDTYPE_ID == '612') return false;" 					+		// 612 is lidtype penningmeester
-									"	if (record.data.AANWEZIG_GEWEEST == '1') return true;" 					+
-									"	if (record.data.ID == '" + record.data.VLIEGER_ID + "') return true;" +
-									"	return false;"															+
-									"}";
-												
-									eval("var sif4=" + storeFilterBy)
-									lstore.filterBy(sif4);		
-								}								
+									var InvoerVliegtuig = Ext.getCmp('StartInvoer_Vliegtuig');
+									
+									if (InvoerVliegtuig.getValue() == recordForm.data.VLIEGTUIG_ID) // Gebruiker heeft nog niets aangepast
+									{
+										InvoerVliegtuig.setValue(recordDB.data.VLIEGTUIG_ID);
+									}
+								}
+								if (recordDB.data.SLEEPKIST_ID != recordForm.data.SLEEPKIST_ID)		// Data is ongelijk
+								{
+									var InvoerSleepkist = Ext.getCmp('StartInvoer_Sleepkist');		
+									
+									if (InvoerSleepkist.getValue() == recordForm.data.SLEEPKIST_ID) // Gebruiker heeft nog niets aangepast
+									{
+										InvoerSleepkist.setValue(recordDB.data.SLEEPKIST_ID);
+									}
+								}
+								if (recordDB.data.VLIEGER_ID != recordForm.data.VLIEGER_ID)		// Data is ongelijk
+								{
+									var GezagvoerderInvoer = Ext.getCmp('StartInvoer_Gezagvoerder');		
+									
+									if (GezagvoerderInvoer.getValue() == recordForm.data.VLIEGER_ID) // Gebruiker heeft nog niets aangepast
+									{
+										GezagvoerderInvoer.setValue(recordDB.data.VLIEGER_ID);
+									}
+								}		
+								if (recordDB.data.VLIEGERNAAM != recordForm.data.VLIEGERNAAM)		// Data is ongelijk
+								{
+									var InvoerGezagvoerderNaam = Ext.getCmp('StartInvoer_GezagvoerderNaam');		
+									
+									if (InvoerGezagvoerderNaam.getValue() == recordForm.data.VLIEGERNAAM) // Gebruiker heeft nog niets aangepast
+									{
+										InvoerGezagvoerderNaam.setValue(recordDB.data.VLIEGERNAAM);
+									}
+								}	
+								if (recordDB.data.INZITTENDE_ID != recordForm.data.INZITTENDE_ID)		// Data is ongelijk
+								{
+									var InzittendeID = Ext.getCmp('StartInvoer_Inzittende');		
+									
+									if (InzittendeID.getValue() == recordForm.data.INZITTENDE_ID) // Gebruiker heeft nog niets aangepast
+									{
+										InzittendeID.setValue(recordDB.data.INZITTENDE_ID);
+									}
+								}	
+								if (recordDB.data.INZITTENDENAAM != recordForm.data.INZITTENDENAAM)		// Data is ongelijk
+								{
+									var InvoerInzittendeNaam = Ext.getCmp('StartInvoer_InzittendeNaam');	
+									
+									if (InzittendeID.getValue() == recordForm.data.INZITTENDENAAM) // Gebruiker heeft nog niets aangepast
+									{
+										InzittendeID.setValue(recordDB.data.INZITTENDENAAM);
+									}
+								}		
+								if (recordDB.data.OP_REKENING_ID != recordForm.data.OP_REKENING_ID)		// Data is ongelijk
+								{
+									var InvoerOpRekening = Ext.getCmp('StartInvoer_OpRekening');	
+									
+									if (InvoerOpRekening.getValue() == recordForm.data.OP_REKENING_ID) // Gebruiker heeft nog niets aangepast
+									{
+										InvoerOpRekening.setValue(recordDB.data.OP_REKENING_ID);
+									}
+								}
+								if (recordDB.data.STARTMETHODE_ID != recordForm.data.STARTMETHODE_ID)		// Data is ongelijk
+								{
+									var InvoerStartMethode = Ext.getCmp('StartInvoer_StartMethode');	
+									
+									if (InvoerStartMethode.haalWaarde() == recordForm.data.STARTMETHODE_ID) // Gebruiker heeft nog niets aangepast
+									{
+										InvoerStartMethode.zetWaarde(recordDB.data.STARTMETHODE_ID);
+									}
+								}		
+								if (recordDB.data.SOORTVLUCHT_ID != recordForm.data.SOORTVLUCHT_ID)		// Data is ongelijk
+								{
+									var InvoerSoortVlucht = Ext.getCmp('StartInvoer_SoortVlucht');
+									
+									if (InvoerSoortVlucht.haalWaarde() == recordForm.data.SOORTVLUCHT_ID) // Gebruiker heeft nog niets aangepast
+									{
+										InvoerSoortVlucht.zetWaarde(recordDB.data.SOORTVLUCHT_ID);
+									}
+								}	
+								if (recordDB.data.OPMERKING != recordForm.data.OPMERKING)		// Data is ongelijk
+								{
+									var InvoerOpmerking = Ext.getCmp('StartInvoer_Opmerking');	
+									
+									if (InvoerOpmerking.getValue() == recordForm.data.OPMERKING) // Gebruiker heeft nog niets aangepast
+									{
+										InvoerOpmerking.setValue(recordDB.data.OPMERKING);
+									}
+								}	
+								if (recordDB.data.SLEEP_HOOGTE != recordForm.data.SLEEP_HOOGTE)		// Data is ongelijk
+								{
+									var InvoerSleephoogte = Ext.getCmp('StartInvoer_Opmerking');	
+									
+									if (InvoerSleephoogte.getValue() == recordForm.data.SLEEP_HOOGTE) // Gebruiker heeft nog niets aangepast
+									{
+										InvoerSleephoogte.setValue(recordDB.data.SLEEP_HOOGTE);
+									}
+								}							
 							}
-							
-							
-							// zorg dat de filters goed zijn, dit hoeft niet voor nieuwe records omdat die filter puur op invoer gebasseerd zijn
-							Ext.StartlijstInvoerForm.SoortVlucht(record);
-							Ext.StartlijstInvoerForm.OpRekening(record);
-							Ext.StartlijstInvoerForm.FilterInzittende(record)
-							
-							// Filtering van de dropdown. Alleen vliegtuigen die aanwezig zijn worden getoond
-							InvoerVliegtuig.store.clearFilter();
-							if (appSettings.Aanwezigheid)
-							{
-								InvoerVliegtuig.primaryFilterBy = 
-								"function myfilter(record,id) " 											+
-								"{" 																		+
-									"    if (record.data.ID == " + record.data.VLIEGTUIG_ID + ") return true;" 	+
-									"    if (record.data.AANWEZIG == '1') return true;" 				+
-									"    return false;" 														+        
-								"}";  	
-								
-								eval("var sif5 =" + InvoerVliegtuig.primaryFilterBy);
-								InvoerVliegtuig.store.filterBy(sif5);
-							}
-							InvoerVliegtuig.focus(false, true);
-							
-							form.loadRecord(record); 		// laad het record in het formulier
-							EnableFormEvents(form);			// Zet de events weer aan
-							
-							Ext.StartlijstInvoerForm.FilterGezagvoerder();
-							
-							// zet waarde in hidden text veld. Via events wordt checkbox in grid gezet
-							Ext.getCmp('StartInvoer_SoortVlucht').zetWaarde(record.data.SOORTVLUCHT_ID);	// veld met soortvlucht
-							Ext.getCmp('StartInvoer_StartMethode').zetWaarde(record.data.STARTMETHODE_ID);	// veld met startmethode
-							
-							console.log(sprintf("%s: Tonen start invoer form", TijdStempel()));
-							form.show();		// ok, laat maar zien wat er geladen is
-							
-							// Dynamisch formulier opmaak
-							Ext.StartlijstInvoerForm.DynamischFormulier(record);
-		
-							form.soortVluchtAangepast = true;
-						}	
+						}
 					}
 				});
-			}	
+				
+				var store = Ext.data.StoreManager.lookup(StartlijstInvoerForm_GRID);
+				var record = store.getById(ID);
+				
+				form.loadRecord(record); 		// laad het record in het formulier
+							
+				if (record.data.VLIEGER_ID == record.data.OP_REKENING_ID)
+					form.OpRekeningOvernemen = true;						// bij het wijzigen van de vlieger wordt ook de op rekening automatisch aangepast
+				else
+					form.OpRekeningOvernemen = false;						// omdat de verschillend zijn, is de automatisch koppeling uit
+				
+				if ((record.data.STARTTIJD == "") || (record.data.STARTTIJD == null))
+				{
+					Ext.StartlijstInvoerForm.OphalenGezagvoerders(record.data.VLIEGTUIG_ID, record.data.VLIEGER_ID);
+				}
+				else
+				{
+					var lstore = Ext.data.StoreManager.lookup('Startlijst_Vlieger_Store');
+					lstore.clearFilter();
+					if (appSettings.Aanwezigheid)
+					{
+						var storeFilterBy = 
+						"function myfilter(record, id)" 											+ 
+						"{"																			+ 
+						"	if (record.data.LIDTYPE_ID == '612') return false;" 					+		//  612 is lidtype penningmeester
+						"	if (record.data.AANWEZIG_GEWEEST == '1') return true;" 					+
+						"	if (record.data.ID == '" + record.data.VLIEGER_ID + "') return true;"    +
+						"	return false;"															+
+						"}";
+									
+						eval("var sif4=" + storeFilterBy)
+						lstore.filterBy(sif4);		
+					}								
+				}
+				
+				// zorg dat de filters goed zijn, dit hoeft niet voor nieuwe records omdat die filter puur op invoer gebasseerd zijn
+				Ext.StartlijstInvoerForm.SoortVlucht(record);
+				Ext.StartlijstInvoerForm.OpRekening(record);
+				Ext.StartlijstInvoerForm.FilterInzittende(record)
+				
+				// Filtering van de dropdown. Alleen vliegtuigen die aanwezig zijn worden getoond
+				InvoerVliegtuig.store.clearFilter();
+				if (appSettings.Aanwezigheid)
+				{
+					InvoerVliegtuig.primaryFilterBy = 
+					"function myfilter(record,id) " 											+
+					"{" 																		+
+						"    if (record.data.ID == " + record.data.VLIEGTUIG_ID + ") return true;" 	+
+						"    if (record.data.AANWEZIG == '1') return true;" 				+
+						"    return false;" 														+        
+					"}";  	
+					
+					eval("var sif5 =" + InvoerVliegtuig.primaryFilterBy);
+					InvoerVliegtuig.store.filterBy(sif5);
+				}
+				
+				Ext.StartlijstInvoerForm.FilterGezagvoerder();
+				
+				// zet waarde in hidden text veld. Via events wordt checkbox in grid gezet
+				Ext.getCmp('StartInvoer_SoortVlucht').zetWaarde(record.data.SOORTVLUCHT_ID);	 // veld met soortvlucht
+				Ext.getCmp('StartInvoer_StartMethode').zetWaarde(record.data.STARTMETHODE_ID);	 // veld met startmethode
+				
+				console.log(sprintf("%s: Tonen start invoer form", TijdStempel()));
+				form.show();		// ok, laat maar zien wat er geladen is
+				
+				// Dynamisch formulier opmaak
+				Ext.StartlijstInvoerForm.DynamischFormulier(record);
+
+				form.soortVluchtAangepast = true;
+							
+				InvoerVliegtuig.focus(false, true);				
+			}
+			EnableFormEvents(form);			// Zet de events weer aan			
 		},
 	
 		// Deze functie verbergt, toont velden op basis van de ingevoerde waarde
@@ -236,6 +344,7 @@ Ext.StartlijstInvoerForm = function(){
 			// Invoer Controls
 			var InvoerVliegtuig = Ext.getCmp('StartInvoer_Vliegtuig');							// combobox
 			var InvoerSleepkist = Ext.getCmp('StartInvoer_Sleepkist');							// combobox
+			var InvoerSleephoogte = Ext.getCmp('StartInvoer_Sleephoogte');						// numeric
 			var InvoerGezagvoerderContainer = Ext.getCmp('StartInvoer_GezagvoerderContainer');	// combobox + de toevoegen button
 			var InvoerGezagvoerderNaam = Ext.getCmp('StartInvoer_GezagvoerderNaam');			// textbox
 			var InvoerInzittendeContainer = Ext.getCmp('StartInvoer_InzittendeContainer');		// combobox + de wissel button
@@ -275,6 +384,7 @@ Ext.StartlijstInvoerForm = function(){
 				InvoerGezagvoerderContainer.hide();
 				InvoerGezagvoerderNaam.hide();
 				InvoerSleepkist.hide();
+				InvoerSleephoogte.hide();
 				InvoerInzittendeContainer.hide();
 				InvoerInzittendeNaam.hide();
 				InvoerOpRekening.hide();
@@ -428,6 +538,10 @@ Ext.StartlijstInvoerForm = function(){
 			{
 				console.log(sprintf("%s: DynamischFormulier, Sleepstart", TijdStempel()));
 				InvoerSleepkist.show();
+				if ((appSettings.isBeheerder) || (appSettings.isBeheerderDDWV))
+				{
+					InvoerSleephoogte.show();
+				}
 				
 				if ((InvoerSleepkist.getValue() == null) || (InvoerSleepkist.getValue() == ""))
 				{
@@ -450,13 +564,14 @@ Ext.StartlijstInvoerForm = function(){
 			else
 			{
 				InvoerSleepkist.hide();
+				InvoerSleephoogte.hide();
 			}
 			//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 			// Einde van startmethode slepen
 			//************************************************************************************************************************
 			
 			//************************************************************************************************************************
-			// voor een oprot kabel, of zusterclub moeten we de naam handmatig invoeren
+			// voor een nieuw lid, of zusterclub moeten we de naam handmatig invoeren
 			//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 			var LidRecord = Ext.data.StoreManager.lookup('Startlijst_Vlieger_Store').getById(LidID); 			
 			if (LidRecord == null)		// lid is nog niet ingevoerd
@@ -495,17 +610,26 @@ Ext.StartlijstInvoerForm = function(){
 				{
 					case '600':			// diversen
 					case '607': 		// zusterclub
-					case '610':			// oprot kabel
+					case '609':			// nieuw lid
 					{
 						InvoerOpRekening.hide();
 						InvoerGezagvoerderNaam.show();	
 						
 						if (VliegtuigRecord.data.ZITPLAATSEN == 1)
+						{
 							InvoerInzittendeNaam.hide();
-						else
+							InvoerInzittendeContainer.hide();
+						}
+						else if (LidRecord.data.LIDTYPE_ID == '607')  // zusterclub
+						{
 							InvoerInzittendeNaam.show();	
-			
-						InvoerInzittendeContainer.hide();
+							InvoerInzittendeContainer.hide();
+						}
+						else
+						{
+							InvoerInzittendeNaam.hide();
+							InvoerInzittendeContainer.show();
+						}
 						break;
 					}					
 					default:
@@ -652,6 +776,11 @@ Ext.StartlijstInvoerForm = function(){
 		ValiderenVliegtuig: function(value)
 		{		
 			var Vliegtuig = Ext.getCmp('StartInvoer_Vliegtuig')
+			if (Vliegtuig == undefined)
+			{
+				console.log(sprintf("%s: StartInvoer_Vliegtuig niet gedefineerd, OK", TijdStempel()));
+				return true;				
+			}
 			if (!Vliegtuig.isVisible())
 			{
 				console.log(sprintf("%s: %s verborgen, OK", TijdStempel(), Vliegtuig.id));
@@ -695,14 +824,19 @@ Ext.StartlijstInvoerForm = function(){
 		
 		onStartInvoerVliegtuigChange: function(field, newValue, oldValue, options)
 		{
+			console.log(sprintf("%s: onStartInvoerVliegtuigChange()", TijdStempel()));
+			
 			var GezagvoerderInvoer = Ext.getCmp('StartInvoer_Gezagvoerder');
 			var ID = Ext.getCmp('StartInvoer_ID').getValue();
 			var OphalenGezagvoerders = false;								
 			
-			if (isNaN(newValue) === true)
+			if (field.isValid() == false)
+			{
+				console.log("Vliegtuig heeft geen geldige waarde");
 				return;
+			}
 				
-			if (ID < 0)
+			if ((ID < 0) || (ID == ""))
 			{
 				OphalenGezagvoerders = true;
 			}	
@@ -744,7 +878,14 @@ Ext.StartlijstInvoerForm = function(){
 		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		ValiderenStartMethode: function(value)
 		{
-			if (!Ext.getCmp('StartInvoer_StartMethodePanel').isVisible())
+			var panel = Ext.getCmp('StartInvoer_StartMethodePanel');
+			if (panel == undefined)
+			{
+				console.log(sprintf("%s: StartInvoer_StartMethodePanel niet gedefineerd, OK", TijdStempel()));
+				return true;				
+			}
+			
+			if (!panel.isVisible())
 			{
 				console.log(sprintf("%s: StartInvoer_StartMethodePanel verborgen, OK", TijdStempel()));
 				return true;
@@ -813,6 +954,11 @@ Ext.StartlijstInvoerForm = function(){
 		ValiderenSleepvliegtuig: function(value)
 		{				
 			var Sleepkist = Ext.getCmp('StartInvoer_Sleepkist')
+			if (Sleepkist == undefined)
+			{
+				console.log(sprintf("%s: StartInvoer_Sleepkist niet gedefineerd, OK", TijdStempel()));
+				return true;				
+			}
 			if (!Sleepkist.isVisible())
 			{
 				console.log(sprintf("%s: %s verborgen, OK", TijdStempel(), Sleepkist.id));
@@ -873,52 +1019,55 @@ Ext.StartlijstInvoerForm = function(){
 						var GezagvoerderInvoer = Ext.getCmp('StartInvoer_Gezagvoerder');
 						var store;
 						
-						if (records.length ==0)		// Er is niets, dan maar de hele lijst tonen
-						{
-							console.log(sprintf("%s: OphalenGezagvoerders, alle leden", TijdStempel()));
-							store = Ext.data.StoreManager.lookup('Startlijst_Vlieger_Store');
-						}
-						else
-						{
-							console.log(sprintf("%s: OphalenGezagvoerders, alleen gezagvoerders", TijdStempel()));
-							store = gstore;
-						}
-
-						GezagvoerderInvoer.bindStore(store);
-						Ext.StartlijstInvoerForm.FilterGezagvoerder();	
-
-						if ((store.storeId == gstore.storeId) &&
-							(GezagvoerderInvoer.getValue() == null))
-						{
-							var Vliegtuig = Ext.getCmp('StartInvoer_Vliegtuig');	
-							var VliegtuigID = Vliegtuig.getValue();	
-						
-							if (VliegtuigID != null)
+						if (GezagvoerderInvoer != undefined)	// als control undefined is, dan heeft de gebruiker het window al gesloten
+						{					
+							if (records.length ==0)		// Er is niets, dan maar de hele lijst tonen
 							{
-								var conn = new Ext.data.Connection();
-								conn.request
-								({
-									url:"php/main.php?Action=Aanwezig.DefaultGezagvoerder",
-									method:'POST',
-									params: 
-									{
-										'VLIEGTUIG_ID': VliegtuigID
-									},
-									success: function(response) 
-									{
-										console.log(sprintf("%s: SoortVlucht, default waarde=%s",TijdStempel(), response.responseText));
-										
-										var GezagvoerderInvoer = Ext.getCmp('StartInvoer_Gezagvoerder')
-										
-										if (response.responseText != "")
+								console.log(sprintf("%s: OphalenGezagvoerders, alle leden", TijdStempel()));
+								store = Ext.data.StoreManager.lookup('Startlijst_Vlieger_Store');
+							}
+							else
+							{
+								console.log(sprintf("%s: OphalenGezagvoerders, alleen gezagvoerders", TijdStempel()));
+								store = gstore;
+							}
+
+							GezagvoerderInvoer.bindStore(store);
+							Ext.StartlijstInvoerForm.FilterGezagvoerder();	
+
+							if ((store.storeId == gstore.storeId) &&
+								(GezagvoerderInvoer.getValue() == null))
+							{
+								var Vliegtuig = Ext.getCmp('StartInvoer_Vliegtuig');	
+								var VliegtuigID = Vliegtuig.getValue();	
+							
+								if (VliegtuigID != null)
+								{
+									var conn = new Ext.data.Connection();
+									conn.request
+									({
+										url:"php/main.php?Action=Aanwezig.DefaultGezagvoerder",
+										method:'POST',
+										params: 
 										{
-											GezagvoerderInvoer.suspendEvents(false);					
-											GezagvoerderInvoer.setValue(response.responseText);
-											GezagvoerderInvoer.resumeEvents();
+											'VLIEGTUIG_ID': VliegtuigID
+										},
+										success: function(response) 
+										{
+											console.log(sprintf("%s: SoortVlucht, default waarde=%s",TijdStempel(), response.responseText));
+											
+											var GezagvoerderInvoer = Ext.getCmp('StartInvoer_Gezagvoerder')
+											
+											if (response.responseText != "")
+											{
+												GezagvoerderInvoer.suspendEvents(false);					
+												GezagvoerderInvoer.setValue(response.responseText);
+												GezagvoerderInvoer.resumeEvents();
+											}
 										}
-									}
-								});
-							}							
+									});
+								}							
+							}
 						}
 					}
 				}
@@ -957,6 +1106,8 @@ Ext.StartlijstInvoerForm = function(){
 			}
 		},
 		
+		// Zorg dat de lijst met namen alleen relevant informatie bevat
+		// Alle lidtypes in FilterArray worden eruit gehaald
 		FilterGezagvoerder: function()
 		{
 			console.log(sprintf("%s: FilterGezagvoerder()", TijdStempel()));
@@ -986,8 +1137,7 @@ Ext.StartlijstInvoerForm = function(){
 				if (VliegtuigRecord.data.CLUBKIST == '1') 
 				{
 					FilterArray.push(625);				// 625 = DDWV vlieger
-					FilterArray.push(607);				// 607 is zusterclub		
-					FilterArray.push(610);				// 610 is oprotkabel							
+					FilterArray.push(607);				// 607 is zusterclub								
 					
 					if (VliegtuigRecord.data.ZITPLAATSEN < 2)
 					{
@@ -1018,6 +1168,11 @@ Ext.StartlijstInvoerForm = function(){
 		onChangeInvoerGezagvoerder: function(field, options)
 		{
 			var Gezagvoerder = Ext.getCmp('StartInvoer_Gezagvoerder');
+			if (Gezagvoerder == undefined)
+			{
+				console.log(sprintf("%s: StartInvoer_Gezagvoerder niet gedefineerd, OK", TijdStempel()));
+				return true;				
+			}
 			
 			if (Gezagvoerder.value == null)
 				return;
@@ -1042,6 +1197,13 @@ Ext.StartlijstInvoerForm = function(){
 		ValiderenGezagvoerder: function(value)
 		{
 			var Gezagvoerder = Ext.getCmp('StartInvoer_Gezagvoerder');
+			
+			if (Gezagvoerder == undefined)
+			{
+				console.log(sprintf("%s: StartInvoer_Gezagvoerder niet gedefineerd, OK", TijdStempel()));
+				return true;				
+			}
+			
 			var InzittendeID = Ext.getCmp('StartInvoer_Inzittende').getValue();
 			
 			if (!Ext.getCmp('StartInvoer_GezagvoerderContainer').isVisible())
@@ -1156,6 +1318,11 @@ Ext.StartlijstInvoerForm = function(){
 		ValiderenGezagvoerderNaam: function(value)
 		{		
 			var veld = Ext.getCmp('StartInvoer_GezagvoerderNaam');
+			if (veld == undefined)
+			{
+				console.log(sprintf("%s: StartInvoer_GezagvoerderNaam niet gedefineerd, OK", TijdStempel()));
+				return true;				
+			}
 			if (!veld.isVisible())
 			{
 				console.log(sprintf("%s: %s verborgen, OK", TijdStempel(), veld.id));
@@ -1324,7 +1491,12 @@ Ext.StartlijstInvoerForm = function(){
 		ValiderenInzittende: function(value)
 		{
 			var Inzittende = Ext.getCmp('StartInvoer_Inzittende');
-				
+			if (Inzittende == undefined)
+			{
+				console.log(sprintf("%s: StartInvoer_Inzittende niet gedefineerd, OK", TijdStempel()));
+				return true;				
+			}
+			
 			if (!Inzittende.isVisible())
 			{
 				console.log(sprintf("%s: %s verborgen, OK", TijdStempel(), Inzittende.id));
@@ -1447,6 +1619,8 @@ Ext.StartlijstInvoerForm = function(){
 			});							
 		},
 		
+		// Zorg dat de lijst alleen relevante informatie weergeeft. 
+		// Alles in FilterArray komt erin
 		FilterSoortVlucht: function(geladenRecord)
 		{
 			// filter soort vlucht
@@ -1507,10 +1681,10 @@ Ext.StartlijstInvoerForm = function(){
 					console.log(sprintf("%s: FilterSoortVlucht, Zusterclub", TijdStempel()));
 					FilterArray.push(803);    
 				}
-				else if (VLIEGER_LIDTYPE_ID == 610)    // 610 = Oprotkabel
+				else if (VLIEGER_LIDTYPE_ID == 609)    // 609 = Nieuw lid
 				{
-					console.log(sprintf("%s: FilterSoortVlucht, Oprotkabel", TijdStempel()));
-					FilterArray.push(804);
+					console.log(sprintf("%s: FilterSoortVlucht, Instructie start", TijdStempel()));
+					FilterArray.push(809);
 				}
 				else if (VLIEGER_LIDTYPE_ID == "611")	// 611 = cursist
 				{
@@ -1636,11 +1810,11 @@ Ext.StartlijstInvoerForm = function(){
 			}
 			
 			// Het kan alleen een DDWV start zijn als we we hebben aangegeven dat het een DDWV dag is
-			//if ((dagInfo.data.SOORTBEDRIJF_ID == 702) || (dagInfo.data.SOORTBEDRIJF_ID == 703))		// 702 = Club bedrijf + DDWV 	// 703 = DDWV 
-			//{
-			//	console.log(sprintf("%s: FilterSoortVlucht, DDWV: Midweekvliegen", TijdStempel()));	
-			//	FilterArray.push(814); 
-			//}
+			if ((dagInfo.data.SOORTBEDRIJF_ID == 702) || (dagInfo.data.SOORTBEDRIJF_ID == 703))		// 702 = Club bedrijf + DDWV 	// 703 = DDWV 
+			{
+				console.log(sprintf("%s: FilterSoortVlucht, DDWV: Midweekvliegen", TijdStempel()));	
+				FilterArray.push(814); 
+			}
 			
 			// Als we een bestaand record wijzigen, dan moeten we zeker weten dat de vorige soortvlucht nu ook weer in de lijst aanwezig is 		
 			var s = "";
@@ -1835,6 +2009,12 @@ Ext.StartlijstInvoerForm = function(){
 		{
 			var InvoerOpRekening = Ext.getCmp('StartInvoer_OpRekening');
 
+			if (InvoerOpRekening == undefined)
+			{
+				console.log(sprintf("%s: StartInvoer_OpRekening niet gedefineerd, OK", TijdStempel()));
+				return true;				
+			}
+			
 			if (!InvoerOpRekening.isVisible())
 			{
 				console.log(sprintf("%s: %s verborgen, OK", TijdStempel(), InvoerOpRekening.id));
@@ -1872,7 +2052,7 @@ Ext.StartlijstInvoerForm = function(){
 		
 		beforeClose: function(panel, eOpts)
 		{
-			setTimeout(Ext.StartlijstInvoerForm.resetStore,5 * 1000);	// over 5 sec in de achtergrond, gebruiker heeft dan geen vertraging
+		//	setTimeout(Ext.StartlijstInvoerForm.resetStore,5 * 1000);	// over 5 sec in de achtergrond, gebruiker heeft dan geen vertraging
 		},	
 		
 		//************************************************************************************************************************
@@ -1954,37 +2134,30 @@ Ext.StartlijstInvoerForm = function(){
 			{
 				dWindow.close();
 			}
-					
+			
 			form.getForm().submit
 			({
 				submitEmptyText: false,
 				success: function ()
 				{   
-					Ext.win.showSaving(false);
 					Ext.win.msg("Start is opgeslagen");
 										
-					button.up('.window').close();
-					
 					if (StartlijstInvoerForm_GRIDPAGE < 0)
 						Ext.data.StoreManager.lookup(StartlijstInvoerForm_GRID).load();
 					else
 						Ext.data.StoreManager.lookup(StartlijstInvoerForm_GRID).loadPage(StartlijstInvoerForm_GRIDPAGE);
-					
-					setTimeout(Ext.StartlijstInvoerForm.resetStore,5 * 1000);	// over 5 sec in de achtergrond, gebruiker heeft dan geen vertraging
 				},
 				failure: function(res,req) 
-				{
-					Ext.win.showSaving(false);
-					
+				{	
 					if (req.response.status == 200)
 						Ext.MessageBox.alert ('Fout bij opslaan', req.result.error);
 					else
 						Ext.MessageBox.alert ('Server fout', req.response.responseText);
-
-					button.up('.window').close();
-					setTimeout(Ext.StartlijstInvoerForm.resetStore,5 * 1000);	// over 5 sec in de achtergrond, gebruiker heeft dan geen vertraging
 				}
 			});		
+			Ext.win.showSaving(false);
+			button.up('.window').close();
+			setTimeout(Ext.StartlijstInvoerForm.resetStore,5 * 1000);	// over 5 sec in de achtergrond, gebruiker heeft dan geen vertraging	
 		},	
 		
 				
@@ -2042,7 +2215,7 @@ Ext.StartlijstInvoerForm = function(){
 			var FilterArray = new Array();
 			FilterArray.push(600);		// Diverse (Bijvoorbeeld bedrijven- of jongerendag)
 			FilterArray.push(607);		// Zusterclub
-			FilterArray.push(610);		// Oprotkabel
+			FilterArray.push(609);		// Nieuw lid
 			FilterArray.push(612);		// lidtype penningmeester
 			
 			var di = Ext.data.StoreManager.lookup('Daginfo_Store');

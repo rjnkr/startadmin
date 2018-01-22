@@ -29,7 +29,6 @@ Ext.define('GeZC_StartAdministratie.store.Startlijst_Gezagvoerder_Store', {
             autoSync: true,
             model: 'GeZC_StartAdministratie.model.LedenLijst_Model',
             storeId: 'Startlijst.Gezagvoerder.Store',
-            remoteSort: true,
             proxy: {
                 type: 'ajax',
                 simpleSortMode: true,
@@ -70,7 +69,7 @@ Ext.define('GeZC_StartAdministratie.store.Startlijst_Gezagvoerder_Store', {
     onJsonstoreLoad: function(store, records, successful, operation, eOpts) {
         // toon hoe veel tijd nodig is geweest voor het laden
         console.log(sprintf("%s: storeLoad storeId=%s processing time=%d msec", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));
-
+        store.sort('NAAM', 'ASC');
     }
 
 });

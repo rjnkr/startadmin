@@ -268,6 +268,70 @@
                     ]
                 },
                 {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Noodnummer",
+                        "id": "LidBeheer_Noodnummer",
+                        "labelAlign": "right",
+                        "labelWidth": 80,
+                        "layout|anchor": "100%",
+                        "maxLength": 13,
+                        "maxLengthText": "Het telefoonnummer mag maximaal 13 cijfers bevatten",
+                        "msgTarget": "side",
+                        "name": "NOODNUMMER",
+                        "width": 370
+                    },
+                    "name": "MyTextField",
+                    "designerId": "a51ee8d3-6892-4c63-b647-53b49970a52f",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value"
+                                ],
+                                "fn": "validator",
+                                "implHandler": [
+                                    "return Ext.LidBeheer.ValiderenTelefoonNummer(value);\r",
+                                    ""
+                                ]
+                            },
+                            "name": "validator",
+                            "designerId": "4f1a6463-3e63-4255-b31f-b48ed9a459a8"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "fn": "processLidBeheer_Noodnummer",
+                                "implHandler": [
+                                    "config.plugins = ['clearbutton']; \r",
+                                    "return config; "
+                                ]
+                            },
+                            "name": "processLidBeheer_Noodnummer",
+                            "designerId": "b365513d-87de-46df-af3a-8d7723aa1fac"
+                        }
+                    ]
+                },
+                {
                     "type": "Ext.form.field.ComboBox",
                     "reference": {
                         "name": "items",
@@ -443,69 +507,47 @@
                             "userConfig": {
                                 "fn": "onButtonClick1",
                                 "implHandler": [
-                                    "\r",
-                                    "var form = Ext.getCmp('LidBeheerForm');\r",
-                                    "var valid = form.getForm().isValid();\r",
-                                    "\r",
-                                    "if (!valid)\r",
-                                    "{\r",
-                                    "    Ext.MessageBox.show({\r",
-                                    "        title: 'Onvolledige invoer',\r",
-                                    "        msg: 'Niet alle velden zijn correct ingevoerd',\r",
-                                    "        buttons: Ext.MessageBox.OK,\r",
-                                    "        icon:  Ext.MessageBox.WARNING\r",
-                                    "    });\r",
-                                    "    return;\r",
-                                    "}\r",
-                                    "\r",
-                                    "Ext.getCmp('InvoerenLid_Opslaan').disable();\r",
-                                    "Ext.win.showSaving(true);\r",
-                                    "\r",
-                                    "form.getForm().submit\r",
-                                    "({\r",
-                                    "    success: function(req,res) \r",
-                                    "    {  \r",
-                                    "        Ext.win.showSaving(false);\r",
-                                    "        Ext.win.msg(\"Lid is opgeslagen\");\r",
-                                    "\r",
-                                    "        store = Ext.data.StoreManager.lookup('LedenLijst_GridStore');\r",
-                                    "        store.load();\r",
-                                    "        button.up('.window').close();\r",
-                                    "\r",
-                                    "        // als we aangeroepen zijn door het start invoer scherm moeten we de gezagvoerder aanpassen\r",
-                                    "        var InvoerGezagvoerder = Ext.getCmp('StartInvoer_Gezagvoerder');\r",
-                                    "        if (InvoerGezagvoerder != null)\r",
-                                    "        {\r",
-                                    "            InvoerGezagvoerder.store.load(\r",
-                                    "            {\r",
-                                    "                params: \r",
-                                    "                {\r",
-                                    "                    '_:VliegerID': res.result.ID\r",
-                                    "                },\r",
-                                    "                scope : this,\r",
-                                    "                callback: function(records, operation, success)\r",
-                                    "                {\r",
-                                    "                    if(success)\r",
-                                    "                    {\r",
-                                    "                        InvoerGezagvoerder.setValue(res.result.ID.toString());\r",
-                                    "                    }\r",
-                                    "                }\r",
-                                    "            });\r",
-                                    "\r",
-                                    "        }\r",
-                                    "    },\r",
-                                    "    failure: function(req,res) \r",
-                                    "    {\r",
-                                    "        Ext.win.showSaving(false);\r",
-                                    "\r",
-                                    "        if (res.response.status == 200)\r",
-                                    "        Ext.MessageBox.alert ('Fout bij opslaan', res.result.error);\r",
-                                    "        else\r",
-                                    "        Ext.MessageBox.alert ('Server fout', res.response.responseText);\r",
-                                    "\r",
-                                    "        button.up('.window').close();\r",
-                                    "    }\r",
-                                    "});\t"
+                                    "",
+                                    "var form = Ext.getCmp('LidBeheerForm');",
+                                    "var valid = form.getForm().isValid();",
+                                    "",
+                                    "if (!valid)",
+                                    "{",
+                                    "    Ext.MessageBox.show({",
+                                    "        title: 'Onvolledige invoer',",
+                                    "        msg: 'Niet alle velden zijn correct ingevoerd',",
+                                    "        buttons: Ext.MessageBox.OK,",
+                                    "        icon:  Ext.MessageBox.WARNING",
+                                    "    });",
+                                    "    return;",
+                                    "}",
+                                    "",
+                                    "Ext.getCmp('InvoerenLid_Opslaan').disable();",
+                                    "Ext.win.showSaving(true);",
+                                    "",
+                                    "form.getForm().submit",
+                                    "({",
+                                    "    success: function(req,res)",
+                                    "    {",
+                                    "        Ext.win.showSaving(false);",
+                                    "        Ext.win.msg(\"Lid is opgeslagen\");",
+                                    "",
+                                    "        store = Ext.data.StoreManager.lookup('LedenLijst_GridStore');",
+                                    "        store.load();",
+                                    "        button.up('.window').close();",
+                                    "    },",
+                                    "    failure: function(req,res)",
+                                    "    {",
+                                    "        Ext.win.showSaving(false);",
+                                    "",
+                                    "        if (res.response.status == 200)",
+                                    "        Ext.MessageBox.alert ('Fout bij opslaan', res.result.error);",
+                                    "        else",
+                                    "        Ext.MessageBox.alert ('Server fout', res.response.responseText);",
+                                    "",
+                                    "        button.up('.window').close();",
+                                    "    }",
+                                    "});"
                                 ],
                                 "name": "click",
                                 "scope": "me"

@@ -3,9 +3,9 @@
 $db_info = array(
                 'dbType' => 'mysql',
                 'dbHost' => 'localhost',
-                'dbName' => 'db_name',
-                'dbUser' => 'db_username',
-                'dbPassword' => 'db_password'
+                'dbName' => 'gezc_db_strt',
+                'dbUser' => 'root',
+                'dbPassword' => 'Boefjes781'
 );
 
 
@@ -16,7 +16,7 @@ $app_settings = array(
 		'DbLogging' => true,			// Log database queries naar logfile
 		'DbError' => true,				// Log errors naar logfile
 		'Debug' => true,				// Debug informatie naar logfile
-		'LogDir' => 'C:/Tmp/sa_log/',		// Locatie waar log bestanden geschreven worden
+		'LogDir' => 'C:/Tmp/GeZC/log_local/',		// Locatie waar log bestanden geschreven worden
 		'statusUrl' => 'http://localhost:8081/',	// Status van het synchronisatie process
 		'ControleTolerantie' => 120,		// Hoeveel verschil accepteren we tussen startadmin en flarm
 		'DemoMode' => true				// demo/test mode. Voor iedereen is het wachtwoord nu WW	
@@ -33,7 +33,7 @@ $beheerders = array("0", "10178");
 // 0 = sa
 // 10178 = Lucas Berends
 
-$beheerdersDDWV = array("10232");
+$beheerdersDDWV = array("10116");
 // 10232 = Ruben Nijenhuis 
 
 

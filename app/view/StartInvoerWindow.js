@@ -23,6 +23,7 @@ Ext.define('GeZC_StartAdministratie.view.StartInvoerWindow', {
         'Ext.form.Panel',
         'Ext.form.field.ComboBox',
         'Ext.button.Button',
+        'Ext.form.field.Number',
         'Ext.grid.Panel',
         'Ext.grid.column.Column',
         'Ext.grid.View',
@@ -177,6 +178,20 @@ Ext.define('GeZC_StartAdministratie.view.StartInvoerWindow', {
                             ]
                         },
                         {
+                            xtype: 'numberfield',
+                            anchor: '100%',
+                            id: 'StartInvoer_Sleephoogte',
+                            maxWidth: 425,
+                            fieldLabel: 'Hoogte',
+                            labelAlign: 'right',
+                            labelWidth: 300,
+                            name: 'SLEEP_HOOGTE',
+                            decimalPrecision: 0,
+                            maxValue: 1200,
+                            minValue: 400,
+                            step: 100
+                        },
+                        {
                             xtype: 'panel',
                             border: 0,
                             id: 'StartInvoer_StartMethodePanel',
@@ -318,19 +333,6 @@ Ext.define('GeZC_StartAdministratie.view.StartInvoerWindow', {
                                     id: 'PapierenControle',
                                     width: 16,
                                     src: 'images/alert.gif'
-                                },
-                                {
-                                    xtype: 'button',
-                                    x: 405,
-                                    id: 'StartInvoer_ToevoegenLidAlsGezagvoerder',
-                                    icon: 'images/add.gif',
-                                    text: '',
-                                    listeners: {
-                                        click: {
-                                            fn: me.onStartInvoer_ToevoegenLidAlsGezagvoerderClick,
-                                            scope: me
-                                        }
-                                    }
                                 }
                             ]
                         },
@@ -728,11 +730,6 @@ Ext.define('GeZC_StartAdministratie.view.StartInvoerWindow', {
         {
             Ext.StartlijstInvoerForm.onEnter();
         }
-    },
-
-    onStartInvoer_ToevoegenLidAlsGezagvoerderClick: function(button, e, eOpts) {
-        var view = Ext.widget('LidBeheerWindow', {'ID': -1});
-        view.show();
     },
 
     onStartInvoer_GezagvoerderNaamSpecialkey: function(field, e, eOpts) {

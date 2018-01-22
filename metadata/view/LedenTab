@@ -230,6 +230,21 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "dataIndex": "NOODNUMMER",
+                        "flex": 2,
+                        "text": "Noodnummer"
+                    },
+                    "name": "MyColumn",
+                    "designerId": "4540d549-59e1-4dad-8734-9372bd8de281"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "align": "center",
                         "dataIndex": "GPL_VERLOOPT",
                         "flex": 1,

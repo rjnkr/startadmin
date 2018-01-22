@@ -39,6 +39,9 @@ Ext.define('GeZC_StartAdministratie.model.LedenLijst_Model', {
             name: 'TELEFOON'
         },
         {
+            name: 'NOODNUMMER'
+        },
+        {
             name: 'GPL'
         },
         {

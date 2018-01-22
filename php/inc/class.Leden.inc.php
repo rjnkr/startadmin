@@ -26,6 +26,7 @@
 		//		LIDTYPE_ID = Het type lid volgens de type table (groep 6)
 		//		MOBIEL = Mobiele telefoon nummer
 		// 		TELEFOON = Het tweede telefoonnummer
+		// 		NOODNUMMER = Telefoonnummer	in geval van nood	
 		//		VOORNAAM = Voornaam van het lid
 		//		ACHTERNAAM = Achternaam van het lid, wordt gebruikt on te sorteren
 		//		GPL_VERLOOPT = verloop datum GPL, null = datum onbekend
@@ -47,6 +48,7 @@
 		//				"NAAM":"Pieter Janssen",
 		//				"LIDTYPE_ID":"625",
 		//				"MOBIEL":06-1209554,
+		//				"NOODNUMMER": null,
 		//				"TELEFOON":null,
 		//				"VOORNAAM":Pieter,
 		//				"ACHTERNAAM":Janssen,
@@ -103,6 +105,7 @@
 		//		LIDTYPE = Lidtype in text. Tekt komt uit ype tabel 
 		//		MOBIEL = Mobiele telefoon nummer
 		// 		TELEFOON = Het tweede telefoonnummer
+		// 		NOODNUMMER = Telefoonnummer	in geval van nood		
 		//		INSTRUCTEUR = 0/1, is het lid een instructeur 
 		//		LIERIST = 0/1, is het lid een lierist 
 		//		STARTLEIDER = 0/1, is het lid een startleider 	
@@ -123,6 +126,7 @@
 		//				"NAAM":"Kees Kreveld",
 		//				"ACHTERNAAM":"Kreveld",,
 		//				"MOBIEL":"020-3254741",
+		//				"NOODNUMMER":null,
 		//				"TELEFOON":"06-48877904",
 		//				"INSTRUCTEUR":"0",
 		//				"STARTLEIDER":"0",
@@ -142,6 +146,7 @@
 		//				"NAAM":"Mees Woudenberg",
 		//				"ACHTERNAAM":"Woudenberg",
 		//				"MOBIEL":null,
+		//				"NOODNUMMER":null,
 		//				"TELEFOON":"06-26263969",
 		//				"INSTRUCTEUR":"1",
 		//				"STARTLEIDER":"0",
@@ -171,9 +176,9 @@
 			{
 				// 600 = Diverse (Bijvoorbeeld bedrijven- of jongerendag)
 				// 607 = Zusterclub
-				// 610 = Oprotkabel
+				// 609 = Nieuw lid
 				// 612 = Penningmeester			
-				$where = ' WHERE LIDTYPE_ID NOT IN (600, 607, 610, 612) ';
+				$where = ' WHERE LIDTYPE_ID NOT IN (600, 607, 609, 612) ';
 			}
 				
 			if (array_key_exists('_:query', $this->qParams))
@@ -333,7 +338,7 @@
 			}
 			else
 			{			
-				$query = sprintf($query, "L.ID, CASE LIDTYPE_ID WHEN 609 THEN CONCAT(L.NAAM, ' (T)')  ELSE L.NAAM END AS NAAM, L.INSTRUCTEUR,L.AANWEZIG,L.AANWEZIG_GEWEEST, GPL_VERLOOPT, MEDICAL_VERLOOPT, LIDTYPE_ID, HEEFT_BETAALD", $where);
+				$query = sprintf($query, "L.ID, L.NAAM AS NAAM, L.INSTRUCTEUR,L.AANWEZIG,L.AANWEZIG_GEWEEST, GPL_VERLOOPT, MEDICAL_VERLOOPT, LIDTYPE_ID, HEEFT_BETAALD", $where);
 				parent::DbOpvraag($query);	
 				echo json_encode(array_map('PrepareJSON', parent::DbData()));
 			}
@@ -360,6 +365,7 @@
 			$d['NAAM'] 			= $this->Data['NAAM']; 	
 			$d['TELEFOON'] 		= null;
 			$d['MOBIEL'] 		= null;
+			$d['NOODNUMMER'] 	= null;
 			
 			if (array_key_exists('TELEFOON', $this->Data))
 			{
@@ -369,6 +375,10 @@
 			{
 				$d['MOBIEL'] = $this->Data['MOBIEL'];
 			}
+			if (array_key_exists('NOODNUMMER', $this->Data))
+			{
+				$d['NOODNUMMER'] = $this->Data['NOODNUMMER'];
+			}			
 
 			$l = MaakObject('Login');
 			if ($l->isBeheerder())

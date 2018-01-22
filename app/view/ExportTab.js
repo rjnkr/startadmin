@@ -119,6 +119,7 @@ Ext.define('GeZC_StartAdministratie.view.ExportTab', {
                                         },
                                         change: {
                                             fn: me.Export_ZoekenChange,
+                                            delay: 250,
                                             scope: me
                                         }
                                     }
@@ -174,7 +175,16 @@ Ext.define('GeZC_StartAdministratie.view.ExportTab', {
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'VLIEGERNAAM',
+                            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                                var retVal = value;
+
+                                if (record.data.VLIEGERNAAM !== null)
+                                {
+                                    retVal = value + "(" + record.data.VLIEGERNAAM + ")";
+                                }
+                                return retVal;
+                            },
+                            dataIndex: 'VLIEGERNAAM_LID',
                             text: 'VliegerNaam'
                         },
                         {
@@ -189,7 +199,19 @@ Ext.define('GeZC_StartAdministratie.view.ExportTab', {
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'INZITTENDENAAM',
+                            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                                var retVal = value;
+
+                                if (record.data.INZITTENDENAAM !== null)
+                                {
+                                    if (record.data.INZITTENDENAAM.length > 0)
+                                    retVal = record.data.INZITTENDENAAM;
+                                }
+
+
+                                return retVal;
+                            },
+                            dataIndex: 'INZITTENDENAAM_LID',
                             text: 'Inzittende'
                         },
                         {
@@ -251,6 +273,12 @@ Ext.define('GeZC_StartAdministratie.view.ExportTab', {
                             xtype: 'gridcolumn',
                             dataIndex: 'SOORTVLUCHT',
                             text: 'SoortVlucht'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            id: 'Baan',
+                            dataIndex: 'BAAN',
+                            text: 'Baan'
                         }
                     ],
                     listeners: {

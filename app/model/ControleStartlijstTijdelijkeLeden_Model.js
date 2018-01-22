@@ -27,7 +27,16 @@ Ext.define('GeZC_StartAdministratie.model.ControleStartlijstTijdelijkeLeden_Mode
             name: 'ID'
         },
         {
+            name: 'DATUM'
+        },
+        {
             name: 'DAGNUMMER'
+        },
+        {
+            name: 'VLIEGTUIG_ID'
+        },
+        {
+            name: 'SLEEPKIST_ID'
         },
         {
             name: 'STARTTIJD'
@@ -45,10 +54,16 @@ Ext.define('GeZC_StartAdministratie.model.ControleStartlijstTijdelijkeLeden_Mode
             name: 'VLIEGER_ID'
         },
         {
-            name: 'INZITTENDE_ID'
+            name: 'VLIEGERNAAM_LID'
         },
         {
             name: 'VLIEGERNAAM'
+        },
+        {
+            name: 'INZITTENDE_ID'
+        },
+        {
+            name: 'INZITTENDENAAM_LID'
         },
         {
             name: 'INZITTENDENAAM'
@@ -60,7 +75,13 @@ Ext.define('GeZC_StartAdministratie.model.ControleStartlijstTijdelijkeLeden_Mode
             name: 'CALLSIGN'
         },
         {
-            name: 'DATUM'
+            name: 'STARTMETHODE_ID'
+        },
+        {
+            name: 'STARTMETHODE'
+        },
+        {
+            name: 'SOORTVLUCHT_ID'
         },
         {
             name: 'SOORTVLUCHT'
@@ -69,7 +90,7 @@ Ext.define('GeZC_StartAdministratie.model.ControleStartlijstTijdelijkeLeden_Mode
             name: 'REG_CALL'
         },
         {
-            name: 'STARTMETHODE'
+            name: 'OP_REKENING_ID'
         },
         {
             name: 'INZITTENDE_LIDTYPE_ID'
@@ -78,10 +99,7 @@ Ext.define('GeZC_StartAdministratie.model.ControleStartlijstTijdelijkeLeden_Mode
             name: 'VLIEGER_LIDTYPE_ID'
         },
         {
-            name: 'INZITTENDE_BESTE_LID_ID'
-        },
-        {
-            name: 'VLIEGER_BESTE_LID_ID'
+            name: 'LAATSTE_AANPASSING'
         }
     ]
 });

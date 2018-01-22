@@ -31,6 +31,9 @@ Ext.define('GeZC_StartAdministratie.model.Export_Model', {
             name: 'VLIEGERNAAM'
         },
         {
+            name: 'VLIEGERNAAM_LID'
+        },
+        {
             name: 'VLIEGERLIDNR'
         },
         {
@@ -38,6 +41,9 @@ Ext.define('GeZC_StartAdministratie.model.Export_Model', {
         },
         {
             name: 'INZITTENDENAAM'
+        },
+        {
+            name: 'INZITTENDENAAM_LID'
         },
         {
             name: 'INZTTENDELIDNR'
@@ -74,6 +80,9 @@ Ext.define('GeZC_StartAdministratie.model.Export_Model', {
         },
         {
             name: 'SOORTVLUCHT'
+        },
+        {
+            name: 'BAAN'
         }
     ]
 });

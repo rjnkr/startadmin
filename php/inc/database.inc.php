@@ -62,7 +62,16 @@ if (!IsSet($GLOBALS['DATABASE_INCLUDED']))
 			global $app_settings;
 			
 			if ($app_settings['DbLogging'])
-				error_log($query  . "\n", 3, $app_settings['LogDir'] . "sql.txt");	
+			{
+				if ($app_settings['LogDir'] == "syslog")
+				{
+					error_log($query);
+				}
+				else
+				{
+					error_log($query  . "\n", 3, $app_settings['LogDir'] . "sql.txt");	
+				}
+			}
 
 			$this->Record = array();
 
@@ -98,7 +107,16 @@ if (!IsSet($GLOBALS['DATABASE_INCLUDED']))
 					}
 					
 					if ($app_settings['DbError'])
-						error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage() . "\n", 3, $app_settings['LogDir'] . "error.txt");
+					{
+						if ($app_settings['LogDir'] == "syslog")
+						{
+							error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage());
+						}
+						else
+						{
+							error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage() . "\n", 3, $app_settings['LogDir'] . "error.txt");
+						}
+					}
 					die;
 				}
 			}
@@ -116,7 +134,16 @@ if (!IsSet($GLOBALS['DATABASE_INCLUDED']))
 			if ($this->conn)
 			{
 				if ($app_settings['DbLogging'])
-				error_log($query  . "\n", 3, $app_settings['LogDir'] . "exec.txt");
+				{
+					if ($app_settings['LogDir'] == "syslog")
+					{
+						error_log($query);
+					}
+					else
+					{
+						error_log($query  . "\n", 3, $app_settings['LogDir'] . "exec.txt");
+					}
+				}
 				
 				try
 				{
@@ -137,7 +164,16 @@ if (!IsSet($GLOBALS['DATABASE_INCLUDED']))
 					}
 					
 					if ($app_settings['DbError'])
-						error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage() . "\n", 3, $app_settings['LogDir'] . "error.txt");					
+					{
+						if ($app_settings['LogDir'] == "syslog")
+						{
+							error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage());
+						}
+						else
+						{
+							error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage() . "\n", 3, $app_settings['LogDir'] . "error.txt");	
+						}
+					}						
 					die;
 				}
 				$this->ClearCache();
@@ -190,7 +226,16 @@ if (!IsSet($GLOBALS['DATABASE_INCLUDED']))
 			$query = sprintf("INSERT INTO %s (%s) VALUES (%s);", $table, $fields, $values);
 
 			if ($app_settings['DbLogging'])
-				error_log($query  . "\n", 3, $app_settings['LogDir'] . "insert.txt");
+			{
+				if ($app_settings['LogDir'] == "syslog")
+				{
+					error_log($query);
+				}
+				else
+				{				
+					error_log($query  . "\n", 3, $app_settings['LogDir'] . "insert.txt");
+				}
+			}
 
 
 			if (!$this->conn)
@@ -217,14 +262,32 @@ if (!IsSet($GLOBALS['DATABASE_INCLUDED']))
 						echo "Fatale fout opgetreden bij toevoegen data.";
 					}
 					if ($app_settings['DbError'])
-						error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage() . "\n", 3, $app_settings['LogDir'] . "error.txt");					
+					{
+						if ($app_settings['LogDir'] == "syslog")
+						{
+							error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage());
+						}
+						else
+						{						
+							error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage() . "\n", 3, $app_settings['LogDir'] . "error.txt");
+						}
+					}						
 					die;
 				}
 				
 				$lastid = $this->conn->lastInsertId();		// return inserted ID
 				
 				if ($app_settings['DbLogging'])
-					error_log("ID=" . $lastid  . "\n", 3, $app_settings['LogDir'] . "insert.txt");
+				{
+					if ($app_settings['LogDir'] == "syslog")
+					{
+						error_log("ID=" . $lastid);
+					}
+					else
+					{
+						error_log("ID=" . $lastid  . "\n", 3, $app_settings['LogDir'] . "insert.txt");
+					}
+				}
 								
 				$this->ClearCache();
 				return $lastid;
@@ -268,7 +331,16 @@ if (!IsSet($GLOBALS['DATABASE_INCLUDED']))
 				$query = sprintf("UPDATE %s SET %s WHERE ID='%s';", $table, $fields, $ID);
 			
 			if ($app_settings['DbLogging'])
-				error_log($query  . "\n", 3, $app_settings['LogDir'] . "update.txt");
+			{
+				if ($app_settings['LogDir'] == "syslog")
+				{
+					error_log($query);
+				}
+				else
+				{
+					error_log($query  . "\n", 3, $app_settings['LogDir'] . "update.txt");
+				}
+			}
 
 			if (!$this->conn)
 				$this->Connect();
@@ -295,7 +367,16 @@ if (!IsSet($GLOBALS['DATABASE_INCLUDED']))
 					}
 					
 					if ($app_settings['DbError'])
-						error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage() . "\n", 3, $app_settings['LogDir'] . "error.txt");					
+					{
+						if ($app_settings['LogDir'] == "syslog")
+						{
+							error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage());
+						}
+						else
+						{	
+							error_log(date("Y-m-d H:i:s") . ":" . $query  . "\n" . $e->getMessage() . "\n", 3, $app_settings['LogDir'] . "error.txt");	
+						}
+					}						
 					die;
 				}
 				return $retval;

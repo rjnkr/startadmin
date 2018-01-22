@@ -58,6 +58,19 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "VLIEGERNAAM_LID"
+            },
+            "name": "MyField1",
+            "designerId": "c4de9ecd-1c8b-418b-ad62-9f4d537d2f35"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "VLIEGERLIDNR"
             },
             "name": "MyField122",
@@ -88,6 +101,19 @@
             },
             "name": "MyField123",
             "designerId": "4ffbca47-123e-4752-b069-708847b8de2b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "INZITTENDENAAM_LID"
+            },
+            "name": "MyField4",
+            "designerId": "185e242d-a87b-4029-8705-a04f21b7e145"
         },
         {
             "type": "Ext.data.Field",
@@ -244,6 +270,19 @@
             },
             "name": "MyField135",
             "designerId": "3d922dbb-0383-4a8a-80c2-b2614435ea1b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "BAAN"
+            },
+            "name": "MyField5",
+            "designerId": "eb8b085d-5d57-43a2-8aad-3fa5a4714e9d"
         }
     ]
 }

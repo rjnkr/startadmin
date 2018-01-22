@@ -118,13 +118,15 @@ Ext.define('GeZC_StartAdministratie.store.AppSettings_Store', {
             }
 
             // De beheerder kan de data exporteren
-            if (appSettings.isBeheerder)
+            if ((appSettings.isBeheerder) || (appSettings.isBeheerderDDWV))
             {
                 Ext.getCmp('ExporteerButton').show();
+                Ext.getCmp('StartlijstSleepFilter').show();
             }
             else
             {
                 Ext.getCmp('ExporteerButton').hide();
+                Ext.getCmp('StartlijstSleepFilter').hide();
             }
 
 

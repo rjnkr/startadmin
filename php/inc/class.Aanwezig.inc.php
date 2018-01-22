@@ -7,133 +7,7 @@
 			parent::__construct();
 			$this->dbTable = "oper_aanwezig";
 		}
-/*
-		// -------------------------------------------------------------------------------------------------------------------------
-		// JSON opvraag functies
-		
-		// ------------------------------------------------------------------
-		// Haal een object op vanuit de database.  
-		// 
-		// @param vanuit GET of POST
-		// 	_:ID = ID van het record
-		// 
-		// @return 
-		// 	Json string 
-		//		VLIEGTUIG_ID = null, dan gaat het om een lid dat aanwezig is/was
-		//		LID_ID = null, dan gaat het om een vliegtuig dat aanwezig is/was
-		//		VOORKEUR_VLIEGTUIG_TYPE = comma separated vliegtuig types
-		//		VOORKEUR_VLIEGTUIG_ID = Het vliegtuig waarmee het lid overland mee gaat
-		//		DDWV_VOORAANMELDING = aanmelding komt automatisch vanuit DDWV_VOORAANMELDING
-		//		VERTREK != null, vliegtuig/lid was aanwezig, maar is inmiddels weg
-		//  
-		// @example
-		// 	[{132
-		// 		"ID": "1703281000458",
-		// 		"LID_ID": null,
-		// 		"VLIEGTUIG_ID": "458",
-		// 		"DATUM": "2017-03-28",
-		// 		"AANKOMST": "20:52:00",
-		// 		"VERTREK": null,
-		// 		"OPMERKING": null,
-		// 		"DDWV_VOORAANMELDING": null,
-		// 		"VOORKEUR_VLIEGTUIG_TYPE": null,
-		// 		"VOORKEUR_VLIEGTUIG_ID": null,
-		// 		"LAATSTE_AANPASSING": "2017-03-28 20:52:20"
-		// 	}]
- 		// 	
-		// 	[{
-		// 		"ID": "1703282010118",
-		// 		"LID_ID": "10118",
-		// 		"VLIEGTUIG_ID": null,
-		// 		"DATUM": "2017-03-28",
-		// 		"AANKOMST": "20:58:00",
-		// 		"VERTREK": null,
-		// 		"OPMERKING": null,
-		// 		"DDWV_VOORAANMELDING": null,
-		// 		"VOORKEUR_VLIEGTUIG_TYPE": "406,405",
-		// 		"VOORKEUR_VLIEGTUIG_ID": null,
-		// 		"LAATSTE_AANPASSING": "2017-03-28 20:58:54"
-		// 	}]		
- 		// 		
- 		function GetObjectJSON()
-		{
-			Debug(__FILE__, __LINE__, "Aanwezig.GetObjectJSON()");	
-			
-			echo json_encode(array_map('PrepareJSON', $this->GetObject($this->qParams["_:ID"])));
-		}
-		
-		
-		
-		// ------------------------------------------------------------------
-		// Haal een object op vanuit de database op basis van het lid_id
-		//
-		// @param vanuit GET of POST
-		// 		_:ID = LID_ID  uit leden tabel (10147)
-		//
-		// @return 
-		//		Json string
-		// 
-		// @example	
-		// 	[{
-		// 		"ID": "1703272010147",
-		// 		"LID_ID": "10147",
-		// 		"VLIEGTUIG_ID": null,
-		// 		"DATUM": "2017-03-27",
-		// 		"AANKOMST": "09:59:00",
-		// 		"VERTREK": null,
-		// 		"OPMERKING": null,
-		// 		"DDWV_VOORAANMELDING": null,
-		// 		"VOORKEUR_VLIEGTUIG_TYPE": "402",
-		// 		"VOORKEUR_VLIEGTUIG_ID": null,
-		// 		"LAATSTE_AANPASSING": "2017-03-27 09:59:41"
-		// 	}] 		 
-		// 
-		function GetObjectByLidnrJSON()
-		{
-			$id = $this->qParams["_:ID"];
-			
-			Debug(__FILE__, __LINE__, sprintf("Aanwezig.GetObjectByLidnrJSON(%s)", $id));	
-			
-			$query = sprintf("
-				SELECT
-					*
-				FROM
-					oper_aanwezig
-				WHERE
-					DATUM = DATE(NOW()) 	AND
-					LID_ID = '%d'", $id);
-							
-					
-			parent::DbOpvraag($query);
-			$record = parent::DbData();
 
-			if (count($record) > 0)
-			{		
-				Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));
-				echo json_encode(array_map('PrepareJSON', $record));
-			}
-			else
-			{
-				$query = sprintf("
-							SELECT 
-								GROUP_CONCAT(VOORKEUR_VLIEGTUIG_TYPE)  AS VOORKEUR
-							FROM 
-							(SELECT VOORKEUR_VLIEGTUIG_TYPE FROM oper_aanwezig 
-								WHERE LID_ID = '%d' AND DATEDIFF(now(),DATUM) AND VOORKEUR_VLIEGTUIG_TYPE is not null limit 0,3) AS VOORKEUR_VLIEGTUIG_TYPE", $id);
-								
-				parent::DbOpvraag($query);
-				$record = parent::DbData();
-				$voorkeur_array = explode(",", $record[0]["VOORKEUR"]);
-				$voorkeur_array = array_unique($voorkeur_array);
-			
-				$record = array("LID_ID" => $id, "VOORKEUR_VLIEGTUIG_TYPE" => implode(",", $voorkeur_array));
-				
-				Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($record, true)));
-				echo "[" . json_encode(array_map('PrepareJSON', $record)) . "]";				
-			}
-		}
-		
-		*/
 		
 		// ------------------------------------------------------------------
 		// Haal een lijst op vanuit de vliegtuigen die vandaag aanwezig zijn/waren
@@ -402,104 +276,6 @@
 				echo '({"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'})';
 			}
 		}
-/*
-		// -------------------------------------------------------------------------------------------------------------------------
-		// deze functies wordt aangeroepen vanuit de webinterface.
-
-		
-		// leden
-		function AanmeldenLid()
-		{
-			Debug(__FILE__, __LINE__, sprintf("Aanwezig.AanmeldenLid()"));
-			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));	
-		
-			if (!array_key_exists('LID_ID', $this->Data))
-			{
-				echo '{"success":false,"errorCode":-1,"error":"Geen LID_ID in dataset"}';
-				return;
-			}
-			$r['VOORKEUR_VLIEGTUIG_ID'] = null;
-			$r['VOORKEUR_VLIEGTUIG_TYPE'] = null;
-			
-			if (array_key_exists('VOORKEUR_VLIEGTUIG_ID', $this->Data))
-			{
-				$r['VOORKEUR_VLIEGTUIG_ID'] =  $this->Data["VOORKEUR_VLIEGTUIG_ID"];
-				$this->AanmeldenVliegtuigVandaag($this->Data['VOORKEUR_VLIEGTUIG_ID']);
-			}
-	
-			if (array_key_exists('DDWV_VOORAANMELDING', $this->Data))
-			{
-				$r['DDWV_VOORAANMELDING'] =  $this->Data["DDWV_VOORAANMELDING"];
-			}
-			
-			if (array_key_exists('OPMERKING', $this->Data))
-				$r['OPMERKING'] =  $this->Data["OPMERKING"];
-				
-			if (array_key_exists('VOORKEUR_VLIEGTUIG_TYPE', $this->Data))
-				$r['VOORKEUR_VLIEGTUIG_TYPE'] =  $this->Data["VOORKEUR_VLIEGTUIG_TYPE"];
-							
-			$id = $this->IsAangemeldGeweestVandaag($this->Data["LID_ID"], null);
-			if ($id > 0)
-			{
-				$r['VERTREK'] = null;
-				parent::DbAanpassen('oper_aanwezig', $id, $r);
-			}
-			else
-			{	
-				$id = $this->IsVoorAangemeldVandaag($this->Data["LID_ID"] ,null);
-				if ($id > 0)	// was al wel aangemeld, maar nog niet aanwezig
-				{
-					$r['AANKOMST'] = strftime('%H:%M');
-					parent::DbAanpassen('oper_aanwezig', $id, $r);
-				}
-				else
-				{				
-					if (!$this->IsAangemeldVandaag($this->Data["LID_ID"], null))	// is nog niet aangemeld
-					{	
-						$r['LID_ID'] = $this->Data["LID_ID"];				
-						$r['DATUM'] = date('Y-m-d');
-						$r['AANKOMST'] = strftime('%H:%M');	
-						$r['ID'] = NieuwID(null, $r['LID_ID']);						
-						
-						parent::DbToevoegen('oper_aanwezig', $r);
-						
-						// Automatisch aanmaken start voor overland vliegers
-						if ($r['VOORKEUR_VLIEGTUIG_ID'] != null)
-						{
-							$sl = MaakObject('Startlijst');
-							$sl->CreeerStart($r['LID_ID'],$r['VOORKEUR_VLIEGTUIG_ID']);
-						}
-					}
-					else	// blijkbaar is lid al aangemeld, maar nog wel update doen voor voorkeur type/kist
-					{
-						$query = "
-							SELECT ID AS ID 
-							FROM 
-								oper_aanwezig
-							WHERE
-								DATUM = DATE(NOW()) 	AND
-								LID_ID=" . $this->Data["LID_ID"];
-						
-						parent::DbOpvraag($query);
-						$id = parent::DbData();
-
-						if (count($id) > 0)
-						{
-							$id = $id[0]['ID'];
-							$aanmelding = $this->GetObject($id);
-
-							// alleen updaten als er iets gewijzigd is
-							if (($aanmelding[0]['VOORKEUR_VLIEGTUIG_TYPE'] != $r['VOORKEUR_VLIEGTUIG_TYPE']) ||	
-								($aanmelding[0]['VOORKEUR_VLIEGTUIG_ID'] != $r['VOORKEUR_VLIEGTUIG_ID']))
-							{
-								parent::DbAanpassen('oper_aanwezig', $id, $r);
-							}	
-						}
-					}
-				}
-			}
-		}
-		*/
 		
 		// deze functie wordt aangeroepen vanuit GeZCsync om de aanmeldingen van DDWV door te zetten naar de sa.
 		function AanmeldenViaDDWV()
@@ -538,89 +314,7 @@
 			{	
 				parent::DbToevoegen('oper_aanwezig', $r);
 			}
-		}	
-
-		/*
-		function AfmeldenLid()
-		{
-			Debug(__FILE__, __LINE__, sprintf("Aanwezig.AfmeldenLid()"));
-			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));	
-			
-			if (!array_key_exists('ID', $this->Data))
-			{
-				echo "ID ontbreekt";
-				return;
-			}
-			
-			$u['VERTREK'] = strftime('%H:%M');
-			parent::DbAanpassen('oper_aanwezig', $this->Data["ID"], $u);
-		}
-		
-		// vliegtuigen
-		function AanmeldenVliegtuig()
-		{	
-			Debug(__FILE__, __LINE__, sprintf("Aanwezig.AanmeldenVliegtuig()"));
-			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));			
-			
-			if (!array_key_exists('ID', $this->Data))
-			{
-				echo "ID ontbreekt";
-				return;
-			}
-			
-			$this->AanmeldenVliegtuigVandaag($this->Data["ID"]);
-		}
-		
-		// Het vliegtuig gaat weg
-		function AfmeldenVliegtuig()
-		{
-			Debug(__FILE__, __LINE__, sprintf("Aanwezig.AfmeldenVliegtuig()"));
-			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));	
-			
-			if (!array_key_exists('ID', $this->Data))
-			{
-				echo "ID ontbreekt";
-				return;
-			}
-			
-			$u['VERTREK'] = strftime('%H:%M');
-			parent::DbAanpassen('oper_aanwezig', $this->Data["ID"], $u);
-		}	
-
-				
-		function AfmeldenVliegtuigID()
-		{
-			Debug(__FILE__, __LINE__, sprintf("Aanwezig.AfmeldenVliegtuigID()"));
-			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));	
-	
-			if (!array_key_exists('VLIEGTUIG_ID', $this->Data))
-			{
-				echo "VLIEGTUIG_ID ontbreekt";
-				return;
-			}	
-	
-			$query = "
-				SELECT ID AS ID 
-				FROM 
-					oper_aanwezig
-				WHERE
-					DATUM = DATE(NOW()) 	AND
-					VLIEGTUIG_ID=" . $this->Data["VliegtuigID"];
-			
-			parent::DbOpvraag($query);
-			$id = parent::DbData();
-
-			if (count($id) > 0)
-			{
-				Debug(__FILE__, __LINE__, sprintf("Aanwezig.AanwezigID = %s", $id[0]['ID']));
-
-				$u['VERTREK'] = strftime('%H:%M');
-				parent::DbAanpassen('oper_aanwezig', $id[0]['ID'], $u);
-				return;
-			}
-			Debug(__FILE__, __LINE__, "Aanwezig.Vliegtuig niet aanwezig geweest");	
-		}
-*/		
+		}			
 		
 		function DefaultGezagvoerder()
 		{
@@ -798,8 +492,9 @@
 
 			if (count($id) == 0)
 			{
-				$this->AanmeldenLidVandaag($LidID);
-				$this->AanmeldenLidVliegtuigType($LidID, $VLIEGTUIG_TYPE);
+				$done = $this->AanmeldenLidVandaag($LidID);
+				if ($done == true)
+					$this->AanmeldenLidVliegtuigType($LidID, $VLIEGTUIG_TYPE);
 			}
 			else
 			{
@@ -834,10 +529,16 @@
 			Debug(__FILE__, __LINE__, sprintf("Aanwezig.AanmeldenVliegtuigVandaag()"));		
 		
 			if ($ID == null)
+			{
+				Debug(__FILE__, __LINE__, "ID == null");
 				return;
+			}
 				
 			if (!is_numeric($ID))
+			{
+				Debug(__FILE__, __LINE__, "ID not numeric");
 				return;
+			}
 				
 			$id = $this->IsAangemeldGeweestVandaag(null, $ID);
 			if ($id > 0)
@@ -875,10 +576,28 @@
 			Debug(__FILE__, __LINE__, sprintf("Aanwezig.AanmeldenLidVandaag()"));
 			
 			if ($ID == null)
-				return;
+			{
+				Debug(__FILE__, __LINE__, "ID == null");
+				return false;
+			}
 
 			if (!is_numeric($ID))
+			{
+				Debug(__FILE__, __LINE__, "ID not numeric");
 				return;
+			}
+			
+			$l = MaakObject('Leden');
+			$lid = $l->GetObject($ID);
+			switch ($lid[0]['LIDTYPE_ID'])
+			{
+				case '609':  	// nieuw lid nog niet in start administratie
+				case '612':		// penningmeester
+				{
+					Debug(__FILE__, __LINE__, sprintf ("Lidtype = %s", $lid[0]['LIDTYPE_ID']));
+					return false;		// niet aanmelden, is geen natuurlijk persoon
+				}
+			}
 				
 			$id = $this->IsAangemeldGeweestVandaag($ID, null);
 			if ($id > 0)
@@ -907,6 +626,8 @@
 					}
 				}
 			}
+			
+			return true;
 		}
 	}
 ?>

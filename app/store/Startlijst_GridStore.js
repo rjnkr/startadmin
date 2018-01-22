@@ -19,7 +19,8 @@ Ext.define('GeZC_StartAdministratie.store.Startlijst_GridStore', {
     requires: [
         'GeZC_StartAdministratie.model.Startlijst_Model',
         'Ext.data.proxy.Ajax',
-        'Ext.data.reader.Json'
+        'Ext.data.reader.Json',
+        'Ext.data.writer.Json'
     ],
 
     constructor: function(cfg) {
@@ -45,6 +46,9 @@ Ext.define('GeZC_StartAdministratie.store.Startlijst_GridStore', {
                         fn: me.onAjaxproxyException,
                         scope: me
                     }
+                },
+                writer: {
+                    type: 'json'
                 }
             },
             listeners: {

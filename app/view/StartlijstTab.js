@@ -25,8 +25,9 @@ Ext.define('GeZC_StartAdministratie.view.StartlijstTab', {
         'Ext.toolbar.Paging',
         'Ext.button.Button',
         'Ext.form.field.Text',
-        'Ext.toolbar.Spacer',
         'Ext.resizer.Splitter',
+        'Ext.form.field.Checkbox',
+        'Ext.toolbar.Spacer',
         'Ext.tab.Panel'
     ],
 
@@ -122,12 +123,19 @@ Ext.define('GeZC_StartAdministratie.view.StartlijstTab', {
                                             retVal = '<IMG SRC="images/alert.gif" border=0>';
                                             metaData.tdAttr = 'data-qtip="De gezagvoerder is niet ingevoerd."';
                                         }
+                                        else
+                                        {
+                                            if (record.data.VLIEGERNAAM !== null)
+                                            {
+                                                retVal = value + "(" + record.data.VLIEGERNAAM + ")";
+                                            }
+                                        }
 
 
                                         return retVal;
                                     },
                                     width: 200,
-                                    dataIndex: 'VLIEGERNAAM',
+                                    dataIndex: 'VLIEGERNAAM_LID',
                                     text: 'Voorin'
                                 },
                                 {
@@ -139,10 +147,18 @@ Ext.define('GeZC_StartAdministratie.view.StartlijstTab', {
                                             retVal = '<IMG SRC="images/alert.gif" border=0>';
                                             metaData.tdAttr = 'data-qtip="De instructeur is niet ingevoerd."';
                                         }
+
+                                        if (record.data.INZITTENDENAAM !== null)
+                                        {
+                                            if (record.data.INZITTENDENAAM.length > 0)
+                                            retVal = record.data.INZITTENDENAAM;
+                                        }
+
+
                                         return retVal;
                                     },
                                     width: 200,
-                                    dataIndex: 'INZITTENDENAAM',
+                                    dataIndex: 'INZITTENDENAAM_LID',
                                     text: 'Achterin'
                                 },
                                 {
@@ -215,6 +231,11 @@ Ext.define('GeZC_StartAdministratie.view.StartlijstTab', {
                                     dataIndex: 'OPMERKING',
                                     text: 'Opmerking',
                                     flex: 4
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'SLEEP_HOOGTE',
+                                    text: 'Hoogte'
                                 }
                             ],
                             dockedItems: [
@@ -291,6 +312,21 @@ Ext.define('GeZC_StartAdministratie.view.StartlijstTab', {
                                                 }
                                             }
                                         }),
+                                        {
+                                            xtype: 'splitter',
+                                            width: 30
+                                        },
+                                        {
+                                            xtype: 'checkboxfield',
+                                            id: 'StartlijstSleepFilter',
+                                            boxLabel: 'Sleepstarts',
+                                            listeners: {
+                                                change: {
+                                                    fn: me.onStartlijstSleepFilterChange,
+                                                    scope: me
+                                                }
+                                            }
+                                        },
                                         {
                                             xtype: 'tbspacer',
                                             flex: 1
@@ -387,6 +423,10 @@ Ext.define('GeZC_StartAdministratie.view.StartlijstTab', {
         Ext.Hoofdscherm.Startlijst_ZoekenChange(field, newValue, oldValue, eOpts);
     },
 
+    onStartlijstSleepFilterChange: function(field, newValue, oldValue, eOpts) {
+        Ext.Hoofdscherm.StartlijstSleepFilterChange(field, newValue, oldValue, eOpts);
+    },
+
     onButtonVerwijderenVluchtRender: function(component, eOpts) {
         Ext.QuickTips.register({
             target: component.getEl(),
@@ -413,6 +453,16 @@ Ext.define('GeZC_StartAdministratie.view.StartlijstTab', {
         {
             Ext.data.StoreManager.lookup('Startlijst_GridStore').slimLaden();
             Ext.data.StoreManager.lookup('Startlijst_Vliegtuigen_Store').slimLaden(null, false);
+        }
+
+
+        var grid = Ext.getCmp('StartlijstGrid');
+        if (grid.columns !== null)
+        {
+            if ((appSettings.isBeheerder) || (appSettings.isBeheerderDDWV))
+                grid.columns[9].show();
+            else
+                grid.columns[9].hide();
         }
     }
 

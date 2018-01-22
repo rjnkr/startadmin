@@ -26,7 +26,7 @@ define('phpTab', "\t");
 		function Debug($file, $line, $text)
 		{
 			global $app_settings;
-			
+						
 			if ($app_settings['Debug'])
 			{
 				$arrStr = explode("/", $file); 
@@ -34,7 +34,14 @@ define('phpTab', "\t");
 				$arrStr = explode("\\", $arrStr[0]);
 				$arrStr = array_reverse($arrStr );
 				
-				error_log(sprintf("%s: %s (%d), %s\n", date("Y-m-d H:i:s"), $arrStr[0], $line, $text), 3, $app_settings['LogDir'] . "debug.txt");
+				if ($app_settings['LogDir'] == "syslog")
+				{
+					error_log(sprintf("%s: %s (%d), %s\n", date("Y-m-d H:i:s"), $arrStr[0], $line, $text));
+				}
+				else
+				{	
+					error_log(sprintf("%s: %s (%d), %s\n", date("Y-m-d H:i:s"), $arrStr[0], $line, $text), 3, $app_settings['LogDir'] . "debug.txt");
+				}
 			}
 		}
 	}
@@ -105,90 +112,5 @@ define('phpTab', "\t");
 			$subnet &= $mask; # nb: in case the supplied subnet wasn't correctly aligned
 			return ($ip & $mask) == $subnet;
 		}
-	}
-
-
-	/// <summary>
-	/// Ratcliff/Obershelp algortim
-	/// </summary>
-	/// <param name="A"></param>
-	/// <param name="B"></param>
-	/// <returns></returns>
-	if (!function_exists('Match'))
-	{	
-		function Match($A, $B)
-		{
-			if (($A == null) || ($B == null))
-				return 0;
-
-			$LCS = null;
-			$m = 0;
-
-			if (strlen($A) > strlen($B))
-			{
-				$LCS = LongestCommonSubsequence($A, $B);
-				$m = $LCS / strlen($A);
-			}
-			else
-			{
-				$LCS = LongestCommonSubsequence($B, $A);
-				$m = $LCS / strlen($B);
-			}
-
-			return $m;
-		}
-	}
-
-	/// <summary>
-	/// Internal function to support Match Method
-	/// </summary>
-	/// <param name="s1"></param>
-	/// <param name="s2"></param>
-	/// <returns></returns>
-	if (!function_exists('LongestCommonSubsequence'))
-	{	
-		function LongestCommonSubsequence($s1, $s2)
-		{
-			//if either string is empty, the length must be 0
-			if (($s1 == null) || ($s2 == null))
-				return 0;
-			
-			if (($s1 == "") || ($s2 == ""))
-				return 0;
-
-			$num = array();
-			
-
-			//Actual algorithm
-			for ($i = 0; $i < strlen($s1); $i++)
-			{
-				for ($j = 0; $j < strlen($s2) ; $j++)
-				{
-					$letter1 = substr($s1, $i, 1);
-					$letter2 = substr($s2, $j, 1);
-
-					if ($letter1 == $letter2)
-					{
-						if (($i == 0) || ($j == 0))
-							$num[$i][$j] = 1;
-						else
-							$num[$i][$j] = 1 + $num[$i-1][$j-1];
-					}
-					else
-					{
-						if (($i == 0) && ($j == 0))
-							$num[$i][$j] = 0;
-						else if (($i == 0) && !($j == 0)) //First ith element
-							$num[$i][$j] = max(0, $num[$i][$j - 1]);
-						else if (!($i == 0) && ($j == 0)) //First jth element
-							$num[$i][$j] = max($num[$i-1][$j], 0);
-						else if (!($i == 0) && !($j == 0))
-							$num[$i][$j] = max($num[$i-1][$j],$num[$i][$j-1]);
-					}
-				}//end j
-			}//end i
-
-			return $num[strlen($s1)-1][strlen($s2)-1];
-		} //end LongestCommonSubsequence
 	}
 ?>

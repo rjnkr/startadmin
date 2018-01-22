@@ -9,7 +9,6 @@
         "autoSync": true,
         "designer|userClassName": "Startlijst_Gezagvoerder_Store",
         "model": "LedenLijst_Model",
-        "remoteSort": true,
         "storeId": "Startlijst.Gezagvoerder.Store"
     },
     "designerId": "f6ca7c35-9959-4b29-9d15-63164e0344d3",
@@ -91,9 +90,9 @@
             "userConfig": {
                 "fn": "onJsonstoreLoad",
                 "implHandler": [
-                    "// toon hoe veel tijd nodig is geweest voor het laden \r",
-                    "console.log(sprintf(\"%s: storeLoad storeId=%s processing time=%d msec\", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));\t\r",
-                    ""
+                    "// toon hoe veel tijd nodig is geweest voor het laden",
+                    "console.log(sprintf(\"%s: storeLoad storeId=%s processing time=%d msec\", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));",
+                    "store.sort('NAAM', 'ASC');"
                 ],
                 "name": "load",
                 "scope": "me"

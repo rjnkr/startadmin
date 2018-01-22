@@ -93,6 +93,8 @@
 		//			REG_CALL		= Combinatie van registratie en callsign
 		//			FLARM_CODE		= De flarm code zoals het bekend is in de tabel vliegtuigen
 		//			VLIEGTUIG_ID	= Het record ID van het vliegtuig
+		//			SLEEPKIST_ID	= Vliegtuig ID van het sleepvliegtuig
+		//			SLEEP_HOOGTE	= De hoogte van de sleep
 		//			DATUM			= De datasum van deze start
 		//			SOORTVLUCHT_ID	= Verwijzing naar soort vlucht (instructie / prive start)
 		//			STARTMETHODE_ID	= Verwijzing naar start methode (slepen / lieren / zelstart)
@@ -100,11 +102,13 @@
 		//			LANDINGSTIJD	= De landingstijd volgens de start administratie
 		//			DUUR			= De vliegtijd (landingstijd - startijst)
 		//			OPMERKING		= Opmerking voor deze vlucht
-		//			VLIEGERNAAM		= Volledige naam van de vlieger
-		//			INZITTENDENAAM	= Volledige naam van de inzittende
 		//			LAATSTE_AANPASSING = wordt door de database zelf geupdate, nodig voor synchronisatie
 		//			VLIEGER_ID		= Verwijzing naar lid record van de vlieger
+		//			VLIEGERNAAM_LID	= Volledige naam van de vlieger zoals in ledenbestand
+		//			VLIEGERNAAM		= Volledige naam van de vlieger zoals hand matig ingevoerd (niet voor alle vluchten)		
 		//			INZITTENDE_ID	= Verwijzing naar lid record van de inzittende
+		//			INZITTENDENAAM_LID	= Volledige naam van de inzittende zoals in het ledenbestand
+		//			INZITTENDENAAM	= Volledige naam van de inzittende zoals hand matig ingevoerd (niet voor alle vluchten)	
 		//			OP_REKENING_ID	= Verwijzing naar lid record van de diegene die betaald
 		//			OP_REKENING		= Volledige naam van diegene die betaald
 		//			SOORTVLUCHT		= Soort vlucht in volledige text vanuit omschrijving types tabel
@@ -122,6 +126,8 @@
 		//			"REG_CALL":"PH-1521 (E11)",
 		//			"FLARM_CODE":"485026",
 		//			"VLIEGTUIG_ID":"402",
+		//			"SLEEPKIST_ID":null,
+		//			"SLEEP_HOOGTE": null,
 		//			"DATUM":"2016-07-25",
 		//			"SOORTVLUCHT_ID":"809",
 		//			"STARTMETHODE_ID":"501",
@@ -133,7 +139,10 @@
 		//			"INZITTENDENAAM":"Jan Jaap van Brunsum",
 		//			"LAATSTE_AANPASSING":"2016-07-25 22:13:41",
 		//			"VLIEGER_ID":"10587",
+		//			"VLIEGERNAAM_LID":"Diede Jongsma",
+		//			"VLIEGERNAAM": null,		
 		//			"INZITTENDE_ID":"10338",
+		//			"INZITTENDENAAM_LID":"Jan Jaap van Brunsum"
 		//			"OP_REKENING_ID":"10587",
 		//			"OP_REKENING":"Diede Jongsma",
 		//			"SOORTVLUCHT":"Instructie of checkvlucht",
@@ -147,6 +156,8 @@
 		//			"REG_CALL":"PH-1521 (E11)",
 		//			"FLARM_CODE":"485026",
 		//			"VLIEGTUIG_ID":"402",
+		//			"SLEEPKIST_ID":null,
+		//			"SLEEP_HOOGTE": null,		
 		//			"DATUM":"2016-07-25",
 		//			"SOORTVLUCHT_ID":"809",
 		//			"STARTMETHODE_ID":"501",
@@ -154,11 +165,13 @@
 		//			"LANDINGSTIJD":"11:51",
 		//			"DUUR":"00:12",
 		//			"OPMERKING":null,
-		//			"VLIEGERNAAM":"Diede Jongsma",
-		//			"INZITTENDENAAM":"Jan Jaap van Brunsum",
 		//			"LAATSTE_AANPASSING":"2016-07-25 22:14:22",
 		//			"VLIEGER_ID":"10587",
+		//			"VLIEGERNAAM_LID":"Diede Jongsma",
+		//			"VLIEGERNAAM": null,		
 		//			"INZITTENDE_ID":"10338",
+		//			"INZITTENDENAAM_LID":"Jan Jaap van Brunsum",	
+		//			"INZITTENDENAAM": null,		
 		//			"OP_REKENING_ID":"10587",
 		//			"OP_REKENING":"Diede Jongsma",
 		//			"SOORTVLUCHT":"Instructie of checkvlucht",
@@ -185,7 +198,7 @@
 			
 			if ($l->isLocal())
 			{
-				$where = $where . "AND (COALESCE(SOORTVLUCHT_ID,0) != 815) ";
+				$where = $where . "AND (COALESCE(SOORTVLUCHT_ID,0) != 815) ";		// 815 = start van het sleepvliegtuig zelf
 			}
 			
 			if ($l->magSchrijven() == false)
@@ -209,10 +222,19 @@
 				if (strlen(trim($this->qParams['_:query'])) > 0)
 				{
 					$where = $where . " AND (VLIEGERNAAM LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
+					$where = $where . " OR VLIEGERNAAM_LID LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
 					$where = $where . " OR INZITTENDENAAM LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
+					$where = $where . " OR INZITTENDENAAM_LID LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";					
 					$where = $where . " OR REGISTRATIE LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
 					$where = $where . " OR CALLSIGN LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
 					$where = $where . ")";
+				}
+			}
+			if (array_key_exists('_:sleepstarts', $this->qParams))
+			{
+				if ($this->qParams['_:sleepstarts'] == 'true')
+				{
+					$where = $where . " AND STARTMETHODE_ID = 501";
 				}
 			}
 			
@@ -419,7 +441,7 @@
 					FROM 
 						oper_aanwezig AS A INNER JOIN
 						ref_leden AS L ON A.LID_ID = L.ID
-					WHERE (DATEDIFF(now(),DATUM)  < 90) ";
+					WHERE (L.VERWIJDERD != 1 AND DATEDIFF(now(),DATUM)  < 90) ";
 					
 				$where = "AND DATUM = cast(now() as date) AND 
 							AANKOMST IS NOT NULL AND VERTREK IS NULL AND
@@ -527,15 +549,24 @@
 		// }
 		function StartlijstTreeviewJSON()
 		{
+			Debug(__FILE__, __LINE__, "Startlijst.StartlijstTreeviewJSON()");	
+			
 			$where = ' ';
 			if (array_key_exists('_:datum', $this->qParams))
 			{
-				$where = sprintf("(`DATUM` = '%s')", $this->qParams['_:datum']);
+				$where = sprintf(" (`DATUM` = '%s')", $this->qParams['_:datum']);
 			}
 			else
 			{
-				$where = "(`DATUM` = CAST(NOW()AS DATE))";
+				$where = " (`DATUM` = CAST(NOW()AS DATE))";
 			}
+			
+			$l = MaakObject('Login');
+			if ($l->magSchrijven() == false)
+			{
+				$where = $where . sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d'))", $_SESSION['login'], $_SESSION['login'], $_SESSION['login']);
+			}
+
 			
 			$query = "
 				SELECT
@@ -571,6 +602,7 @@
 				$vlucht['leaf']				= true;
 				
 				array_push($vluchten, $vlucht);
+				Debug(__FILE__, __LINE__, sprintf("vlieger=%s vluchten=%d", $vlieger, count($vluchten)));
 			}
 			
 			if (count($vluchten) > 0)
@@ -857,6 +889,7 @@
 			$d['VLIEGER_ID'] 		= null;
 			$d['INZITTENDE_ID']  	= null;
 			$d['SLEEPKIST_ID'] 		= null; 
+			$d['SLEEP_HOOGTE']		= null; 			
 			$d['SOORTVLUCHT_ID'] 	= null; 
 			$d['VLIEGERNAAM'] 		= null; 
 			$d['INZITTENDENAAM'] 	= null; 
@@ -899,7 +932,7 @@
 					{
 						case '600':			// diversen
 						case '607': 		// zusterclub
-						case '610':			// oprot kabel		
+						case '609':			// nieuw lid		
 						{
 							if (array_key_exists('VLIEGERNAAM', $this->Data))
 							{
@@ -917,7 +950,7 @@
 				{
 					if (($vliegerLidType == 600) 			||	// 600	diversen
 						($vliegerLidType == 607)			||	// 607	zusterclub
-						($vliegerLidType == 610)			||	// 610	oprot kabel
+						($vliegerLidType == 609)			||	// 609	nieuw lid
 						($d['SOORTVLUCHT_ID'] == "801") 	||	// 801	Passagierstart
 						($d['SOORTVLUCHT_ID'] == "802")) 		// 802	Relatiestart
 					{
@@ -942,8 +975,11 @@
 			{
 				$d['OP_REKENING_ID'] = $this->Data['OP_REKENING_ID'];
 				
-				$v->AanmeldenLidVandaag($this->Data['OP_REKENING_ID']);
-				Debug(__FILE__, __LINE__, sprintf("AanmeldenLidVandaag OP_REKENING=%d", $this->Data['OP_REKENING_ID']));
+				if ($this->Data['OP_REKENING_ID'] != $this->Data['VLIEGER_ID'])
+				{
+					$v->AanmeldenLidVandaag($this->Data['OP_REKENING_ID']);
+					Debug(__FILE__, __LINE__, sprintf("AanmeldenLidVandaag OP_REKENING=%d", $this->Data['OP_REKENING_ID']));
+				}
 			}
 			else
 			{
@@ -952,27 +988,37 @@
 					$d['OP_REKENING_ID'] = $this->Data['VLIEGER_ID'];
 				}
 			}
-			
-			
-			// Een DDWV vlieger betaald de rekening zelf
+
+			// Een DDWV vlieger betaald altijd de rekening zelf
 			if ($d['SOORTVLUCHT_ID'] == "814") // 814 = DDWV: Midweekvliegen
 			{
-				$d['OP_REKENING_ID'] = $this->Data['VLIEGER_ID'];
+				if (array_key_exists('VLIEGER_ID', $this->Data))
+				{
+					$d['OP_REKENING_ID'] = $this->Data['VLIEGER_ID'];
+				}
 			}
 			
-			if (array_key_exists('SLEEPKIST_ID', $this->Data))
+			if ($this->Data['STARTMETHODE_ID'] == "501") // sleep start
 			{
-				$d['SLEEPKIST_ID'] = $this->Data['SLEEPKIST_ID'];
-				$v->AanmeldenVliegtuigVandaag($this->Data['SLEEPKIST_ID']);
-				Debug(__FILE__, __LINE__, sprintf("AanmeldenVliegtuigVandaag SLEEPKIST=%d", $this->Data['SLEEPKIST_ID']));				
-			}
+				if (array_key_exists('SLEEPKIST_ID', $this->Data))
+				{
+					$d['SLEEPKIST_ID'] = $this->Data['SLEEPKIST_ID'];
+					$v->AanmeldenVliegtuigVandaag($this->Data['SLEEPKIST_ID']);
+					Debug(__FILE__, __LINE__, sprintf("AanmeldenVliegtuigVandaag SLEEPKIST=%d", $this->Data['SLEEPKIST_ID']));				
+				}
+				
+				if ((array_key_exists('SLEEP_HOOGTE', $this->Data)) && ($d['SLEEPKIST_ID'] !== NULL))
+				{
+					$d['SLEEP_HOOGTE'] = $this->Data['SLEEP_HOOGTE'];			
+				}		
+			}			
 			
 			if (array_key_exists('OPMERKING', $this->Data))
 			{
 				$d['OPMERKING'] = $this->Data['OPMERKING'];
 			}
 			
-			if ($this->Data['ID'] < 0)			// Nieuwe start 
+			if (($this->Data['ID'] < 0) || ($this->Data['ID'] == null))		// Nieuwe start 
 			{
 				if (array_key_exists('DATUM', $this->Data))
 				{
@@ -1114,7 +1160,18 @@
 			$d['STARTTIJD'] = null;
 			
 			if (array_key_exists('STARTTIJD', $this->Data))
+			{
 				$d['STARTTIJD'] = $this->Data['STARTTIJD'];
+				
+				$di = MaakObject('Daginfo');
+				
+				$diObj = $di->GetObject();
+				
+				if ($diObj[0]['ID'] != -1)		// Daginfo is ingevuld
+				{
+					$d['BAAN_ID'] = $diObj[0]['BAAN_ID'];
+				}		
+			}
 					
 			$vlucht = $this->GetObject($this->Data['ID']);
 			parent::DbAanpassen('oper_startlijst', $this->Data['ID'], $d);
@@ -1226,9 +1283,9 @@
 				{
 					case "600" : // 600 = Diverse (Bijvoorbeeld bedrijven- of jongerendag)
 					{
-						return "801"; // 801	Passagierstart
 						Debug(__FILE__, __LINE__, "SoortVluchtJSON:801	Passagierstart");
-						return;
+						return "801"; // 801	Passagierstart
+						
 						break;
 					}
 					case "606" : // 606 = Donateur
@@ -1242,49 +1299,51 @@
 							{
 								if ((int)($a[0]['AANTAL_STARTS']) < 3)
 								{
-									return "814";	// 814	DDWV: Midweekvliegen
 									Debug(__FILE__, __LINE__, "SoortVluchtJSON:814 DDWV: Midweekvliegen");
-									return;
+									return "814";	// 814	DDWV: Midweekvliegen
 								}
 							}
 							else
 							{
-								return "814";	// 814	DDWV: Midweekvliegen
 								Debug(__FILE__, __LINE__, "SoortVluchtJSON:814 DDWV: Midweekvliegen");
-								return;					
+								return "814";	// 814	DDWV: Midweekvliegen				
 							}
 						}					
-						return "812"; // 812	Donateursstart
 						Debug(__FILE__, __LINE__, "SoortVluchtJSON:812	Donateursstart");
-						return;
+						return "812"; // 812	Donateursstart
 						break;
 					}
 					case "607" : // 607 = Zusterclub
 					{
-						return "803"; // 803	Start zusterclub
 						Debug(__FILE__, __LINE__, "SoortVluchtJSON:803	Start zusterclub");
-						return;
+						return "803"; // 803	Start zusterclub
 						break;
 					}					
 					case "608" : // 608 = 5 rittenkaart
 					{
-						return "813"; // 813	5- of 10-rittenkaarthouder
 						Debug(__FILE__, __LINE__, "SoortVluchtJSON:813	5- of 10-rittenkaarthouder");
-						return;
+						return "813"; // 813	5- of 10-rittenkaarthouder
 						break;
 					}
-					case "610" : // 610 = oprot kabel
+					case "609" : // 609 = nieuw lid
 					{
-						return "804"; // 804 oprotkabel
-						Debug(__FILE__, __LINE__, "SoortVluchtJSON:804	Oprot kabel");
-						return;
+						if ($rvObj[0]['ZITPLAATSEN'] != 1)
+						{
+							Debug(__FILE__, __LINE__, "SoortVluchtJSON:809	Instructie of checkvlucht");
+							return "809"; // 809 Instructie of checkvlucht
+						}
+						else
+						{
+							Debug(__FILE__, __LINE__, "SoortVluchtJSON:805	Normale start");
+							return "805"; // 805 Normale start
+
+						}
 						break;
 					}		
 					case "611" : // 611 = cursist
 					{
-						return "809"; // 809 Instructie of checkvlucht
 						Debug(__FILE__, __LINE__, "SoortVluchtJSON:809	Instructie of checkvlucht");
-						return;
+						return "809"; // 809 Instructie of checkvlucht
 						break;
 					}					
 					case "625": // 625 = Lid is DDWVer
@@ -1294,9 +1353,8 @@
 						Debug(__FILE__, __LINE__, sprintf("AANTAL_STARTS=%d", (int)($a[0]['AANTAL_STARTS'])));
 						if ((int)($a[0]['AANTAL_STARTS']) < 3)
 						{
-							return "814"; // 814	DDWV: Midweekvliegen
 							Debug(__FILE__, __LINE__, "SoortVluchtJSON:814	DDWV: Midweekvliegen");
-							return;
+							return "814"; // 814	DDWV: Midweekvliegen
 						}
 						break;
 					}
@@ -1753,6 +1811,14 @@
 		
 		function ExportJSON()
 		{
+			$l = MaakObject('Login');
+			
+			if (($l->isBeheerder() == false) && ($l->isBeheerderDDWV() == false))
+			{
+				Debug(__FILE__, __LINE__, "Geen export rechten");
+				$l->toegangGeweigerd();		
+			}				
+			
 			$export = $this->ExportData();
 			echo '({"total":"'.$export['total'].'","results":'.json_encode(array_map('PrepareJSON', $export['data'])).'})';
 		}
@@ -1780,7 +1846,9 @@
 				if (strlen(trim($this->Data['_:query'])) > 0)
 				{
 					$where = $where . " AND (VLIEGERNAAM LIKE ('%%" . trim($this->Data['_:query']) . "%%') ";
+					$where = $where . " OR VLIEGERNAAM_LID LIKE ('%%" . trim($this->Data['_:query']) . "%%') ";
 					$where = $where . " OR LedenVlieger.LIDNR LIKE ('%%" . trim($this->Data['_:query']) . "%%') ";
+					$where = $where . " OR INZITTENDENAAM_LID LIKE ('%%" . trim($this->Data['_:query']) . "%%') ";
 					$where = $where . " OR INZITTENDENAAM LIKE ('%%" . trim($this->Data['_:query']) . "%%') ";
 					$where = $where . " OR LedenInzittende.LIDNR LIKE ('%%" . trim($this->Data['_:query']) . "%%') ";
 					$where = $where . " OR LedenOpRekening.LIDNR LIKE ('%%" . trim($this->Data['_:query']) . "%%') ";
@@ -1816,11 +1884,12 @@
 					LEFT JOIN ref_leden AS LedenOpRekening  ON (sv.OP_REKENING_ID = LedenOpRekening.ID)		
 					LEFT JOIN ref_vliegtuigen AS Vliegtuig  ON (sv.VLIEGTUIG_ID = Vliegtuig.ID)						
 					LEFT JOIN types AS TypesVlieger         ON (LedenVlieger.LIDTYPE_ID = TypesVlieger.ID)
-					LEFT JOIN types AS TypesInzittende      ON (LedenInzittende.LIDTYPE_ID = TypesInzittende.ID)				
+					LEFT JOIN types AS TypesInzittende      ON (LedenInzittende.LIDTYPE_ID = TypesInzittende.ID)	
 				WHERE
 					" . $where . $orderby;
 			
 			$fields = "sv.*,
+					sv.BAAN AS BAAN,
 					LedenVlieger.LIDNR AS VLIEGERLIDNR,
 					TypesVlieger.OMSCHRIJVING AS VLIEGERLIDTYPE,
 					LedenInzittende.LIDNR AS INZTTENDELIDNR,

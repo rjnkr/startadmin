@@ -25,78 +25,107 @@
 		// 
 		// @return 	      Alles wat begint met SA komt vanuit de startlijst_view, alles wat begint met FLARM kom uit de Flarm schaduw admin
 		// 	Json string 
-		//		ID = Het record ID van dit lid in de database
-		//		SA_ID = Database ID van het start record uit oper_startlijst 
+		//		ID = Database ID van het start record uit oper_startlijst 
 		//		DAGNUMMER = Dagnummer van deze start 
-		//		SA_REG_CALL = Registratie + Callsign
-		//		SA_VLIEGTUIG_ID = Database ID van het vliegtuig
-		//		SA_VLIEGERNAAM = Volledige naam van de vlieger
-		//		SA_INZITTENDENAAM = Volledig naam van de inzitende (alleen voor tweezitters)
-		//		SA_STARTTIJD = De starttijd zoals deze handmatig vastgelegd is
-		//		SA_LANDINGSTIJD = De landingstijd zoals deze handmatig vastgelegd is
-		//		SA_DUUR = Hoe lang is er gevlogen
-		//		SA_SOORTVLUCHT = Wat voor een type start is het geweest. Volledige text vanuit types tabel
-		//		SA_STARTMETHODE = Welke start methode is gebruikt. Volledige text vanuit types tabel
+		//		REG_CALL = Registratie + Callsign
+		//		FLARM_CODE = De code die door het vliegtuig wordt uitgezonden door Flarm
+		//		VLIEGTUIG_ID = Database ID van het vliegtuig
+		//		SLEEPKIST_ID = Datbase ID van het sleepvliegtuig (alleen ingevuld bij sleepstart)
+		//		DATUM = Datum van de start
+		//		VLIEGER_ID = Het database ID van de vlieger uit de leden tabel
+		//		VLIEGERNAAM_LID = Volledige naam van de vlieger vanuit ledenlijst
+		//		VLIEGERNAAM = Ingevoerde naam van de vlieger, alleen in bijzondere situaties
+		//		INZITTENDE_ID = Het database ID van de inzittende uit de leden tabel
+		//		INZITTENDENAAM_LID = Volledig naam van de inzitende (alleen voor tweezitters)
+		//		INZITTENDENAAM = Ingevoerde naam van de inzittende, alleen in bijzondere situaties
+		//		OP_REKENING_ID = Wie betaald de vlucht. ID uit leden tabel
+		//		STARTTIJD = De starttijd zoals deze handmatig vastgelegd is
+		//		LANDINGSTIJD = De landingstijd zoals deze handmatig vastgelegd is
+		//		DUUR = Hoe lang is er gevlogen
+		//		SOORTVLUCHT = Wat voor een type start is het geweest. Volledige text vanuit types tabel
+		//		SOORTVLUCHT_ID = Wat voor een type start is het geweest. Het ID van de types tabel
+		//		STARTMETHODE = Welke start methode is gebruikt. Volledige text vanuit types tabel
+		//		STARTMETHODE_ID = Welke start methode is gebruikt. Het ID van de types tabel		
 		//		FLARM_ID = Database record ID van de flarm start
 		//		FLARM_STARTTIJD = De starttijd zoals deze door Flarm automatisch gedetecteerd is
 		//		FLARM_LANDINGSTIJD = De landingstijd zoals deze door Flarm automatisch gedetecteerd is
 		//		FLARM_CODE = Het uitgezonden Flarm ID
 		//		FLARM_VLIEGTUIG_ID = Het database ID van het vliegtuig met dit Flarm ID
 		//		FLARM_REG_CALL = Registratie + Callsign vanuit vliegtuig record
-		//		FLARM_BAAN = Verzijzing naar vanaf welke baan gestart is
 		//		dSTARTTIJD = Het verschil tussen de flarn starttijd en de handmatige ingevoerde tijd
 		//		dLANDINGSTIJD = Het verschil tussen de flarn landingstijd en de handmatige ingevoerde tijd
-		//		VLIEGER_LIDTYPE_ID =  Verwijzing naar het ID uit de types table met het type vlieger (DDWV vliegr, clublid, jeugdlid)
-		//
+	
 		// @example
 		// ({
 		//		"total":"2",
 		//		"results":
 		//		[
 		//			{
-		//				"SA_ID":"1605051307411",
-		//				"DAGNUMMER":"31",
-		//				"SA_REG_CALL":"D-KMRB (KK)",
-		//				"SA_VLIEGTUIG_ID":"429",
-		//				"SA_VLIEGERNAAM":"Marja Hoeksma",
-		//				"SA_INZITTENDENAAM":"Peter de Groot",
-		//				"SA_STARTTIJD":"13:41",
-		//				"SA_LANDINGSTIJD":"17:06",
-		//				"SA_DUUR":"03:25",
-		//				"SA_SOORTVLUCHT":"Privestart",
-		//				"SA_STARTMETHODE":"Lierstart GeZC",
-		//				"FLARM_ID":"6568",
-		//				"FLARM_STARTTIJD":"13:41:05",
-		//				"FLARM_LANDINGSTIJD":"17:06:19",
-		//				"FLARM_CODE":"3ECE00",
-		//				"FLARM_VLIEGTUIG_ID":"429",
-		//				"FLARM_REG_CALL":"D-KRMB (KK)",
-		//				"FLARM_BAAN":"12",
-		//				"dSTARTTIJD":"5",
-		//				"dLANDINGSTIJD":"19",
-		//				"VLIEGER_LIDTYPE_ID":"602"
+		//				"ID": "1605060956214",
+		//				"DAGNUMMER": "1",
+		//				"REGISTRATIE": "PH-1292",
+		//				"CALLSIGN": "E6",
+		//				"REG_CALL": "PH-1292 (E6)",
+		//				"FLARM_CODE": "484B5D",
+		//				"VLIEGTUIG_ID": "297",
+		//				"SLEEPKIST_ID": null,
+		//				"DATUM": "2014-09-06",
+		//				"SOORTVLUCHT_ID": "805",
+		//				"STARTMETHODE_ID": "550",
+		//				"STARTTIJD": "09:57",
+		//				"LANDINGSTIJD": "10:04",
+		//				"DUUR": "00:07",
+		//				"OPMERKING": null,
+		//				"LAATSTE_AANPASSING": "2016-05-06 10:04:43",
+		//				"VLIEGER_ID": "10267",
+		//				"VLIEGERNAAM_LID": "Marja Hoeksma",
+		//				"VLIEGERNAAM": null,
+		//				"INZITTENDE_ID": "10730",
+		//				"INZITTENDENAAM_LID": "Peter de Groot",
+		//				"INZITTENDENAAM": null,
+		//				"OP_REKENING_ID": "10267",
+		//				"OP_REKENING": "Marja Hoeksma",
+		//				"SOORTVLUCHT": "Normale GeZC start",
+		//				"STARTMETHODE": "Lierstart GeZC",
+		//				"FLARM_ID": "6602",
+		//				"FLARM_STARTTIJD": "09:56:55",
+		//				"FLARM_LANDINGSTIJD": "10:03:10",
+		//				"FLARM_REG_CALL": "PH-1292 (E6)",
+		//				"dSTARTTIJD": "5",
+		//				"dLANDINGSTIJD": "50"
 		//			},{
-		//				"SA_ID":"1605051532129",
-		//				"DAGNUMMER":"54",
-		//				"SA_REG_CALL":"PH-1510 (E5)",
-		//				"SA_VLIEGTUIG_ID":"223",
-		//				"SA_VLIEGERNAAM":"Frank Nijenhuis",
-		//				"SA_INZITTENDENAAM":null,
-		//				"SA_STARTTIJD":"15:39",
-		//				"SA_LANDINGSTIJD":"16:15",
-		//				"SA_DUUR":"00:36",
-		//				"SA_SOORTVLUCHT":"Normale GeZC start",
-		//				"SA_STARTMETHODE":"Lierstart GeZC",
-		//				"FLARM_ID":"6583",
-		//				"FLARM_STARTTIJD":"15:39:01",
-		//				"FLARM_LANDINGSTIJD":"16:15:14",
-		//				"FLARM_CODE":"484FA8",
-		//				"FLARM_VLIEGTUIG_ID":"223",
-		//				"FLARM_REG_CALL":"PH-1510 (E5)",
-		//				"FLARM_BAAN":"12",
-		//				"dSTARTTIJD":"1",
-		//				"dLANDINGSTIJD":"14",
-		//				"VLIEGER_LIDTYPE_ID":"602"
+		//				"ID": "1605061013035",
+		//				"DAGNUMMER": "2",
+		//				"REGISTRATIE": "PH-1510",
+		//				"CALLSIGN": "E5",
+		//				"REG_CALL": "PH-1510 (E5)",
+		//				"FLARM_CODE": "484FA9",
+		//				"VLIEGTUIG_ID": "296",
+		//				"SLEEPKIST_ID": null,
+		//				"DATUM": "2014-09-06",
+		//				"SOORTVLUCHT_ID": null,
+		//				"STARTMETHODE_ID": "550",
+		//				"STARTTIJD": "10:15",
+		//				"LANDINGSTIJD": "10:20",
+		//				"DUUR": "00:05",
+		//				"OPMERKING": "met andy van der stelt",
+		//				"LAATSTE_AANPASSING": "2016-05-06 10:20:26",
+		//				"VLIEGER_ID": "10820",
+		//				"VLIEGERNAAM_LID": "Frank Nijenhuis",
+		//				"VLIEGERNAAM": null,
+		//				"INZITTENDE_ID": null,
+		//				"INZITTENDENAAM_LID": null,
+		//				"INZITTENDENAAM": null,
+		//				"OP_REKENING_ID": "10820",
+		//				"OP_REKENING": "Frank Nijenhuis",
+		//				"SOORTVLUCHT": null,
+		//				"STARTMETHODE": "Lierstart GeZC",
+		//				"FLARM_ID": "6603",
+		//				"FLARM_STARTTIJD": "10:15:38",
+		//				"FLARM_LANDINGSTIJD": "10:20:14",
+		//				"FLARM_REG_CALL": "PH-721 (E4)",
+		//				"dSTARTTIJD": "38",
+		//				"dLANDINGSTIJD": "14"	
 		//			}
 		//	]
 		// })
@@ -133,10 +162,11 @@
 			{
 				if (strlen(trim($this->qParams['_:query'])) > 0)
 				{
-					$where = $where . " AND (SA_VLIEGERNAAM LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
-					$where = $where . " OR SA_INZITTENDENAAM LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
-					$where = $where . " OR SA_REG_CALL LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
-					$where = $where . " OR FLARM_REG_CALL LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
+					$where = $where . " AND (VLIEGERNAAM_LID LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
+					$where = $where . " OR VLIEGERNAAM LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
+					$where = $where . " OR INZITTENDENAAM_LID LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
+					$where = $where . " OR INZITTENDENAAM LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
+					$where = $where . " OR slv.REG_CALL LIKE ('%%" . trim($this->qParams['_:query']) . "%%') ";
 					$where = $where . ")";
 				}
 			}
@@ -147,13 +177,13 @@
 					$where = $where . sprintf (" AND ((dSTARTTIJD > %d OR dLANDINGSTIJD > %d) OR dSTARTTIJD is null OR dLANDINGSTIJD is null)", $app_settings['ControleTolerantie'], $app_settings['ControleTolerantie']);			
 			}			
 			
-			$orderby = " ORDER BY ISNULL(DAGNUMMER),	DAGNUMMER, SA_STARTTIJD, ISNULL(FLARM_STARTTIJD), FLARM_STARTTIJD";
+			$orderby = " ORDER BY ISNULL(DAGNUMMER), CONVERT(REPLACE(DAGNUMMER, 's',''), UNSIGNED INTEGER), slv.STARTTIJD, ISNULL(fv.STARTTIJD), fv.STARTTIJD";
 			if ((array_key_exists('sort', $this->Data)) && (array_key_exists('dir', $this->Data)))
 			{
 				$orderby = sprintf(" ORDER BY %s %s, ID ", $this->Data['sort'], $this->Data['dir']);
 			}
 			
-			$query = "SELECT %s FROM ControleStartlijstFlarm WHERE " . $where . $orderby;
+			$query = "SELECT %s FROM ControleStartlijstFlarm AS C LEFT OUTER JOIN startlijst_view AS slv ON (C.SA_ID = slv.ID) LEFT OUTER JOIN flarm_view AS fv ON (C.FLARM_ID = fv.ID) WHERE " . $where . $orderby;
 			
 			parent::DbOpvraag(sprintf($query, "COUNT(*) AS total"));
 			$total = parent::DbData();		// total amount of records in the database
@@ -163,7 +193,13 @@
 			{
 				$limit = sprintf(" LIMIT %d , %d ", $this->Data['start'], $this->Data['limit']);
 			}			
-			$rquery = sprintf($query, "*") . $limit;
+			$rquery = sprintf($query, "
+				slv.*, 
+				FLARM_ID AS FLARM_ID, 
+				fv.STARTTIJD AS FLARM_STARTTIJD, 
+				fv.LANDINGSTIJD AS FLARM_LANDINGSTIJD, 
+				fv.REG_CALL AS FLARM_REG_CALL,
+				dSTARTTIJD, dLANDINGSTIJD") . $limit;
 			parent::DbOpvraag($rquery);			
 			
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));	
@@ -643,8 +679,9 @@
 					LEFT JOIN ref_leden AS LedenVlieger  	ON (sv.VLIEGER_ID = LedenVlieger.ID)
 					LEFT JOIN ref_leden AS LedenInzittende  ON (sv.INZITTENDE_ID = LedenInzittende.ID)					
 				WHERE
-					STARTTIJD IS NOT NULL AND (LedenVlieger.LIDTYPE_ID = 609 || LedenInzittende.LIDTYPE_ID = 609)
-					"  . $orderby;
+					STARTTIJD IS NOT NULL AND (LedenVlieger.LIDTYPE_ID = 609 || LedenInzittende.LIDTYPE_ID = 609) 
+					AND COALESCE(LedenVlieger.VERWIJDERD,0) = 0  
+                    AND COALESCE(LedenInzittende.VERWIJDERD,0) = 0	"  . $orderby;
 			
 			parent::DbOpvraag(sprintf($query, "COUNT(*) AS total"));
 			$total = parent::DbData();		// total amount of records in the database

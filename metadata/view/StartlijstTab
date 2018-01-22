@@ -187,7 +187,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "VLIEGERNAAM",
+                                "dataIndex": "VLIEGERNAAM_LID",
                                 "text": "Voorin",
                                 "width": 200
                             },
@@ -220,6 +220,13 @@
                                             "    retVal = '<IMG SRC=\"images/alert.gif\" border=0>';",
                                             "    metaData.tdAttr = 'data-qtip=\"De gezagvoerder is niet ingevoerd.\"';",
                                             "}",
+                                            "else",
+                                            "{",
+                                            "    if (record.data.VLIEGERNAAM !== null)    ",
+                                            "    {",
+                                            "        retVal = value + \"(\" + record.data.VLIEGERNAAM + \")\";",
+                                            "    }",
+                                            "}",
                                             "",
                                             "",
                                             "return retVal;"
@@ -238,7 +245,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "INZITTENDENAAM",
+                                "dataIndex": "INZITTENDENAAM_LID",
                                 "text": "Achterin",
                                 "width": 200
                             },
@@ -270,6 +277,14 @@
                                             "    retVal = '<IMG SRC=\"images/alert.gif\" border=0>';",
                                             "    metaData.tdAttr = 'data-qtip=\"De instructeur is niet ingevoerd.\"';",
                                             "}",
+                                            "",
+                                            "if (record.data.INZITTENDENAAM !== null)",
+                                            "{",
+                                            "    if (record.data.INZITTENDENAAM.length > 0)",
+                                            "        retVal = record.data.INZITTENDENAAM;",
+                                            "}",
+                                            "",
+                                            "",
                                             "return retVal;"
                                         ]
                                     },
@@ -432,6 +447,20 @@
                             },
                             "name": "MyColumn8",
                             "designerId": "97410e9a-116c-4d45-9b95-ddd8a167145b"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "SLEEP_HOOGTE",
+                                "text": "Hoogte"
+                            },
+                            "name": "MyColumn11",
+                            "designerId": "8652ba04-8960-40d1-92c5-b49dd7c31d0e"
                         },
                         {
                             "type": "Ext.toolbar.Paging",
@@ -675,6 +704,56 @@
                                     ]
                                 },
                                 {
+                                    "type": "Ext.resizer.Splitter",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "width": 30
+                                    },
+                                    "name": "MySplitter",
+                                    "designerId": "08d4c96e-17a3-46af-a0e6-a8b6d83e4562"
+                                },
+                                {
+                                    "type": "Ext.form.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "Sleepstarts",
+                                        "fieldLabel": null,
+                                        "id": "StartlijstSleepFilter",
+                                        "layout|flex": null
+                                    },
+                                    "name": "MyCheckbox4",
+                                    "designerId": "c31a492f-11fb-4d6d-ae41-777c2fe7f1b7",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onStartlijstSleepFilterChange",
+                                                "implHandler": [
+                                                    "Ext.Hoofdscherm.StartlijstSleepFilterChange(field, newValue, oldValue, eOpts);"
+                                                ],
+                                                "name": "change",
+                                                "scope": "me"
+                                            },
+                                            "name": "onStartlijstSleepFilterChange",
+                                            "designerId": "0b9043de-2063-4023-b99f-8ef4494e566b"
+                                        }
+                                    ]
+                                },
+                                {
                                     "type": "Ext.toolbar.Spacer",
                                     "reference": {
                                         "name": "items",
@@ -803,6 +882,16 @@
                     "{",
                     "    Ext.data.StoreManager.lookup('Startlijst_GridStore').slimLaden();",
                     "    Ext.data.StoreManager.lookup('Startlijst_Vliegtuigen_Store').slimLaden(null, false);",
+                    "}",
+                    "",
+                    "",
+                    "var grid = Ext.getCmp('StartlijstGrid');",
+                    "if (grid.columns !== null)",
+                    "{",
+                    "    if ((appSettings.isBeheerder) || (appSettings.isBeheerderDDWV))",
+                    "        grid.columns[9].show();",
+                    "    else",
+                    "        grid.columns[9].hide();",
                     "}"
                 ],
                 "name": "activate",

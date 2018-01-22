@@ -89,6 +89,19 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "NOODNUMMER"
+            },
+            "name": "MyField22",
+            "designerId": "7205b638-ae7d-400c-b603-4bdd62b4b5b9"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "GPL"
             },
             "name": "MyField78",

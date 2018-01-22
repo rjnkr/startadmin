@@ -34,6 +34,12 @@ Ext.define('GeZC_StartAdministratie.model.Startlijst_Model', {
             name: 'VLIEGTUIG_ID'
         },
         {
+            name: 'SLEEPKIST_ID'
+        },
+        {
+            name: 'SLEEP_HOOGTE'
+        },
+        {
             name: 'STARTTIJD'
         },
         {
@@ -55,10 +61,16 @@ Ext.define('GeZC_StartAdministratie.model.Startlijst_Model', {
             name: 'VLIEGER_ID'
         },
         {
-            name: 'INZITTENDE_ID'
+            name: 'VLIEGERNAAM_LID'
         },
         {
             name: 'VLIEGERNAAM'
+        },
+        {
+            name: 'INZITTENDE_ID'
+        },
+        {
+            name: 'INZITTENDENAAM_LID'
         },
         {
             name: 'INZITTENDENAAM'
@@ -89,6 +101,9 @@ Ext.define('GeZC_StartAdministratie.model.Startlijst_Model', {
         },
         {
             name: 'OP_REKENING'
+        },
+        {
+            name: 'LAATSTE_AANPASSING'
         }
     ]
 });

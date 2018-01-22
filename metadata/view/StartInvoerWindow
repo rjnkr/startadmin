@@ -463,6 +463,30 @@
                     ]
                 },
                 {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "decimalPrecision": 0,
+                        "fieldLabel": "Hoogte",
+                        "id": "StartInvoer_Sleephoogte",
+                        "labelAlign": "right",
+                        "labelWidth": 300,
+                        "layout|anchor": "100%",
+                        "maxValue": 1200,
+                        "maxWidth": 425,
+                        "minValue": 400,
+                        "name": "SLEEP_HOOGTE",
+                        "step": 100,
+                        "width": null
+                    },
+                    "name": "MyNumberField1",
+                    "designerId": "685e4768-3cda-4252-bf50-14a7d626357c"
+                },
+                {
                     "type": "Ext.panel.Panel",
                     "reference": {
                         "name": "items",
@@ -893,44 +917,6 @@
                             },
                             "name": "MyImg6",
                             "designerId": "cdda0763-ab43-4cdc-9b5f-52f89511bca6"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "icon": "images/add.gif",
-                                "id": "StartInvoer_ToevoegenLidAlsGezagvoerder",
-                                "layout|x": 405,
-                                "layout|y": null,
-                                "text": ""
-                            },
-                            "name": "MyButton23",
-                            "designerId": "15d54c72-0583-48dc-8bd4-f0ad31b11b3b",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onStartInvoer_ToevoegenLidAlsGezagvoerderClick",
-                                        "implHandler": [
-                                            "var view = Ext.widget('LidBeheerWindow', {'ID': -1});\r",
-                                            "view.show();"
-                                        ],
-                                        "name": "click",
-                                        "scope": "me"
-                                    },
-                                    "name": "onStartInvoer_ToevoegenLidAlsGezagvoerderClick",
-                                    "designerId": "6b3af3c3-145a-40a8-8595-9837922400be"
-                                }
-                            ]
                         }
                     ]
                 },

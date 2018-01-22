@@ -176,6 +176,7 @@ Ext.Hoofdscherm = function(){
 				store.proxy.extraParams = 
 				{
 					'_:onderdruk': Ext.getCmp('FilterOnderdrukAfgeslotenVluchten').pressed,
+					'_:sleepstarts': Ext.getCmp('StartlijstSleepFilter').getValue(),					
 					'_:query': Ext.getCmp('ZoekenStartlijst').getValue()
 				};
 			}
@@ -197,6 +198,11 @@ Ext.Hoofdscherm = function(){
 		},
 		
 		Startlijst_ZoekenChange: function(field, newValue, oldValue, options)
+		{
+			Ext.Hoofdscherm.ToonStartlijstGrid(1, false);	
+		},
+		
+		StartlijstSleepFilterChange: function(field, newValue, oldValue, options)
 		{
 			Ext.Hoofdscherm.ToonStartlijstGrid(1, false);	
 		},
