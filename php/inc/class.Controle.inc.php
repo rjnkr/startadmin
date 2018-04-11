@@ -695,16 +695,7 @@
 			parent::DbOpvraag($rquery);
 			
 			$records = parent::DbData();		
-			$lijst = null;			
-			for ($i=0; $i < count($records); $i++)
-			{
-				if ($records[$i]['VLIEGER_LIDTYPE_ID'] == 609)
-					$records[$i]['VLIEGER_BESTE_LID_ID'] =  $l->ZoekBesteLid($records[$i]['VLIEGERNAAM'], $lijst);
-				
-				if ($records[$i]['INZITTENDE_LIDTYPE_ID'] == 609)
-					$records[$i]['INZITTENDE_BESTE_LID_ID'] =  $l->ZoekBesteLid($records[$i]['INZITTENDENAAM'], $lijst);
-			}
-			
+					
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));	
 			echo '({"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', $records)).'})';		
 		}

@@ -948,10 +948,7 @@
 			{
 				if (($d['SOORTVLUCHT_ID'] != "810")) 		// 810	'Solostart met tweezitter'
 				{
-					if (($vliegerLidType == 600) 			||	// 600	diversen
-						($vliegerLidType == 607)			||	// 607	zusterclub
-						($vliegerLidType == 609)			||	// 609	nieuw lid
-						($d['SOORTVLUCHT_ID'] == "801") 	||	// 801	Passagierstart
+					if (($d['SOORTVLUCHT_ID'] == "801") 	||	// 801	Passagierstart
 						($d['SOORTVLUCHT_ID'] == "802")) 		// 802	Relatiestart
 					{
 						if (array_key_exists('INZITTENDENAAM', $this->Data))

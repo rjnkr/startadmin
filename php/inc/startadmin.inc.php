@@ -55,6 +55,8 @@ abstract class StartAdmin
 	{		
 		$id = $_GET["ID"];
 		
+		Debug(__FILE__, __LINE__, sprintf("StartAdmin.Sync_HaalObject(%s, %d)", $this->dbTable, $id));
+		
 		$query = sprintf("SELECT * FROM %s WHERE ID = '%s'", $this->dbTable, $id);
 		$this->DbOpvraag($query);
 		
@@ -64,15 +66,29 @@ abstract class StartAdmin
 	// Haal op welke ID zijn aangepast
 	// De betreffende class heeft de dbTable gezet in de constructor
 	function Sync_Samenvatting()
-	{			
-		$query = sprintf("SELECT ID, UNIX_TIMESTAMP(LAATSTE_AANPASSING) AS TS  FROM %s ", $this->dbTable);
+	{
+		Debug(__FILE__, __LINE__, sprintf("StartAdmin.Sync_Samenvatting(%s)",$this->dbTable));
 		
-		if (array_key_exists('LAATSTE_AANPASSING', $this->Data))
+		$query = sprintf("SELECT ID, UNIX_TIMESTAMP(LAATSTE_AANPASSING) AS LAATSTE_AANPASSING FROM %s ", $this->dbTable);
+		
+		$where = "";
+		if (array_key_exists('_:datum', $this->qParams))
 		{
-			$query .= sprintf("WHERE (LAATSTE_AANPASSING > '%s')", $this->Data['LAATSTE_AANPASSING']);
+			$where = sprintf("WHERE (LAATSTE_AANPASSING > '%s')", $this->qParams['_:datum']);
 		}
 		
-		$this->DbOpvraag($query);
+		if (array_key_exists('IN', $this->Data))
+		{
+			if ($where == "")
+				$where = "WHERE";
+			else
+				$where .= " OR";
+			
+	
+			$where .= sprintf(" ID IN (%s)", $this->Data['IN']);
+		}
+		
+		$this->DbOpvraag($query . $where);
 		
 		echo json_encode(array_map('PrepareJSON', $this->DbData()));
 	}
@@ -80,11 +96,14 @@ abstract class StartAdmin
 	// Haal de checksum op van een setje records
 	// De betreffende class heeft de dbTable gezet in de constructor
 	function Sync_Checksum()
-	{				
+	{		
+		Debug(__FILE__, __LINE__, sprintf("StartAdmin.Sync_Checksum(%s)", $this->dbTable));
+		
 		$where = '';
 		if (array_key_exists('_:datum', $this->qParams))
 		{
 			$where = sprintf(" WHERE (`LAATSTE_AANPASSING` > '%s')", $this->qParams['_:datum']);
+			Debug(__FILE__, __LINE__, sprintf("_:datum = %s", $this->qParams['_:datum']));
 		}
 			
 		$query = sprintf("SELECT SUM(UNIX_TIMESTAMP(LAATSTE_AANPASSING)) %% 10000 AS CHECKSUM FROM  %s %s", $this->dbTable, $where);
@@ -102,12 +121,12 @@ abstract class StartAdmin
 	// De betreffende class heeft de dbTable gezet in de constructor
 	function Sync_Record()
 	{
-		global $db;
-		
-		Debug(__FILE__, __LINE__, sprintf("%s.Sync_Wijzigen()", $this->dbTable));
-		Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($_POST, true)));				
-		
 		$id = $_POST['ID'];
+		
+		Debug(__FILE__, __LINE__, sprintf("StartAdmin.Sync_Record(%s, %d)", $this->dbTable, $id));
+		Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($_POST, true)));
+		
+		global $db;
 		
 		$query = sprintf("SELECT * FROM %s WHERE ID = '%s'", $this->dbTable, $id);
 		$this->DbOpvraag($query);
@@ -184,7 +203,6 @@ abstract class StartAdmin
 		
 		return $db->rows;
 	}
-	
 }
 
 ?>

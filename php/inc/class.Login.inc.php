@@ -6,6 +6,7 @@
 			global $NoPasswordIP;
 				
 			session_start(); 
+			session_write_close();
 
 			if(isset($_SESSION['login']))
 			{
@@ -33,7 +34,7 @@
 						return;
 					}		
 				}
-				if (count($network) == 2)
+				elseif (count($network) == 2)
 				{
 					if (CheckCIDR($_SERVER['REMOTE_ADDR'], $client))
 					{
@@ -44,13 +45,14 @@
 				}
 				else
 				{
+					Debug(__FILE__, __LINE__, "Config error, NoPasswordIP");
 					error_log("Config error, NoPasswordIP");
 				}
 			}
-			
+
 			// Check username and password (basic authentication)
-			if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])){
-			 
+			if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
+			{ 
 				$this->verkrijgToegang ($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']);
 				return;
 			}
@@ -211,13 +213,17 @@
 		{		
 			global $app_settings;
 			global $sync_account;
-		
+			
+			Debug(__FILE__, __LINE__, sprintf("verkrijgToegang(%s, %s)", $username, "????"));
+			
 			if (($username == null) || ($password == null))
 			{
 				if ((array_key_exists('USERNAME', $this->Data)) && (array_key_exists('PASSWORD', $this->Data)))
 				{
 					$username = $this->Data['USERNAME'];
 					$password = $this->Data['PASSWORD'];
+					
+					Debug(__FILE__, __LINE__, sprintf("username = %s", $username));
 				}
 				else
 				{
@@ -227,11 +233,11 @@
 						
 			if ($username == $sync_account['username'])
 			{	
-				$serverkey = sha1(strtolower ($sync_account['password']));
-				
+				$serverkey = sha1($sync_account['password']);
+								
 				if ($serverkey == $password)
 				{
-					@session_start(); 
+					session_start(); 
 					$_SESSION['login'] = -1;		// -1 geeft aan dat het een sync account is		
 					return;						
 				}
@@ -245,7 +251,7 @@
 				{			
 					if (($app_settings['DemoMode'] == true) && ($password == "ww"))
 					{
-						@session_start(); 
+						session_start(); 
 						$_SESSION['login'] = $lObj[0]['ID'];						
 						return;											
 					}
@@ -253,7 +259,7 @@
 					$key = sha1(strtolower ($username) . $password);
 					if ($lObj[0]['WACHTWOORD'] == $key)	
 					{
-						@session_start(); 
+						session_start(); 
 						$_SESSION['login'] = $lObj[0]['ID'];						
 						return;						
 					}

@@ -31,10 +31,6 @@ Ext.StartlijstInvoerForm = function(){
 			var InvoerSoortVlucht = Ext.getCmp('StartInvoer_SoortVlucht');		// checkbox grid
 			var InvoerStartMethode = Ext.getCmp('StartInvoer_StartMethode');	// checkbox grid
 		
-			// Zorg dat de store's geladen zijn met de laatste data
-			Ext.data.StoreManager.lookup('Startlijst_Vliegtuigen_Store').slimLaden(null, false);
-			Ext.data.StoreManager.lookup('Startlijst_SleepKisten_Store').slimLaden(null, false);
-			Ext.data.StoreManager.lookup('Startlijst_Vlieger_Store').slimLaden(null, false);
 			
 			// Welke vliegtuigen worden standaard getoond in de combobox 
 			if (appSettings.Aanwezigheid)
@@ -241,7 +237,7 @@ Ext.StartlijstInvoerForm = function(){
 								}	
 								if (recordDB.data.SLEEP_HOOGTE != recordForm.data.SLEEP_HOOGTE)		// Data is ongelijk
 								{
-									var InvoerSleephoogte = Ext.getCmp('StartInvoer_Opmerking');	
+									var InvoerSleephoogte = Ext.getCmp('StartInvoer_Sleephoogte');	
 									
 									if (InvoerSleephoogte.getValue() == recordForm.data.SLEEP_HOOGTE) // Gebruiker heeft nog niets aangepast
 									{
@@ -252,11 +248,9 @@ Ext.StartlijstInvoerForm = function(){
 						}
 					}
 				});
-				
+								
 				var store = Ext.data.StoreManager.lookup(StartlijstInvoerForm_GRID);
 				var record = store.getById(ID);
-				
-				form.loadRecord(record); 		// laad het record in het formulier
 							
 				if (record.data.VLIEGER_ID == record.data.OP_REKENING_ID)
 					form.OpRekeningOvernemen = true;						// bij het wijzigen van de vlieger wordt ook de op rekening automatisch aangepast
@@ -307,7 +301,7 @@ Ext.StartlijstInvoerForm = function(){
 					eval("var sif5 =" + InvoerVliegtuig.primaryFilterBy);
 					InvoerVliegtuig.store.filterBy(sif5);
 				}
-				
+				form.loadRecord(record); 		// laad het record in het formulier
 				Ext.StartlijstInvoerForm.FilterGezagvoerder();
 				
 				// zet waarde in hidden text veld. Via events wordt checkbox in grid gezet
@@ -324,6 +318,11 @@ Ext.StartlijstInvoerForm = function(){
 							
 				InvoerVliegtuig.focus(false, true);				
 			}
+			// Zorg dat de store's geladen zijn met de laatste data
+			Ext.data.StoreManager.lookup('Startlijst_Vliegtuigen_Store').slimLaden(null, false);
+			Ext.data.StoreManager.lookup('Startlijst_SleepKisten_Store').slimLaden(null, false);
+			Ext.data.StoreManager.lookup('Startlijst_Vlieger_Store').slimLaden(null, false);
+			
 			EnableFormEvents(form);			// Zet de events weer aan			
 		},
 	
@@ -1391,27 +1390,7 @@ Ext.StartlijstInvoerForm = function(){
 				{
 					if (appSettings.Aanwezigheid)
 					{
-						var record;
-
-						if ((geladenRecord != null) && (geladenRecord != undefined))
-						{
-							record = geladenRecord;
-						}
-						else
-						{
-							record = Ext.data.StoreManager.lookup('Startlijst_Edit_Store').getById(ID);
-						}
-						
-						if ((record.data.STARTTIJD == "") || (record.data.STARTTIJD == null))
-						{
-							// De vlucht wordt aangepast, maar er is nog niet gestart
-							InvoerInzittende.primaryFilterBy = InvoerInzittende.primaryFilterBy + "	if (record.data.AANWEZIG == '0') return false;"  				
-						}
-						else
-						{
-							// aanpassen achteraf
-							InvoerInzittende.primaryFilterBy = InvoerInzittende.primaryFilterBy + "	if (record.data.AANWEZIG_GEWEEST == '0') return false;"  
-						}
+						InvoerInzittende.primaryFilterBy = InvoerInzittende.primaryFilterBy + "	if (record.data.AANWEZIG == '0') return false;"  				
 					}
 				}
 				
@@ -2161,25 +2140,25 @@ Ext.StartlijstInvoerForm = function(){
 		},	
 		
 				
-		PapierVerlopen: function(LidRecord)
+		PapierenVerlopen: function(LidRecord)
 		{
 			var Vandaag = new Date();
-			var PapierenVerlopen = false;
+			var Verlopen = false;
 			if ((LidRecord.data.GPL_VERLOOPT != null) && (LidRecord.data.GPL_VERLOOPT != ""))
 			{
 				var GplVerloopt = new Date(LidRecord.data.GPL_VERLOOPT);
 				
 				if (GplVerloopt < Vandaag)
-					PapierenVerlopen = true;
+					Verlopen = true;
 			}
 			if ((LidRecord.data.MEDICAL_VERLOOPT != null) && (LidRecord.data.MEDICAL_VERLOOPT != ""))
 			{
 				var MedicalVerloopt = new Date(LidRecord.data.MEDICAL_VERLOOPT);
 				
 				if (MedicalVerloopt < Vandaag)
-					PapierenVerlopen = true;
+					Verlopen = true;
 			}		
-			return PapierenVerlopen
+			return Verlopen
 		},
 		
 		HeeftBetaald: function(LidRecord)

@@ -118,6 +118,8 @@ function UpdateFlarmStatus(status)
 // de flarm status ophaalt bij de sync applicatie
 function OphalenFlarmStatus()
 {
+	return;
+	
 	if (appSettings.isLocal)
 	{
 		var conn = new Ext.data.Connection();
