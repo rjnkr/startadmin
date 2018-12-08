@@ -10,10 +10,6 @@ if (!IsSet($GLOBALS['DATABASE_INCLUDED']))
 		var $data_retrieved;
 		var $rows;
 		var $row;
-
-		function DB()
-		{
-		}
 		
 		function ClearCache()
 		{
