@@ -10,5 +10,10 @@
         "url": "js/StartlijstVerwijderForm.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "0a5e2d83-b16e-41ee-9f3b-effc4a32fbbf"
 }

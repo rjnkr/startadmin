@@ -107,6 +107,13 @@
             "AanpassenTijdelijkLidWindow"
         ]
     },
+    "configAlternates": {
+        "models": "typedarray",
+        "name": "string",
+        "requires": "typedarray",
+        "stores": "typedarray",
+        "views": "typedarray"
+    },
     "name": "Application",
     "designerId": "application",
     "cn": [
@@ -223,6 +230,10 @@
                     "});"
                 ]
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
             "name": "launch",
             "designerId": "fd006117-ddef-442d-9c91-728f7da26bec"
         },
@@ -238,6 +249,10 @@
                 "implHandler": [
                     ""
                 ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
             },
             "name": "init",
             "designerId": "2ce8f413-f3ca-4d14-a4f8-a67c972b2729"

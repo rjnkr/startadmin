@@ -10,5 +10,10 @@
         "url": "js/AutoLaden.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "7bbc0ffc-3a35-498e-b7ec-d8e55e00904d"
 }

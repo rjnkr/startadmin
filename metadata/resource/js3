@@ -10,5 +10,10 @@
         "url": "js/callurl.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "07f171c2-7d92-483b-bd7a-9490574f8372"
 }

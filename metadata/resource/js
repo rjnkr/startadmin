@@ -10,5 +10,10 @@
         "url": "OpenLayers.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "f88b6169-3170-4ae7-a011-dd9f7089afb8"
 }

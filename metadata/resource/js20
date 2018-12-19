@@ -10,5 +10,10 @@
         "url": "js/clearButton.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "181475c3-548f-442c-921d-4ee97c0fdc21"
 }

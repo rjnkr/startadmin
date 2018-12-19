@@ -10,5 +10,10 @@
         "url": "js/Tijdstempel.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "3cc85259-669d-410e-9be3-b06751c82839"
 }

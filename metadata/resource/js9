@@ -10,5 +10,10 @@
         "url": "js/StartlijstTijden.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "51d1d99c-03d9-45fa-b10f-56c3031042bd"
 }

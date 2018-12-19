@@ -12,6 +12,13 @@
         "remoteSort": true,
         "storeId": "Startlijst_Inzittende_Store"
     },
+    "configAlternates": {
+        "autoSync": "boolean",
+        "designer|userClassName": "string",
+        "model": "model",
+        "remoteSort": "boolean",
+        "storeId": "string"
+    },
     "designerId": "ec1e9381-0f2d-4ea7-b256-4660767c7092",
     "cn": [
         {
@@ -28,6 +35,12 @@
                 ],
                 "name": "beforeload",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onJsonstoreBeforeLoad",
             "designerId": "740b231f-a8e3-43e2-a0e8-df6d6fa3600d"
@@ -48,6 +61,12 @@
                 ],
                 "name": "load",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onJsonstoreLoad",
             "designerId": "9d309cfa-2a65-4272-9e19-3aa0abc29c18"

@@ -9,6 +9,10 @@
         "designer|userClassName": "LedenLijst_Model",
         "idProperty": "ID"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
     "designerId": "cd53ddd5-f06e-4744-aeb3-0edcc28d3865",
     "cn": [
         {
@@ -21,6 +25,10 @@
             "userConfig": {
                 "name": "ID",
                 "type": null
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField73",
             "designerId": "8e4ea22b-cb55-4ab8-906e-770c70265050"
@@ -36,6 +44,10 @@
                 "name": "NAAM",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField74",
             "designerId": "a1f4b2db-b184-42b6-8abd-1133299bf19f"
         },
@@ -49,6 +61,10 @@
             "userConfig": {
                 "name": "ACHTERNAAM",
                 "type": null
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField75",
             "designerId": "37ce9981-2d5b-428b-8e49-a1714e3cb224"
@@ -64,6 +80,10 @@
                 "name": "MOBIEL",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField76",
             "designerId": "a75b7623-2165-4078-a00b-7b238c665207"
         },
@@ -78,6 +98,10 @@
                 "name": "TELEFOON",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField77",
             "designerId": "3e13c1ef-c621-4cf5-a653-2c9d567d8f25"
         },
@@ -90,6 +114,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "NOODNUMMER"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField22",
             "designerId": "7205b638-ae7d-400c-b603-4bdd62b4b5b9"
@@ -104,6 +131,9 @@
             "userConfig": {
                 "name": "GPL"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField78",
             "designerId": "a9120d21-6d0f-48e0-b627-fb339fed5f18"
         },
@@ -116,6 +146,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "INSTRUCTEUR"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField79",
             "designerId": "66b4a99b-6d74-4554-92b2-ee639ed86381"
@@ -130,6 +163,9 @@
             "userConfig": {
                 "name": "LIERIST"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField80",
             "designerId": "10235771-45e1-45a3-b4bd-b3b9bb67f880"
         },
@@ -143,6 +179,9 @@
             "userConfig": {
                 "name": "STARTLEIDER"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField81",
             "designerId": "f33e8386-25be-418b-aae8-08bcfad57cd5"
         },
@@ -155,6 +194,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "LIDTYPE"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField82",
             "designerId": "2009457d-7c87-45a1-a30f-d61933218e1a"
@@ -170,6 +212,10 @@
                 "name": "LIDTYPE_ID",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField83",
             "designerId": "c3f9a278-241b-43bf-8d47-3d0b5081114d"
         },
@@ -182,6 +228,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "GPL_VERLOOPT"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField84",
             "designerId": "30f860ba-de9a-4d0d-9ad9-c6ce58101903"
@@ -198,6 +247,11 @@
                 "name": "LID_ID",
                 "type": null
             },
+            "configAlternates": {
+                "mapping": "auto",
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField85",
             "designerId": "c0e02c88-184c-4648-b239-81af52279c80"
         },
@@ -212,6 +266,11 @@
                 "mapping": null,
                 "name": "AVATAR",
                 "type": null
+            },
+            "configAlternates": {
+                "mapping": "auto",
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField86",
             "designerId": "6dae7afe-fdb5-45ad-a31a-eab9de971b6a"

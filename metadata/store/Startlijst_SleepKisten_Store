@@ -10,6 +10,11 @@
         "model": "VliegtuigenLijst_Model",
         "storeId": "Startlijst_SleepKisten_Store"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
     "designerId": "39606c6f-8761-4c71-9ffe-a97d13ea9472",
     "cn": [
         {
@@ -21,6 +26,9 @@
             "codeClass": null,
             "userConfig": {
                 "url": "php/main.php?Action=Vliegtuigen.SleepKistenJSON"
+            },
+            "configAlternates": {
+                "url": "string"
             },
             "name": "MyAjaxProxy19",
             "designerId": "f78899f2-da2f-405e-b973-8c12f1799580",
@@ -50,6 +58,12 @@
                         "name": "exception",
                         "scope": "me"
                     },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
                     "name": "onAjaxException",
                     "designerId": "72439059-a05e-4855-84c6-501e8cb1d365"
                 }
@@ -71,6 +85,12 @@
                 "name": "beforeload",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onJsonstoreBeforeLoad",
             "designerId": "f8a29e81-373e-45c6-9266-16936ea2f9de"
         },
@@ -91,6 +111,12 @@
                 ],
                 "name": "load",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onJsonstoreLoad",
             "designerId": "dddd18c8-7cde-45ff-9d9d-3114bc545f42"

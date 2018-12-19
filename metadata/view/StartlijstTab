@@ -12,6 +12,13 @@
         "layout": "vbox",
         "title": "Startlijst"
     },
+    "configAlternates": {
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "layout": "string",
+        "title": "string"
+    },
     "name": "MyPanel",
     "designerId": "ac1fd164-b83f-4cf8-875b-2805e437e6bb",
     "cn": [
@@ -26,6 +33,11 @@
                 "container|align": "stretch",
                 "layout": "hbox",
                 "layout|flex": 1
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string",
+                "layout|flex": "number"
             },
             "name": "MyContainer1",
             "designerId": "23fdef57-66f5-4442-b406-dd07674e6c12",
@@ -47,6 +59,16 @@
                         "store": "Startlijst_GridStore",
                         "title": ""
                     },
+                    "configAlternates": {
+                        "cls": "string",
+                        "enableColumnHide": "boolean",
+                        "enableColumnMove": "boolean",
+                        "forceFit": "boolean",
+                        "id": "string",
+                        "layout|flex": "number",
+                        "store": "store",
+                        "title": "string"
+                    },
                     "name": "MyGridPanel",
                     "designerId": "b8d6b8f6-6d57-4a5e-b1d7-c35c468019ac",
                     "cn": [
@@ -63,6 +85,13 @@
                                 "height": null,
                                 "id": "StartlijstVandaagView",
                                 "minHeight": 20
+                            },
+                            "configAlternates": {
+                                "cls": "string",
+                                "emptyText": "string",
+                                "height": "auto",
+                                "id": "string",
+                                "minHeight": "number"
                             },
                             "name": "MyGridView",
                             "designerId": "3b514b1f-7640-4e50-833b-10a037b2a22f",
@@ -82,6 +111,12 @@
                                         "name": "itemdblclick",
                                         "scope": "me"
                                     },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
                                     "name": "onStartlijstVandaagViewItemDblClick",
                                     "designerId": "15c04d3e-9091-41ef-b193-b3ea2046c82d"
                                 }
@@ -100,6 +135,13 @@
                                 "defaultWidth": 40,
                                 "text": "#",
                                 "width": 40
+                            },
+                            "configAlternates": {
+                                "autoRender": "boolean",
+                                "dataIndex": "datafield",
+                                "defaultWidth": "number",
+                                "text": "string",
+                                "width": "auto"
                             },
                             "name": "MyColumn",
                             "designerId": "d3a07d89-9646-4644-81d7-29ddb2cebcfe",
@@ -144,6 +186,11 @@
                                             "return ret;"
                                         ]
                                     },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
                                     "name": "renderer",
                                     "designerId": "562aabb1-814e-411c-882d-5084c398a0be"
                                 }
@@ -161,6 +208,11 @@
                                 "text": "Registratie",
                                 "width": 70
                             },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyColumn1",
                             "designerId": "ec80d006-4b65-4fb9-8c52-cbae0d1bdec6"
                         },
@@ -176,6 +228,11 @@
                                 "text": "Callsign",
                                 "width": 70
                             },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyColumn2",
                             "designerId": "57d819b7-b8b5-4e9b-8c99-bad8f54c86cd"
                         },
@@ -190,6 +247,11 @@
                                 "dataIndex": "VLIEGERNAAM_LID",
                                 "text": "Voorin",
                                 "width": 200
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string",
+                                "width": "auto"
                             },
                             "name": "MyColumn3",
                             "designerId": "9afaf92b-177e-4550-a40e-1ebb1cffa7f3",
@@ -232,6 +294,11 @@
                                             "return retVal;"
                                         ]
                                     },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
                                     "name": "renderer",
                                     "designerId": "bf037f22-86d3-4032-83ca-cc3a32fa6091"
                                 }
@@ -248,6 +315,11 @@
                                 "dataIndex": "INZITTENDENAAM_LID",
                                 "text": "Achterin",
                                 "width": 200
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string",
+                                "width": "auto"
                             },
                             "name": "MyColumn4",
                             "designerId": "7d79ec9d-e9ac-4025-bae6-63be8191e4b5",
@@ -288,6 +360,11 @@
                                             "return retVal;"
                                         ]
                                     },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
                                     "name": "renderer",
                                     "designerId": "52733aac-d91c-43a4-a130-84e539248f15"
                                 }
@@ -305,6 +382,12 @@
                                 "dataIndex": "STARTTIJD",
                                 "text": "Start",
                                 "width": 50
+                            },
+                            "configAlternates": {
+                                "align": "string",
+                                "dataIndex": "datafield",
+                                "text": "string",
+                                "width": "auto"
                             },
                             "name": "MyColumn5",
                             "designerId": "a7df2756-f51b-4c5a-bfc8-68beb6593b6a",
@@ -354,6 +437,11 @@
                                             "return  ret;"
                                         ]
                                     },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
                                     "name": "renderer",
                                     "designerId": "dad3ef9e-d59c-4667-991c-4238aad93fee"
                                 }
@@ -371,6 +459,12 @@
                                 "dataIndex": "LANDINGSTIJD",
                                 "text": "Landing",
                                 "width": 50
+                            },
+                            "configAlternates": {
+                                "align": "string",
+                                "dataIndex": "datafield",
+                                "text": "string",
+                                "width": "auto"
                             },
                             "name": "MyColumn6",
                             "designerId": "3dbaf5f6-ed00-43c4-8f67-f9d31ad71e36",
@@ -413,6 +507,11 @@
                                             "return ret;"
                                         ]
                                     },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
                                     "name": "renderer",
                                     "designerId": "a6f27f1c-5e1a-4d1c-9a84-111372e6ecab"
                                 }
@@ -430,6 +529,11 @@
                                 "text": "Duur",
                                 "width": 50
                             },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyColumn7",
                             "designerId": "314c441c-6749-4f04-ac7a-3b8f269e2328"
                         },
@@ -445,6 +549,11 @@
                                 "flex": 4,
                                 "text": "Opmerking"
                             },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
+                            },
                             "name": "MyColumn8",
                             "designerId": "97410e9a-116c-4d45-9b95-ddd8a167145b"
                         },
@@ -458,6 +567,10 @@
                             "userConfig": {
                                 "dataIndex": "SLEEP_HOOGTE",
                                 "text": "Hoogte"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string"
                             },
                             "name": "MyColumn11",
                             "designerId": "8652ba04-8960-40d1-92c5-b49dd7c31d0e"
@@ -486,6 +599,23 @@
                                 "store": "Startlijst_GridStore",
                                 "width": null
                             },
+                            "configAlternates": {
+                                "afterPageText": "string",
+                                "beforePageText": "string",
+                                "displayInfo": "boolean",
+                                "displayMsg": "string",
+                                "dock": "string",
+                                "emptyMsg": "string",
+                                "firstText": "string",
+                                "height": "auto",
+                                "id": "string",
+                                "lastText": "string",
+                                "nextText": "string",
+                                "prevText": "string",
+                                "refreshText": "string",
+                                "store": "store",
+                                "width": "auto"
+                            },
                             "name": "MyPagingToolbar",
                             "designerId": "735951a2-ecc3-4dc0-ab42-e57509080fa4"
                         },
@@ -499,6 +629,10 @@
                             "userConfig": {
                                 "dock": "bottom",
                                 "id": "VandaagToolbar"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "id": "string"
                             },
                             "name": "MyToolbar",
                             "designerId": "a8827e65-be42-4d34-b796-b0a8c33260c4",
@@ -516,6 +650,13 @@
                                         "id": "FilterOnderdrukAfgeslotenVluchten",
                                         "layout|flex": null,
                                         "text": "Filter"
+                                    },
+                                    "configAlternates": {
+                                        "enableToggle": "boolean",
+                                        "icon": "string",
+                                        "id": "string",
+                                        "layout|flex": "number",
+                                        "text": "string"
                                     },
                                     "name": "MyButton",
                                     "designerId": "0ec8e7c7-7492-4cbb-bfbe-f8331e197caf",
@@ -538,6 +679,12 @@
                                                 "name": "render",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "onButtonRender",
                                             "designerId": "5ed5461c-56fd-4fd9-8b3b-6cca09b8df14"
                                         },
@@ -557,6 +704,12 @@
                                                 "name": "toggle",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "Startlijst_AfgeslotenVluchtenButtonToggle",
                                             "designerId": "cb98bedc-8107-4128-9650-0ad6ce68f856"
                                         }
@@ -574,6 +727,12 @@
                                         "id": "ButtonNieuweVlucht",
                                         "layout|flex": null,
                                         "text": "Nieuwe vlucht"
+                                    },
+                                    "configAlternates": {
+                                        "icon": "string",
+                                        "id": "string",
+                                        "layout|flex": "number",
+                                        "text": "string"
                                     },
                                     "name": "MyButton1",
                                     "designerId": "a26fdd3b-7f65-4af7-990c-ff7a582fa2d7",
@@ -598,6 +757,12 @@
                                                 "name": "click",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "onButtonNieuweVluchtClick",
                                             "designerId": "acfb23e7-0fa4-44c7-867a-c7806c7a2794"
                                         },
@@ -619,6 +784,12 @@
                                                 "name": "render",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "onButtonNieuweVluchtRender",
                                             "designerId": "ad247ac8-f4fa-4f52-bc9b-906f352f2deb"
                                         }
@@ -638,6 +809,14 @@
                                         "layout|flex": 1,
                                         "maxWidth": 300,
                                         "vtype": null
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "id": "string",
+                                        "labelAlign": "string",
+                                        "layout|flex": "number",
+                                        "maxWidth": "number",
+                                        "vtype": "string"
                                     },
                                     "name": "MyTextField",
                                     "designerId": "9b16851b-5765-4773-bc3b-9a77c83193ee",
@@ -660,6 +839,12 @@
                                                 "name": "render",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "onZoekenStartlijstRender",
                                             "designerId": "fe74d755-548d-4cc8-a445-3957f6f2e977"
                                         },
@@ -677,6 +862,12 @@
                                                 ],
                                                 "name": "change",
                                                 "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
                                             },
                                             "name": "Startlijst_ZoekenChange",
                                             "designerId": "0e20b69c-53cb-472a-8396-662ff3313881"
@@ -698,6 +889,11 @@
                                                     "return config; "
                                                 ]
                                             },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
+                                            },
                                             "name": "processZoekenStartlijst",
                                             "designerId": "9ae3cac3-ea1c-4907-85ab-08e7f4710579"
                                         }
@@ -714,6 +910,10 @@
                                         "layout|flex": null,
                                         "width": 30
                                     },
+                                    "configAlternates": {
+                                        "layout|flex": "number",
+                                        "width": "number"
+                                    },
                                     "name": "MySplitter",
                                     "designerId": "08d4c96e-17a3-46af-a0e6-a8b6d83e4562"
                                 },
@@ -729,6 +929,12 @@
                                         "fieldLabel": null,
                                         "id": "StartlijstSleepFilter",
                                         "layout|flex": null
+                                    },
+                                    "configAlternates": {
+                                        "boxLabel": "string",
+                                        "fieldLabel": "string",
+                                        "id": "string",
+                                        "layout|flex": "number"
                                     },
                                     "name": "MyCheckbox4",
                                     "designerId": "c31a492f-11fb-4d6d-ae41-777c2fe7f1b7",
@@ -748,6 +954,12 @@
                                                 "name": "change",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "onStartlijstSleepFilterChange",
                                             "designerId": "0b9043de-2063-4023-b99f-8ef4494e566b"
                                         }
@@ -762,6 +974,9 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "layout|flex": 1
+                                    },
+                                    "configAlternates": {
+                                        "layout|flex": "number"
                                     },
                                     "name": "MySpacer",
                                     "designerId": "ed00386a-a69b-4c3c-965b-a5595453bccc"
@@ -779,6 +994,13 @@
                                         "id": "ButtonVerwijderenVlucht",
                                         "layout|flex": null,
                                         "text": "Verwijderen"
+                                    },
+                                    "configAlternates": {
+                                        "enableToggle": "boolean",
+                                        "icon": "string",
+                                        "id": "string",
+                                        "layout|flex": "number",
+                                        "text": "string"
                                     },
                                     "name": "MyButton2",
                                     "designerId": "d3b45576-0364-4a3b-95e3-93aeec14257b",
@@ -801,6 +1023,12 @@
                                                 "name": "render",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "onButtonVerwijderenVluchtRender",
                                             "designerId": "68f4a60e-5dca-4197-b600-c7818650e49c"
                                         },
@@ -819,6 +1047,12 @@
                                                 ],
                                                 "name": "toggle",
                                                 "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
                                             },
                                             "name": "StartlijstVerwijderenVluchtToggle",
                                             "designerId": "2afaa508-0a78-47d5-92df-b8d2dc032bf7"
@@ -840,6 +1074,10 @@
                         "defaultSplitMax": 600,
                         "defaultSplitMin": 60
                     },
+                    "configAlternates": {
+                        "defaultSplitMax": "number",
+                        "defaultSplitMin": "number"
+                    },
                     "name": "MySplitter1",
                     "designerId": "582faa86-bc91-4461-8d15-50d8dea23c39"
                 },
@@ -852,6 +1090,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1
+                    },
+                    "configAlternates": {
+                        "layout|flex": "number"
                     },
                     "name": "detailspanel",
                     "designerId": "681aed1b-9116-456f-adba-b787a6969f3d",
@@ -896,6 +1137,12 @@
                 ],
                 "name": "activate",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onPanelActivate",
             "designerId": "f82f5c16-3348-416a-9ae5-e5f34cefd49d"

@@ -12,6 +12,13 @@
         "root": null,
         "storeId": "StartLijst_VliegerTreeview_Store"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "folderSort": "boolean",
+        "model": "model",
+        "root": "object",
+        "storeId": "string"
+    },
     "designerId": "c681de12-dbe0-4092-972c-f948f6d170fe",
     "cn": [
         {
@@ -23,6 +30,9 @@
             "codeClass": null,
             "userConfig": {
                 "url": "php/main.php?Action=Startlijst.StartlijstTreeviewJSON"
+            },
+            "configAlternates": {
+                "url": "string"
             },
             "name": "MyAjaxProxy3",
             "designerId": "3646709c-fb36-4a7e-bdba-3136a74fb7bd",
@@ -38,6 +48,11 @@
                         "idProperty": null,
                         "record": null,
                         "root": null
+                    },
+                    "configAlternates": {
+                        "idProperty": "string",
+                        "record": "string",
+                        "root": "string"
                     },
                     "name": "MyJsonReader3",
                     "designerId": "2311e5bd-50ec-4bf6-b3c7-82a127f1c3cb"
@@ -74,6 +89,12 @@
                 "name": "beforeload",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onTreeStoreBeforeLoad",
             "designerId": "29544619-c8a7-4077-b53e-c8becbb13560"
         },
@@ -93,6 +114,12 @@
                 ],
                 "name": "load",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onTreeStoreLoad",
             "designerId": "c1b1aae5-a082-42e8-8532-e467f638616a"

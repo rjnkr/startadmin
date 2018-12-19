@@ -28,10 +28,11 @@
         "buildShouldOverwriteIndex": true,
         "generateArchitectVersion": true,
         "installStatus": "Not Installed",
-        "displayfield-ExtBox1-1094-inputEl": "a new version of the framework is available"
+        "displayfield-ExtBox1-1094-inputEl": "a new version of the framework is available",
+        "urlPrefixTemplate": "http://localhost:{port}/{path}"
     },
-    "xdsVersion": "3.5.1",
-    "xdsBuild": 348,
+    "xdsVersion": "4.2.2",
+    "xdsBuild": 282,
     "schemaVersion": 1,
     "upgradeVersion": 310000000001,
     "framework": "ext40",

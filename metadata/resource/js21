@@ -10,5 +10,10 @@
         "url": "js/Kaart.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "6cfbfe97-ba7b-4834-9e5f-1f200b1c488c"
 }

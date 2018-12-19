@@ -14,6 +14,15 @@
         "tabPosition": "bottom",
         "width": 400
     },
+    "configAlternates": {
+        "activeTab": "auto",
+        "collapseDirection": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "tabPosition": "string",
+        "width": "auto"
+    },
     "name": "MyTabPanel3",
     "designerId": "1e82c1ea-b96a-4b8f-846d-a398520c82e9",
     "cn": [
@@ -28,6 +37,11 @@
                 "collapseFirst": false,
                 "layout": "fit",
                 "title": "Vliegers"
+            },
+            "configAlternates": {
+                "collapseFirst": "boolean",
+                "layout": "string",
+                "title": "string"
             },
             "name": "MyPanel12",
             "designerId": "1e5facca-e3cb-449b-98e1-cd3a45f097d1",
@@ -58,6 +72,25 @@
                         "title": "&nbsp;",
                         "width": 300
                     },
+                    "configAlternates": {
+                        "animCollapse": "boolean",
+                        "collapseDirection": "string",
+                        "collapsed": "boolean",
+                        "dock": "string",
+                        "enableColumnHide": "boolean",
+                        "enableColumnMove": "boolean",
+                        "enableColumnResize": "boolean",
+                        "forceFit": "boolean",
+                        "frameHeader": "boolean",
+                        "headerPosition": "string",
+                        "hideHeaders": "boolean",
+                        "id": "string",
+                        "rootVisible": "boolean",
+                        "sortableColumns": "boolean",
+                        "store": "store",
+                        "title": "string",
+                        "width": "auto"
+                    },
                     "name": "MyTreePanel",
                     "designerId": "ebaf9dd4-52f6-4804-b31a-c1329d33f077",
                     "cn": [
@@ -83,6 +116,11 @@
                                 "flex": 4,
                                 "text": "MyTreeColumn3"
                             },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
+                            },
                             "name": "MyTreeColumn",
                             "designerId": "6f9feba2-dc59-4ca2-bb72-1f1d548ddfce"
                         },
@@ -98,6 +136,11 @@
                                 "flex": 1,
                                 "text": "MyColumn207"
                             },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
+                            },
                             "name": "MyColumn9",
                             "designerId": "13969776-3be7-4e96-be1d-e0b87f87237f"
                         },
@@ -112,6 +155,11 @@
                                 "dataIndex": "DUUR",
                                 "flex": 1,
                                 "text": "MyColumn208"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
                             },
                             "name": "MyColumn10",
                             "designerId": "ce26ad16-ba12-4ded-9d74-bccad400fade"
@@ -141,6 +189,10 @@
                 "layout": "fit",
                 "title": "Club kisten"
             },
+            "configAlternates": {
+                "layout": "string",
+                "title": "string"
+            },
             "name": "MyPanel13",
             "designerId": "b56f52fc-3184-43e3-a18e-53cc32ff6bf6",
             "cn": [
@@ -166,6 +218,11 @@
                         "layout": "vbox",
                         "title": null
                     },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string",
+                        "title": "string"
+                    },
                     "name": "MyPanel",
                     "designerId": "9c52f124-1033-40d3-926d-9dc43413e6bb",
                     "cn": [
@@ -189,6 +246,20 @@
                                 "sortableColumns": false,
                                 "store": "StartLijst_VliegtuigenTreeview_Store",
                                 "title": "&nbsp; "
+                            },
+                            "configAlternates": {
+                                "collapseFirst": "boolean",
+                                "enableColumnHide": "boolean",
+                                "enableColumnMove": "boolean",
+                                "enableColumnResize": "boolean",
+                                "forceFit": "boolean",
+                                "hideHeaders": "boolean",
+                                "id": "string",
+                                "layout|flex": "number",
+                                "rootVisible": "boolean",
+                                "sortableColumns": "boolean",
+                                "store": "store",
+                                "title": "string"
                             },
                             "name": "MyTreePanel1",
                             "designerId": "8af54f47-7d53-43bf-8073-6f2c08f205d7",
@@ -215,6 +286,11 @@
                                         "flex": 3,
                                         "text": "MyTreeColumn1"
                                     },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "flex": "number",
+                                        "text": "string"
+                                    },
                                     "name": "MyTreeColumn1",
                                     "designerId": "b44c51ca-b8f5-463b-9012-9bb16d39da4c"
                                 },
@@ -230,6 +306,11 @@
                                         "flex": 1,
                                         "text": "MyColumn87"
                                     },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "flex": "number",
+                                        "text": "string"
+                                    },
                                     "name": "MyColumn87",
                                     "designerId": "e0b46f20-2220-48b8-8533-d904bbeacae9"
                                 },
@@ -244,6 +325,11 @@
                                         "dataIndex": "DUUR",
                                         "flex": 1,
                                         "text": "MyColumn88"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "flex": "number",
+                                        "text": "string"
                                     },
                                     "name": "MyColumn88",
                                     "designerId": "c2c42cf0-83ee-498a-9711-a2445ec6c344",
@@ -278,6 +364,11 @@
                                                     "return retVal;"
                                                 ]
                                             },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
+                                            },
                                             "name": "renderer",
                                             "designerId": "181664ea-d128-4826-b7a1-d68acd1abf38"
                                         }
@@ -298,6 +389,12 @@
                                         "name": "select",
                                         "scope": "me"
                                     },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
                                     "name": "onClubKistenTreeViewSelect",
                                     "designerId": "1f555130-a394-48f2-8371-6c889fb32327"
                                 }
@@ -315,6 +412,12 @@
                                 "layout|flex": 1,
                                 "store": "VliegtuigLogboek_Store",
                                 "title": "Logboek details"
+                            },
+                            "configAlternates": {
+                                "id": "string",
+                                "layout|flex": "number",
+                                "store": "store",
+                                "title": "string"
                             },
                             "name": "MyGridPanel6",
                             "designerId": "312e9895-359c-418f-87e3-ad8feda7e55c",
@@ -341,6 +444,11 @@
                                         "flex": 2,
                                         "text": "Datum"
                                     },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "flex": "number",
+                                        "text": "string"
+                                    },
                                     "name": "MyColumn66",
                                     "designerId": "b2a95828-7423-4eda-b365-ee877ba05efe"
                                 },
@@ -355,6 +463,11 @@
                                         "dataIndex": "VLUCHTEN",
                                         "flex": 1,
                                         "text": "Vluchten"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "flex": "number",
+                                        "text": "string"
                                     },
                                     "name": "MyColumn83",
                                     "designerId": "d24ec14f-b3b6-4abd-a7a5-77ebfa52883c"
@@ -371,6 +484,11 @@
                                         "flex": 1,
                                         "text": "Lier"
                                     },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "flex": "number",
+                                        "text": "string"
+                                    },
                                     "name": "MyColumn67",
                                     "designerId": "7122e2c1-cb04-4747-a28b-c3d6803a2904"
                                 },
@@ -386,6 +504,11 @@
                                         "flex": 1,
                                         "text": "Sleep"
                                     },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "flex": "number",
+                                        "text": "string"
+                                    },
                                     "name": "MyColumn68",
                                     "designerId": "0b38c137-e404-4b3c-9485-f70b3e4c0b3c"
                                 },
@@ -400,6 +523,11 @@
                                         "dataIndex": "VLIEGTIJD",
                                         "flex": 2,
                                         "text": "Tijd"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "flex": "number",
+                                        "text": "string"
                                     },
                                     "name": "MyColumn70",
                                     "designerId": "c1a07e4d-fc52-40d2-9d8c-dec6cad63afb"

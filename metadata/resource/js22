@@ -10,5 +10,10 @@
         "url": "js/Controle.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "08ae34c3-5295-42ec-9833-ce835021f2b0"
 }

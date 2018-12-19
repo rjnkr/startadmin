@@ -9,6 +9,10 @@
         "designer|userClassName": "Startlijst_VliegtuigLogboekModel",
         "idProperty": "Startlijst_VliegtuigLogboekModel"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
     "name": "MyModel",
     "designerId": "fd1181d9-35e4-4096-a9fb-e0a7553dd0c7",
     "cn": [
@@ -21,6 +25,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "DATUM"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField22",
             "designerId": "18e49de3-2cf2-495f-9cbc-c0521b538d31"
@@ -35,6 +42,9 @@
             "userConfig": {
                 "name": "LIERSTARTS"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField23",
             "designerId": "b1e3238c-2b91-4914-acbf-e070595b1b95"
         },
@@ -47,6 +57,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "SLEEPSTARTS"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField24",
             "designerId": "aa9deb72-a64f-45b2-8315-1c756fd6af9a"
@@ -61,6 +74,9 @@
             "userConfig": {
                 "name": "VLIEGTIJD"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField25",
             "designerId": "3f96b658-67a1-48fd-a740-508ee7a24830"
         },
@@ -74,6 +90,9 @@
             "userConfig": {
                 "name": "VLUCHTEN"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField46",
             "designerId": "93a6d1b4-6c85-4e8b-8693-d95508c578a1"
         },
@@ -86,6 +105,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "REG_CALL"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField146",
             "designerId": "98067c2a-251b-43f7-b09f-d044d5c9505f"

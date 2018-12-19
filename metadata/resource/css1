@@ -9,5 +9,9 @@
         "designer|userClassName": "css1",
         "url": "css/clearButton.css"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri"
+    },
     "designerId": "d53b74c8-4819-428f-8812-f4c54cc47d7b"
 }

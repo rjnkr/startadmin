@@ -12,6 +12,13 @@
         "remoteSort": true,
         "storeId": "Startlijst_OpRekening_Store"
     },
+    "configAlternates": {
+        "autoSync": "boolean",
+        "designer|userClassName": "string",
+        "model": "model",
+        "remoteSort": "boolean",
+        "storeId": "string"
+    },
     "designerId": "dc94d0a0-e68f-45f5-b318-1f75027ac8dc",
     "cn": [
         {
@@ -28,6 +35,12 @@
                 ],
                 "name": "beforeload",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onJsonstoreBeforeLoad",
             "designerId": "66833d21-caf7-4a9b-b3b9-13fc86b5e10c"
@@ -47,6 +60,12 @@
                 ],
                 "name": "load",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onJsonstoreLoad",
             "designerId": "f4d4e827-b109-422c-bb7f-168ab775248e"

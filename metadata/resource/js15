@@ -10,5 +10,10 @@
         "url": "js/Daginfo.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "18861c54-ae84-46b6-8e51-7cfbe5264208"
 }

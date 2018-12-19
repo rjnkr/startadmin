@@ -8,6 +8,9 @@
     "userConfig": {
         "designer|userClassName": "Startlijst_VliegtuigenTreeview_Model"
     },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
     "name": "Startlijst_VliegersTreeview_Model1",
     "designerId": "8bcf3c87-084a-43a9-ab33-afb2293f878a",
     "cn": [
@@ -20,6 +23,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "ID"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField136",
             "designerId": "12684d05-a627-40d7-bf47-19a096688d5b"
@@ -34,6 +40,9 @@
             "userConfig": {
                 "name": "STARTMETHODE"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField",
             "designerId": "557cbd86-3b61-4b3b-8a70-dc73a55499a6"
         },
@@ -46,6 +55,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "DUUR"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField2",
             "designerId": "e1efa3eb-ec59-4a8b-bde3-973b4584af73"
@@ -63,6 +75,10 @@
                 ],
                 "name": "iconCls"
             },
+            "configAlternates": {
+                "defaultValue": "object",
+                "name": "string"
+            },
             "name": "MyField3",
             "designerId": "075b999e-57ca-4217-97ba-d329a59d35a7"
         },
@@ -75,6 +91,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "REG_CALL"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField175",
             "designerId": "3ff43834-051e-4f81-abce-2703b1ea303f"
@@ -89,6 +108,9 @@
             "userConfig": {
                 "name": "VLUCHTEN"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField176",
             "designerId": "e7849682-15cb-4e87-b3c5-0cb91a69d72b"
         },
@@ -102,6 +124,9 @@
             "userConfig": {
                 "name": "TEXT"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField177",
             "designerId": "5d5ab653-c0c5-4019-9882-3c583e18509a"
         },
@@ -114,6 +139,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "GEEN_LANDINGSTIJD"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField26",
             "designerId": "b1869a3e-b46b-44fc-a169-b94646c2c598"

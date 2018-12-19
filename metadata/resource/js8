@@ -10,5 +10,10 @@
         "url": "js/StartlijstInvoerForm.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "de7e6b30-7d25-4af6-9b9e-549d6263a2b6"
 }

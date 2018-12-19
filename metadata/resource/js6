@@ -10,5 +10,10 @@
         "url": "js/myext.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "eaf1079d-cd0e-4948-9c3e-50aae7612f81"
 }

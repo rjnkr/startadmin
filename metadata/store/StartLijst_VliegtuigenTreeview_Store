@@ -12,6 +12,13 @@
         "root": null,
         "storeId": "StartLijst_VliegtuigenTreeview_Store"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "folderSort": "boolean",
+        "model": "model",
+        "root": "object",
+        "storeId": "string"
+    },
     "name": "StartLijst_VliegerTreeview_Store1",
     "designerId": "b379f0de-75a9-4b65-a56a-b09e1661881e",
     "cn": [
@@ -24,6 +31,9 @@
             "codeClass": null,
             "userConfig": {
                 "url": "php/main.php?Action=Startlijst.VliegtuigenTreeviewJSON"
+            },
+            "configAlternates": {
+                "url": "string"
             },
             "name": "MyAjaxProxy3",
             "designerId": "6d4701bd-16a7-4b7a-8352-7283ce7bd600",
@@ -39,6 +49,11 @@
                         "idProperty": null,
                         "record": null,
                         "root": null
+                    },
+                    "configAlternates": {
+                        "idProperty": "string",
+                        "record": "string",
+                        "root": "string"
                     },
                     "name": "MyJsonReader3",
                     "designerId": "d19cfc62-db55-4af8-a0a5-265aa411114e"
@@ -75,6 +90,12 @@
                 "name": "beforeload",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onTreeStoreBeforeLoad",
             "designerId": "fe28301b-522f-4c60-8d43-604300dca66f"
         },
@@ -94,6 +115,12 @@
                 ],
                 "name": "load",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onTreeStoreLoad",
             "designerId": "bb8be662-4bb5-4ef5-8869-766bc4687dd3"

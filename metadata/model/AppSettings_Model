@@ -8,6 +8,9 @@
     "userConfig": {
         "designer|userClassName": "AppSettings_Model"
     },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
     "designerId": "533f0f14-145b-4370-982f-724d97c5bbcd",
     "cn": [
         {
@@ -20,6 +23,10 @@
             "userConfig": {
                 "name": "Aanwezigheid",
                 "type": "boolean"
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField138",
             "designerId": "6d591a89-a6ec-4339-b01f-a7f3a6511bd3"
@@ -35,6 +42,10 @@
                 "name": "ControleerPapieren",
                 "type": "boolean"
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField139",
             "designerId": "8076a778-9267-4d7a-9546-2691fcaade85"
         },
@@ -48,6 +59,10 @@
             "userConfig": {
                 "name": "MagSchrijven",
                 "type": "boolean"
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField140",
             "designerId": "10b27044-9e88-448b-82ce-4ecc2a4c0d07"
@@ -63,6 +78,10 @@
                 "name": "isBeheerder",
                 "type": "boolean"
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField141",
             "designerId": "32b4c11e-fe1a-4666-89dd-eef30a037ede"
         },
@@ -76,6 +95,10 @@
             "userConfig": {
                 "name": "isLocal",
                 "type": "boolean"
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField142",
             "designerId": "cdb8fcec-0b09-40f9-8799-8a8b626fe100"
@@ -91,6 +114,10 @@
                 "name": "isBeheerderDDWV",
                 "type": "boolean"
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField143",
             "designerId": "220ea34e-258f-4f46-a058-f9fe83cb8a1c"
         },
@@ -105,6 +132,10 @@
                 "name": "ControleTolerantie",
                 "type": "int"
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField144",
             "designerId": "226c531e-8fdc-4262-b775-939b418ade7a"
         },
@@ -117,6 +148,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "Betaald"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField179",
             "designerId": "16ddb381-2c01-4892-be44-19cde7f02dd2"

@@ -9,5 +9,9 @@
         "basePath": "extjs-4.1.0/",
         "designer|userClassName": "Library"
     },
+    "configAlternates": {
+        "basePath": "uri",
+        "designer|userClassName": "string"
+    },
     "designerId": "30695b12-68ba-4b18-9507-5189c81c9512"
 }

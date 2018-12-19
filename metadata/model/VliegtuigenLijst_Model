@@ -9,6 +9,10 @@
         "designer|userClassName": "VliegtuigenLijst_Model",
         "idProperty": "ID"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
     "designerId": "4d7f16b8-58db-48cd-b435-e8e968bfef03",
     "cn": [
         {
@@ -21,6 +25,10 @@
             "userConfig": {
                 "name": "ID",
                 "type": null
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField",
             "designerId": "dae7c902-1887-4425-ac9f-5e38fb452d72"
@@ -36,6 +44,10 @@
                 "name": "REGISTRATIE",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField1",
             "designerId": "eb0871b5-63d4-4643-abba-da825ab420a7"
         },
@@ -49,6 +61,10 @@
             "userConfig": {
                 "name": "CALLSIGN",
                 "type": null
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField2",
             "designerId": "07f59e07-8c7e-4451-b2a9-fdee2d035897"
@@ -64,6 +80,10 @@
                 "name": "REG_CALL",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField3",
             "designerId": "6c209ae8-9989-4269-88c1-8c10e06df93e"
         },
@@ -77,6 +97,10 @@
             "userConfig": {
                 "name": "ZITPLAATSEN",
                 "type": null
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField4",
             "designerId": "fd3dfb8e-a525-4bde-b29f-c0881d786c6f"
@@ -92,6 +116,10 @@
                 "name": "CLUBKIST",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField5",
             "designerId": "c6f2818f-82a1-4b6c-9146-6b23399474de"
         },
@@ -105,6 +133,10 @@
             "userConfig": {
                 "name": "VLIEGTUIGTYPE",
                 "type": null
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField6",
             "designerId": "2617cfbd-04ea-46f5-afd2-7beb3911f152"
@@ -120,6 +152,10 @@
                 "name": "TMG",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField7",
             "designerId": "e821bbcb-cfee-4a1a-a15e-795ae871c686"
         },
@@ -132,6 +168,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "SLEEPKIST"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField8",
             "designerId": "61d23bb9-e260-4727-a45a-ccbbee068cd3"
@@ -146,6 +185,9 @@
             "userConfig": {
                 "name": "FLARM_CODE"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField9",
             "designerId": "5f98c307-002e-4fe2-8d96-1db9b6023e97"
         },
@@ -158,6 +200,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "ZELFSTART"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField10",
             "designerId": "b412a3ad-9996-41a2-87eb-3507665090b9"
@@ -173,6 +218,10 @@
                 "name": "AANKOMST",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField11",
             "designerId": "934609ca-2814-4f39-8e91-cbf1cb477952"
         },
@@ -185,6 +234,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "VERTREK"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField12",
             "designerId": "87217a45-9a58-4603-8c01-595feb94b82e"
@@ -199,6 +251,9 @@
             "userConfig": {
                 "name": "VLIEGT"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField13",
             "designerId": "fbde986c-7246-4e10-a52b-26f1ad319871"
         },
@@ -211,6 +266,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "OVERLAND"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField14",
             "designerId": "afcb6d6f-7eb3-44f6-acfa-15c7f4e64720"
@@ -226,6 +284,10 @@
                 "name": "TYPE_ID",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField15",
             "designerId": "f2dc324e-becd-4fc5-9cc7-cb8d3da6332d"
         },
@@ -238,6 +300,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "AANWEZIG"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField16",
             "designerId": "6b5bbe4b-f011-40b8-9352-2a0257a9b6fa"

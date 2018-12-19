@@ -8,6 +8,9 @@
     "userConfig": {
         "designer|userClassName": "Startlijst_VliegersTreeview_Model"
     },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
     "designerId": "82d9fe4f-5fb7-4b3d-9643-eb57d0aa895d",
     "cn": [
         {
@@ -19,6 +22,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "TEXT"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField69",
             "designerId": "5613aa6c-ee51-4326-a0aa-22ffa3e50092"
@@ -35,6 +41,11 @@
                 "name": "STARTTIJD",
                 "type": null
             },
+            "configAlternates": {
+                "defaultValue": "object",
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField70",
             "designerId": "c42d4759-a062-45d3-bf1d-dce29a53a9b4"
         },
@@ -47,6 +58,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "DUUR"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField71",
             "designerId": "58449f23-bad4-4e66-a13b-5ef8bc87d142"
@@ -63,6 +77,10 @@
                     "x-tree-noicon"
                 ],
                 "name": "iconCls"
+            },
+            "configAlternates": {
+                "defaultValue": "object",
+                "name": "string"
             },
             "name": "MyField72",
             "designerId": "e4d7473d-27df-4d81-9f27-c25e7a85799e"

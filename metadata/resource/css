@@ -9,5 +9,9 @@
         "designer|userClassName": "css",
         "url": "css/startadmin.css"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri"
+    },
     "designerId": "c8621920-95cf-468c-a951-cbc6bf7e09fb"
 }

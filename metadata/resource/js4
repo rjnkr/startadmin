@@ -11,5 +11,11 @@
         "url": "js/clock.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "defer": "boolean",
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "eb4515c3-f085-4bca-afdd-fad57f770b34"
 }

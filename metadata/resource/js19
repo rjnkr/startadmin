@@ -10,5 +10,10 @@
         "url": "js/StartlijstDetailWindow.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "03769a6e-bf4a-49ff-8dd9-d997bf55465e"
 }

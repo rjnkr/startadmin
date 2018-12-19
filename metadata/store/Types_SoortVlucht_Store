@@ -11,6 +11,12 @@
         "model": "Types_Model",
         "storeId": "MyJsonStore18"
     },
+    "configAlternates": {
+        "autoSync": "boolean",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
     "designerId": "3fd3634c-341b-47b0-9572-7cc1fbab46fe",
     "cn": [
         {
@@ -22,6 +28,9 @@
             "codeClass": null,
             "userConfig": {
                 "url": "php/main.php?Action=Types.GetObjectsJSON&_:TYPEGROUP_ID=8"
+            },
+            "configAlternates": {
+                "url": "string"
             },
             "name": "MyAjaxProxy21",
             "designerId": "99c97189-f1ee-4cb9-9ce9-d9704a37142d",
@@ -35,6 +44,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "idProperty": "ID"
+                    },
+                    "configAlternates": {
+                        "idProperty": "string"
                     },
                     "name": "MyJsonReader21",
                     "designerId": "75817e62-1fbf-4d05-8d00-de100ce26463"
@@ -53,6 +65,12 @@
                         ],
                         "name": "exception",
                         "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
                     },
                     "name": "onAjaxproxyException",
                     "designerId": "68a5b274-31b8-4b2f-9eed-73c8aba98e66"

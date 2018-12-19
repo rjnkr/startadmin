@@ -10,5 +10,10 @@
         "url": "js/CommStatus.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "fd4224ac-9089-42d4-911b-3963a95b39b5"
 }

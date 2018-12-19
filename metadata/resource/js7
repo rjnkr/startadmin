@@ -10,5 +10,10 @@
         "url": "js/sprintf.js",
         "x-compile": true
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
     "designerId": "5a4f01b8-d57b-4b3a-8458-d5016a46c2d9"
 }
