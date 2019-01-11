@@ -104,7 +104,9 @@
             "ControleDagOverzichtTab",
             "ExportTab",
             "ControleTijdelijk",
-            "AanpassenTijdelijkLidWindow"
+            "AanpassenTijdelijkLidWindow",
+            "AanwezigTab",
+            "LidVandaagAanwezigWindow"
         ]
     },
     "configAlternates": {
@@ -215,6 +217,14 @@
                     "                    // Flarm status van GeZC Sync windows service, laat status op het hoofdscherm zien",
                     "                    setTimeout(OphalenFlarmStatus, 10 * 1000);",
                     "",
+                    "                    // Vervelend van tree view is dat ze automatisch laden. Dat kun je voorkomen door de store leeg te laten",
+                    "                    // Als er wel automatsch geladen wordt, gebeurd dat ook terwijl de gebruiker niet is ingelogd",
+                    "                    // Er komt dan een 401 (not authorized) error. Dat is vervelend",
+                    "                    // Geeft ook na inloggen een probleem omdat php session soms nog niet (soms ook wel) gezet is",
+                    "                    // en dat geeft onstabliteit en foutmeldingen",
+                    "                    // Dat voorkomen we door nu pas de store toe te kennen aan de treeviews",
+                    "                    //Ext.getCmp('VliegersTreeView').bindStore(Ext.data.StoreManager.lookup('StartLijst_VliegerTreeview_Store'));",
+                    "                    //Ext.getCmp('ClubKistenTreeView').binStore(Ext.data.StoreManager.lookup('StartLijst_VliegtuigenTreeview_Store'));",
                     "",
                     "",
                     "                    // Nu alles geladen is laten we het hoofdscherm zien",

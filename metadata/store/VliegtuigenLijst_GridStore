@@ -12,6 +12,13 @@
         "remoteSort": true,
         "storeId": "MyJsonStore2"
     },
+    "configAlternates": {
+        "autoSync": "boolean",
+        "designer|userClassName": "string",
+        "model": "model",
+        "remoteSort": "boolean",
+        "storeId": "string"
+    },
     "designerId": "95da0efc-632e-4070-bc6e-82c8fd2bad52",
     "cn": [
         {
@@ -24,6 +31,10 @@
             "userConfig": {
                 "simpleSortMode": true,
                 "url": "php/main.php?Action=Vliegtuigen.GetObjectsCompleteJSON"
+            },
+            "configAlternates": {
+                "simpleSortMode": "boolean",
+                "url": "string"
             },
             "name": "MyAjaxProxy1",
             "designerId": "4ef36ed2-b9c1-48c4-9771-dbb1828b7a42",
@@ -38,6 +49,10 @@
                     "userConfig": {
                         "idProperty": "ID",
                         "root": "results"
+                    },
+                    "configAlternates": {
+                        "idProperty": "string",
+                        "root": "string"
                     },
                     "name": "MyJsonReader1",
                     "designerId": "f45a0cf3-5771-46c2-b582-d3684f59b41a"
@@ -56,6 +71,12 @@
                         ],
                         "name": "exception",
                         "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
                     },
                     "name": "onAjaxproxyException",
                     "designerId": "d632de0e-aadf-4c0d-ab6e-ade9ae625eba"
@@ -82,6 +103,12 @@
                 "name": "load",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onJsonstoreLoad",
             "designerId": "a810710d-a315-466c-ac05-3791bdb11724"
         },
@@ -99,6 +126,12 @@
                 ],
                 "name": "beforeload",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onJsonstoreBeforeLoad",
             "designerId": "e5630e54-0a7e-482d-b085-a7cc8bf01b73"

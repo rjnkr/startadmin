@@ -71,7 +71,7 @@
 				SELECT 
 					%s
 				FROM
-					vliegtuigenlijst_view" . $where . $orderby;
+					`vliegtuigenlijst_view`" . $where . $orderby;
 			
 			if (array_key_exists('_:LAATSTE_AANPASSING', $this->qParams))
 			{
@@ -97,7 +97,7 @@
 				if (array_key_exists('_:flarm', $this->qParams))
 					echo json_encode(array_map('PrepareJSON', parent::DbData()));
 				else			
-					echo '({"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'})';
+					echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';
 			}
 		}	
 		
@@ -124,6 +124,48 @@
 				echo json_encode(array_map('PrepareJSON', parent::DbData()));
 			}
 		}
+		
+		// Lijst met alle clubkisten
+		function GetClubkistenJSON()
+		{
+			Debug(__FILE__, __LINE__, "Vliegtuigen.GetObjectsCompleteJSON()");	
+			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));	
+			Debug(__FILE__, __LINE__, sprintf("qParams=%s", print_r($this->qParams, true)));	
+			
+			$where = " WHERE VERWIJDERD=0 AND CLUBKIST='1'";			
+			$orderby = " ORDER BY VOLGORDE";
+			
+			$query = "
+				SELECT 
+					%s
+				FROM
+					`ref_vliegtuigen`" . $where . $orderby;
+			
+			if (array_key_exists('_:LAATSTE_AANPASSING', $this->qParams))
+			{
+				$query  = sprintf($query, "MAX(LAATSTE_AANPASSING) AS LAATSTE_AANPASSING");
+				$la = $this->LaatsteAanpassing($query);
+				Debug(__FILE__, __LINE__, sprintf("LAATSTE_AANPASSING=%s", $la));	
+				echo $la;
+			}
+			else
+			{	
+				parent::DbOpvraag("select `v`.`TYPE_ID` AS `TYPE_ID`,`t`.`OMSCHRIJVING` AS `VLIEGTUIGTYPE` from (`ref_vliegtuigen` `v` left join `types` `t` on((`v`.`TYPE_ID` = `t`.`ID`))) where (`v`.`VERWIJDERD` = 0) AND (`v`.`CLUBKIST` = 1) AND `v`.`TYPE_ID` IS NOT NULL GROUP BY `VLIEGTUIGTYPE` ORDER BY `t`.`SORTEER_VOLGORDE`");
+				$types = parent::DbData();
+				
+				$rquery = sprintf($query, "COUNT(*) AS total");
+				parent::DbOpvraag($rquery);
+				$total = parent::DbData();		// total amount of records in the database
+							
+				$rquery = sprintf($query, "`ID`,`REGISTRATIE`,`CALLSIGN`,`RegCall`(`ID`) AS `REGCALL`, `LAATSTE_AANPASSING`");
+				parent::DbOpvraag($rquery);
+				
+				if (array_key_exists('_:flarm', $this->qParams))
+					echo json_encode(array_map('PrepareJSON', parent::DbData()));
+				else			
+					echo '{"total":"'.$total[0]['total'].'", "types":'.json_encode(array_map('PrepareJSON', $types)).',"results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';
+			}
+		}	
 
 		function VerwijderObject()
 		{

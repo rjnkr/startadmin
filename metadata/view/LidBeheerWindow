@@ -17,6 +17,16 @@
         "title": "Lid beheer",
         "width": 400
     },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "id": "string",
+        "modal": "boolean",
+        "resizable": "object",
+        "title": "string",
+        "width": "auto"
+    },
     "designerId": "acc4de2a-10c6-432f-a96f-fb69bd53c8eb",
     "cn": [
         {
@@ -33,6 +43,13 @@
                 "layout": "table",
                 "title": ""
             },
+            "configAlternates": {
+                "baseCls": "string",
+                "cls": "string",
+                "height": "auto",
+                "layout": "string",
+                "title": "string"
+            },
             "name": "MyPanel23",
             "designerId": "dd8f8002-e034-4247-b1c6-e2c2f2fa6e05",
             "cn": [
@@ -47,6 +64,11 @@
                         "height": null,
                         "src": "images/user_add.png",
                         "width": null
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "src": "uri",
+                        "width": "auto"
                     },
                     "name": "MyImg2",
                     "designerId": "b712e825-d6a2-4a2f-887c-02992fdb7ffc"
@@ -68,6 +90,16 @@
                         "text": "Nieuw lid",
                         "width": null
                     },
+                    "configAlternates": {
+                        "border": "auto",
+                        "cls": "string",
+                        "dock": "string",
+                        "frame": "boolean",
+                        "id": "string",
+                        "padding": "auto",
+                        "text": "string",
+                        "width": "auto"
+                    },
                     "name": "MyLabel2",
                     "designerId": "357c5692-8cc0-497d-abe8-f26c97c4974a"
                 }
@@ -88,6 +120,15 @@
                 "title": "",
                 "trackResetOnLoad": true,
                 "url": "php/main.php?Action=Leden.SaveObject"
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "defaults": "object",
+                "frameHeader": "boolean",
+                "id": "string",
+                "title": "string",
+                "trackResetOnLoad": "boolean",
+                "url": "string"
             },
             "name": "MyForm8",
             "designerId": "cac556ef-b8e9-4689-a34b-37128edd91a1",
@@ -115,6 +156,22 @@
                         "name": "NAAM",
                         "width": 375
                     },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "blankText": "string",
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "maxLengthText": "string",
+                        "minLength": "number",
+                        "minLengthText": "string",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "width": "auto"
+                    },
                     "name": "MyTextField26",
                     "designerId": "d6692793-6546-48ba-ab8b-ef42c0b76deb",
                     "cn": [
@@ -134,6 +191,11 @@
                                     "config.plugins = ['clearbutton']; \r",
                                     "return config; "
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "processLidBeheer_Naam",
                             "designerId": "ee7d3cd2-8f6e-4206-bd8f-a17aab18600b"
@@ -159,6 +221,18 @@
                         "name": "TELEFOON",
                         "width": 370
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "maxLengthText": "string",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "width": "auto"
+                    },
                     "name": "MyTextField27",
                     "designerId": "e8eecfb5-0a84-4650-a317-ba9521a6c8b1",
                     "cn": [
@@ -179,6 +253,11 @@
                                     ""
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "validator",
                             "designerId": "622d061e-9e13-47f1-9703-cec0dac9980f"
                         },
@@ -198,6 +277,11 @@
                                     "config.plugins = ['clearbutton']; \r",
                                     "return config; "
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "processLidBeheer_Telefoon",
                             "designerId": "611d971b-ce06-4ee2-b348-67a74ffc67f0"
@@ -223,6 +307,18 @@
                         "name": "MOBIEL",
                         "width": 370
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "maxLengthText": "string",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "width": "auto"
+                    },
                     "name": "MyTextField28",
                     "designerId": "5e0e1554-4fd2-48fc-9aea-fcc70e792d14",
                     "cn": [
@@ -241,6 +337,11 @@
                                 "implHandler": [
                                     "return Ext.LidBeheer.ValiderenTelefoonNummer(value);"
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "validator",
                             "designerId": "6776b46c-1799-4b6b-9220-153a3db87c32"
@@ -261,6 +362,11 @@
                                     "config.plugins = ['clearbutton']; \r",
                                     "return config; "
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "processLidBeheer_Mobiel",
                             "designerId": "00c069a5-d2d8-4ad5-a209-8ce3247dd10c"
@@ -286,6 +392,18 @@
                         "name": "NOODNUMMER",
                         "width": 370
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "maxLengthText": "string",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "width": "auto"
+                    },
                     "name": "MyTextField",
                     "designerId": "a51ee8d3-6892-4c63-b647-53b49970a52f",
                     "cn": [
@@ -306,6 +424,11 @@
                                     ""
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "validator",
                             "designerId": "4f1a6463-3e63-4255-b31f-b48ed9a459a8"
                         },
@@ -325,6 +448,11 @@
                                     "config.plugins = ['clearbutton']; \r",
                                     "return config; "
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "processLidBeheer_Noodnummer",
                             "designerId": "b365513d-87de-46df-af3a-8d7723aa1fac"
@@ -356,6 +484,25 @@
                         "valueField": "ID",
                         "vtypeText": "Invullen wie de rekening betaald",
                         "width": 365
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "hidden": "boolean",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "primaryFilterOnKeyInput": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "tabIndex": "number",
+                        "typeAhead": "boolean",
+                        "valueField": "datafield",
+                        "vtypeText": "string",
+                        "width": "auto"
                     },
                     "name": "MyComboBox15",
                     "designerId": "2791d536-e783-463b-bca8-411fc266ee79",
@@ -392,6 +539,12 @@
                                 "name": "change",
                                 "scope": "me"
                             },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
                             "name": "onLidBeheer_LidtypeChange",
                             "designerId": "753821ea-c712-425c-84a7-637e119eb102"
                         },
@@ -410,6 +563,11 @@
                                 "implHandler": [
                                     "return Ext.LidBeheer.ValiderenLidType(value);"
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "validator",
                             "designerId": "cfb674a1-a545-4ca8-9526-29bcb9081402"
@@ -432,6 +590,15 @@
                         "layout|anchor": "100%",
                         "name": "CODE"
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hidden": "boolean",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
                     "name": "MyTextField29",
                     "designerId": "75abb84e-477f-4a5d-9dbe-e70a9c2cab86"
                 },
@@ -450,6 +617,15 @@
                         "labelWidth": 80,
                         "layout|anchor": "100%",
                         "name": "LIDNR"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hidden": "boolean",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "name": "string"
                     },
                     "name": "MyTextField30",
                     "designerId": "c2574386-c0a3-4b0f-ba75-65f8d1dff58e"
@@ -473,6 +649,18 @@
                         "name": "HEEFT_BETAALD",
                         "uncheckedValue": "0"
                     },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "hidden": "boolean",
+                        "id": "string",
+                        "inputValue": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "uncheckedValue": "string"
+                    },
                     "name": "MyCheckbox9",
                     "designerId": "b90f14d0-fc7c-4f9c-9098-af577c6ffe69"
                 },
@@ -493,6 +681,17 @@
                         "padding": "",
                         "text": "Opslaan",
                         "width": 80
+                    },
+                    "configAlternates": {
+                        "formBind": "boolean",
+                        "height": "auto",
+                        "icon": "string",
+                        "iconCls": "string",
+                        "id": "string",
+                        "margin": "auto",
+                        "padding": "auto",
+                        "text": "string",
+                        "width": "auto"
                     },
                     "name": "MyButton27",
                     "designerId": "6170ecc0-29cf-497d-ad4b-2a0bae3b18d3",
@@ -552,6 +751,12 @@
                                 "name": "click",
                                 "scope": "me"
                             },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
                             "name": "onButtonClick1",
                             "designerId": "59ce5c0f-cd15-4229-bb09-e71b82d9f8b2"
                         }
@@ -568,6 +773,11 @@
                         "fieldLabel": "Label",
                         "layout|anchor": "100%",
                         "name": "ID"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
                     },
                     "name": "MyHiddenField13",
                     "designerId": "43d5a57d-0e56-4c57-9351-8600c5dd03c4"
@@ -588,6 +798,12 @@
                         "name": "afterrender",
                         "scope": "me"
                     },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
                     "name": "onLidBeheerFormAfterRender",
                     "designerId": "f6c7c600-edcc-4fc8-a4e0-8987966cc49c"
                 }
@@ -607,6 +823,12 @@
                 ],
                 "name": "show",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onLidBeheerWindowShow",
             "designerId": "480427dd-30ae-4c0b-9dbf-345e41014ecb"

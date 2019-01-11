@@ -6,30 +6,7 @@ include('config.php');
 include('inc/functions.inc.php');
 include('inc/startadmin.inc.php');
 
-/****
-$retry = 10;
-while ($retry > 0)
-{
-	$db->DbOpvraag(sprintf("SHOW TABLES FROM %s", $db_info['dbName']));
-	$dbtables = $db->Data();
-	
-	if (count($dbtables) > 0)
-	{
-		$retry = -10;		// er is een verbinding met de database
-	}
-	else
-	{
-		sleep (2);
-		$retry--;
-	}
-}
-
-if ($retry == 0)
-{
-	header('HTTP/1.1 500 Internal Server Error');
-    exit("No database connection");
-}
-*/
+//error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
 
 

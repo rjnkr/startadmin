@@ -16,6 +16,15 @@
         "title": "Aanpassen lid",
         "width": 274
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "height": "auto",
+        "id": "string",
+        "modal": "boolean",
+        "resizable": "object",
+        "title": "string",
+        "width": "auto"
+    },
     "name": "CopyStarttijdWindow1",
     "designerId": "9bfdeab4-fe9b-4a18-8e6a-419214a7eaee",
     "cn": [
@@ -38,6 +47,19 @@
                 "trackResetOnLoad": true,
                 "url": "php/main.php?Action=Controle.SaveStartTijd",
                 "width": 265
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "designer|snapToGrid": "number",
+                "height": "auto",
+                "id": "string",
+                "layout": "string",
+                "primaryFilterOnKeyInput": "string",
+                "resizable": "object",
+                "title": "string",
+                "trackResetOnLoad": "boolean",
+                "url": "string",
+                "width": "auto"
             },
             "name": "MyForm3",
             "designerId": "0e980643-464f-42d1-9708-c07143ab952e",
@@ -66,6 +88,16 @@
                         "name": "ID",
                         "width": 50
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hideEmptyLabel": "boolean",
+                        "id": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "name": "string",
+                        "width": "auto"
+                    },
                     "name": "MyHiddenField6",
                     "designerId": "6cb0e7ee-67a2-477c-a659-8551e31cf12e"
                 },
@@ -87,6 +119,17 @@
                         "text": "Opslaan",
                         "width": 80
                     },
+                    "configAlternates": {
+                        "formBind": "boolean",
+                        "height": "auto",
+                        "icon": "string",
+                        "iconCls": "string",
+                        "id": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
                     "name": "MyButton18",
                     "designerId": "50de328c-f20e-472a-aea1-5533d30557f1",
                     "cn": [
@@ -104,6 +147,12 @@
                                 ],
                                 "name": "click",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onStartCopy_OpslaanClick",
                             "designerId": "a925a1c0-7c17-4181-beb6-38b5f6f00da5"
@@ -127,6 +176,16 @@
                         "readOnly": true,
                         "width": 225
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "name": "string",
+                        "readOnly": "boolean",
+                        "width": "auto"
+                    },
                     "name": "MyTextField16",
                     "designerId": "7c10e666-c437-4d1d-9272-d910daaa250f"
                 },
@@ -147,6 +206,16 @@
                         "readOnly": true,
                         "width": 225
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "name": "string",
+                        "readOnly": "boolean",
+                        "width": "auto"
+                    },
                     "name": "MyComboBox",
                     "designerId": "867e77e9-f234-4c27-8158-a2ccaf79faa0"
                 }
@@ -166,6 +235,12 @@
                 ],
                 "name": "show",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onWindowShow",
             "designerId": "7a17dc55-c4ed-440a-84a5-8913d0f62234"

@@ -1,0 +1,51 @@
+ALTER TABLE `ref_vliegtuigen` ADD `VOLGORDE` INT NOT NULL AFTER `SLEEPKIST`;
+
+USE `sadb`;
+CREATE 
+     OR REPLACE ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `ledenaanwezig_view` AS
+    SELECT 
+        `a`.`ID` AS `ID`,
+        `l`.`ID` AS `LID_ID`,
+        `l`.`NAAM` AS `NAAM`,
+        `l`.`AVATAR` AS `AVATAR`,
+        `l`.`LIDTYPE_ID` AS `LIDTYPE_ID`,
+        `a`.`VOORKEUR_VLIEGTUIG_TYPE` AS `VOORKEUR_VLIEGTUIG_TYPE`,
+        `a`.`VOORKEUR_VLIEGTUIG_ID` AS `VOORKEUR_VLIEGTUIG_ID`,
+        VOORKEURTYPE(`a`.`VOORKEUR_VLIEGTUIG_TYPE`) AS `VOORKEUR_TYPE`,
+        REGCALL(`a`.`VOORKEUR_VLIEGTUIG_ID`) AS `VOORKEUR_REGCALL`,
+        LIDVLIEGT(`l`.`ID`) AS `LAATSTE_STARTTIJD`,
+        TIME_FORMAT(TIMEDIFF(CURTIME(), LIDVLIEGT(`l`.`ID`)),
+                '%H:%i') AS `ACTUELE_VLIEGTIJD`,
+        TIME_FORMAT(`a`.`AANKOMST`, '%H:%i') AS `AANKOMST`,
+        TIME_FORMAT(`a`.`VERTREK`, '%H:%i') AS `VERTREK`,
+        TIME_FORMAT(WACHTTIJD(`l`.`ID`), '%H:%i') AS `WACHTTIJD`,
+        `l`.`INSTRUCTEUR` AS `INSTRUCTEUR`,
+        `l`.`LIERIST` AS `LIERIST`,
+        `l`.`STARTLEIDER` AS `STARTLEIDER`,
+        (CASE LIDAANWEZIGVANDAAG(`l`.`ID`)
+            WHEN 0 THEN 'false'
+            ELSE 'true'
+        END) AS `AANWEZIG`,
+        VLIEGERSTARTLIJSTVANDAAG(`l`.`ID`) AS `STARTLIJST_VANDAAG`,
+        TIME_FORMAT(VLIEGERVLIEGTIJDVANDAAG(`l`.`ID`),
+                '%H:%i') AS `VLIEGTIJD_VANDAAG`,
+        (SELECT 
+                `sv`.`CALLSIGN`
+            FROM
+                `startlijst_view` `sv`
+            WHERE
+                ((`sv`.`VLIEGER_ID` = `l`.`ID`)
+                    AND (`sv`.`DATUM` = CAST(NOW() AS DATE))
+                    AND ISNULL(`sv`.`STARTTIJD`))
+            ORDER BY `sv`.`DAGNUMMER` DESC
+            LIMIT 0 , 1) AS `VOLGEND_CALLSIGN`,
+        `a`.`OPMERKING` AS `OPMERKING`,
+        `a`.`LAATSTE_AANPASSING` AS `LAATSTE_AANPASSING`
+    FROM
+        (`oper_aanwezig` `a`
+        JOIN `ledenlijst_view` `l` ON ((`a`.`LID_ID` = `l`.`ID`)))
+    WHERE
+        (`a`.`DATUM` = CAST(NOW() AS DATE));

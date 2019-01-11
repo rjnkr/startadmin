@@ -1,15 +1,83 @@
 <?php
 	class Login extends StartAdmin
 	{
+		private $_userID = null;			// Wie is er ingelogd
+		
+		public function __construct()
+		{
+			parent::__construct();
+			
+			if (session_status() == PHP_SESSION_NONE)
+			{
+				session_start(); 
+				if(isset($_SESSION['login']))
+				{
+					$this->_userID = $_SESSION['login'];
+				}			
+				session_write_close();
+			}			
+		}
+		
+		function getUserFromSession()
+		{
+			return $this->_userID;
+		}
+		
+		function setSessionUser($id)
+		{
+			if (session_status() == PHP_SESSION_NONE)
+				session_start();
+
+			$_SESSION['login']= $id;
+			//session_write_close();
+		}
+
+		function getUserInfoJSON()
+		{
+			$this->heeftToegang();				// Dit moet erin anders is er geen sessie
+			
+			$l = MaakObject('Leden');
+			$a = MaakObject('Aanwezig');
+			
+			$retValue['magSchrijven'] = $this->magSchrijven();
+			$retValue['isLocal'] = $this->isLocal();
+			$retValue['isSync'] = $this->isSync();
+			$retValue['isBeheerderDDWV'] = $this->isBeheerderDDWV();
+			$retValue['isBeheerder'] = $this->isBeheerder();
+			$retValue['isStartleider'] = $this->isStartleider();
+			$retValue['isInstructeur'] = $this->isInstructeur();
+			$retValue['isAangemeld'] = false;
+			$retValue['isClubVlieger'] = false;
+			
+			$UserID = $this->getUserFromSession();
+			$Userinfo = array();
+			
+			if (is_numeric($UserID))
+			{		
+				$retValue['isClubVlieger'] = $l->isClubVlieger($UserID);
+				$retValue['isAangemeld'] = $a->IsAangemeldVandaag($UserID);
+				
+				$Userinfo = $l->getObject($UserID);				
+			}		
+			Debug(__FILE__, __LINE__, sprintf("urJSON=%s", print_r($retValue, true)));
+			Debug(__FILE__, __LINE__, sprintf("uiJSON=%s", print_r($Userinfo, true)));
+			
+			$urJSON = json_encode(array_map('PrepareJSON', $retValue));
+			$uiJSON = json_encode(array_map('PrepareJSON', $Userinfo));
+			
+			echo '{"UserRights":'.$urJSON.',"UserInfo":'. $uiJSON .'}';
+
+		}
+
 		function heeftToegang()
 		{
 			global $NoPasswordIP;
-				
-			session_start(); 
-			session_write_close();
-
-			if(isset($_SESSION['login']))
+		
+			$UserID = $this->getUserFromSession();
+			
+			if(isset($UserID))
 			{
+				Debug(__FILE__, __LINE__, sprintf("heeftToegang: $UserID=%s ", $UserID));
 				return;
 			}
 			
@@ -29,7 +97,7 @@
 				{
 					if ($_SERVER['REMOTE_ADDR'] == $client)
 					{
-						$_SESSION['login'] = 'strip';
+						$this->setSessionUser('strip');
 						Debug(__FILE__, __LINE__, "strip");						
 						return;
 					}		
@@ -38,7 +106,7 @@
 				{
 					if (CheckCIDR($_SERVER['REMOTE_ADDR'], $client))
 					{
-						$_SESSION['login'] = 'strip';	
+						$this->setSessionUser('strip');	
 						Debug(__FILE__, __LINE__, "2/strip");	
 						return;						
 					}						
@@ -52,17 +120,16 @@
 
 			// Check username and password (basic authentication)
 			if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
-			{ 
+			{ 					
 				$this->verkrijgToegang ($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']);
 				return;
 			}
 			$this->toegangGeweigerd();		
 		}
 		
-	
 		function magSchrijven()
 		{		
-			Debug(__FILE__, __LINE__, sprintf("magSchrijven() SESSION['login'] = %s", $_SESSION['login']));
+			Debug(__FILE__, __LINE__, sprintf("magSchrijven() UserID = %s", $this->getUserFromSession()));
 		
 			if ($this->isSync())
 			{
@@ -71,7 +138,7 @@
 			}
 			
 			// Op de strip hebben ze altijd schrijf rechten			
-			if ($_SESSION['login'] == 'strip')
+			if ($this->isLocal())
 			{
 				Debug(__FILE__, __LINE__, sprintf("strip, return true"));
 				return true;
@@ -80,11 +147,10 @@
 			// Beheeders hebben altijd schrijf rechten
 			if ($this->isBeheerder())
 			{
-				Debug(__FILE__, __LINE__, sprintf("%d is beheerder, return true", $_SESSION['login']));
+				Debug(__FILE__, __LINE__, sprintf("%d is beheerder, return true", $this->getUserFromSession()));
 				return true;
 			}
 		
-			// we beperken hoe lang historie beschikbaar is
 			if (array_key_exists('_:datum', $this->qParams))
 				$datum = $this->qParams['_:datum'];
 			else
@@ -110,61 +176,92 @@
 					}
 					
 					// Op een DDV dag mag de startleider schrijven in de database
-					if (isset($roosterObj[0]['OCHTEND_STARTLEIDER']))
-					{
-						if ($_SESSION['login'] == $roosterObj[0]['OCHTEND_STARTLEIDER']) 
-						{
-							Debug(__FILE__, __LINE__, sprintf("%d is ochtend startleider, return true", $_SESSION['login'] ));
-							return true;
-						}
-					}
-					if (isset($roosterObj[0]['MIDDAG_STARTLEIDER']))
-					{
-						if ($_SESSION['login'] == $roosterObj[0]['MIDDAG_STARTLEIDER'])
-						{
-							Debug(__FILE__, __LINE__, sprintf("%d is middag startleider, return true", $_SESSION['login'] ));
-							return true;
-						}
-					}					
+					if ($this->isStartleider($datum))
+						return true;				
 				}
 				else
 				{
 					Debug(__FILE__, __LINE__, sprintf("%s, Is geen DDWV dag", $datum));
 				}
 			}
+			if ($this->isInstructeur($datum))
+				return true;
+			
+			Debug(__FILE__, __LINE__, sprintf("%d is gewone gebruiker, return false", $this->getUserFromSession()));			
+			return false;
+		}
+		
+		function isInstructeur($datum = null)
+		{
+			if ($datum == null) $datum = date('Y-m-d');
+			
+			$di = MaakObject('Daginfo');				
+			$diObj = $di->GetObject(false, $datum);
+			
+			$rooster = MaakObject('Rooster');				
+			$roosterObj = $rooster->GetObject($datum);		
+
 			if (isset($roosterObj[0]['OCHTEND_DDI']))
 			{
-				if ($_SESSION['login'] == $roosterObj[0]['OCHTEND_DDI']) 
+				if ($this->getUserFromSession() == $roosterObj[0]['OCHTEND_DDI']) 
 				{
-					Debug(__FILE__, __LINE__, sprintf("%d is ochtend DDI, return true", $_SESSION['login'] ));
+					Debug(__FILE__, __LINE__, sprintf("%d is ochtend DDI, return true", $this->getUserFromSession() ));
 					return true;
 				}
 			}
 			if (isset($roosterObj[0]['MIDDAG_DDI']))
 			{
-				if ($_SESSION['login'] == $roosterObj[0]['MIDDAG_DDI'])
+				if ($this->getUserFromSession() == $roosterObj[0]['MIDDAG_DDI'])
 				{
-					Debug(__FILE__, __LINE__, sprintf("%d is middag DDI, return true", $_SESSION['login'] ));
+					Debug(__FILE__, __LINE__, sprintf("%d is middag DDI, return true", $this->getUserFromSession() ));
 					return true;
 				}
 			}	
 			if (isset($roosterObj[0]['OCHTEND_INSTRUCTEUR']))
 			{
-				if ($_SESSION['login'] == $roosterObj[0]['OCHTEND_INSTRUCTEUR']) 
+				if ($this->getUserFromSession() == $roosterObj[0]['OCHTEND_INSTRUCTEUR']) 
 				{
-					Debug(__FILE__, __LINE__, sprintf("%d is ochtend instructeur, return true", $_SESSION['login'] ));
+					Debug(__FILE__, __LINE__, sprintf("%d is ochtend instructeur, return true", $this->getUserFromSession() ));
 					return true;
 				}
 			}
 			if (isset($roosterObj[0]['MIDDAG_INSTRUCTEUR']))
 			{
-				if ($_SESSION['login'] == $roosterObj[0]['MIDDAG_INSTRUCTEUR'])
+				if ($this->getUserFromSession() == $roosterObj[0]['MIDDAG_INSTRUCTEUR'])
 				{
-					Debug(__FILE__, __LINE__, sprintf("%d is middag instructeur, return true", $_SESSION['login'] ));
+					Debug(__FILE__, __LINE__, sprintf("%d is middag instructeur, return true", $this->getUserFromSession() ));
 					return true;
 				}
 			}
-			Debug(__FILE__, __LINE__, sprintf("%d is gewone gebruiker, return false", $_SESSION['login'] ));			
+			return false;
+		}
+		
+		function isStartleider($datum = null)
+		{
+			if ($datum == null) $datum = date('Y-m-d');
+						
+			$di = MaakObject('Daginfo');				
+			$diObj = $di->GetObject(false, $datum);
+			
+			$rooster = MaakObject('Rooster');				
+			$roosterObj = $rooster->GetObject($datum);		
+
+			if (isset($roosterObj[0]['OCHTEND_STARTLEIDER']))
+			{
+				if ($this->getUserFromSession() == $roosterObj[0]['OCHTEND_STARTLEIDER']) 
+				{
+					Debug(__FILE__, __LINE__, sprintf("%d is ochtend startleider, return true", $this->getUserFromSession() ));
+					return true;
+				}
+			}
+			if (isset($roosterObj[0]['MIDDAG_STARTLEIDER']))
+			{
+				if ($this->getUserFromSession() == $roosterObj[0]['MIDDAG_STARTLEIDER'])
+				{
+					Debug(__FILE__, __LINE__, sprintf("%d is middag startleider, return true", $this->getUserFromSession() ));
+					return true;
+				}
+			}
 			return false;
 		}
 		
@@ -172,9 +269,9 @@
 		{		
 			global $beheerders;
 			
-			Debug(__FILE__, __LINE__, sprintf("isBeheerder() SESSION['login'] = %s", $_SESSION['login']));
+			Debug(__FILE__, __LINE__, sprintf("isBeheerder() UserID = %s", $this->getUserFromSession()));
 					
-			if (in_array($_SESSION['login'], $beheerders))
+			if (in_array($this->getUserFromSession(), $beheerders))
 				return true;
 			
 			return false;
@@ -184,9 +281,9 @@
 		{		
 			global $beheerdersDDWV;
 			
-			Debug(__FILE__, __LINE__, sprintf("isBeheerderDDWV() SESSION['login'] = %s", $_SESSION['login']));
+			Debug(__FILE__, __LINE__, sprintf("isBeheerderDDWV() UserID = %s", $this->getUserFromSession()));
 					
-			if (in_array($_SESSION['login'], $beheerdersDDWV))
+			if (in_array($this->getUserFromSession(), $beheerdersDDWV))
 				return true;
 			
 			return false;
@@ -195,13 +292,13 @@
 
 		function isLocal()
 		{				
-			return ($_SESSION['login'] == "strip");
+			return ($this->getUserFromSession() == "strip");
 		}	
 
 		function isSync()
 		{				
-			return ($_SESSION['login'] == -1);
-		}			
+			return ($this->getUserFromSession() == -1);
+		}	
 		
 		function toegangGeweigerd()
 		{
@@ -217,7 +314,7 @@
 			Debug(__FILE__, __LINE__, sprintf("verkrijgToegang(%s, %s)", $username, "????"));
 			
 			if (($username == null) || ($password == null))
-			{
+			{				
 				if ((array_key_exists('USERNAME', $this->Data)) && (array_key_exists('PASSWORD', $this->Data)))
 				{
 					$username = $this->Data['USERNAME'];
@@ -227,6 +324,7 @@
 				}
 				else
 				{
+					Debug(__FILE__, __LINE__, sprintf("Toegang geweigerd, geen username bekend", $username));
 					$this->toegangGeweigerd();
 				}
 			}
@@ -237,10 +335,11 @@
 								
 				if ($serverkey == $password)
 				{
-					session_start(); 
-					$_SESSION['login'] = -1;		// -1 geeft aan dat het een sync account is		
-					return;						
+					Debug(__FILE__, __LINE__, sprintf("Sync account = true)", $username));
+					$this->setSessionUser("-1");	// -1 geeft aan dat het een sync account is	
+					return;
 				}
+				Debug(__FILE__, __LINE__, sprintf("Sync account = false)", $username));
 			}
 			else
 			{
@@ -250,22 +349,22 @@
 				if (count($lObj) > 0)
 				{			
 					if (($app_settings['DemoMode'] == true) && ($password == "ww"))
-					{
-						session_start(); 
-						$_SESSION['login'] = $lObj[0]['ID'];						
-						return;											
+					{	
+						Debug(__FILE__, __LINE__, sprintf("Toegang toegestaan (%s) DEMO-MODE", $username));
+						$this->setSessionUser($lObj[0]['ID']);
+						return;												
 					}
 
 					$key = sha1(strtolower ($username) . $password);
 					if ($lObj[0]['WACHTWOORD'] == $key)	
-					{
-						session_start(); 
-						$_SESSION['login'] = $lObj[0]['ID'];						
-						return;						
+					{		
+						Debug(__FILE__, __LINE__, sprintf("Toegang toegestaan (%s)", $username));	
+						$this->setSessionUser($lObj[0]['ID']);	
+						return;
 					}
 				}
 			}
-			
+			Debug(__FILE__, __LINE__, sprintf("Toegang geweigerd (%s)", $username));
 			$this->toegangGeweigerd();				
 		}	
 	}

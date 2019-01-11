@@ -16,6 +16,17 @@
         "layout": "vbox",
         "title": "Daginfo"
     },
+    "configAlternates": {
+        "collapsible": "boolean",
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "html": "object",
+        "id": "string",
+        "itemId": "string",
+        "layout": "string",
+        "title": "string"
+    },
     "name": "MyPanel4",
     "designerId": "fb7052c5-9591-4586-ac1c-0cd243ced9b9",
     "cn": [
@@ -39,6 +50,19 @@
                 "url": "php/main.php?Action=Daginfo.SaveObject",
                 "waitTitle": "Even wachten"
             },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "disabled": "boolean",
+                "frameHeader": "boolean",
+                "height": "auto",
+                "id": "string",
+                "layout": "string",
+                "layout|flex": "number",
+                "title": "string",
+                "trackResetOnLoad": "boolean",
+                "url": "string",
+                "waitTitle": "string"
+            },
             "name": "MyForm",
             "designerId": "48a2e8b8-cb15-4629-9ab6-d3310cf78af6",
             "cn": [
@@ -52,6 +76,10 @@
                     "userConfig": {
                         "fieldLabel": "Label",
                         "name": "ID"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "name": "string"
                     },
                     "name": "MyHiddenField",
                     "designerId": "f44df10a-6dae-4916-b339-4181cb1c198d"
@@ -69,6 +97,12 @@
                         "layout|anchor": "100%",
                         "name": "DATUM"
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
                     "name": "MyHiddenField1",
                     "designerId": "d5820153-d073-45c0-b99a-1c2d68353e71"
                 },
@@ -84,6 +118,12 @@
                         "layout": "table",
                         "margin": 10,
                         "title": null
+                    },
+                    "configAlternates": {
+                        "border": "auto",
+                        "layout": "string",
+                        "margin": "auto",
+                        "title": "string"
                     },
                     "name": "MyPanel5",
                     "designerId": "85f65bf6-b418-41f7-8ef0-9568c2af6769",
@@ -102,6 +142,14 @@
                                 "margin": "0 10 0 0",
                                 "title": "Vliegveld",
                                 "width": 288
+                            },
+                            "configAlternates": {
+                                "designer|snapToGrid": "number",
+                                "height": "auto",
+                                "layout": "string",
+                                "margin": "auto",
+                                "title": "string",
+                                "width": "auto"
                             },
                             "name": "MyPanel6",
                             "designerId": "c652b27f-f249-44d7-9a85-4bb909ccb829",
@@ -131,6 +179,24 @@
                                         "valueField": "ID",
                                         "width": 300
                                     },
+                                    "configAlternates": {
+                                        "allowBlank": "boolean",
+                                        "blankText": "string",
+                                        "displayField": "datafield",
+                                        "fieldLabel": "string",
+                                        "forceSelection": "boolean",
+                                        "id": "string",
+                                        "labelAlign": "string",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "msgTarget": "string",
+                                        "name": "string",
+                                        "queryMode": "string",
+                                        "store": "store",
+                                        "typeAhead": "boolean",
+                                        "valueField": "datafield",
+                                        "width": "auto"
+                                    },
                                     "name": "MyComboBox",
                                     "designerId": "d9859bec-77f4-4924-a21e-c4098868589b",
                                     "cn": [
@@ -152,6 +218,12 @@
                                                 "name": "render",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "onComboboxInfoBanenRender1",
                                             "designerId": "1a9e8c50-fdde-44ae-99c9-ad11e1a8f0b5"
                                         },
@@ -169,6 +241,12 @@
                                                 ],
                                                 "name": "change",
                                                 "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
                                             },
                                             "name": "onComboboxInfoVliegveldChange",
                                             "designerId": "d750ce8f-2844-443e-84e9-cb669504f753"
@@ -188,6 +266,11 @@
                                                 "implHandler": [
                                                     "return Ext.Daginfo.ValiderenVliegveld(value);"
                                                 ]
+                                            },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
                                             },
                                             "name": "validator",
                                             "designerId": "9ff22442-57d7-4eff-aab7-fc16c804ba0c"
@@ -218,6 +301,23 @@
                                         "valueField": "ID",
                                         "width": 180
                                     },
+                                    "configAlternates": {
+                                        "blankText": "string",
+                                        "displayField": "datafield",
+                                        "fieldLabel": "string",
+                                        "forceSelection": "boolean",
+                                        "id": "string",
+                                        "labelAlign": "string",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "msgTarget": "string",
+                                        "name": "string",
+                                        "queryMode": "string",
+                                        "store": "store",
+                                        "typeAhead": "boolean",
+                                        "valueField": "datafield",
+                                        "width": "auto"
+                                    },
                                     "name": "MyComboBox1",
                                     "designerId": "bf761311-92db-4c42-8fac-484b5263b92b",
                                     "cn": [
@@ -239,6 +339,12 @@
                                                 "name": "render",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "onComboboxInfoBanenRender",
                                             "designerId": "46e80379-a1c2-4aa1-84a4-d8d6b7ded503"
                                         },
@@ -257,6 +363,11 @@
                                                 "implHandler": [
                                                     "return Ext.Daginfo.ValiderenBaan(value);"
                                                 ]
+                                            },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
                                             },
                                             "name": "validator",
                                             "designerId": "53d491f8-a4f5-4aee-8507-fae286c18d36"
@@ -279,6 +390,14 @@
                                 "layout": "absolute",
                                 "title": "Wind",
                                 "width": 377
+                            },
+                            "configAlternates": {
+                                "designer|snapToGrid": "number",
+                                "height": "auto",
+                                "id": "string",
+                                "layout": "string",
+                                "title": "string",
+                                "width": "auto"
                             },
                             "name": "MyPanel7",
                             "designerId": "b7916aee-17af-4160-869b-ff0ffd8b768b",
@@ -308,6 +427,24 @@
                                         "valueField": "ID",
                                         "width": 275
                                     },
+                                    "configAlternates": {
+                                        "blankText": "string",
+                                        "displayField": "datafield",
+                                        "fieldLabel": "string",
+                                        "forceSelection": "boolean",
+                                        "id": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "msgTarget": "string",
+                                        "name": "string",
+                                        "queryMode": "string",
+                                        "store": "store",
+                                        "typeAhead": "boolean",
+                                        "valueField": "datafield",
+                                        "width": "auto"
+                                    },
                                     "name": "MyComboBox2",
                                     "designerId": "b2142c37-bfec-426a-9b79-8105ab3b72c7",
                                     "cn": [
@@ -329,6 +466,12 @@
                                                 "name": "render",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "onComboboxInfoWindRichtingRender",
                                             "designerId": "47b2088a-f593-45ed-b052-820ad595c4ce"
                                         },
@@ -347,6 +490,11 @@
                                                 "implHandler": [
                                                     "return Ext.Daginfo.ValiderenWindrichting(value);"
                                                 ]
+                                            },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
                                             },
                                             "name": "validator",
                                             "designerId": "85f3e66e-926c-4551-8502-524062a3181f"
@@ -378,6 +526,24 @@
                                         "valueField": "ID",
                                         "width": 275
                                     },
+                                    "configAlternates": {
+                                        "blankText": "string",
+                                        "displayField": "datafield",
+                                        "fieldLabel": "string",
+                                        "forceSelection": "boolean",
+                                        "id": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "msgTarget": "string",
+                                        "name": "string",
+                                        "queryMode": "string",
+                                        "store": "store",
+                                        "typeAhead": "boolean",
+                                        "valueField": "datafield",
+                                        "width": "auto"
+                                    },
                                     "name": "MyComboBox3",
                                     "designerId": "d6e45329-eb0a-44a7-9e22-7de4311cf750",
                                     "cn": [
@@ -399,6 +565,12 @@
                                                 "name": "render",
                                                 "scope": "me"
                                             },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
                                             "name": "onComboboxInfoWindKrachtRender",
                                             "designerId": "a89b6fe6-6a8c-486d-85e6-31cd28bd4bef"
                                         },
@@ -417,6 +589,11 @@
                                                 "implHandler": [
                                                     "return Ext.Daginfo.ValiderenWindkracht(value);"
                                                 ]
+                                            },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
                                             },
                                             "name": "validator",
                                             "designerId": "380ed1ec-fb8b-4cbb-b059-0965146de92e"
@@ -441,6 +618,14 @@
                         "margin": 10,
                         "title": "Vliegbedrijf",
                         "width": 675
+                    },
+                    "configAlternates": {
+                        "designer|snapToGrid": "number",
+                        "height": "auto",
+                        "layout": "string",
+                        "margin": "auto",
+                        "title": "string",
+                        "width": "auto"
                     },
                     "name": "MyPanel8",
                     "designerId": "b295e9b7-8c56-4814-b68c-ec5dc9cb104a",
@@ -470,6 +655,25 @@
                                 "typeAhead": true,
                                 "valueField": "ID",
                                 "width": 290
+                            },
+                            "configAlternates": {
+                                "displayField": "datafield",
+                                "fieldLabel": "string",
+                                "forceSelection": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "matchFieldWidth": "boolean",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "primaryFilterOnKeyInput": "string",
+                                "queryMode": "string",
+                                "store": "store",
+                                "typeAhead": "boolean",
+                                "valueField": "datafield",
+                                "width": "auto"
                             },
                             "name": "MyComboBox4",
                             "designerId": "1ffb033e-84c1-42ed-bb91-a07ac4f1aa8e",
@@ -504,6 +708,12 @@
                                         "name": "render",
                                         "scope": "me"
                                     },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
                                     "name": "onComboboxInfoStartMethodeRender",
                                     "designerId": "d186a792-9221-45e7-abe8-9b054e0369df"
                                 },
@@ -522,6 +732,11 @@
                                         "implHandler": [
                                             "return Ext.Daginfo.ValiderenStartMethode(value);"
                                         ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
                                     },
                                     "name": "validator",
                                     "designerId": "97a23b89-9254-4510-be59-f8307a485eb0"
@@ -542,6 +757,11 @@
                                             "config.plugins = ['clearbutton']; \r",
                                             "return config; "
                                         ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
                                     },
                                     "name": "processComboboxInfoStartMethode",
                                     "designerId": "582c4934-d38e-4c04-b17b-ac878b99e59f"
@@ -573,6 +793,25 @@
                                 "typeAhead": true,
                                 "valueField": "ID",
                                 "width": 300
+                            },
+                            "configAlternates": {
+                                "allowBlank": "boolean",
+                                "displayField": "datafield",
+                                "fieldLabel": "string",
+                                "forceSelection": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "matchFieldWidth": "boolean",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "primaryFilterOnKeyInput": "string",
+                                "queryMode": "string",
+                                "store": "store",
+                                "typeAhead": "boolean",
+                                "valueField": "datafield",
+                                "width": "auto"
                             },
                             "name": "MyComboBox5",
                             "designerId": "73dcb030-372e-4864-a7fe-bc180ea6cafd",
@@ -607,6 +846,12 @@
                                         "name": "render",
                                         "scope": "me"
                                     },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
                                     "name": "onComboboxInfoStartMethodeRender1",
                                     "designerId": "02c76c9d-6946-4cf2-86bc-dd0c1c5b664d"
                                 },
@@ -626,6 +871,11 @@
                                             "return Ext.Daginfo.ValiderenClub(value);"
                                         ]
                                     },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
                                     "name": "validator",
                                     "designerId": "e5b7f7bf-aba4-45eb-b6fb-05ce847de7e6"
                                 },
@@ -643,6 +893,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onComboboxInfoClubChange",
                                     "designerId": "05cec69a-802a-4183-a461-17f5cef9df5a"
@@ -674,6 +930,25 @@
                                 "typeAhead": true,
                                 "valueField": "ID",
                                 "width": 300
+                            },
+                            "configAlternates": {
+                                "allowBlank": "boolean",
+                                "displayField": "datafield",
+                                "fieldLabel": "string",
+                                "forceSelection": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "matchFieldWidth": "boolean",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "primaryFilterOnKeyInput": "string",
+                                "queryMode": "string",
+                                "store": "store",
+                                "typeAhead": "boolean",
+                                "valueField": "datafield",
+                                "width": "auto"
                             },
                             "name": "MyComboBox6",
                             "designerId": "c68b1a61-f9af-4c6f-bd43-8aec892a8719",
@@ -708,6 +983,12 @@
                                         "name": "render",
                                         "scope": "me"
                                     },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
                                     "name": "onComboboxInfoStartMethodeRender11",
                                     "designerId": "fed0e988-41d2-416c-8fb9-522f7e340de4"
                                 },
@@ -727,6 +1008,11 @@
                                             "return Ext.Daginfo.ValiderenSoortBedrijf(value);"
                                         ]
                                     },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
                                     "name": "validator",
                                     "designerId": "9c5c5fb0-4a50-40ef-992b-3d8fcdbd4ecc"
                                 },
@@ -744,6 +1030,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onComboboxInfoSoortBedrijfChange",
                                     "designerId": "60e07095-5882-4ca5-9242-a5006c94e400"
@@ -768,6 +1060,15 @@
                         "title": "Ochtend",
                         "width": 675
                     },
+                    "configAlternates": {
+                        "border": "auto",
+                        "designer|snapToGrid": "number",
+                        "height": "auto",
+                        "layout": "string",
+                        "margin": "auto",
+                        "title": "string",
+                        "width": "auto"
+                    },
                     "name": "MyPanel9",
                     "designerId": "cb813259-4c90-41d9-b5da-22bbb8fa748f",
                     "cn": [
@@ -791,6 +1092,19 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "enableKeyEvents": "boolean",
+                                "fieldLabel": "string",
+                                "formBind": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField3",
                             "designerId": "327f87b3-6021-41e6-abfe-c4f2282e3783",
                             "cn": [
@@ -808,6 +1122,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onTextboxInfoOchtendDDIChange",
                                     "designerId": "8a973f40-fc68-47cd-bc90-b431d9b38f48"
@@ -834,6 +1154,19 @@
                                 "selectOnFocus": true,
                                 "width": 275
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "formBind": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField4",
                             "designerId": "8ca7ebf3-83b7-4b4c-91fb-4f8779795307",
                             "cn": [
@@ -852,6 +1185,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onTextboxInfoOchtendInstructeurChange",
                                     "designerId": "8cfdcc6e-39f6-47da-8b4b-69f0074754aa"
@@ -876,6 +1215,17 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField5",
                             "designerId": "90acaf1c-a09e-45a6-a92f-f20b3eaf64af",
                             "cn": [
@@ -894,6 +1244,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onTextboxInfoOchtendLieristChange",
                                     "designerId": "60db3173-ddf7-4644-b980-3d1eb1f52764"
@@ -919,6 +1275,18 @@
                                 "selectOnFocus": true,
                                 "width": 275
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField6",
                             "designerId": "d59aee04-3bb9-41c4-8dac-c6568bad8f53",
                             "cn": [
@@ -937,6 +1305,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onTextboxInfoOchtendHulpLieristChange",
                                     "designerId": "4dd3f5a1-7ada-4a3e-b17d-49c284591489"
@@ -961,6 +1335,17 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField7",
                             "designerId": "7505e1db-f1e4-40b0-909f-186c0663bcf6",
                             "cn": [
@@ -978,6 +1363,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onTextboxInfoOchtendStartleiderChange",
                                     "designerId": "68d26e1b-568b-4944-8598-1bf11c27af5b"
@@ -1003,6 +1394,16 @@
                         "title": "Middag",
                         "width": 675
                     },
+                    "configAlternates": {
+                        "designer|snapToGrid": "number",
+                        "height": "auto",
+                        "hidden": "boolean",
+                        "id": "string",
+                        "layout": "string",
+                        "margin": "auto",
+                        "title": "string",
+                        "width": "auto"
+                    },
                     "name": "MyPanel10",
                     "designerId": "df805227-74df-4650-8b44-48c402d1882f",
                     "cn": [
@@ -1024,6 +1425,17 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField8",
                             "designerId": "ca5ef25d-fbdf-4da0-890d-80ceb8fced22",
                             "cn": [
@@ -1041,6 +1453,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onTextboxInfoMiddagDDIChange",
                                     "designerId": "66fae281-8d2d-4b3a-bf63-546a90493f33"
@@ -1066,6 +1484,18 @@
                                 "selectOnFocus": true,
                                 "width": 275
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField9",
                             "designerId": "43bcf43f-a732-4b50-8164-dd971b3fdce8",
                             "cn": [
@@ -1083,6 +1513,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onTextboxInfoMiddagInstructeurChange",
                                     "designerId": "92a6d948-0ec4-45da-9f05-17dbeb730135"
@@ -1107,6 +1543,17 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField10",
                             "designerId": "b5eda731-64e3-40ee-897d-dac20c51d4a5",
                             "cn": [
@@ -1124,6 +1571,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onTextboxInfoMiddagLieristChange",
                                     "designerId": "f760dbed-faf2-47b5-a161-238273f4a875"
@@ -1149,6 +1602,18 @@
                                 "selectOnFocus": true,
                                 "width": 275
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField11",
                             "designerId": "a81ef6d4-bc24-4c9d-8181-ce958d805f5e",
                             "cn": [
@@ -1166,6 +1631,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onTextboxInfoMiddagHulpLieristChange",
                                     "designerId": "b2854e73-e297-4525-a9d6-bd9a3e7f95de"
@@ -1190,6 +1661,17 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField12",
                             "designerId": "f5fee5d7-984d-4e02-9bce-6f9a67dbe5e9",
                             "cn": [
@@ -1207,6 +1689,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onTextboxInfoMiddagStartleiderChange",
                                     "designerId": "fd4ac7df-d533-4a22-9ee0-deff74d38f7e"
@@ -1232,6 +1720,12 @@
                         "name": "afterrender",
                         "scope": "me"
                     },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
                     "name": "onDaginfoFormAfterRender",
                     "designerId": "6c664f96-0cc1-482a-ada9-cf160d7a9717"
                 },
@@ -1251,6 +1745,16 @@
                         "margin": 10,
                         "title": null,
                         "width": 675
+                    },
+                    "configAlternates": {
+                        "border": "auto",
+                        "designer|snapToGrid": "number",
+                        "frameHeader": "boolean",
+                        "height": "auto",
+                        "layout": "string",
+                        "margin": "auto",
+                        "title": "string",
+                        "width": "auto"
                     },
                     "name": "MyPanel11",
                     "designerId": "40921bbe-209d-4c62-9f3c-43a4152ce567",
@@ -1274,6 +1778,18 @@
                                 "name": "OPMERKINGEN",
                                 "width": 600
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|anchor": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "maxWidth": "number",
+                                "minWidth": "number",
+                                "name": "string",
+                                "width": "auto"
+                            },
                             "name": "MyTextArea",
                             "designerId": "d0688cfe-9af9-4bca-8673-275eea4405da"
                         },
@@ -1294,6 +1810,16 @@
                                 "text": "Opslaan",
                                 "width": 80
                             },
+                            "configAlternates": {
+                                "formBind": "boolean",
+                                "height": "auto",
+                                "icon": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton5",
                             "designerId": "537e394c-383c-4a3a-adf3-c468fc74013e",
                             "cn": [
@@ -1312,6 +1838,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonClick",
                                     "designerId": "aa0a0913-4f93-4834-9bbe-89c2cab7274b"
@@ -1333,6 +1865,14 @@
                                 "layout|y": 35,
                                 "text": "Rooster"
                             },
+                            "configAlternates": {
+                                "height": "auto",
+                                "icon": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string"
+                            },
                             "name": "MyButton6",
                             "designerId": "dc31ec92-196d-405f-9f7d-649a9633f292",
                             "cn": [
@@ -1352,6 +1892,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonClick3",
                                     "designerId": "38a2d11b-1329-4848-b43e-449fbf9e993e"
@@ -1391,6 +1937,12 @@
                 "name": "activate",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onDagInfoActivate",
             "designerId": "96051beb-baed-41bd-a9c7-10b01c8a9f77"
         },
@@ -1412,6 +1964,12 @@
                 ],
                 "name": "deactivate",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onDagInfoDeactivate",
             "designerId": "1ff6d259-d1f7-4ce1-93af-16f5e0a15c6b"

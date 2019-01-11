@@ -25,10 +25,15 @@ function CallURL(request_url, store, msgSuccess, msgfailure)
 // kunnen worden
 function AanmeldenLidWindow(LidID)
 {
-	var store = Ext.data.StoreManager.lookup('LedenLijst_GridStore');
-	var lid = store.getById(LidID.toString());
-	
-	var title = lid.data.NAAM;
+	var title = "Aanmelden voor vliegdag";
+
+	if (LidID > 0)		// lid is bekend
+	{
+		var store = Ext.data.StoreManager.lookup('LedenLijst_GridStore');
+		var lid = store.getById(LidID.toString());
+		
+		var title = lid.data.NAAM;
+	}
 	
 	var win = Ext.widget('LidVandaagAanwezigWindow', {'title': title, 'ID': LidID});
 	win.show();

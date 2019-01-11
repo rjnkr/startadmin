@@ -115,7 +115,7 @@
 		//			STARTMETHODE	= Start methode omschrijving in volledige text vanuit omschrijving types tabel
 		//
 		// @example
-		// 	({
+		// 	{
 		//		"total":"13",
 		//		"results":
 		//		[{
@@ -177,7 +177,7 @@
 		//			"SOORTVLUCHT":"Instructie of checkvlucht",
 		//			"STARTMETHODE":"Slepen (zweefkist)"
 		//		}]
-		//	})	
+		//	}
 		function StartlijstVandaagJSON()
 		{		
 			Debug(__FILE__, __LINE__, "Startlijst.StartlijstVandaagJSON()");	
@@ -203,7 +203,7 @@
 			
 			if ($l->magSchrijven() == false)
 			{
-				$where = $where . sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d'))", $_SESSION['login'], $_SESSION['login'], $_SESSION['login']);
+				$where = $where . sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d'))", $l->getUserFromSession(), $l->getUserFromSession(), $l->getUserFromSession());
 			}
 			
 			if (array_key_exists('_:verwijderMode', $this->qParams))
@@ -277,7 +277,7 @@
 				parent::DbOpvraag($rquery);			
 				
 				Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));	
-				echo '({"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'})';
+				echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';
 			}		
 		}
 		
@@ -564,7 +564,7 @@
 			$l = MaakObject('Login');
 			if ($l->magSchrijven() == false)
 			{
-				$where = $where . sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d'))", $_SESSION['login'], $_SESSION['login'], $_SESSION['login']);
+				$where = $where . sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d'))", $l->getUserFromSession(), $l->getUserFromSession(), $l->getUserFromSession());
 			}
 
 			
@@ -766,6 +766,63 @@
 			
 			echo '{"children":' . json_encode(array_map('PrepareJSON', $retValue)) . "}";
 			return;
+		}	
+
+		function LogboekJSON()
+		{		
+			Debug(__FILE__, __LINE__, "Startlijst.LogboekJSON()");	
+			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));			
+			Debug(__FILE__, __LINE__, sprintf("qParams=%s", print_r($this->qParams, true)));
+			
+			$l = MaakObject('Login');
+			$where = sprintf("((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d'))", $l->getUserFromSession(), $l->getUserFromSession());
+			
+			if (array_key_exists('_:datum', $this->qParams))
+			{
+				$where = $where . sprintf("AND (`DATUM` > '%s')", $this->qParams['_:datum']);
+			}
+			
+			$orderby = " ORDER BY startlijst_view.DATUM DESC, STARTTIJD DESC";
+	
+			$query = "
+				SELECT
+					%s
+				FROM
+					startlijst_view
+				WHERE
+					" . $where . $orderby;
+			
+			if (array_key_exists('_:LAATSTE_AANPASSING', $this->qParams))
+			{
+				$query  = sprintf($query, "MAX(LAATSTE_AANPASSING) AS LAATSTE_AANPASSING");
+				$la = $this->LaatsteAanpassing($query);
+				Debug(__FILE__, __LINE__, sprintf("LAATSTE_AANPASSING=%s", $la));	
+				echo $la;
+			}
+			else
+			{		
+				parent::DbOpvraag(sprintf($query, "COUNT(*) AS total"));
+				$total = parent::DbData();		// total amount of records in the database
+				
+				$limit = "";
+				if (array_key_exists('limit', $this->Data))
+				{
+					$limit = sprintf(" LIMIT %d , %d ", $this->Data['start'], $this->Data['limit']);
+				}			
+				$rquery = sprintf($query, "
+					ID,
+					DATE_FORMAT(DATUM, '%d-%m-%Y') AS DATUM,
+					REG_CALL,
+					STARTTIJD,
+					LANDINGSTIJD,
+					DUUR,
+					coalesce(`VLIEGERNAAM_LID`,`VLIEGERNAAM`) AS `VLIEGERNAAM`,
+					coalesce(`INZITTENDENAAM_LID`,`INZITTENDENAAM`) AS `INZITTENDENAAM`,
+					STARTMETHODE, OPMERKING") . $limit;
+
+				parent::DbOpvraag($rquery);			
+				echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';
+			}		
 		}		
 		
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -1523,7 +1580,7 @@
 			parent::DbOpvraag($rquery);			
 			
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));	
-			echo '({"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'})';		
+			echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';		
 		}
 		
 		function ZoekVorigeDatum()
@@ -1539,11 +1596,11 @@
 			if ($l->isBeheerderDDWV())
 			{
 				$condition .= " AND (((SOORTBEDRIJF_ID = 702) OR (SOORTBEDRIJF_ID = 703) OR (DDWV = 1)) ";
-				$condition .= sprintf(" OR ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d')))", $_SESSION['login'], $_SESSION['login'], $_SESSION['login']);						
+				$condition .= sprintf(" OR ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d')))", $l->getUserFromSession(), $l->getUserFromSession(), $l->getUserFromSession());						
 			}
 			else if (!$l->isBeheerder())
 			{
-				$condition .= sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d'))", $_SESSION['login'], $_SESSION['login'], $_SESSION['login']);
+				$condition .= sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d'))", $l->getUserFromSession(), $l->getUserFromSession(), $l->getUserFromSession());
 			}
 			
 			parent::DbOpvraag("
@@ -1577,11 +1634,11 @@
 			if ($l->isBeheerderDDWV())
 			{
 				$condition .= " AND (((SOORTBEDRIJF_ID = 702) OR (SOORTBEDRIJF_ID = 703) OR (DDWV = 1)) ";
-				$condition .= sprintf(" OR ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d')))", $_SESSION['login'], $_SESSION['login'], $_SESSION['login']);				
+				$condition .= sprintf(" OR ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d')))", $l->getUserFromSession(), $l->getUserFromSession(), $l->getUserFromSession());				
 			}
 			else if (!$l->isBeheerder())
 			{
-				$condition .= sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d'))", $_SESSION['login'], $_SESSION['login'], $_SESSION['login']);
+				$condition .= sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d'))", $l->getUserFromSession(), $l->getUserFromSession(), $l->getUserFromSession());
 			}
 			
 			parent::DbOpvraag("
@@ -1757,7 +1814,7 @@
 				ORDER BY DATUM DESC";
 
 			parent::DbOpvraag($query . $limit);			
-			
+		
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));	
 			echo json_encode(array_map('PrepareJSON', parent::DbData()));
 		}
@@ -1817,7 +1874,7 @@
 			}				
 			
 			$export = $this->ExportData();
-			echo '({"total":"'.$export['total'].'","results":'.json_encode(array_map('PrepareJSON', $export['data'])).'})';
+			echo '{"total":"'.$export['total'].'","results":'.json_encode(array_map('PrepareJSON', $export['data'])).'}';
 		}
 		
 		function ExportData()

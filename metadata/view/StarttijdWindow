@@ -17,6 +17,16 @@
         "title": "Starttijd invoeren",
         "width": 300
     },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "id": "string",
+        "modal": "boolean",
+        "resizable": "object",
+        "title": "string",
+        "width": "auto"
+    },
     "designerId": "d205ea48-d1f5-41bd-8435-8fb5b6a28d23",
     "cn": [
         {
@@ -38,6 +48,19 @@
                 "trackResetOnLoad": true,
                 "url": "php/main.php?Action=Startlijst.SaveStartTijd",
                 "width": 288
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "designer|snapToGrid": "number",
+                "height": "auto",
+                "id": "string",
+                "layout": "string",
+                "primaryFilterOnKeyInput": "string",
+                "resizable": "object",
+                "title": "string",
+                "trackResetOnLoad": "boolean",
+                "url": "string",
+                "width": "auto"
             },
             "name": "MyForm2",
             "designerId": "6edec7a9-0b1c-4852-b731-fc3b87f37c52",
@@ -66,6 +89,16 @@
                         "name": "ID",
                         "width": 50
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hideEmptyLabel": "boolean",
+                        "id": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "name": "string",
+                        "width": "auto"
+                    },
                     "name": "MyHiddenField4",
                     "designerId": "a2b59ecc-8243-42b4-8120-250db9797bb9"
                 },
@@ -80,6 +113,11 @@
                         "fieldLabel": "Label",
                         "id": "StartInvoer_LandingsTijd",
                         "name": "LANDINGSTIJD"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "name": "string"
                     },
                     "name": "MyHiddenField5",
                     "designerId": "c84b93e9-dec5-41b9-8398-5b650dfc8ba4"
@@ -114,10 +152,31 @@
                         "valueField": "tijd",
                         "width": 140
                     },
-                    "name": "MyComboBox8",
                     "configAlternates": {
-                        "store": "array"
+                        "store": "array",
+                        "displayField": "datafield",
+                        "emptyText": "string",
+                        "enableKeyEvents": "boolean",
+                        "enforceMaxLength": "boolean",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "formBind": "boolean",
+                        "id": "string",
+                        "invalidText": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "maxLength": "number",
+                        "maxLengthText": "string",
+                        "minChars": "number",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "queryDelay": "number",
+                        "queryMode": "string",
+                        "size": "number",
+                        "valueField": "datafield",
+                        "width": "auto"
                     },
+                    "name": "MyComboBox8",
                     "designerId": "203229d7-5c1d-4b07-97d4-bd721fd26715",
                     "cn": [
                         {
@@ -148,6 +207,12 @@
                                 "name": "keypress",
                                 "scope": "me"
                             },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
                             "name": "onStartInvoer_StartTijdKeypress",
                             "designerId": "3e6998a7-661d-4a46-a97c-1785f4e5084d"
                         },
@@ -168,6 +233,11 @@
                                     "return Ext.StartlijstTijdenForm.ValidateStartTijd(value);"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "validator",
                             "designerId": "96884de0-3b1b-45e2-b0be-8eed5d8b0cf4"
                         },
@@ -187,6 +257,12 @@
                                 ],
                                 "name": "change",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onStartInvoer_StartTijdChange",
                             "designerId": "986dad18-d6e4-48e6-b6f0-496676ffb785"
@@ -215,6 +291,12 @@
                                 "name": "specialkey",
                                 "scope": "me"
                             },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
                             "name": "onStartInvoer_StartTijdSpecialkey",
                             "designerId": "6f4795f1-7194-4be6-9e3f-362fb40eb30f"
                         },
@@ -233,6 +315,12 @@
                                 ],
                                 "name": "select",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onStartInvoer_StartTijdSelect",
                             "designerId": "ecb2850d-6a86-46f7-ac0a-ce504ac97740"
@@ -254,6 +342,11 @@
                                     "config.plugins = ['clearbutton']; \r",
                                     "return config; "
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "processStartInvoer_StartTijd",
                             "designerId": "5b90b9e9-ccaf-4664-bf94-0f07722019a2"
@@ -278,6 +371,17 @@
                         "text": "Opslaan",
                         "width": 80
                     },
+                    "configAlternates": {
+                        "formBind": "boolean",
+                        "height": "auto",
+                        "icon": "string",
+                        "iconCls": "string",
+                        "id": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
                     "name": "MyButton16",
                     "designerId": "ab41aaba-d8f4-4115-a7ff-8eeb01afd321",
                     "cn": [
@@ -296,6 +400,12 @@
                                 ],
                                 "name": "click",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onButtonStarttijdOpslaan",
                             "designerId": "09805e2f-1135-4a37-bcba-09a682d5e0a2"
@@ -318,6 +428,12 @@
                 ],
                 "name": "show",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onWindowShow",
             "designerId": "6e54dc46-ff76-43bd-9816-31fbea689a1d"

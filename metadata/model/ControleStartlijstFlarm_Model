@@ -9,6 +9,10 @@
         "designer|userClassName": "ControleStartlijstFlarm_Model",
         "idProperty": "ID"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
     "designerId": "774a09d5-3d21-41d6-a20d-6791e23df56b",
     "cn": [
         {
@@ -21,6 +25,10 @@
             "userConfig": {
                 "mapping": "ID",
                 "name": "ID"
+            },
+            "configAlternates": {
+                "mapping": "auto",
+                "name": "string"
             },
             "name": "MyField92",
             "designerId": "f013e727-7a7c-4f71-8376-1d8ad73c7d9a"
@@ -37,6 +45,11 @@
                 "type": "int",
                 "useNull": true
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string",
+                "useNull": "boolean"
+            },
             "name": "MyField93",
             "designerId": "b06bbfdd-e632-45ab-ad5e-b6cf26909158"
         },
@@ -49,6 +62,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "VLIEGTUIG_ID"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField138",
             "designerId": "7fd3b33d-0971-4bfe-a903-296afdc5436c"
@@ -63,6 +79,9 @@
             "userConfig": {
                 "name": "SLEEPKIST_ID"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField139",
             "designerId": "c7681653-8b82-4b4a-8ac4-2d888e33be79"
         },
@@ -75,6 +94,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "STARTTIJD"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField97",
             "designerId": "923b8aaa-5f1a-4951-9327-1844ff4c2762"
@@ -89,6 +111,9 @@
             "userConfig": {
                 "name": "LANDINGSTIJD"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField98",
             "designerId": "ea5e5e15-b679-4e68-926c-2ae9cd86ca7c"
         },
@@ -101,6 +126,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "DUUR"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField99",
             "designerId": "350a02fb-aa03-4e6d-8d5d-7e457c8edfb9"
@@ -115,6 +143,9 @@
             "userConfig": {
                 "name": "OPMERKING"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField141",
             "designerId": "71242260-c32b-47fb-80fa-a5df25b3d96f"
         },
@@ -127,6 +158,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "OP_REKENING_ID"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField142",
             "designerId": "ce37d3d7-4fb3-4d1b-8a09-9c9e3f6f1ff9"
@@ -141,6 +175,9 @@
             "userConfig": {
                 "name": "VLIEGER_ID"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField89",
             "designerId": "2cc5afe6-d722-4261-8319-0742272fa977"
         },
@@ -153,6 +190,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "VLIEGERNAAM_LID"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField95",
             "designerId": "98b51bf0-afaf-4ca7-afd0-3a98597b6148"
@@ -167,6 +207,9 @@
             "userConfig": {
                 "name": "VLIEGERNAAM"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField91",
             "designerId": "31b3991a-20ce-4a06-b36e-b1d9dfc99e0d"
         },
@@ -179,6 +222,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "INZITTENDE_ID"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField90",
             "designerId": "a5693610-1d4a-494c-ac5d-629b8bd805fe"
@@ -193,6 +239,9 @@
             "userConfig": {
                 "name": "INZITTENDENAAM_LID"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField96",
             "designerId": "f63ecc30-d375-4bc9-b728-4f544dfc4f11"
         },
@@ -205,6 +254,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "INZITTENDENAAM"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField132",
             "designerId": "7cae9803-61b8-463f-bc17-9a0e5f58240f"
@@ -219,6 +271,9 @@
             "userConfig": {
                 "name": "REG_CALL"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField94",
             "designerId": "b021f31f-c3b7-4deb-9cf8-597d0feb6b55"
         },
@@ -231,6 +286,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "STARTMETHODE"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField119",
             "designerId": "8a80ac64-2c99-48d7-a2a4-c3aa5c3f5bf2"
@@ -245,6 +303,9 @@
             "userConfig": {
                 "name": "STARTMETHODE_ID"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField140",
             "designerId": "65829bf4-1563-486e-bd57-0f7fcfbe91bd"
         },
@@ -257,6 +318,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "SOORTVLUCHT"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField118",
             "designerId": "a8aff8c6-fad5-4c60-8ed3-86ec5e28ac0b"
@@ -271,6 +335,9 @@
             "userConfig": {
                 "name": "SOORTVLUCHT_ID"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField143",
             "designerId": "ec7d3d21-683f-480d-a50d-0187a1af868a"
         },
@@ -283,6 +350,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "LAATSTE_AANPASSING"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField144",
             "designerId": "bec0db04-84d9-4a39-95ac-ea8341d98659"
@@ -298,6 +368,10 @@
                 "name": "FLARM_ID",
                 "type": "int"
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField100",
             "designerId": "f2e3d8da-f241-4e6f-bb75-ce573a4567b2"
         },
@@ -310,6 +384,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "FLARM_STARTTIJD"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField101",
             "designerId": "3816d4cf-991c-4a8b-ab1a-26c7ca5f4084"
@@ -324,6 +401,9 @@
             "userConfig": {
                 "name": "FLARM_LANDINGSTIJD"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField102",
             "designerId": "4a0dc21c-c929-44ee-b20f-7f018f13ef1f"
         },
@@ -336,6 +416,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "FLARM_CODE"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField103",
             "designerId": "7c7fdbb6-0d5b-4e06-bc9b-ac111d63d816"
@@ -350,6 +433,9 @@
             "userConfig": {
                 "name": "FLARM_REG_CALL"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField104",
             "designerId": "776c9ef2-4a3a-4756-941b-2546ce865018"
         },
@@ -362,6 +448,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "FLARM_BAAN"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField105",
             "designerId": "12f708c9-b1ed-4c3c-8281-687702fff030"
@@ -376,6 +465,9 @@
             "userConfig": {
                 "name": "dSTARTTIJD"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField106",
             "designerId": "33ed0ce6-4d6f-47da-872b-074a762507ac"
         },
@@ -388,6 +480,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "dLANDINGSTIJD"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField107",
             "designerId": "f630dd91-8ff6-4b15-9b4b-920db28d56cc"
@@ -402,6 +497,10 @@
             "userConfig": {
                 "name": "WAARSCHUWING",
                 "type": "boolean"
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField108",
             "designerId": "84ba98d7-25f3-493c-b4f4-da69bc30f74c"

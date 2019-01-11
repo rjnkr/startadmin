@@ -320,6 +320,86 @@
             },
             "name": "MyField180",
             "designerId": "7250f237-74b9-48b4-aeb6-324b072530dd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "VLIEGTIJD_VANDAAG"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField147",
+            "designerId": "6919027d-83bc-4715-baff-3f5b2734c032"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "STARTLIJST_VANDAAG"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField158",
+            "designerId": "8ca44dd9-c3e6-4e0c-9315-a7ebc3f38af3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ACTUELE_VLIEGTIJD"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField156",
+            "designerId": "d3dd893b-2c89-4b38-8fb4-fa5a50d76666"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "WACHTTIJD"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField157",
+            "designerId": "5752b100-777e-493f-9c40-9eee742d99c1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "VOLGEND_CALLSIGN"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField159",
+            "designerId": "ebd2077f-39c4-4f2c-88da-c06c46df9f30"
         }
     ]
 }

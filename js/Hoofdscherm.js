@@ -439,6 +439,58 @@ Ext.Hoofdscherm = function(){
 			view.show();			
 		},
 
+		//======= Aanwezig ==========================================================================//
+		
+		ToonAanwezigGrid: function(pagina, verwijderMode)
+		{
+			var store = Ext.data.StoreManager.lookup('Aanwezig_Leden_GridStore');
+			if (verwijderMode)
+			{
+				store.proxy.extraParams = 
+				{
+					'_:verwijderMode': verwijderMode
+				};
+			}
+			else
+			{
+				VerwijderButton = Ext.getCmp('ButtonVerwijderenLid');
+				if (VerwijderButton.pressed)
+					VerwijderButton.toggle();
+					
+				store.proxy.extraParams = 
+				{
+					'_:query': Ext.getCmp('ZoekenAanwezig').getValue(),
+					'_:instructeurs': Ext.getCmp('Aanwezig.InstructeurFilter').getValue(),
+					'_:lieristen': Ext.getCmp('Aanwezig.LieristFilter').getValue(),
+					'_:startleiders': Ext.getCmp('Aanwezig.StartleiderFilter').getValue()
+				}
+			}
+			if (pagina > 0)
+			{
+				store.loadPage(pagina);
+			}			
+		},
+		
+		Aanwezig_ZoekenChange: function (field, newValue, oldValue, options)
+		{
+			Ext.Hoofdscherm.ToonAanwezigGrid(1, false);
+		},
+		
+		Aanwezig_InstructeurFilterChange: function (field, newValue, oldValue, options)
+		{
+			Ext.Hoofdscherm.ToonAanwezigGrid(1, false);
+		},
+		
+		Aanwezig_LieristFilterChange: function (field, newValue, oldValue, options)
+		{
+			Ext.Hoofdscherm.ToonAanwezigGrid(1, false);		
+		},
+		
+		Aanwezig_StartleiderFilterChange: function (field, newValue, oldValue, options)
+		{
+			Ext.Hoofdscherm.ToonAanwezigGrid(1, false);
+		},	
+
 		//======= Controle tab ==========================================================================//
 		CalcControleGrid: function()
 		{

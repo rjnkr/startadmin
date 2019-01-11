@@ -11,6 +11,12 @@
         "id": "Workspace",
         "layout": "border"
     },
+    "configAlternates": {
+        "designer|initialView": "boolean",
+        "designer|userClassName": "string",
+        "id": "string",
+        "layout": "string"
+    },
     "designerId": "f63a026b-446d-4120-8a04-4cc99c164636",
     "cn": [
         {
@@ -93,6 +99,13 @@
                     "Header style"
                 ]
             },
+            "configAlternates": {
+                "height": "auto",
+                "html": "object",
+                "id": "string",
+                "layout|region": "string",
+                "style": "object"
+            },
             "name": "MyContainer",
             "designerId": "cf4fcd41-80ab-44c6-8992-3a524b206fc6"
         },
@@ -119,6 +132,22 @@
                 "shadow": false,
                 "width": 150
             },
+            "configAlternates": {
+                "autoShow": "boolean",
+                "border": "auto",
+                "designer|snapToGrid": "number",
+                "floating": "boolean",
+                "id": "string",
+                "layout": "string",
+                "layout|region": "string",
+                "maxHeight": "number",
+                "maxWidth": "number",
+                "minHeight": "number",
+                "minWidth": "number",
+                "renderTo": "object",
+                "shadow": "auto",
+                "width": "auto"
+            },
             "name": "MyContainer3",
             "designerId": "4ffd8376-f4a3-426b-a9bd-a8105f29ac8a",
             "cn": [
@@ -142,6 +171,20 @@
                         "maxWidth": 200,
                         "minWidth": 200,
                         "width": 150
+                    },
+                    "configAlternates": {
+                        "enableKeyEvents": "boolean",
+                        "fieldLabel": "string",
+                        "format": "string",
+                        "hidden": "boolean",
+                        "id": "string",
+                        "invalidText": "string",
+                        "labelAlign": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "maxWidth": "number",
+                        "minWidth": "number",
+                        "width": "auto"
                     },
                     "name": "MyDateField",
                     "designerId": "f42c7da6-84cc-4816-a0b5-b049cb439c7e",
@@ -204,6 +247,12 @@
                                 "name": "change",
                                 "scope": "me"
                             },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
                             "name": "onStarlijstDatumChange",
                             "designerId": "58d8ebe5-fb47-49e5-b9a4-db893a6d1886"
                         },
@@ -221,6 +270,12 @@
                                 ],
                                 "name": "keydown",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onStarlijstDatumKeydown",
                             "designerId": "e78ee7e3-3f8d-4492-93b4-7e50b0354b9f"
@@ -246,6 +301,12 @@
                 "name": "afterrender",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onWorkspaceAfterRender",
             "designerId": "5abb39c5-36a8-49ff-9084-54570ba2a13b"
         },
@@ -258,6 +319,9 @@
             "codeClass": null,
             "userConfig": {
                 "layout|region": "center"
+            },
+            "configAlternates": {
+                "layout|region": "string"
             },
             "name": "hoofscherm",
             "designerId": "e1ffa4ee-595c-4de2-88e2-3bcc4eb8a77f",

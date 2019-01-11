@@ -9,6 +9,10 @@
         "designer|userClassName": "FlarmPositie_Model",
         "idProperty": "FLARM_CODE"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
     "designerId": "184bd83d-c20b-4f75-a8ab-959e66bcee23",
     "cn": [
         {
@@ -20,6 +24,10 @@
             "codeClass": null,
             "userConfig": {
                 "name": "FLARM_CODE",
+                "type": "string"
+            },
+            "configAlternates": {
+                "name": "string",
                 "type": "string"
             },
             "name": "MyField87",
@@ -35,6 +43,9 @@
             "userConfig": {
                 "name": "REG_CALL"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField88",
             "designerId": "0bbafc02-b951-45bb-a89c-e89d7351924b"
         },
@@ -48,6 +59,10 @@
             "userConfig": {
                 "name": "LATITUDE",
                 "type": "float"
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField89",
             "designerId": "23a467d3-2993-480c-904c-d7893c360d55"
@@ -63,6 +78,10 @@
                 "name": "LONGITUDE",
                 "type": "float"
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField90",
             "designerId": "4f3af74c-bcca-4a98-8736-b33cf48c1f48"
         },
@@ -75,6 +94,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "SPEED"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField91",
             "designerId": "51de95cd-6635-4180-b0b6-e226910c49b1"
@@ -89,6 +111,9 @@
             "userConfig": {
                 "name": "ALTITUDE"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField92",
             "designerId": "a2bc4209-0366-4905-a9d8-a07f7e062016"
         },
@@ -101,6 +126,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "ROC"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField93",
             "designerId": "8193f8d3-a34c-4a58-893c-a902ae7e0228"
@@ -116,6 +144,10 @@
                 "name": "VERTICAL",
                 "type": "float"
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField94",
             "designerId": "7cd4495f-068f-466d-ab35-6eb1fc28297e"
         },
@@ -130,6 +162,10 @@
                 "name": "LAST_RECEIVED",
                 "type": "date"
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField95",
             "designerId": "8ebb98fb-2940-4f5d-82a5-fa4194635f1e"
         },
@@ -142,6 +178,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "CALLSIGN"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField96",
             "designerId": "c1cbfb73-f25f-4bd2-bb9c-c4bb8a1edff9"
@@ -156,6 +195,10 @@
             "userConfig": {
                 "name": "VLIEGT",
                 "type": "boolean"
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField97",
             "designerId": "65df3f79-bf40-4a47-a0e5-3779eded36a5"

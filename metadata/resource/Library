@@ -11,7 +11,8 @@
     },
     "configAlternates": {
         "basePath": "uri",
-        "designer|userClassName": "string"
+        "designer|userClassName": "string",
+        "debug": "boolean"
     },
     "designerId": "30695b12-68ba-4b18-9507-5189c81c9512"
 }

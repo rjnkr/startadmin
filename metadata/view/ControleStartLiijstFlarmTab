@@ -16,6 +16,17 @@
         "store": "ControleStartlijstFlarm_Store",
         "title": ""
     },
+    "configAlternates": {
+        "cls": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "enableColumnHide": "boolean",
+        "enableColumnMove": "boolean",
+        "forceFit": "boolean",
+        "id": "string",
+        "store": "store",
+        "title": "string"
+    },
     "name": "MyGridPanel6",
     "designerId": "87b9751f-fe7f-490f-9fea-8fb14aae95dd",
     "cn": [
@@ -32,6 +43,13 @@
                 "height": null,
                 "id": "ControleStartLijstFlarmGrid",
                 "minHeight": 20
+            },
+            "configAlternates": {
+                "cls": "string",
+                "emptyText": "string",
+                "height": "auto",
+                "id": "string",
+                "minHeight": "number"
             },
             "name": "MyGridView6",
             "designerId": "6a7b4533-2b2f-4d9e-87a6-a2dcb97b2c1a",
@@ -51,6 +69,12 @@
                         "name": "itemdblclick",
                         "scope": "me"
                     },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
                     "name": "onControleStartLijstFlarmGridItemDblClick",
                     "designerId": "d7c19392-44ae-4eda-8f47-2f045d995e44"
                 }
@@ -69,6 +93,13 @@
                 "defaultWidth": 40,
                 "text": "#",
                 "width": 40
+            },
+            "configAlternates": {
+                "autoRender": "boolean",
+                "dataIndex": "datafield",
+                "defaultWidth": "number",
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn41",
             "designerId": "23e2e350-59e0-43f0-b226-613cf644f3ab",
@@ -105,6 +136,11 @@
                             "return ret;"
                         ]
                     },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
                     "name": "renderer",
                     "designerId": "5992ed1f-6c9f-4b60-b8ec-5f95be22bd1f"
                 }
@@ -123,6 +159,12 @@
                 "text": "Registratie",
                 "width": 110
             },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "defaultWidth": "number",
+                "text": "string",
+                "width": "auto"
+            },
             "name": "MyColumn42",
             "designerId": "2b46e38d-5b62-4cc7-89f4-95f2e309f7be"
         },
@@ -137,6 +179,11 @@
                 "dataIndex": "VLIEGERNAAM_LID",
                 "text": "Voorin",
                 "width": 200
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn43",
             "designerId": "ee26c7ea-6f99-4c48-9447-2fcf54df4dd2",
@@ -176,6 +223,11 @@
                             "return retVal;"
                         ]
                     },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
                     "name": "renderer",
                     "designerId": "62f50efa-0fe8-4262-8933-ad8f218037e3"
                 }
@@ -192,6 +244,11 @@
                 "dataIndex": "INZITTENDENAAM_LID",
                 "text": "Achterin",
                 "width": 200
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn44",
             "designerId": "f2934eb9-6204-4991-a1e1-541fe5ccd8a8",
@@ -231,6 +288,11 @@
                             "return retVal;"
                         ]
                     },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
                     "name": "renderer",
                     "designerId": "4eced25c-d580-47eb-910f-7c4525ac1d38"
                 }
@@ -248,6 +310,11 @@
                 "text": "Soort Vlucht",
                 "width": 200
             },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
             "name": "MyColumn65",
             "designerId": "ac097258-e33d-40dc-b4c8-1a2f74faa533"
         },
@@ -263,6 +330,12 @@
                 "defaultWidth": 30,
                 "text": "",
                 "width": 30
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "defaultWidth": "number",
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn62",
             "designerId": "cdcd2112-2bb1-4031-b817-28ed484ff5b2",
@@ -290,6 +363,11 @@
                             "    return value.substring(0,1);"
                         ]
                     },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
                     "name": "renderer",
                     "designerId": "0d69fc94-6447-4e42-9866-690b59d31a45"
                 }
@@ -307,6 +385,12 @@
                 "dataIndex": "STARTTIJD",
                 "text": "Start",
                 "width": 50
+            },
+            "configAlternates": {
+                "align": "string",
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn45",
             "designerId": "857d492f-120f-4ff3-bdc9-3148b49ddb2d",
@@ -351,6 +435,11 @@
                             "return retValue + \"</a>\";"
                         ]
                     },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
                     "name": "renderer",
                     "designerId": "a5a85e96-9287-4dda-8ef6-484416200cf6"
                 }
@@ -368,6 +457,12 @@
                 "dataIndex": "LANDINGSTIJD",
                 "text": "Landing",
                 "width": 50
+            },
+            "configAlternates": {
+                "align": "string",
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn46",
             "designerId": "c3183e6c-4dd5-4d9c-84b9-5e2cfcff9898",
@@ -412,6 +507,11 @@
                             "return retValue + \"</a>\";"
                         ]
                     },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
                     "name": "renderer",
                     "designerId": "b5ecbc39-7ef4-41d2-8d95-a385f000e20d"
                 }
@@ -429,6 +529,11 @@
                 "text": "Duur",
                 "width": 50
             },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
             "name": "MyColumn47",
             "designerId": "b5cef99e-cbff-4615-a893-1666ea21c1bb"
         },
@@ -442,6 +547,10 @@
             "userConfig": {
                 "dataIndex": "WAARSCHUWING",
                 "text": null
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
             },
             "name": "MyColumn48",
             "designerId": "c7fb0574-183d-4b43-ba36-728f8ad49070",
@@ -481,6 +590,11 @@
                             "return retVal;"
                         ]
                     },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
                     "name": "renderer",
                     "designerId": "8d0fc077-d1a7-4fc7-a2d8-fba2cb34a137"
                 }
@@ -497,6 +611,11 @@
                 "dataIndex": "FLARM_STARTTIJD",
                 "text": "Flarm Starttijd",
                 "width": 100
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn49",
             "designerId": "99f5ec6d-db0d-4eb7-9474-0d7b6e15cb64",
@@ -529,6 +648,11 @@
                             "return retValue;"
                         ]
                     },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
                     "name": "renderer",
                     "designerId": "c5e78448-0ca7-4122-bf1a-057361f1911a"
                 }
@@ -545,6 +669,11 @@
                 "dataIndex": "FLARM_LANDINGSTIJD",
                 "text": "Flarm Landingstijd",
                 "width": 100
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn50",
             "designerId": "e96b829f-acde-4819-89f6-ddb9301ec3b2",
@@ -577,6 +706,11 @@
                             "return retValue;"
                         ]
                     },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
                     "name": "renderer",
                     "designerId": "20b94fac-1d7e-472b-b6e1-9190675845d1"
                 }
@@ -594,6 +728,11 @@
                 "id": "FlarmStartCode",
                 "text": "<IMG SRC='images/flarm.gif' border=0>"
             },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "id": "string",
+                "text": "string"
+            },
             "name": "MyColumn51",
             "designerId": "7a19837c-f719-4d22-92f1-830b036a8c82"
         },
@@ -609,6 +748,11 @@
                 "text": "Registratie",
                 "width": 110
             },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
             "name": "MyColumn52",
             "designerId": "dc8b600a-9941-4852-915d-c404831f4aff"
         },
@@ -622,6 +766,10 @@
             "userConfig": {
                 "dataIndex": "FLARM_BAAN",
                 "text": "Baan"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
             },
             "name": "MyColumn53",
             "designerId": "54dc1c6a-e819-4728-b3ea-39fd0c07e725"
@@ -650,6 +798,23 @@
                 "store": "ControleStartlijstFlarm_Store",
                 "width": null
             },
+            "configAlternates": {
+                "afterPageText": "string",
+                "beforePageText": "string",
+                "displayInfo": "boolean",
+                "displayMsg": "string",
+                "dock": "string",
+                "emptyMsg": "string",
+                "firstText": "string",
+                "height": "auto",
+                "id": "string",
+                "lastText": "string",
+                "nextText": "string",
+                "prevText": "string",
+                "refreshText": "string",
+                "store": "store",
+                "width": "auto"
+            },
             "name": "MyPagingToolbar5",
             "designerId": "44550f8b-6d7a-436c-8f59-ba231a330dfa"
         },
@@ -663,6 +828,10 @@
             "userConfig": {
                 "dock": "bottom",
                 "id": "VandaagToolbar1"
+            },
+            "configAlternates": {
+                "dock": "string",
+                "id": "string"
             },
             "name": "MyToolbar6",
             "designerId": "f8845517-3761-41de-9236-9483b55b4ab1",
@@ -680,6 +849,13 @@
                         "id": "Controle_Filter",
                         "layout|flex": null,
                         "text": "Filter"
+                    },
+                    "configAlternates": {
+                        "enableToggle": "boolean",
+                        "icon": "string",
+                        "id": "string",
+                        "layout|flex": "number",
+                        "text": "string"
                     },
                     "name": "MyButton13",
                     "designerId": "c02bbd53-f71f-4ec0-9006-24221c9b198a",
@@ -702,6 +878,12 @@
                                 "name": "render",
                                 "scope": "me"
                             },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
                             "name": "onControle_FilterRender",
                             "designerId": "c7dbea00-3c12-40d0-896c-fa25afcedcbb"
                         },
@@ -719,6 +901,12 @@
                                 ],
                                 "name": "toggle",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onControle_FilterToggle",
                             "designerId": "eee0c82c-065d-4107-86ba-7934070db434"
@@ -741,6 +929,15 @@
                         "maxWidth": 300,
                         "vtype": null
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|flex": "number",
+                        "maxWidth": "number",
+                        "vtype": "string"
+                    },
                     "name": "MyTextField15",
                     "designerId": "e0c0b00d-e98a-48d8-a8a6-20e7099227b9",
                     "cn": [
@@ -762,6 +959,12 @@
                                 "name": "render",
                                 "scope": "me"
                             },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
                             "name": "onZoekenControleStartlijstRender",
                             "designerId": "b00ab02b-982d-4393-95cd-de7d1cd6306f"
                         },
@@ -779,6 +982,12 @@
                                 ],
                                 "name": "change",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "Startlijst_ZoekenControleChange",
                             "designerId": "48365825-d380-415f-8d96-08758a500a43"
@@ -799,6 +1008,11 @@
                                     "config.plugins = ['clearbutton']; \r",
                                     "return config; "
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "processZoekenControleStartlijst",
                             "designerId": "92476f53-7344-496d-bf01-2f86753d1305"

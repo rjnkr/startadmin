@@ -74,7 +74,18 @@
 			$id = $this->Data['ID'];
 			
 			$brackets = array("[", "]");		
-			echo '{success: true'.',data:'. str_replace($brackets, "", json_encode($this->GetObject($id))) .'}';
+			echo '{"success": true'.',"data":'. str_replace($brackets, "", json_encode($this->GetObject($id))) .'}';
+		}
+		
+		function GetObjectJSONByLoginNaam()
+		{
+			Debug(__FILE__, __LINE__, "Leden.GetObjectJSONByLoginNaam()");	
+			Debug(__FILE__, __LINE__, sprintf("qParams=%s", print_r($this->qParams, true)));
+			
+			$naam = $this->Data['username'];
+			
+			$brackets = array("[", "]");		
+			echo '{"success": true'.',"data":'. str_replace($brackets, "", json_encode($this->GetObjectByLoginNaam($naam))) .'}';
 	
 		}
 
@@ -117,7 +128,7 @@
 		//		LAASTE_AANPASSING = wordt door de database zelf geupdate, nodig voor synchronisatie
 		//
 		// @example
-		// 	({
+		// 	{
 		//		"total":"2",
 		//		"results":
 		//		[
@@ -161,7 +172,7 @@
 		//				"LAATSTE_AANPASSING":"2017-01-24 23:29:04"
 		//			}
 		//		]
-		//  })
+		//  }
  		// 		
 		function GetObjectsCompleteJSON()
 		{
@@ -257,7 +268,7 @@
 				parent::DbOpvraag($rquery);
 				
 				//Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));
-				echo '({"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'})';
+				echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';
 			}
 		}
 
@@ -584,7 +595,33 @@
 			parent::DbOpvraag($query);
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));
 			return (parent::DbData());
-		}			
+		}	
+
+		function isClubVlieger($id)
+		{
+			Debug(__FILE__, __LINE__, sprintf("Leden.isClubVlieger(%s)", $id));	
+			
+			$retVal = false;
+			$query = sprintf("
+				SELECT
+					LIDTYPE_ID
+				FROM
+					ref_leden
+				WHERE
+					ID = '%d'", $id);
+					
+			parent::DbOpvraag($query);
+			$records = parent::DbData();
+			
+			if (($records[0]['LIDTYPE_ID'] == "601") ||       // 601 = Erelid
+				($records[0]['LIDTYPE_ID'] == "602") ||       // 602 = Lid 
+				($records[0]['LIDTYPE_ID'] == "603") ||       // 603 = Jeugdlid 
+				($records[0]['LIDTYPE_ID'] == "606"))         // 606 = Donateur
+				$retVal = true;
+				
+			Debug(__FILE__, __LINE__, sprintf("LIDTYPE_ID=%s isVliegendLid=%s", $records[0]['LIDTYPE_ID'], $retVal));
+			return $retVal;			
+		}
 		
 		// Zoek welke leden het best overeenkomen met de ingegeven naar. 
 		function ZoekBesteLid($naam, &$records)

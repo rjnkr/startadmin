@@ -7,7 +7,6 @@
 			parent::__construct();
 			$this->dbTable = "oper_aanwezig";
 		}
-
 		
 		// ------------------------------------------------------------------
 		// Haal een lijst op vanuit de vliegtuigen die vandaag aanwezig zijn/waren
@@ -26,7 +25,7 @@
 		//		Json string
 		// 
 		// @example	
-		// 	({
+		// 	{
 		// 		"total": "2",
 		// 		"results": [{
 		// 			"ID": "1703281000458",
@@ -51,7 +50,7 @@
 		// 			"VERTREK": null,
 		// 			"LAATSTE_AANPASSING": "2017-03-28 21:06:54"
 		// 		}]
-		// 	})	 
+		// 	} 
  		// 
 		function VliegtuigenAanwezigJSON()
 		{
@@ -114,7 +113,7 @@
 				$rquery = sprintf($query, "*") . $limit;
 				parent::DbOpvraag($rquery);
 				Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));
-				echo '({"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'})';
+				echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';
 			}
 		}
 
@@ -127,9 +126,10 @@
 		// 		_:aanwezig 			= 'true', alleen die vliegtuigen die nog aanwezig zijn
 		//		_:query 			= filter op naam
 		//		_:leden				= Toon alleen echte leden (ere leden / jeugd / lid)
-		//		instructeurs		= 'true', toon alleen instructeurs
-		//		lieristen			= 'true', toon alleen lieristen
-		// 		startleiders		= 'true', toon alleen startleiders
+		//		_:instructeurs		= 'true', toon alleen instructeurs
+		//		_:lieristen			= 'true', toon alleen lieristen
+		// 		_:startleiders		= 'true', toon alleen startleiders
+		//		_:lid_id			= alleen de data voor een specifiek lid (database id)
 		//		sort 				= veldnaam waarop gesorteerd moet worden
 		//		dir 				= sorteer richting (DESCR - ASC)
 		//		limit				= aantal records
@@ -150,11 +150,12 @@
 		// 			VERTREK					= Afmeld tijd voor vandaag
 		// 			INSTRUCTEUR				= Heeft het lid instructie bevoegdheid
 		// 			AANWEZIG				= Is het lid momenteel nog aanwezig
+		//			VOLGENDE_CALLSIGN		= Het callsign van de eerste komende vlucht = m.a.w. eerst komende vliucht zonder STARTTIJD
 		// 			OPMERKING				= Opmerking uit aanwezig
 		// 			LAATSTE_AANPASSING		= Laatste aanpassing uit oper_aanwezig 
 		// 
 		// @example	
-		// 	({
+		// 	{
 		// 		"total": "2",
 		// 		"results": [{
 		// 			"ID": "1703282010118",
@@ -189,7 +190,7 @@
 		// 			"OPMERKING": null,
 		// 			"LAATSTE_AANPASSING": "2017-03-28 21:22:59"
 		// 		}]
-		// 	})
+		// 	}
   		// 
 		function LedenAanwezigJSON()
 		{
@@ -218,32 +219,31 @@
 				}
 			}
 			
-			if (array_key_exists('instructeurs', $this->Data))
+			if (array_key_exists('_:instructeurs', $this->Data))
 			{
-				if ($this->Data['instructeurs'] == 'true')
-					$where = $where . " AND INSTRUCTEUR='true'";
+				if ($this->Data['_:instructeurs'] == 'true')
+					$where = $where . " AND INSTRUCTEUR='1'";
 			}
-			if (array_key_exists('lieristen', $this->Data))
+			if (array_key_exists('_:lieristen', $this->Data))
 			{
-				if ($this->Data['lieristen'] == 'true')
-					$where = $where ." AND LIERIST='true'";
+				if ($this->Data['_:lieristen'] == 'true')
+					$where = $where ." AND LIERIST='1'";
 			}
-			if (array_key_exists('startleiders', $this->Data))
+			if (array_key_exists('_:startleiders', $this->Data))
 			{
-				if ($this->Data['startleiders'] == 'true')
-					$where = $where . " AND STARTLEIDER='true'";
+				if ($this->Data['_:startleiders'] == 'true')
+					$where = $where . " AND STARTLEIDER='1'";
 			}
 
+			if (array_key_exists('_:lid_id', $this->Data))
+			{
+				$where = $where . sprintf (" AND LID_ID=%s", $this->qParams['_:lid_id']);
+			}
 						
 			$orderby = " ORDER BY NAAM";
 			if ((array_key_exists('sort', $this->Data)) && (array_key_exists('dir', $this->Data)))
 			{
 				$orderby = sprintf(" ORDER BY %s %s ", $this->Data['sort'], $this->Data['dir']);
-			}
-
-			if (array_key_exists('mstartapp', $this->Data))
-			{
-				$orderby = " ORDER BY ifnull(STARTLIJST_VANDAAG + (TIME_TO_SEC(STR_TO_DATE(VLIEGTIJD_VANDAAG, '%h:%i'))/60)/30,0), STR_TO_DATE(WACHTTIJD, '%h:%i') DESC, ID ";
 			}
 			
 			$query = "
@@ -273,7 +273,7 @@
 				$rquery = sprintf($query, "*");
 				parent::DbOpvraag($rquery  . $orderby . $limit);
 				Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));
-				echo '({"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'})';
+				echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';
 			}
 		}
 		
@@ -314,7 +314,80 @@
 			{	
 				parent::DbToevoegen('oper_aanwezig', $r);
 			}
-		}			
+		}	
+
+		// deze functie wordt aangeroepen vanuit de webinterface.
+		function AanmeldenLidJSON()
+		{
+			global $db;
+		
+			Debug(__FILE__, __LINE__, sprintf("Aanwezig.AanmeldenLidJSON()"));
+			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));	
+		
+			if (!array_key_exists('LID_ID', $this->Data))
+			{
+				echo '{"success":false,"errorCode":-1,"error":"Geen LID_ID in dataset"}';
+				return;
+			}
+			$r['VOORKEUR_VLIEGTUIG_ID'] = null;
+			$r['VOORKEUR_VLIEGTUIG_TYPE'] = null;
+			
+			if (array_key_exists('VOORKEUR_VLIEGTUIG_ID', $this->Data))
+			{
+				$r['VOORKEUR_VLIEGTUIG_ID'] =  $this->Data["VOORKEUR_VLIEGTUIG_ID"];
+				$this->AanmeldenVliegtuigVandaag($this->Data['VOORKEUR_VLIEGTUIG_ID']);
+			}
+			
+			if (array_key_exists('OPMERKING', $this->Data))
+				$r['OPMERKING'] =  $this->Data["OPMERKING"];
+				
+			if (array_key_exists('VOORKEUR_VLIEGTUIG_TYPE', $this->Data))
+				$r['VOORKEUR_VLIEGTUIG_TYPE'] =  $this->Data["VOORKEUR_VLIEGTUIG_TYPE"];
+							
+
+			if (!$this->IsAangemeldVandaag($this->Data["LID_ID"], null))	// is nog niet aangemeld
+			{	
+				$r['LID_ID'] = $this->Data["LID_ID"];				
+				$r['DATUM'] = date('Y-m-d');
+			//	$r['AANKOMST'] = strftime('%H:%M');	
+				$r['ID'] = NieuwID();						
+				
+				$db->DbToevoegen('oper_aanwezig', $r);
+				
+				// Automatisch aanmaken start voor overland vliegers
+				if ($r['VOORKEUR_VLIEGTUIG_ID'] != null)
+				{
+					$sl = MaakObject('Startlijst');
+					$sl->CreeerStart($r['LID_ID'],$r['VOORKEUR_VLIEGTUIG_ID']);
+				}
+			}
+			else	// blijkbaar is lid al aangemeld, maar nog wel update doen voor voorkeur type/kist
+			{
+				$query = "
+					SELECT ID AS ID 
+					FROM 
+						oper_aanwezig
+					WHERE
+						DATUM = DATE(NOW()) 	AND
+						LID_ID=" . $this->Data["LID_ID"];
+				
+				$db->DbOpvraag($query);
+				$id = $db->Data();
+
+				if (count($id) > 0)
+				{
+					$id = $id[0]['ID'];
+					$aanmelding = $this->GetObject($id);
+
+					// alleen updaten als er iets gewijzigd is
+					if (($aanmelding[0]['VOORKEUR_VLIEGTUIG_TYPE'] != $r['VOORKEUR_VLIEGTUIG_TYPE']) ||	
+						($aanmelding[0]['VOORKEUR_VLIEGTUIG_ID'] != $r['VOORKEUR_VLIEGTUIG_ID']))
+					{
+						$db->DbAanpassen('oper_aanwezig', $id, $r);
+					}	
+				}
+			}
+		}		
 		
 		function DefaultGezagvoerder()
 		{
@@ -433,10 +506,10 @@
 
 			if ($total[0]['total'] >= 1)
 			{
-				Debug(__FILE__, __LINE__, "Aanwezig.IsVoorAangemeldAanwezig = true");	
+				Debug(__FILE__, __LINE__, "Aanwezig.IsAangemeldVandaag = true");	
 				return true;
 			}
-			Debug(__FILE__, __LINE__, "Aanwezig.IsVoorAangemeldAanwezig = false");		
+			Debug(__FILE__, __LINE__, "Aanwezig.IsAangemeldVandaag = false");		
 			return false;
 		}
 

@@ -14,6 +14,15 @@
         "layout": "vbox",
         "title": "Controle"
     },
+    "configAlternates": {
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "hidden": "boolean",
+        "id": "string",
+        "layout": "string",
+        "title": "string"
+    },
     "name": "MyPanel16",
     "designerId": "a5dcd9b6-e8cf-46be-8e6f-695a5a57fb86",
     "cn": [
@@ -28,6 +37,10 @@
                 "activeTab": 0,
                 "layout|flex": 1
             },
+            "configAlternates": {
+                "activeTab": "auto",
+                "layout|flex": "number"
+            },
             "name": "MyTabPanel2",
             "designerId": "3509bbf6-9e7f-44bf-bcdd-0dd42855171d",
             "cn": [
@@ -40,6 +53,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "title": "Startlijst - Flarm"
+                    },
+                    "configAlternates": {
+                        "title": "string"
                     },
                     "name": "controlestartliijstflarmtab",
                     "designerId": "e1fdd8bc-babc-4c5c-a8be-88b0fd97db4d",
@@ -89,6 +105,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "title": "Export"
+                    },
+                    "configAlternates": {
+                        "title": "string"
                     },
                     "name": "exporttab",
                     "designerId": "e3c2c3bb-4771-476c-9203-5346863f1ab1",

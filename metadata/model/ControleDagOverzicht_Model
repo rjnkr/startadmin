@@ -9,6 +9,10 @@
         "designer|userClassName": "ControleDagOverzicht_Model",
         "idProperty": "ID"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
     "designerId": "4ce5d2e1-4e17-495b-948d-00f1a541471b",
     "cn": [
         {
@@ -20,6 +24,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "ID"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField109",
             "designerId": "939a8f5f-f783-4460-a117-ecbfe225df9a"
@@ -34,6 +41,9 @@
             "userConfig": {
                 "name": "NAAM"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField110",
             "designerId": "a1ab7d36-ea3c-40f4-a6ed-d5a08704287f"
         },
@@ -46,6 +56,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "OPMERKING"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField111",
             "designerId": "ca79d137-3db4-47ba-a2ae-2b2429aadf4b"
@@ -60,6 +73,9 @@
             "userConfig": {
                 "name": "STARTS"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField112",
             "designerId": "3f16662c-2f18-41b3-a6df-3d15ad56f4d3"
         },
@@ -72,6 +88,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "VLIEGER"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField113",
             "designerId": "add62ae2-e26f-45a1-9b8a-398571c1204f"
@@ -86,6 +105,9 @@
             "userConfig": {
                 "name": "INZITTENDE"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField114",
             "designerId": "65026131-8f36-4c01-a736-fd0395f07325"
         },
@@ -98,6 +120,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "DDWV"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField115",
             "designerId": "57ef5f79-77dc-4709-93db-72dafa98c5af"
@@ -112,6 +137,9 @@
             "userConfig": {
                 "name": "SLEEP"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField116",
             "designerId": "f9a53a56-b5c0-4373-82fa-1adbf1676eec"
         },
@@ -124,6 +152,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "OPREKENING"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField117",
             "designerId": "74ae2466-a369-4254-8526-71837e6a4c07"

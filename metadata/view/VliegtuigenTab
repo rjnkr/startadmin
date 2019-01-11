@@ -13,6 +13,14 @@
         "layout": "vbox",
         "title": "Vliegtuigen"
     },
+    "configAlternates": {
+        "collapsible": "boolean",
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "layout": "string",
+        "title": "string"
+    },
     "name": "MyPanel13",
     "designerId": "0ad13a65-4ad0-4bec-a281-60cedce5c4d8",
     "cn": [
@@ -32,6 +40,15 @@
                 "store": "VliegtuigenLijst_GridStore",
                 "title": ""
             },
+            "configAlternates": {
+                "enableColumnHide": "boolean",
+                "enableColumnMove": "boolean",
+                "frameHeader": "boolean",
+                "id": "string",
+                "layout|flex": "number",
+                "store": "store",
+                "title": "string"
+            },
             "name": "MyGridPanel4",
             "designerId": "25d7f0f8-0937-4266-98d2-87d29b9478bb",
             "cn": [
@@ -45,6 +62,10 @@
                     "userConfig": {
                         "emptyText": "<div class=\"noData\" ></div>",
                         "id": "refVliegtuigenView"
+                    },
+                    "configAlternates": {
+                        "emptyText": "string",
+                        "id": "string"
                     },
                     "name": "MyGridView4",
                     "designerId": "8eb797a9-2fc7-4fe5-9705-b469642afc09",
@@ -64,6 +85,12 @@
                                 "name": "itemdblclick",
                                 "scope": "me"
                             },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
                             "name": "Vliegtuigen_GridviewItemDblClick",
                             "designerId": "55ef8dc8-a3a2-4dba-9b18-a70d019be9c2"
                         }
@@ -81,6 +108,12 @@
                         "dataIndex": "ID",
                         "text": "",
                         "width": 75
+                    },
+                    "configAlternates": {
+                        "align": "string",
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
                     },
                     "name": "MyColumn34",
                     "designerId": "03145a10-edcd-4252-9529-6cf53903e8fa",
@@ -129,6 +162,11 @@
                                     "}"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "8a9a2119-0281-48fa-a4dd-feff2a00b7bf"
                         }
@@ -145,6 +183,10 @@
                         "dataIndex": "REGISTRATIE",
                         "text": "Registratie"
                     },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string"
+                    },
                     "name": "MyColumn35",
                     "designerId": "9005d537-87bc-491a-b3d7-d6f7153110ce"
                 },
@@ -158,6 +200,10 @@
                     "userConfig": {
                         "dataIndex": "CALLSIGN",
                         "text": "Callsign"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string"
                     },
                     "name": "MyColumn36",
                     "designerId": "3b442da2-2807-4d5f-8448-84b92bd6d36c"
@@ -173,6 +219,11 @@
                         "align": "center",
                         "dataIndex": "ZITPLAATSEN",
                         "text": "Zitplaatsen"
+                    },
+                    "configAlternates": {
+                        "align": "string",
+                        "dataIndex": "datafield",
+                        "text": "string"
                     },
                     "name": "MyColumn37",
                     "designerId": "44e283c7-b4bf-4eac-b0ac-5b00f80ba0ae",
@@ -204,6 +255,11 @@
                                     "return ret;"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "32ed92ed-fb3a-4860-9086-25c177231b53"
                         }
@@ -223,6 +279,13 @@
                         "text": "Clubkist",
                         "trueText": "<IMG SRC=\"images/ok.png\" border=0>"
                     },
+                    "configAlternates": {
+                        "align": "string",
+                        "dataIndex": "datafield",
+                        "falseText": "string",
+                        "text": "string",
+                        "trueText": "string"
+                    },
                     "name": "MyBooleanColumn1",
                     "designerId": "306c261a-9bf1-48ae-89c1-648bf03adf3e"
                 },
@@ -238,6 +301,11 @@
                         "text": "Type",
                         "width": 200
                     },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
                     "name": "MyColumn38",
                     "designerId": "0f03c72c-7b0c-43fc-94ce-3c9675c62238"
                 },
@@ -252,6 +320,11 @@
                         "dataIndex": "FLARM_CODE",
                         "id": "Flarm",
                         "text": "<IMG SRC='images/flarm.gif' border=0>"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "id": "string",
+                        "text": "string"
                     },
                     "name": "MyColumn39",
                     "designerId": "2e36464b-6650-4a20-9963-b0fa2da4a56b"
@@ -270,6 +343,13 @@
                         "text": "Zelfstart",
                         "trueText": "<IMG SRC=\"images/ok.png\" border=0>"
                     },
+                    "configAlternates": {
+                        "align": "string",
+                        "dataIndex": "datafield",
+                        "falseText": "string",
+                        "text": "string",
+                        "trueText": "string"
+                    },
                     "name": "MyBooleanColumn2",
                     "designerId": "aea3c233-c078-487d-a907-fd83be832df3"
                 },
@@ -286,6 +366,13 @@
                         "falseText": " ",
                         "text": "Sleepkist",
                         "trueText": "<IMG SRC=\"images/ok.png\" border=0>"
+                    },
+                    "configAlternates": {
+                        "align": "string",
+                        "dataIndex": "datafield",
+                        "falseText": "string",
+                        "text": "string",
+                        "trueText": "string"
                     },
                     "name": "MyBooleanColumn3",
                     "designerId": "87cda01c-8a79-44f4-a05a-1a5d10876205"
@@ -304,6 +391,13 @@
                         "text": "TMG",
                         "trueText": "<IMG SRC=\"images/ok.png\" border=0>"
                     },
+                    "configAlternates": {
+                        "align": "string",
+                        "dataIndex": "datafield",
+                        "falseText": "string",
+                        "text": "string",
+                        "trueText": "string"
+                    },
                     "name": "MyBooleanColumn4",
                     "designerId": "42347991-d699-4b31-951c-c058b876daa8"
                 },
@@ -317,6 +411,10 @@
                     "userConfig": {
                         "id": "Logboek",
                         "text": ""
+                    },
+                    "configAlternates": {
+                        "id": "string",
+                        "text": "string"
                     },
                     "name": "MyColumn69",
                     "designerId": "6ad8051e-5ee0-4493-b46a-032fc929fbf3",
@@ -346,6 +444,11 @@
                                     "    return \"\";"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "b2518a3d-7347-40da-87f8-9795b4ed423d"
                         }
@@ -374,6 +477,22 @@
                         "store": "VliegtuigenLijst_GridStore",
                         "width": 360
                     },
+                    "configAlternates": {
+                        "afterPageText": "string",
+                        "beforePageText": "string",
+                        "displayInfo": "boolean",
+                        "displayMsg": "string",
+                        "dock": "string",
+                        "emptyMsg": "string",
+                        "firstText": "string",
+                        "id": "string",
+                        "lastText": "string",
+                        "nextText": "string",
+                        "prevText": "string",
+                        "refreshText": "string",
+                        "store": "store",
+                        "width": "auto"
+                    },
                     "name": "MyPagingToolbar4",
                     "designerId": "8088f4cd-8483-41fb-9328-3372fedb7162"
                 },
@@ -386,6 +505,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "dock": "bottom"
+                    },
+                    "configAlternates": {
+                        "dock": "string"
                     },
                     "name": "MyToolbar4",
                     "designerId": "7cf81de6-540f-4b4d-a2ea-afb230e1c1c5",
@@ -402,6 +524,12 @@
                                 "id": "ButtonNieuwVliegtuig",
                                 "layout|flex": null,
                                 "text": "Nieuw vliegtuig"
+                            },
+                            "configAlternates": {
+                                "icon": "string",
+                                "id": "string",
+                                "layout|flex": "number",
+                                "text": "string"
                             },
                             "name": "MyButton10",
                             "designerId": "b68dba5c-65e9-44d5-8e44-3454d176e6ae",
@@ -421,6 +549,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonClick2",
                                     "designerId": "814c72ef-6e74-457e-9004-ff72389aef8e"
@@ -444,6 +578,16 @@
                                 "vtype": null,
                                 "width": 200
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|flex": "number",
+                                "maxWidth": "number",
+                                "minWidth": "number",
+                                "vtype": "string",
+                                "width": "auto"
+                            },
                             "name": "MyTextField14",
                             "designerId": "b6569d4b-f00a-47ef-8e39-e1b882d4cbe3",
                             "cn": [
@@ -466,6 +610,15 @@
                                         "scope": "me",
                                         "single": false
                                     },
+                                    "configAlternates": {
+                                        "buffer": "number",
+                                        "delay": "number",
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string",
+                                        "single": "boolean"
+                                    },
                                     "name": "Vliegtuigen_ZoekenChange",
                                     "designerId": "5c6e2c71-9cb5-4348-96be-db2828a41bc1"
                                 },
@@ -486,6 +639,11 @@
                                             "return config; "
                                         ]
                                     },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
                                     "name": "processVliegtuigen_ZoekenInVliegtuigenlijst",
                                     "designerId": "5a82e8f4-7c5c-42a1-a5a8-17e90b7aa224"
                                 }
@@ -501,6 +659,10 @@
                             "userConfig": {
                                 "layout|flex": null,
                                 "width": 30
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number",
+                                "width": "auto"
                             },
                             "name": "MySpacer4",
                             "designerId": "0ddbb030-2370-47fb-877a-8a51654677d5"
@@ -519,6 +681,14 @@
                                 "labelWidth": 0,
                                 "layout|flex": null,
                                 "width": 100
+                            },
+                            "configAlternates": {
+                                "boxLabel": "string",
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelWidth": "number",
+                                "layout|flex": "number",
+                                "width": "auto"
                             },
                             "name": "MyCheckbox4",
                             "designerId": "39cd35a0-c073-4496-bdd1-a8ebcbd68e0e",
@@ -539,6 +709,14 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "buffer": "number",
+                                        "delay": "number",
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "Vliegtuigen_ClubkistFilterChange",
                                     "designerId": "17ee28bd-39b6-496a-8f67-12e7bd24a4d5"
@@ -561,6 +739,12 @@
                                         "name": "render",
                                         "scope": "me"
                                     },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
                                     "name": "onVliegtuigenClubkistFilterRender",
                                     "designerId": "e724b0a7-7077-4dea-bf6e-1ed7a5582b85"
                                 }
@@ -575,6 +759,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": 1
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
                             },
                             "name": "MySpacer5",
                             "designerId": "5c5f9901-885b-4651-b37c-a7c3314706b3"
@@ -592,6 +779,13 @@
                                 "id": "ButtonVerwijderenVliegtuig",
                                 "layout|flex": null,
                                 "text": "Verwijderen"
+                            },
+                            "configAlternates": {
+                                "enableToggle": "boolean",
+                                "icon": "string",
+                                "id": "string",
+                                "layout|flex": "number",
+                                "text": "string"
                             },
                             "name": "MyButton11",
                             "designerId": "6be9844e-c02d-4b06-9c15-64512cf63639",
@@ -614,6 +808,12 @@
                                         "name": "render",
                                         "scope": "me"
                                     },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
                                     "name": "onButtonVerwijderenVliegtuigRender",
                                     "designerId": "12b0cb30-d9f7-49ab-bf88-b308787fe5f0"
                                 },
@@ -631,6 +831,12 @@
                                         ],
                                         "name": "toggle",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonVerwijderenVliegtuigToggle",
                                     "designerId": "f9bde35b-46bd-4aea-8146-588644ed3b99"
@@ -661,6 +867,12 @@
                 ],
                 "name": "activate",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onPanelActivateVliegtuigen",
             "designerId": "f6f060b0-61c1-45a0-bdbd-7b654fbd8f7a"

@@ -11,6 +11,12 @@
         "model": "ControleStartlijstFlarm_Model",
         "storeId": "ControleStartlijstFlarm_Store"
     },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
     "designerId": "90780d6d-6cae-42df-9611-8e9466a4b046",
     "cn": [
         {
@@ -22,6 +28,9 @@
             "codeClass": null,
             "userConfig": {
                 "url": "php/main.php?Action=Controle.StartlijstJSON"
+            },
+            "configAlternates": {
+                "url": "string"
             },
             "name": "MyAjaxProxy10",
             "designerId": "334ffe34-1897-4721-bf25-e1be03e34153",
@@ -36,6 +45,10 @@
                     "userConfig": {
                         "idProperty": "ID",
                         "root": "results"
+                    },
+                    "configAlternates": {
+                        "idProperty": "string",
+                        "root": "string"
                     },
                     "name": "MyJsonReader10",
                     "designerId": "9bbe35e4-f0b8-4793-952a-99338135a2e9"
@@ -54,6 +67,12 @@
                         ],
                         "name": "exception",
                         "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
                     },
                     "name": "onAjaxException",
                     "designerId": "226df8d8-3faa-44ca-8caf-05755ab9145f"
@@ -82,6 +101,12 @@
                 "name": "beforeload",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onJsonstoreBeforeLoad",
             "designerId": "db12166c-931a-49b0-9fd9-76fae5613d50"
         },
@@ -102,6 +127,12 @@
                 ],
                 "name": "load",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onJsonstoreLoad",
             "designerId": "75939458-770f-4cfd-9a10-35bb0c9f56ce"

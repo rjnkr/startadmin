@@ -12,6 +12,13 @@
         "id": "KaartTab",
         "title": "Kaart"
     },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "hidden": "boolean",
+        "id": "string",
+        "title": "string"
+    },
     "name": "MyPanel14",
     "designerId": "218709af-1741-47cb-808f-b24287cd0f9e",
     "cn": [
@@ -26,6 +33,11 @@
                 "container|align": "stretch",
                 "layout": "hbox",
                 "minHeight": 200
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string",
+                "minHeight": "number"
             },
             "name": "MyContainer2",
             "designerId": "55bb9fb1-6723-4198-a775-478fc2aba6e7",
@@ -48,6 +60,16 @@
                         "minHeight": 100,
                         "title": null,
                         "width": 150
+                    },
+                    "configAlternates": {
+                        "frameHeader": "boolean",
+                        "html": "object",
+                        "id": "string",
+                        "layout": "string",
+                        "layout|flex": "number",
+                        "minHeight": "number",
+                        "title": "string",
+                        "width": "auto"
                     },
                     "name": "MyPanel15",
                     "designerId": "5ea8a004-f255-4ca9-ac20-e1d5d6e34a95"
@@ -77,6 +99,14 @@
                         "store": "FlarmPosities_Store",
                         "title": null
                     },
+                    "configAlternates": {
+                        "frameHeader": "boolean",
+                        "hideHeaders": "boolean",
+                        "layout|flex": "number",
+                        "maxWidth": "number",
+                        "store": "store",
+                        "title": "string"
+                    },
                     "name": "MyGridPanel5",
                     "designerId": "295d72ef-2cdb-4434-a41d-8d10cf4f202a",
                     "cn": [
@@ -91,6 +121,11 @@
                                 "dataIndex": "REG_CALL",
                                 "flex": 1,
                                 "text": "Registratie"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
                             },
                             "name": "MyColumn40",
                             "designerId": "117ee2b8-c4e2-40c5-8c07-a6a5c7329a5c",
@@ -123,6 +158,11 @@
                                             "\r",
                                             "return ret;"
                                         ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
                                     },
                                     "name": "renderer",
                                     "designerId": "7413e96a-6ef1-494a-b522-a7325cf4c9b7"
@@ -162,6 +202,12 @@
                 "name": "afterrender",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onKaartTabAfterRender",
             "designerId": "1c3a0ff3-4424-4fa0-9c43-91ef6cd0502c"
         },
@@ -184,6 +230,12 @@
                 "name": "resize",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onKaartTabResize",
             "designerId": "3590d9c3-5dc2-4a1d-8245-22164822a6a4"
         },
@@ -197,6 +249,10 @@
             "userConfig": {
                 "dock": "bottom",
                 "height": null
+            },
+            "configAlternates": {
+                "dock": "string",
+                "height": "auto"
             },
             "name": "MyToolbar5",
             "designerId": "8565f10f-4e83-44b7-b81e-5291a2b4c74e",
@@ -214,6 +270,13 @@
                         "id": "FilterOnderdrukKistenOpdeGrond",
                         "layout|flex": null,
                         "text": "Filter"
+                    },
+                    "configAlternates": {
+                        "enableToggle": "boolean",
+                        "icon": "string",
+                        "id": "string",
+                        "layout|flex": "number",
+                        "text": "string"
                     },
                     "name": "MyButton12",
                     "designerId": "aa0d194b-5c28-4b19-8149-38768bac363d",
@@ -245,6 +308,12 @@
                                 ],
                                 "name": "toggle",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onFilterOnderdrukKistenOpdeGrondToggle",
                             "designerId": "90bf5929-d5c0-4806-953b-13058cb4474b"

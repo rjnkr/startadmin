@@ -15,6 +15,16 @@
         "itemId": "",
         "maxTabWidth": 90
     },
+    "configAlternates": {
+        "activeTab": "auto",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "hidden": "boolean",
+        "hideCollapseTool": "boolean",
+        "id": "string",
+        "itemId": "string",
+        "maxTabWidth": "number"
+    },
     "name": "MyTabPanel",
     "designerId": "3f43bd28-5a5e-4664-863d-e4670bc00c40",
     "cn": [
@@ -35,6 +45,12 @@
                 ],
                 "name": "resize",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onHoofdSchermResize",
             "designerId": "18568e89-83bb-4cc3-a1b7-5a4ef35efb7b"
@@ -82,6 +98,29 @@
                     "codeClass": null,
                     "name": "TabConfig4",
                     "designerId": "c48b98cf-c506-4caf-83fb-12f1414799f0"
+                }
+            ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "aanwezigtab1",
+            "designerId": "741a4de6-d1a5-4846-bef3-4add512e02eb",
+            "masterInstanceId": "d8a7d66e-4a8c-45eb-9e97-bd5d6f5dcbc4",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig2",
+                    "designerId": "5a674378-557e-471a-b41d-a855498e3fcf"
                 }
             ]
         },

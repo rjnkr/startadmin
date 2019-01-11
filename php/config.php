@@ -3,9 +3,9 @@
 $db_info = array(
                 'dbType' => 'mysql',
                 'dbHost' => 'localhost',
-                'dbName' => 'gezc_org_sadb',
+                'dbName' => 'sadb',
                 'dbUser' => 'root',
-                'dbPassword' => 'MySQLpassword'
+                'dbPassword' => 'Boefjes781'
 );
 
 
@@ -29,7 +29,7 @@ $sync_account = array(
 );
 
 
-$beheerders = array("0", "10178");
+$beheerders = array("0", "10395");
 // 0 = sa
 // 10178 = Lucas Berends
 
@@ -37,8 +37,8 @@ $beheerdersDDWV = array("10116");
 // 10232 = Ruben Nijenhuis 
 
 
-$NoPasswordIP = array("0.0.0.1/1", "128.0.0.1/1");		// Iedereen kan inloggen zonder wachtwoord (array van subnetten)
-$NoPasswordIP = "172.16.55.0/24";						// Iedereen op het netwerk kan inloggen zonder wachtwoord
+//$NoPasswordIP = array("0.0.0.1/1", "128.0.0.1/1");		// Iedereen kan inloggen zonder wachtwoord (array van subnetten)
+//$NoPasswordIP = "172.16.55.0/24";						// Iedereen op het netwerk kan inloggen zonder wachtwoord
 $NoPasswordIP = "127.0.0.1";							// IP adres van de starttoren, geen password nodig
 
 if (!IsSet($GLOBALS['DBCONFIG_PHP_INCLUDED']))

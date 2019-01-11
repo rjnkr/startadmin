@@ -17,6 +17,16 @@
         "title": "Starttijd overnemen",
         "width": 274
     },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "id": "string",
+        "modal": "boolean",
+        "resizable": "object",
+        "title": "string",
+        "width": "auto"
+    },
     "designerId": "02ba24b8-3ad9-45c5-960d-0b3170fbac24",
     "cn": [
         {
@@ -38,6 +48,19 @@
                 "trackResetOnLoad": true,
                 "url": "php/main.php?Action=Controle.SaveStartTijd",
                 "width": 265
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "designer|snapToGrid": "number",
+                "height": "auto",
+                "id": "string",
+                "layout": "string",
+                "primaryFilterOnKeyInput": "string",
+                "resizable": "object",
+                "title": "string",
+                "trackResetOnLoad": "boolean",
+                "url": "string",
+                "width": "auto"
             },
             "name": "MyForm3",
             "designerId": "be789878-38f1-46a6-89c9-a218cba1e08d",
@@ -66,6 +89,16 @@
                         "name": "ID",
                         "width": 50
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hideEmptyLabel": "boolean",
+                        "id": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "name": "string",
+                        "width": "auto"
+                    },
                     "name": "MyHiddenField6",
                     "designerId": "56e1fc5e-8cc3-4c80-8d68-4a106d867281"
                 },
@@ -87,6 +120,17 @@
                         "text": "Overnemen",
                         "width": 75
                     },
+                    "configAlternates": {
+                        "formBind": "boolean",
+                        "height": "auto",
+                        "icon": "string",
+                        "iconCls": "string",
+                        "id": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
                     "name": "MyButton17",
                     "designerId": "df4c3441-0d3c-4e98-9190-70ad8ff05ad2",
                     "cn": [
@@ -107,6 +151,12 @@
                                 ],
                                 "name": "click",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onStartCopy_OvernemenClick",
                             "designerId": "d6c24678-6fe7-4e88-80a5-187fe83f35fa"
@@ -131,6 +181,17 @@
                         "text": "Opslaan",
                         "width": 80
                     },
+                    "configAlternates": {
+                        "formBind": "boolean",
+                        "height": "auto",
+                        "icon": "string",
+                        "iconCls": "string",
+                        "id": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
                     "name": "MyButton18",
                     "designerId": "28ea3b38-c867-4aac-a93b-9d89897f4082",
                     "cn": [
@@ -148,6 +209,12 @@
                                 ],
                                 "name": "click",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onStartCopy_OpslaanClick",
                             "designerId": "531ff7e0-002a-4b43-baf4-06d3743f1d90"
@@ -171,6 +238,16 @@
                         "readOnly": true,
                         "width": 140
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "name": "string",
+                        "readOnly": "boolean",
+                        "width": "auto"
+                    },
                     "name": "MyTextField16",
                     "designerId": "d7c976db-98ec-4376-9737-e915bdd05229"
                 },
@@ -191,6 +268,16 @@
                         "readOnly": true,
                         "width": 140
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "name": "string",
+                        "readOnly": "boolean",
+                        "width": "auto"
+                    },
                     "name": "MyTextField17",
                     "designerId": "c0d9d067-c093-40e1-8231-e1fb2c0e9b43"
                 }
@@ -210,6 +297,12 @@
                 ],
                 "name": "show",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onWindowShow",
             "designerId": "414c7b42-e5b3-4941-b09b-4afc7f66710f"

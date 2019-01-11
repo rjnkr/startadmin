@@ -154,6 +154,18 @@
                                     "        metaData.tdAttr = 'data-qtip=\"Verwijderen \" + record.data.NAAM + \" uit de start administratie\"';",
                                     "        return ret;",
                                     "    }",
+                                    "}",
+                                    "else",
+                                    "{",
+                                    "    if (appSettings.Aanwezigheid)",
+                                    "    {",
+                                    "        var ret= \"<a href=javascript:AanmeldenLidWindow(\" + record.data.ID + \");>\";",
+                                    "        ret = ret + \"<IMG SRC='images/aanmelden.png' border=0></a>\";",
+                                    "",
+                                    "        metaData.tdAttr = 'data-qtip=\"' + record.data.NAAM + ' aanmelden voor vandaag.\"';",
+                                    "",
+                                    "        return ret;",
+                                    "    }",
                                     "}"
                                 ]
                             },

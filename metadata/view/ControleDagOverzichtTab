@@ -13,6 +13,14 @@
         "layout": "vbox",
         "title": "Dag overzicht"
     },
+    "configAlternates": {
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "id": "string",
+        "layout": "string",
+        "title": "string"
+    },
     "name": "MyPanel18",
     "designerId": "d78c765e-6e2c-4e3a-ac20-af13c4301a3f",
     "cn": [
@@ -29,6 +37,13 @@
                 "layout|flex": 1,
                 "store": "ControleDagOverzicht_GridStore",
                 "title": null
+            },
+            "configAlternates": {
+                "enableColumnHide": "boolean",
+                "id": "string",
+                "layout|flex": "number",
+                "store": "store",
+                "title": "string"
             },
             "name": "MyGridPanel7",
             "designerId": "59b7d30f-eef6-435f-993a-62e5f0994857",
@@ -57,6 +72,14 @@
                         "maxWidth": 250,
                         "text": "Naam",
                         "width": 200
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "flex": "number",
+                        "id": "string",
+                        "maxWidth": "number",
+                        "text": "string",
+                        "width": "auto"
                     },
                     "name": "MyColumn54",
                     "designerId": "ac9146bb-fec7-4cb8-95e3-1f324113d532",
@@ -88,6 +111,11 @@
                                     "return retValue;"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "c4e8d7bc-2fc0-40d8-9e8f-3613e0ad9cc3"
                         }
@@ -106,6 +134,13 @@
                         "id": null,
                         "maxWidth": 100,
                         "text": "Starts"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "flex": "number",
+                        "id": "string",
+                        "maxWidth": "number",
+                        "text": "string"
                     },
                     "name": "MyColumn55",
                     "designerId": "67c3f529-a868-472e-823b-59f237473df3",
@@ -136,6 +171,11 @@
                                     "return value;"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "9ac674a7-c83c-4704-b7d1-c8bec4e87ba2"
                         }
@@ -153,6 +193,12 @@
                         "flex": 1,
                         "maxWidth": 100,
                         "text": "Voorin"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "flex": "number",
+                        "maxWidth": "number",
+                        "text": "string"
                     },
                     "name": "MyColumn56",
                     "designerId": "b7e56a52-4f06-42f2-8f72-f46a7a662884",
@@ -183,6 +229,11 @@
                                     "return value;"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "0c777d61-3222-49fa-9909-05a8fae241fa"
                         }
@@ -200,6 +251,12 @@
                         "flex": 1,
                         "maxWidth": 100,
                         "text": "Achterin"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "flex": "number",
+                        "maxWidth": "number",
+                        "text": "string"
                     },
                     "name": "MyColumn57",
                     "designerId": "0f8223f3-61d7-4ee6-80be-389fa7683539",
@@ -230,6 +287,11 @@
                                     "return value;"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "b230552e-1682-44db-a2e2-3d4faa95957e"
                         }
@@ -247,6 +309,12 @@
                         "flex": 1,
                         "maxWidth": 100,
                         "text": "DDWV"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "flex": "number",
+                        "maxWidth": "number",
+                        "text": "string"
                     },
                     "name": "MyColumn58",
                     "designerId": "0c5b8f0d-8f37-420c-be25-cbe3707fafee",
@@ -277,6 +345,11 @@
                                     "return value;"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "fa8a5e91-6872-4038-82e5-9aa87d21de16"
                         }
@@ -294,6 +367,12 @@
                         "flex": 1,
                         "maxWidth": 100,
                         "text": "Sleep"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "flex": "number",
+                        "maxWidth": "number",
+                        "text": "string"
                     },
                     "name": "MyColumn59",
                     "designerId": "b41898d2-bdfa-473a-8d1c-aa0827e163c0",
@@ -324,6 +403,11 @@
                                     "return value;"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "4b982f2b-be79-4da0-ab91-499b9d57a396"
                         }
@@ -341,6 +425,12 @@
                         "flex": 1,
                         "maxWidth": 100,
                         "text": "Op rekening"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "flex": "number",
+                        "maxWidth": "number",
+                        "text": "string"
                     },
                     "name": "MyColumn60",
                     "designerId": "622c8920-78f2-4bbe-9692-b6801e6ba992",
@@ -372,6 +462,11 @@
                                     ""
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "0ff6fd7a-cf00-4324-a386-e5441f517782"
                         }
@@ -389,6 +484,12 @@
                         "flex": 5,
                         "id": null,
                         "text": "Opmerkingen"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "flex": "number",
+                        "id": "string",
+                        "text": "string"
                     },
                     "name": "MyColumn61",
                     "designerId": "877759a1-5945-4cc3-8b93-27117264a0ab"

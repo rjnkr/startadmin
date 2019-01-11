@@ -56,7 +56,7 @@
 		//		dLANDINGSTIJD = Het verschil tussen de flarn landingstijd en de handmatige ingevoerde tijd
 	
 		// @example
-		// ({
+		// {
 		//		"total":"2",
 		//		"results":
 		//		[
@@ -128,7 +128,7 @@
 		//				"dLANDINGSTIJD": "14"	
 		//			}
 		//	]
-		// })
+		// }
 		function StartlijstJSON()
 		{	
 			global $app_settings;
@@ -203,7 +203,7 @@
 			parent::DbOpvraag($rquery);			
 			
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));	
-			echo '({"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'})';	
+			echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';	
 		}
 		
 		
@@ -337,7 +337,7 @@
 		//		OPREKENING  = Aantal vluchten die het lid moet betalen voor deze dag
 		//
 		// @example
-		// ({
+		// {
 		//		"total":"2",
 		//		"results":
 		//		[
@@ -368,7 +368,7 @@
 		//				"OPREKENING":"2"
 		//			}
 		//		]
-		// })
+		// }
 		function DagOverzichtJSON()
 		{		
 			Debug(__FILE__, __LINE__, "Controle.DagOverzichtJSON()");	
@@ -407,7 +407,7 @@
 			$retVal = parent::DbData();
 			
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));	
-			echo '({"total":"'.count($retVal).'","results":'.json_encode(array_map('PrepareJSON', $retVal)).'})';	
+			echo '{"total":"'.count($retVal).'","results":'.json_encode(array_map('PrepareJSON', $retVal)).'}';	
 		}
 		
 		// ------------------------------------------------------------------
@@ -448,7 +448,7 @@
 		//			STARTMETHODE	= Start methode omschrijving in volledige text vanuit omschrijving types tabel
 		//
 		// @example
-		// 	({
+		// 	{
 		//		"total":"3",
 		//		"results":
 		//		[{
@@ -501,7 +501,7 @@
 		//			"SOORTVLUCHT":"Instructie of checkvlucht",
 		//			"STARTMETHODE":"Slepen (zweefkist)"
 		//		}]
-		//	})
+		//	}
 		function DagOverzichtLidJSON()
 		{
 			Debug(__FILE__, __LINE__, "Controle.DagOverzichtJSON()");	
@@ -551,7 +551,7 @@
 			$retVal = parent::DbData();
 			
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));	
-			echo '({"total":"'.count($retVal).'","results":'.json_encode(array_map('PrepareJSON', $retVal)).'})';	
+			echo '{"total":"'.count($retVal).'","results":'.json_encode(array_map('PrepareJSON', $retVal)).'}';	
 		}
 
 		// ------------------------------------------------------------------
@@ -594,7 +594,7 @@
 		//			INZITTENDE_BESTE_LID_ID = Voorstel om inzittende te vervangen (naam komt het beste overeen)
 		//
 		// @example
-		// ({
+		// {
 		//		"total":"396",
 		//		"results":
 		//		[{
@@ -653,7 +653,7 @@
 		//			"INZITTENDE_LIDTYPE_ID":null,
 		//			"VLIEGER_BESTE_LID_ID":"12"
 		//		}]
-		// })		
+		// }		
 		function StartlijstTijdelijkeLedenJSON()
 		{		
 			Debug(__FILE__, __LINE__, "Controle.StartlijstTijdelijkeLeden()");	
@@ -697,7 +697,7 @@
 			$records = parent::DbData();		
 					
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));	
-			echo '({"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', $records)).'})';		
+			echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', $records)).'}';		
 		}
 	}
 ?>
