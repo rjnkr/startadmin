@@ -1167,10 +1167,10 @@
                                     "userConfig": {
                                         "fn": "onStartInvoer_GezagvoerderRender",
                                         "implHandler": [
-                                            "Ext.QuickTips.register({\r",
-                                            "    target: component.getEl(),\r",
-                                            "    dismissDelay: 10000, // Hide after 10 seconds hover\r",
-                                            "    text: 'Vul hier de gezagvoerder in uit het ledenbestand. <hr>Alternatief : Kies de naam van een zusterclub als een kist van de ander club start. Gebruik \"Oprotkabel\" voor een gestande vlieger.'\r",
+                                            "Ext.QuickTips.register({",
+                                            "    target: component.getEl(),",
+                                            "    dismissDelay: 10000, // Hide after 10 seconds hover",
+                                            "    text: 'Vul hier de gezagvoerder in uit het ledenbestand. <hr>Alternatief : Kies de naam van een zusterclub als een kist van de ander club start. Gebruik \"-Nieuw lid\" voor vliegers die niet bekend zijn. Vul dan wel het OPMERKING veld.'",
                                             "});"
                                         ],
                                         "name": "render",
@@ -1290,6 +1290,82 @@
                             },
                             "name": "MyImg6",
                             "designerId": "cdda0763-ab43-4cdc-9b5f-52f89511bca6"
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "StartInvoer_AlleenAanwezig",
+                                "layout|x": 410,
+                                "submitValue": false,
+                                "validateOnChange": false
+                            },
+                            "configAlternates": {
+                                "id": "string",
+                                "layout|x": "number",
+                                "submitValue": "boolean",
+                                "validateOnChange": "boolean"
+                            },
+                            "name": "MyCheckbox",
+                            "designerId": "7255a143-d6cc-477d-a200-d5ab6cfa67e8",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_AlleenAanwezigChange",
+                                        "implHandler": [
+                                            "Ext.StartlijstInvoerForm.onStartInvoer_AlleenAanwezigChange(field, newValue, oldValue, eOpts);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onStartInvoer_AlleenAanwezigChange",
+                                    "designerId": "9d9f7bc3-ad5c-4c86-9fad-aa60787fa4da"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onStartInvoer_AlleenAanwezigRender",
+                                        "implHandler": [
+                                            "Ext.QuickTips.register({",
+                                            "    target: component.getEl(),",
+                                            "    dismissDelay: 10000, // Hide after 10 seconds hover",
+                                            "    text: 'Indien aangevinkt, dan alleen aanwezige leden. Alle leden, wanneer vinkje uit staat.'",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onStartInvoer_AlleenAanwezigRender",
+                                    "designerId": "e942c5ec-f24a-4cee-9f0f-fbd80f58e3ef"
+                                }
+                            ]
                         }
                     ]
                 },

@@ -68,6 +68,12 @@ Ext.define('GeZC_StartAdministratie.model.LedenLijst_Model', {
         },
         {
             name: 'AVATAR'
+        },
+        {
+            name: 'HIEROP'
+        },
+        {
+            name: 'VLIEGT'
         }
     ]
 });

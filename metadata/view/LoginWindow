@@ -26,6 +26,23 @@
         "title": null,
         "width": 512
     },
+    "configAlternates": {
+        "bodyBorder": "boolean",
+        "bodyCls": "typedarray",
+        "border": "auto",
+        "closable": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "draggable": "boolean",
+        "frame": "boolean",
+        "frameHeader": "boolean",
+        "height": "auto",
+        "modal": "boolean",
+        "plain": "boolean",
+        "resizable": "object",
+        "title": "string",
+        "width": "auto"
+    },
     "designerId": "275c60a7-59f1-4ad3-9be8-1b6ddc293726",
     "cn": [
         {
@@ -55,6 +72,24 @@
                 "url": "php/main.php?Action=Login.verkrijgToegang",
                 "width": 510
             },
+            "configAlternates": {
+                "bodyBorder": "boolean",
+                "bodyCls": "typedarray",
+                "bodyPadding": "auto",
+                "border": "auto",
+                "cls": "string",
+                "componentCls": "string",
+                "designer|snapToGrid": "number",
+                "dock": "string",
+                "frameHeader": "boolean",
+                "height": "auto",
+                "iconCls": "string",
+                "id": "string",
+                "layout": "string",
+                "title": "string",
+                "url": "string",
+                "width": "auto"
+            },
             "name": "MyForm2",
             "designerId": "a6523206-6951-4ca5-adf6-0f056a9f2452",
             "cn": [
@@ -78,6 +113,20 @@
                         "msgTarget": "side",
                         "name": "USERNAME",
                         "width": 150
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "maxWidth": "number",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "width": "auto"
                     },
                     "name": "MyTextField19",
                     "designerId": "1a5e854d-73c7-4bf8-98ee-3c733caf8b13"
@@ -103,6 +152,21 @@
                         "msgTarget": "side",
                         "name": "PASSWORD",
                         "width": 150
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "inputType": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "maxWidth": "number",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "width": "auto"
                     },
                     "name": "MyTextField20",
                     "designerId": "8f2c2034-68a3-463b-8b7d-4694db5f40b6",
@@ -138,6 +202,12 @@
                                 "name": "specialkey",
                                 "scope": "me"
                             },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
                             "name": "onLoginWachtwoordSpecialkey",
                             "designerId": "c688a49d-b8bb-47cd-af30-64f41b15a1f7"
                         }
@@ -159,6 +229,15 @@
                         "src": "images/alert.png",
                         "width": null
                     },
+                    "configAlternates": {
+                        "height": "auto",
+                        "hidden": "boolean",
+                        "id": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "src": "uri",
+                        "width": "auto"
+                    },
                     "name": "MyImg2",
                     "designerId": "0b65bb65-8143-4677-9453-163a3c55ff88",
                     "cn": [
@@ -179,6 +258,12 @@
                                 ],
                                 "name": "afterrender",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onVerkeerdWachtwoordAfterRender",
                             "designerId": "dd2a5fbd-96f6-4711-9569-0ea6191b73f2"
@@ -204,6 +289,19 @@
                         "padding": "",
                         "text": "Inloggen",
                         "width": 80
+                    },
+                    "configAlternates": {
+                        "formBind": "boolean",
+                        "height": "auto",
+                        "icon": "string",
+                        "iconCls": "string",
+                        "id": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "margin": "auto",
+                        "padding": "auto",
+                        "text": "string",
+                        "width": "auto"
                     },
                     "name": "MyButton16",
                     "designerId": "c0c60533-ae43-4fba-a615-05ac9f27f214",
@@ -243,6 +341,12 @@
                                 "name": "click",
                                 "scope": "me"
                             },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
                             "name": "onButtonClick11",
                             "designerId": "967c5a6c-f4f1-4d6e-b2ff-6d384ed94a6c"
                         }
@@ -262,6 +366,12 @@
                         ],
                         "name": "show",
                         "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
                     },
                     "name": "onLoginFormShow",
                     "designerId": "f4292d1f-1274-45e9-90ae-cf76e563c1e1"

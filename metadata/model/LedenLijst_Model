@@ -274,6 +274,46 @@
             },
             "name": "MyField86",
             "designerId": "6dae7afe-fdb5-45ad-a31a-eab9de971b6a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "HIEROP",
+                "type": null
+            },
+            "configAlternates": {
+                "mapping": "auto",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyField89",
+            "designerId": "520d3659-cfd1-489c-b02e-c48000c96473"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "VLIEGT",
+                "type": null
+            },
+            "configAlternates": {
+                "mapping": "auto",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyField90",
+            "designerId": "6aad59f1-df24-4be0-a244-a0c4e5231c73"
         }
     ]
 }

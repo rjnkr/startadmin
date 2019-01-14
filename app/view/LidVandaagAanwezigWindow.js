@@ -69,36 +69,52 @@ Ext.define('GeZC_StartAdministratie.view.LidVandaagAanwezigWindow', {
                     id: 'LidAanmeldInvoerForm',
                     bodyPadding: 10,
                     trackResetOnLoad: true,
-                    url: 'php/main.php?Action=Aanwezig.AanmeldenLid',
+                    url: 'php/main.php?Action=Aanwezig.AanmeldenLidJSON',
                     items: [
                         {
                             xtype: 'combobox',
                             id: 'Aanmelden.VliegerCombobox',
-                            width: 300,
+                            width: 335,
                             fieldLabel: 'Vlieger',
                             labelAlign: 'right',
-                            labelWidth: 50
+                            labelWidth: 85,
+                            name: 'LID_ID',
+                            displayField: 'NAAM',
+                            queryMode: 'local',
+                            store: 'Startlijst_Vlieger_Store',
+                            valueField: 'ID',
+                            listeners: {
+                                change: {
+                                    fn: me.onVliegerComboboxChange,
+                                    scope: me
+                                }
+                            }
                         },
                         {
                             xtype: 'combobox',
-                            width: 180,
+                            id: 'Aanwezig_InvoerVliegtuigID',
+                            width: 210,
                             fieldLabel: 'Overland',
                             labelAlign: 'right',
-                            labelWidth: 50,
+                            labelWidth: 85,
+                            name: 'VOORKEUR_VLIEGTUIG_ID',
+                            displayField: 'REG_CALL',
                             forceSelection: true,
                             queryMode: 'local',
-                            store: 'Aanmelden_Vliegtuig_Store',
+                            store: 'Startlijst_Vliegtuigen_Store',
                             valueField: 'ID'
                         },
                         {
                             xtype: 'label',
-                            width: 76,
+                            id: 'LabelVliegtuigType',
+                            width: 85,
                             text: 'Vliegtuig type'
                         },
                         {
                             xtype: 'gridpanel',
+                            id: 'Aanwezig_InvoerTypeVliegtuig',
                             minHeight: 100,
-                            padding: '10 0 0 0',
+                            padding: '0 0 0 35',
                             bodyStyle: 'border: 0px;',
                             frameHeader: false,
                             enableColumnHide: false,
@@ -124,14 +140,45 @@ Ext.define('GeZC_StartAdministratie.view.LidVandaagAanwezigWindow', {
                             },
                             selModel: Ext.create('Ext.selection.CheckboxModel', {
 
-                            })
+                            }),
+                            listeners: {
+                                selectionchange: {
+                                    fn: me.onAanwezigInvoerTypeVliegtuigSelectionChange,
+                                    scope: me
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'textfield',
+                            anchor: '100%',
+                            width: 325,
+                            fieldLabel: 'Opmerkingen',
+                            labelAlign: 'right',
+                            labelWidth: 85,
+                            name: 'OPMERKING'
+                        },
+                        {
+                            xtype: 'textfield',
+                            anchor: '100%',
+                            hidden: true,
+                            id: 'Aanmelden_VliegtuigTypeID',
+                            hideLabel: true,
+                            name: 'VOORKEUR_VLIEGTUIG_TYPE',
+                            readOnly: true
                         },
                         {
                             xtype: 'button',
                             height: 40,
+                            id: 'Opslaan_AanwezigButton',
                             margin: '0px 285px',
                             width: 80,
-                            text: 'Opslaan'
+                            text: 'Opslaan',
+                            listeners: {
+                                click: {
+                                    fn: me.onButtonClick,
+                                    scope: me
+                                }
+                            }
                         }
                     ]
                 }
@@ -147,8 +194,21 @@ Ext.define('GeZC_StartAdministratie.view.LidVandaagAanwezigWindow', {
         me.callParent(arguments);
     },
 
+    onVliegerComboboxChange: function(field, newValue, oldValue, eOpts) {
+        Ext.AanmeldenForm.onVliegerComboboxChange(field, newValue, oldValue, eOpts);
+    },
+
+    onAanwezigInvoerTypeVliegtuigSelectionChange: function(model, selected, eOpts) {
+        Ext.AanmeldenForm.onStartInvoer_VliegtuigTypeSelectionChange(model, selected, eOpts);
+
+    },
+
+    onButtonClick: function(button, e, eOpts) {
+        Ext.AanmeldenForm.onButtonClick(button, e, eOpts);
+    },
+
     onWindowShow: function(component, eOpts) {
-        Ext.AanmeldenForm.onInvoerWindowShow(component, eOpts, this.ID);
+        Ext.AanmeldenForm.onInvoerWindowShow(component, eOpts, this.ID, this.LID_ID);
     }
 
 });

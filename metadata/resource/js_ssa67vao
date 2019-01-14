@@ -1,0 +1,20 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js_ssa67vao",
+        "url": "js/Aanwezig.js",
+        "x-compile": true
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri",
+        "x-compile": "boolean"
+    },
+    "name": "js23",
+    "designerId": "08ac412f-9e0a-4139-b249-726114c10da9"
+}

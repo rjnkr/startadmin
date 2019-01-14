@@ -48,6 +48,7 @@
 			$retValue['isInstructeur'] = $this->isInstructeur();
 			$retValue['isAangemeld'] = false;
 			$retValue['isClubVlieger'] = false;
+			$retValue['isDDWV'] = false;
 			
 			$UserID = $this->getUserFromSession();
 			$Userinfo = array();
@@ -55,6 +56,7 @@
 			if (is_numeric($UserID))
 			{		
 				$retValue['isClubVlieger'] = $l->isClubVlieger($UserID);
+				$retValue['isDDWV'] = $l->isDDWV($UserID);
 				$retValue['isAangemeld'] = $a->IsAangemeldVandaag($UserID);
 				
 				$Userinfo = $l->getObject($UserID);				

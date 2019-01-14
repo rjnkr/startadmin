@@ -25,6 +25,8 @@ Ext.StartlijstInvoerForm = function(){
 			console.log(sprintf("%s: onStartInvoerWindowShow(%s)", TijdStempel(), ID));
 			var form = Ext.getCmp('StartInvoer_InvoerForm');
 			form.show();
+
+			Ext.getCmp('StartInvoer_AlleenAanwezig').setValue(true);  // default zoeken we alleen op aanwezig leden, (form events moeten AAN)
 			DisableFormEvents(form);	// ivm performance, schakel alls events uit	
 			
 			var InvoerVliegtuig = Ext.getCmp('StartInvoer_Vliegtuig');			// combobox vliegtuig
@@ -32,6 +34,7 @@ Ext.StartlijstInvoerForm = function(){
 			var InvoerStartMethode = Ext.getCmp('StartInvoer_StartMethode');	// checkbox grid
 		
 			
+
 			// Welke vliegtuigen worden standaard getoond in de combobox 
 			if (appSettings.Aanwezigheid)
 			{
@@ -650,7 +653,7 @@ Ext.StartlijstInvoerForm = function(){
 						}
 						else
 						{
-							// 801	Passagierstart (kosten 40€)
+							// 801	Passagierstart (kosten 40ï¿½)
 							// 802	Relatiestart
 							if ((WaardeInvoerSoortVlucht == "801") || (WaardeInvoerSoortVlucht == "802"))
 							{
@@ -1085,23 +1088,43 @@ Ext.StartlijstInvoerForm = function(){
 			if (ID < 0)
 				field.expand();		
 		},
+
+		//************************************************************************************************************************
+		// Indien de checkbox op true staat, dan kun je alleen kiezen uit leden die aanwezig zijn op het veld. Checkbox uit = iedereen
+		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		onStartInvoer_AlleenAanwezigChange: function(field, newValue, oldValue, eOpts)
+		{
+			var vliegerInvoer = Ext.getCmp("StartInvoer_Gezagvoerder");
+
+			if (newValue == true)
+			{
+				var storeName = "Startlijst_Gezagvoerder_Store";
+				var store = Ext.data.StoreManager.lookup(storeName);
+				vliegerInvoer.bindStore(storeName);		// verkorte lijst met aanwezige leden
+			}
+			else
+			{
+				var storeName = "Startlijst_Vlieger_Store";							// iedereen
+				var store = Ext.data.StoreManager.lookup(storeName);
+
+				vliegerInvoer.bindStore(storeName);
+			}
+			Ext.StartlijstInvoerForm.FilterGezagvoerder();
+		},
 	
 		//************************************************************************************************************************
-		// Er wordt een toets op het toesenbord ingedrukt. We schakelen over naar de volledige ledenlijst
-		// later (in de combox) wordt er een filter geplaatst
+		// Er wordt een toets op het toesenbord ingedrukt.  Zetten het filter uit
 		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		onKeyPressInvoerGezagvoerder: function(textfield, e, options)
 		{
 			console.log(sprintf("%s: onKeyPressInvoerGezagvoerder()", TijdStempel()));
-				
-			var newStoreName = 'Startlijst_Vlieger_Store';
-			if (textfield.store.storeId != newStoreName)
+			
+			var InvoerGezagvoerder = Ext.getCmp('StartInvoer_Gezagvoerder');
+			
+			if (InvoerGezagvoerder.store.storeId == 'Startlijst_Gezagvoerder_Store')
 			{
-				var store = Ext.data.StoreManager.lookup(newStoreName);
-				store.clearFilter();
-
-				textfield.bindStore(store);		
-				Ext.StartlijstInvoerForm.FilterGezagvoerder();
+				textfield.primaryFilterBy = null;	// reset filter
+				textfield.store.clearFilter();
 			}
 		},
 		
@@ -1111,54 +1134,62 @@ Ext.StartlijstInvoerForm = function(){
 		{
 			console.log(sprintf("%s: FilterGezagvoerder()", TijdStempel()));
 			var InvoerGezagvoerder = Ext.getCmp('StartInvoer_Gezagvoerder');
-			
+			InvoerGezagvoerder.store.clearFilter();									// oude filters opheffen	
+
 			if (InvoerGezagvoerder.store.storeId == 'Startlijst_Gezagvoerder_Store')
 			{
-				InvoerGezagvoerder.primaryFilterBy = null;
-				InvoerGezagvoerder.store.clearFilter();
-				return;
+				InvoerGezagvoerder.primaryFilterBy = 
+				"function myfilter(record,id) " 							+
+				"{" 														+
+					"if (record.data.VLIEGT == 1) return false;"			+		// vlieger vliegt nu
+					"if (record.data.HIEROP == 0) return false;"			+		// wel aanwezig, maar wil niet vliegen op dit vliegtuig
+					"return true;" 											+
+				"}"; 
+				eval("var vif =" + InvoerGezagvoerder.primaryFilterBy);
+				InvoerGezagvoerder.store.filterBy(vif);				
 			}
-		
-			var FilterArray = new Array();
-			FilterArray.push(600);					// 600 is Diverse (Bijvoorbeeld bedrijven- of jongerendag)
-			FilterArray.push(612);					// 612 is lidtype penningmeester
-			
-			if (dagInfo.data.SOORTBEDRIJF_ID == 701)	// 701 = aleen clubbedrijf
-				FilterArray.push(625);				// 625 = DDWV vlieger
-			
-			var VliegtuigenStore = Ext.data.StoreManager.lookup('Startlijst_Vliegtuigen_Store');
-			var InvoerVliegtuig = Ext.getCmp('StartInvoer_Vliegtuig');
-			var VliegtuigID = InvoerVliegtuig.getValue();
-			var VliegtuigRecord = VliegtuigenStore.getById(VliegtuigID);
-			
-			if (VliegtuigRecord != null)
+			else
 			{
-				if (VliegtuigRecord.data.CLUBKIST == '1') 
-				{
-					FilterArray.push(625);				// 625 = DDWV vlieger
-					FilterArray.push(607);				// 607 is zusterclub								
-					
-					if (VliegtuigRecord.data.ZITPLAATSEN < 2)
-					{
-						FilterArray.push(606);			// donateur mag niet vliegen op een club eenzitter
-						FilterArray.push(611);			// cursist mag niet vliegen op een club eenzitter
-						FilterArray.push(608);			// 5-rittenkaarthouder mag niet vliegen op een club eenzitter
-					}
-				}
+				var FilterArray = new Array();
+				FilterArray.push(600);					// 600 is Diverse (Bijvoorbeeld bedrijven- of jongerendag)
+				FilterArray.push(612);					// 612 is lidtype penningmeester
 				
-			}	
-			
-			InvoerGezagvoerder.primaryFilterBy = 
-				"function myfilter(record,id)" + 
-				"{" + 
-				"	var FilterField = '" + FilterArray.join() +"';" 						+
-				"	if (FilterField.indexOf(record.data.LIDTYPE_ID) == -1) return true;" 			+						
-				"	return false;" + 
-				"}";			
-			
-			InvoerGezagvoerder.store.clearFilter();
-			eval("var sif10 =" + InvoerGezagvoerder.primaryFilterBy)
-			InvoerGezagvoerder.store.filterBy(sif10);			
+				if (dagInfo.data.SOORTBEDRIJF_ID == 701) // 701 = aleen clubbedrijf
+					FilterArray.push(625);				 // 625 = DDWV vlieger
+				
+				var VliegtuigenStore = Ext.data.StoreManager.lookup('Startlijst_Vliegtuigen_Store');
+				var InvoerVliegtuig = Ext.getCmp('StartInvoer_Vliegtuig');
+				var VliegtuigID = InvoerVliegtuig.getValue();
+				var VliegtuigRecord = VliegtuigenStore.getById(VliegtuigID);
+				
+				if (VliegtuigRecord != null)
+				{
+					if (VliegtuigRecord.data.CLUBKIST == '1') 
+					{
+						FilterArray.push(625);				// 625 = DDWV vlieger
+						FilterArray.push(607);				// 607 is zusterclub								
+						
+						if (VliegtuigRecord.data.ZITPLAATSEN < 2)
+						{
+							FilterArray.push(606);			// donateur mag niet vliegen op een club eenzitter
+							FilterArray.push(611);			// cursist mag niet vliegen op een club eenzitter
+							FilterArray.push(608);			// 5-rittenkaarthouder mag niet vliegen op een club eenzitter
+						}
+					}
+				}	
+				
+				InvoerGezagvoerder.primaryFilterBy = 
+					"function myfilter(record,id)" + 
+					"{" + 
+					"	var FilterField = '" + FilterArray.join() +"';" 						+
+					"	if (FilterField.indexOf(record.data.LIDTYPE_ID) == -1) return true;" 			+						
+					"	return false;" + 
+					"}";			
+				
+				InvoerGezagvoerder.store.clearFilter();
+				eval("var sif10 =" + InvoerGezagvoerder.primaryFilterBy)
+				InvoerGezagvoerder.store.filterBy(sif10);	
+			}		
 		},
 		
 		//************************************************************************************************************************
@@ -1603,7 +1634,7 @@ Ext.StartlijstInvoerForm = function(){
 		FilterSoortVlucht: function(geladenRecord)
 		{
 			// filter soort vlucht
-			// 801	Passagierstart (kosten 40€)
+			// 801	Passagierstart (kosten 40ï¿½)
 			// 802	Relatiestart
 			// 803	Zusterclub
 			// 804	Oprotkabel
@@ -1712,7 +1743,7 @@ Ext.StartlijstInvoerForm = function(){
 								{
 									console.log(sprintf("%s: FilterSoortVlucht, Passagierstart-Relatiestart", TijdStempel()));
 									
-									FilterArray.push(801);	// 801 = Passagierstart (kosten 40€)
+									FilterArray.push(801);	// 801 = Passagierstart (kosten 40ï¿½)
 									
 									if (CLUBKIST == '1')
 									{
@@ -1917,7 +1948,7 @@ Ext.StartlijstInvoerForm = function(){
 				var InvoerSoortVlucht = Ext.getCmp('StartInvoer_SoortVlucht');
 				var SoortVlucht = InvoerSoortVlucht.haalWaarde();
 				
-				if (SoortVlucht == "801")		// 801	Passagierstart (kosten 40€)
+				if (SoortVlucht == "801")		// 801	Passagierstart (kosten 40ï¿½)
 				{
 					pmeester = "if (record.data.LIDTYPE_ID == 612) return true;";   // 612 = 'Penningmeester'
 				}

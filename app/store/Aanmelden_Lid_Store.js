@@ -33,7 +33,7 @@ Ext.define('GeZC_StartAdministratie.store.Aanmelden_Lid_Store', {
             proxy: {
                 type: 'ajax',
                 simpleSortMode: true,
-                url: 'php/main.php?Action=Aanwezig.GetObjectByLidnrJSON',
+                url: 'php/main.php?Action=Aanwezig.LedenAanwezigJSON',
                 reader: {
                     type: 'json',
                     idProperty: 'ID',
@@ -68,6 +68,7 @@ Ext.define('GeZC_StartAdministratie.store.Aanmelden_Lid_Store', {
     },
 
     onJsonstoreLoad: function(store, records, successful, operation, eOpts) {
+        Ext.win.showLoading(false, store.storeId);	// verwijder window met melding van "ophalen data"
         // toon hoe veel tijd nodig is geweest voor het laden
         console.log(sprintf("%s: storeLoad storeId=%s processing time=%d msec", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));
 

@@ -82,7 +82,7 @@ Ext.define('GeZC_StartAdministratie.view.LedenTab', {
                                     if (appSettings.Aanwezigheid)
                                     {
                                         var ret= "<a href=javascript:AanmeldenLidWindow(" + record.data.ID + ");>";
-                                        ret = ret + "<IMG SRC='images/aanmelden.png' border=0></a>";
+                                        ret = ret + "<IMG SRC='images/persoon aanmelden.png' border=0></a>";
 
                                         metaData.tdAttr = 'data-qtip="' + record.data.NAAM + ' aanmelden voor vandaag."';
 
@@ -451,6 +451,7 @@ Ext.define('GeZC_StartAdministratie.view.LedenTab', {
     },
 
     onPanelActivateLeden: function(component, eOpts) {
+        Ext.getCmp('Leden.LedenFilter').setValue(true);
         InitStores();		// voor het geval dat de gebruiker eerder dit tab activeert dan dat de sores geladen zijn
 
         if (!Ext.Hoofdscherm.CalcLedenGrid())

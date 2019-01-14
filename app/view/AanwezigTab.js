@@ -99,14 +99,22 @@ Ext.define('GeZC_StartAdministratie.view.AanwezigTab', {
                             text: 'Opmerking',
                             flex: 4
                         }
-                    ]
+                    ],
+                    viewConfig: {
+                        listeners: {
+                            itemdblclick: {
+                                fn: me.onViewItemDblClick,
+                                scope: me
+                            }
+                        }
+                    }
                 }
             ],
             dockedItems: [
                 {
                     xtype: 'pagingtoolbar',
-                    dock: 'bottom',
                     flex: 1,
+                    dock: 'bottom',
                     height: 32,
                     id: 'Aanwezig_Bladwijzer',
                     afterPageText: 'van {0}',
@@ -221,6 +229,10 @@ Ext.define('GeZC_StartAdministratie.view.AanwezigTab', {
     processZoekenAanwezig: function(config) {
         config.plugins = ['clearbutton'];
         return config;
+    },
+
+    onViewItemDblClick: function(dataview, record, item, index, e, eOpts) {
+        Ext.Hoofdscherm.Aanwezig_GridviewItemDblClick(dataview, record, item, index, e, eOpts);
     },
 
     onButtonClick: function(button, e, eOpts) {

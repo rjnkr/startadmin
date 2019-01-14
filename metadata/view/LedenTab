@@ -160,7 +160,7 @@
                                     "    if (appSettings.Aanwezigheid)",
                                     "    {",
                                     "        var ret= \"<a href=javascript:AanmeldenLidWindow(\" + record.data.ID + \");>\";",
-                                    "        ret = ret + \"<IMG SRC='images/aanmelden.png' border=0></a>\";",
+                                    "        ret = ret + \"<IMG SRC='images/persoon aanmelden.png' border=0></a>\";",
                                     "",
                                     "        metaData.tdAttr = 'data-qtip=\"' + record.data.NAAM + ' aanmelden voor vandaag.\"';",
                                     "",
@@ -1207,6 +1207,7 @@
             "userConfig": {
                 "fn": "onPanelActivateLeden",
                 "implHandler": [
+                    "Ext.getCmp('Leden.LedenFilter').setValue(true);",
                     "InitStores();\t\t// voor het geval dat de gebruiker eerder dit tab activeert dan dat de sores geladen zijn",
                     "",
                     "if (!Ext.Hoofdscherm.CalcLedenGrid())",

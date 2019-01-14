@@ -388,7 +388,10 @@
 				}
 			}
 			
+			// Haal de info op uit de daginfo
 			$retVal = null;
+			$hierop = "1 AS HIEROP";
+			$condition = "";
 			if (array_key_exists('_:VliegtuigID', $this->qParams))
 			{
 				$VliegtuigId = $this->qParams['_:VliegtuigID'];
@@ -397,56 +400,56 @@
 				$rvObj = $rv->GetObject($VliegtuigId);
 
 				// Bouw de where conditie 
-				if ($rvObj == null)
+				if (isset($rvObj))
 				{
-					$condition = "";
-				}
-				else if ($rvObj[0]['CLUBKIST'] == 1)
-				{
-					// in aanwezigheid heeft de vlieger een voorkeur opgegeven op welk type hij/zij wil vliegen
-					$condition = sprintf(" AND (VOORKEUR_VLIEGTUIG_ID = %d OR VOORKEUR_VLIEGTUIG_TYPE LIKE CONCAT('%%',%d,'%%'))", $rvObj[0]['ID'], $rvObj[0]['TYPE_ID']);
-				}
-				else //prive kist
-				{
-					// wie heeft er vandaag op gevlogen of anders in de laatste 90 dagen
-					$query = sprintf("
-						 SELECT 
-							GROUP_CONCAT(L.VLIEGER_ID) AS VID
-						 FROM 
-							(
-								SELECT 
-									VLIEGER_ID 
-								FROM 
-									oper_startlijst 
-								WHERE 
-									((STARTTIJD IS NOT NULL) OR (DATEDIFF(now(),DATUM) = 0)) AND
-									DATEDIFF(now(),DATUM)  < 90 AND
-									VLIEGTUIG_ID = %d  
-								GROUP BY 
-									VLIEGER_ID
-								) AS L", $VliegtuigId);
-					parent::DbOpvraag($query);					
-					$a = parent::DbData();
-					
-					if ($a[0]['VID'] == null)
-						return;
+					if ($rvObj[0]['CLUBKIST'] == 1)
+					{
+						// in aanwezigheid heeft de vlieger een voorkeur opgegeven op welk type hij/zij wil vliegen
+						// HIEROP is 1 als er een match is, 0 als vlieger wel aanwezig is maar dit vliegtuig(type) niet wil vliegen
+						$hierop = sprintf("((VOORKEUR_VLIEGTUIG_ID = %d OR VOORKEUR_VLIEGTUIG_TYPE LIKE CONCAT('%%',%d,'%%')) is not null) AS HIEROP", $rvObj[0]['ID'], $rvObj[0]['TYPE_ID']);
+					}
+					else //prive kist
+					{
+						// wie heeft er vandaag op gevlogen of anders in de laatste 90 dagen
+						$query = sprintf("
+							SELECT 
+								GROUP_CONCAT(L.VLIEGER_ID) AS VID
+							FROM 
+								(
+									SELECT 
+										VLIEGER_ID 
+									FROM 
+										oper_startlijst 
+									WHERE 
+										((STARTTIJD IS NOT NULL) OR (DATEDIFF(now(),DATUM) = 0)) AND
+										DATEDIFF(now(),DATUM)  < 90 AND
+										VLIEGTUIG_ID = %d  
+									GROUP BY 
+										VLIEGER_ID
+									) AS L", $VliegtuigId);
+						parent::DbOpvraag($query);					
+						$a = parent::DbData();
 						
-					$condition = sprintf(" AND (L.ID IN (%s))", $a[0]['VID']);
+						if ($a[0]['VID'] == null)
+							return;
+							
+						$condition = sprintf(" AND (L.ID IN (%s))", $a[0]['VID']);
+					}
 				}
 				
 				// iedereen die aanwezig is, is een potentiele vlieger
-				$query = "
+				$query = sprintf ("
 					SELECT 
-						L.ID, L.NAAM
+						L.ID, 
+						L.NAAM,
+						LidVliegt(A.LID_ID) is not NULL AS VLIEGT,
+						%s
 					FROM 
 						oper_aanwezig AS A INNER JOIN
 						ref_leden AS L ON A.LID_ID = L.ID
-					WHERE (L.VERWIJDERD != 1 AND DATEDIFF(now(),DATUM)  < 90) ";
+					WHERE (L.VERWIJDERD != 1) ", $hierop);
 					
-				$where = "AND DATUM = cast(now() as date) AND 
-							AANKOMST IS NOT NULL AND VERTREK IS NULL AND
-							LidVliegt(A.LID_ID) IS NULL " ;	
-						
+				$where = "AND DATUM = cast(now() as date) AND VERTREK IS NULL";
 				
 				// Bekijk daginfo of we DDWV kun uitsluiten
 				$di = MaakObject('Daginfo');				
@@ -1264,7 +1267,7 @@
 		}	
 		
 	
-		// 801	Passagierstart (kosten 40€)
+		// 801	Passagierstart (kosten 40ï¿½)
 		// 802	Relatiestart
 		// 803	Zusterclub: 
 		// 804	Oprotkabel
@@ -1968,7 +1971,6 @@
 			$retValue['total'] = $total[0]['total'];
 			$retValue['data'] = parent::DbData();
 			return $retValue;
-
 		}
 	}
 ?>

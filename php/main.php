@@ -9,7 +9,6 @@ include('inc/startadmin.inc.php');
 //error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
 
-
 if(!empty($_GET)) 
 {
 	if (array_key_exists('Action', $_GET))	// we gaan een actie uitvoeren
@@ -22,13 +21,16 @@ if(!empty($_GET))
 			// Deze twee zijn gescheiden door een .
 			list($class, $method) = explode(".", $Action);
 			
-			if ($class != "Login")			// even controleren of de gebruiker wel toegang heeft	
-			{	
-				$l = MaakObject('Login');
-				$l->heeftToegang();			// het stopt hier als de gebruiker niet ingelogd is	
+			if ((ctype_alnum($class)) && (ctype_alnum($method)))   // in class en method mogen alleen maar A-Z voorkomen ivm php code inject un url
+			{
+				if ($class != "Login")			// even controleren of de gebruiker wel toegang heeft	
+				{	
+					$l = MaakObject('Login');
+					$l->heeftToegang();			// het stopt hier als de gebruiker niet ingelogd is	
+				}
+				$obj = MaakObject($class);	// Maak de class aan
+				eval("\$obj->$method();");	// voer de method uit
 			}
-			$obj = MaakObject($class);	// Maak de class aan
-			eval("\$obj->$method();");	// voer de method uit
 		}		
 	}
 	else if (array_key_exists('Config', $_GET))	// Vertel de client wat de configuratie is
@@ -46,10 +48,17 @@ if(!empty($_GET))
 	}
 	else if (array_key_exists('CommStatus', $_GET))	// De communicatie status wordt opgevraagd
 	{
+		// er is geen verbinding naar de database
+		$l = MaakObject('Login');
+		$l->heeftToegang();
+
 		$method = $_GET["CommStatus"];		// dit is altijd een argument in de url
 		
-		$obj = MaakObject('CommStatus');
-		eval("\$obj->$method();");
+		if (ctype_alnum($method))   // in method mogen alleen maar A-Z voorkomen ivm php code inject un url
+		{
+			$obj = MaakObject('CommStatus');
+			eval("\$obj->$method();");
+		}
 	}
 }
 ?>

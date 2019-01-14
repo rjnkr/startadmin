@@ -58,7 +58,7 @@ Ext.win = function(){
 			if (storeLoading.length > 0)
 				loadMask.show();				
 			else
-				loadMask.hide();				
+                loadMask.hide();
 		},
 		
 		// Laat de gebruiker zijn dat we data aan het opslaan zijn

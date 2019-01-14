@@ -1,0 +1,508 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "LidVandaagAanwezigWindow",
+        "designer|userClassName": "LidVandaagAanwezigWindow",
+        "frameHeader": false,
+        "modal": true,
+        "resizable": [
+            "false"
+        ],
+        "title": "Aanmelden vandaag",
+        "width": 414
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "frameHeader": "boolean",
+        "height": "auto",
+        "title": "string",
+        "trackResetOnLoad": "boolean",
+        "url": "string",
+        "width": "auto",
+        "modal": "boolean",
+        "resizable": "object"
+    },
+    "designerId": "13f3d921-94f4-4db1-98b1-daff97516775",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "baseCls": "title",
+                "cls": null,
+                "height": 48,
+                "id": "headerAanmelden",
+                "layout": "table",
+                "title": ""
+            },
+            "configAlternates": {
+                "baseCls": "string",
+                "cls": "string",
+                "height": "auto",
+                "layout": "string",
+                "title": "string",
+                "id": "string"
+            },
+            "name": "MyPanel2",
+            "designerId": "fe82b7ad-21b3-4036-9c7e-38a89117c7bb",
+            "cn": [
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": null,
+                        "src": "images/user_add.png",
+                        "width": null
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "src": "uri",
+                        "width": "auto"
+                    },
+                    "name": "MyImg2",
+                    "designerId": "5fcc73be-21ec-48c9-b380-430b16949da9"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": null,
+                        "cls": "titel",
+                        "dock": null,
+                        "frame": true,
+                        "id": "LidAanmelden_Titel",
+                        "padding": "10px",
+                        "text": "Aanmelden vandaag",
+                        "width": null
+                    },
+                    "configAlternates": {
+                        "border": "auto",
+                        "cls": "string",
+                        "dock": "string",
+                        "frame": "boolean",
+                        "id": "string",
+                        "padding": "auto",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyLabel2",
+                    "designerId": "1c6adb8d-4126-46ea-93df-dc6d050d57a8"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoRender": true,
+                "bodyPadding": 10,
+                "dock": null,
+                "height": "",
+                "id": "LidAanmeldInvoerForm",
+                "trackResetOnLoad": true,
+                "url": "php/main.php?Action=Aanwezig.AanmeldenLidJSON"
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "dock": "string",
+                "height": "auto",
+                "id": "string",
+                "layout": "string",
+                "trackResetOnLoad": "boolean",
+                "url": "string",
+                "autoRender": "boolean"
+            },
+            "name": "MyForm1",
+            "designerId": "2a105bac-18ec-431b-bbfe-5591e23dfb40",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "NAAM",
+                        "fieldLabel": "Vlieger",
+                        "id": "Aanmelden.VliegerCombobox",
+                        "labelAlign": "right",
+                        "labelWidth": 85,
+                        "name": "LID_ID",
+                        "queryMode": "local",
+                        "store": "Startlijst_Vlieger_Store",
+                        "valueField": "ID",
+                        "width": 335
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "width": "auto",
+                        "displayField": "datafield",
+                        "name": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox9",
+                    "designerId": "56785724-6234-4ade-849d-b8ca53655235",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onVliegerComboboxChange",
+                                "implHandler": [
+                                    "Ext.AanmeldenForm.onVliegerComboboxChange(field, newValue, oldValue, eOpts);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onVliegerComboboxChange",
+                            "designerId": "e9bed1e8-ca68-4261-9872-bfd1ade60af0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "REG_CALL",
+                        "fieldLabel": "Overland",
+                        "forceSelection": true,
+                        "id": "Aanwezig_InvoerVliegtuigID",
+                        "labelAlign": "right",
+                        "labelWidth": 85,
+                        "name": "VOORKEUR_VLIEGTUIG_ID",
+                        "queryMode": "local",
+                        "store": "Startlijst_Vliegtuigen_Store",
+                        "valueField": "ID",
+                        "width": 210
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "valueField": "datafield",
+                        "width": "auto",
+                        "name": "string",
+                        "id": "string"
+                    },
+                    "name": "MyComboBox7",
+                    "designerId": "51d36132-dc19-4203-b5de-e921d4b5d24c"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "LabelVliegtuigType",
+                        "text": "Vliegtuig type",
+                        "width": 85
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "width": "auto",
+                        "id": "string"
+                    },
+                    "name": "MyLabel",
+                    "designerId": "2a9ea20e-84c1-41d8-9e7f-0f2d00185f8d"
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyStyle": [
+                            "border: 0px;",
+                            ""
+                        ],
+                        "enableColumnHide": false,
+                        "enableColumnMove": false,
+                        "enableColumnResize": false,
+                        "frameHeader": false,
+                        "hideHeaders": true,
+                        "id": "Aanwezig_InvoerTypeVliegtuig",
+                        "minHeight": 100,
+                        "padding": "0 0 0 35",
+                        "scroll": "none",
+                        "sortableColumns": false,
+                        "store": "Types_VliegtuigType_Store"
+                    },
+                    "configAlternates": {
+                        "bodyStyle": "object",
+                        "enableColumnHide": "boolean",
+                        "enableColumnMove": "boolean",
+                        "enableColumnResize": "boolean",
+                        "frameHeader": "boolean",
+                        "sortableColumns": "boolean",
+                        "store": "store",
+                        "hideHeaders": "boolean",
+                        "minHeight": "number",
+                        "padding": "auto",
+                        "scroll": "string",
+                        "id": "string"
+                    },
+                    "name": "MyGridPanel2",
+                    "designerId": "c431bd13-70e2-45de-9d43-3178cc1031a4",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "AITV-grid",
+                                "dataIndex": "OMSCHRIJVING",
+                                "flex": 1,
+                                "hideable": false
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "hideable": "boolean",
+                                "cls": "string"
+                            },
+                            "name": "MyColumn90",
+                            "designerId": "4d433374-6ae1-4b3a-be73-3405b1e13f4a"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "AITV-grid",
+                                "margin": "0px 0px 0px 50px",
+                                "stripeRows": false
+                            },
+                            "configAlternates": {
+                                "cls": "string",
+                                "margin": "auto",
+                                "stripeRows": "boolean"
+                            },
+                            "name": "MyGridView2",
+                            "designerId": "2d27b055-82cb-466b-8e10-0ba4c84a01d8"
+                        },
+                        {
+                            "type": "Ext.selection.CheckboxModel",
+                            "reference": {
+                                "name": "selModel",
+                                "type": "object"
+                            },
+                            "codeClass": "Ext.selection.CheckboxModel",
+                            "name": "MyCheckboxSelectionModel",
+                            "designerId": "9a3b30c5-06ea-487f-9aa4-e6a6b802b608"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onAanwezigInvoerTypeVliegtuigSelectionChange",
+                                "implHandler": [
+                                    "Ext.AanmeldenForm.onStartInvoer_VliegtuigTypeSelectionChange(model, selected, eOpts);",
+                                    ""
+                                ],
+                                "name": "selectionchange",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onAanwezigInvoerTypeVliegtuigSelectionChange",
+                            "designerId": "0e664c79-2656-4681-a23f-44fdb11b3eb8"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Opmerkingen",
+                        "labelAlign": "right",
+                        "labelWidth": 85,
+                        "layout|anchor": "100%",
+                        "name": "OPMERKING",
+                        "width": 325
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "0ffaf491-af0c-4f74-8ed3-483961470649"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hidden": true,
+                        "hideLabel": true,
+                        "id": "Aanmelden_VliegtuigTypeID",
+                        "layout|anchor": "100%",
+                        "name": "VOORKEUR_VLIEGTUIG_TYPE",
+                        "readOnly": true
+                    },
+                    "configAlternates": {
+                        "disabled": "boolean",
+                        "hidden": "boolean",
+                        "hideLabel": "boolean",
+                        "id": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "readOnly": "boolean"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "09018b8b-829f-4d61-83d7-a62cd9520b63"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 40,
+                        "id": "Opslaan_AanwezigButton",
+                        "margin": "0px 285px",
+                        "text": "Opslaan",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "margin": "auto",
+                        "text": "string",
+                        "width": "auto",
+                        "id": "string"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "699e8057-482d-4504-a315-c10c13436def",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "Ext.AanmeldenForm.onButtonClick(button, e, eOpts);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "0778b191-d161-48f0-982e-ef94aa2250f1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "Ext.AanmeldenForm.onInvoerWindowShow(component, eOpts, this.ID, this.LID_ID);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onWindowShow",
+            "designerId": "c800099b-d15f-4de8-90c3-bc3949f89177"
+        }
+    ]
+}

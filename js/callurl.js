@@ -35,7 +35,7 @@ function AanmeldenLidWindow(LidID)
 		var title = lid.data.NAAM;
 	}
 	
-	var win = Ext.widget('LidVandaagAanwezigWindow', {'title': title, 'ID': LidID});
+	var win = Ext.widget('LidVandaagAanwezigWindow', {'title': title, 'LID_ID': LidID, 'ID': -1});
 	win.show();
 }
 		

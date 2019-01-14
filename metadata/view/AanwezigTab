@@ -1,0 +1,687 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "aanwezigtab",
+        "designer|userClassName": "AanwezigTab",
+        "height": 250,
+        "id": "AanwezigTab",
+        "layout": "vbox",
+        "title": "Aanwezig",
+        "width": 909
+    },
+    "configAlternates": {
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "id": "string",
+        "layout": "string",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "MyPanel1",
+    "designerId": "d8a7d66e-4a8c-45eb-9e97-bd5d6f5dcbc4",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 4,
+                "store": "Aanwezig_Leden_GridStore"
+            },
+            "configAlternates": {
+                "layout|flex": "number",
+                "store": "store"
+            },
+            "name": "MyGridPanel1",
+            "designerId": "18b3b8cd-9dab-4e3e-93eb-3aa9e744670e",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "NAAM",
+                        "text": "Naam",
+                        "width": 181
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn14",
+                    "designerId": "de6a3448-afff-4d5a-a0de-f89185092335"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "text": "Aantal starts",
+                        "width": 74
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn20",
+                    "designerId": "87b17882-7611-4c4e-bffa-d0a08722fc8c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VLIEGTIJD_VANDAAG",
+                        "text": "Vliegtijd vandaag"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string"
+                    },
+                    "name": "MyColumn22",
+                    "designerId": "c99fce81-6f42-4555-bf5d-0b47e1755d9e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ACTUELE_VLIEGTIJD",
+                        "text": "Vliegtijd",
+                        "width": 55
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn23",
+                    "designerId": "3fd4a693-c842-4570-9b0a-3111d9f65e54"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "WACHTTIJD",
+                        "text": "Wachttijd"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string"
+                    },
+                    "name": "MyColumn21",
+                    "designerId": "d4d03053-1fbf-4cbd-9a36-97d0f8573043"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VOLGEND_CALLSIGN",
+                        "text": "Ingedeeld",
+                        "width": 74
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn89",
+                    "designerId": "5ceab33b-58fd-4524-854b-158ca09a25ba"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VOORKEUR_TYPE",
+                        "text": "Voorkeur types",
+                        "width": 146
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn15",
+                    "designerId": "5dd50b65-2945-494e-ab75-185781da3e02"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "VOORKEUR_REGCALL",
+                        "text": "Voorkeur vliegtuig"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string"
+                    },
+                    "name": "MyColumn19",
+                    "designerId": "3d25c61a-4448-492c-9562-badd95cb3da9"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "OPMERKING",
+                        "flex": 4,
+                        "text": "Opmerking",
+                        "width": 288
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "flex": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn17",
+                    "designerId": "152908b4-05b9-441b-bc34-471f986249dd"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView1",
+                    "designerId": "f70ccf63-cbb0-4b97-9385-c9f9d16fbd90",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onViewItemDblClick",
+                                "implHandler": [
+                                    "Ext.Hoofdscherm.Aanwezig_GridviewItemDblClick(dataview, record, item, index, e, eOpts);"
+                                ],
+                                "name": "itemdblclick",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onViewItemDblClick",
+                            "designerId": "5c6eaea1-db63-4d43-a59e-06721f3d9f8d"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "afterPageText": "van {0}",
+                "beforePageText": "Pagina",
+                "displayInfo": true,
+                "displayMsg": "Weergave {0} - {1} tot {2}",
+                "dock": "bottom",
+                "emptyMsg": "Geen data aanwezig",
+                "firstText": "Eerste pagina",
+                "height": 32,
+                "id": "Aanwezig_Bladwijzer",
+                "lastText": "Laatste pagina",
+                "layout|flex": 1,
+                "nextText": "Volgende pagina",
+                "prevText": "Vorige pagina",
+                "refreshText": "Verversen",
+                "store": "Aanwezig_Leden_GridStore",
+                "width": null
+            },
+            "configAlternates": {
+                "afterPageText": "string",
+                "beforePageText": "string",
+                "displayInfo": "boolean",
+                "displayMsg": "string",
+                "dock": "string",
+                "emptyMsg": "string",
+                "firstText": "string",
+                "height": "auto",
+                "id": "string",
+                "lastText": "string",
+                "nextText": "string",
+                "prevText": "string",
+                "refreshText": "string",
+                "store": "store",
+                "width": "auto",
+                "layout|flex": "number"
+            },
+            "name": "MyPagingToolbar1",
+            "designerId": "63519cf3-9c3c-4bf5-8b32-2fa6999a2893"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "layout|flex": 1
+            },
+            "configAlternates": {
+                "dock": "string",
+                "layout|flex": "number"
+            },
+            "name": "MyToolbar1",
+            "designerId": "1af5647d-f1bf-4040-b3d8-1c2b50b403a7",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "images/add.gif",
+                        "layout|flex": null,
+                        "text": "Toevoegen"
+                    },
+                    "configAlternates": {
+                        "icon": "string",
+                        "layout|flex": "number",
+                        "text": "string"
+                    },
+                    "name": "MyButton3",
+                    "designerId": "3aa9982c-ee41-466b-baff-d4ce024aeaf6",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "AanmeldenLidWindow(-1);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "ff1a45a7-087d-4fa0-b062-88e4602defe0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Zoeken",
+                        "id": "ZoekenAanwezig",
+                        "labelAlign": "right",
+                        "layout|flex": null,
+                        "maxWidth": 300,
+                        "vtype": null
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "layout|flex": "number",
+                        "maxWidth": "number",
+                        "vtype": "string"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "ecc8a7b8-ad74-4b72-8271-dd8e6d45534f",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onZoekenAanwezigRender",
+                                "implHandler": [
+                                    "Ext.QuickTips.register({",
+                                    "    target: component.getEl(),",
+                                    "    text: 'Zoek een naam in de lijst.'",
+                                    "});"
+                                ],
+                                "name": "render",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onZoekenAanwezigRender",
+                            "designerId": "b151b655-4211-49ec-bf5f-92ffbcff78a9"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "Aanwezig_ZoekenChange",
+                                "implHandler": [
+                                    "Ext.Hoofdscherm.Aanwezig_ZoekenChange(field, newValue, oldValue, eOpts);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "Aanwezig_ZoekenChange",
+                            "designerId": "04479e52-f35c-497e-99e5-ee5b56b4c759"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "fn": "processZoekenAanwezig",
+                                "implHandler": [
+                                    "config.plugins = ['clearbutton']; \r",
+                                    "return config; "
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "processZoekenAanwezig",
+                            "designerId": "3293178a-a260-4bfc-939f-4f1843b28405"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "width": 30
+                    },
+                    "configAlternates": {
+                        "layout|flex": "number",
+                        "width": "auto"
+                    },
+                    "name": "MySpacer1",
+                    "designerId": "6c4f85af-b7e3-4490-b3ed-360f1ddd8784"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Instructeurs",
+                        "fieldLabel": "",
+                        "id": "Aanwezig.InstructeurFilter",
+                        "layout|flex": null,
+                        "width": 100
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "layout|flex": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyCheckbox6",
+                    "designerId": "01691115-2a96-4aa4-87f9-cebf0fb92509",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "buffer": 500,
+                                "delay": 500,
+                                "fn": "Aanwezig_InstructeurFilterChange",
+                                "implHandler": [
+                                    "Ext.Hoofdscherm.Aanwezig_InstructeurFilterChange(field, newValue, oldValue, eOpts);",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "buffer": "number",
+                                "delay": "number",
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "Aanwezig_InstructeurFilterChange",
+                            "designerId": "0b3812cc-2e30-400f-b30b-8f039a636ba3"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Lieristen",
+                        "fieldLabel": "",
+                        "id": "Aanwezig.LieristFilter",
+                        "layout|flex": null,
+                        "width": 100
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "layout|flex": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyCheckbox7",
+                    "designerId": "86fabb8f-fbf1-4c8a-9c66-a711233aa295",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "buffer": 500,
+                                "delay": 500,
+                                "fn": "Aanwezig_LieristFilterChange",
+                                "implHandler": [
+                                    "Ext.Hoofdscherm.Aanwezig_LieristFilterChange(field, newValue, oldValue, eOpts);",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "buffer": "number",
+                                "delay": "number",
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "Aanwezig_LieristFilterChange",
+                            "designerId": "2b3c5b06-4759-4ed7-a7a2-841c48f4a88b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Startleiders",
+                        "fieldLabel": "",
+                        "id": "Aanwezig.StartleiderFilter",
+                        "labelWidth": 0,
+                        "layout|flex": null,
+                        "width": 100
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelWidth": "number",
+                        "layout|flex": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyCheckbox8",
+                    "designerId": "ffdf6658-8ca6-4152-b2d2-3ba7f9cc2ea5",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "buffer": 500,
+                                "delay": 500,
+                                "fn": "Aanwezig_StartleiderFilterChange",
+                                "implHandler": [
+                                    "Ext.Hoofdscherm.Aanwezig_StartleiderFilterChange(field, newValue, oldValue, eOpts);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "buffer": "number",
+                                "delay": "number",
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "Aanwezig_StartleiderFilterChange",
+                            "designerId": "8729ae10-2bf1-42ed-805d-f3e3bc4b2c62"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelActivate",
+                "implHandler": [
+                    "Ext.data.StoreManager.lookup('Aanwezig_Leden_GridStore').slimLaden();",
+                    ""
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onPanelActivate",
+            "designerId": "ad3a393f-6bcc-42c1-8df7-88b7a6316bab"
+        }
+    ]
+}

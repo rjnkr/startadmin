@@ -31,7 +31,7 @@
             "userConfig": {
                 "headers": null,
                 "simpleSortMode": true,
-                "url": "php/main.php?Action=Aanwezig.GetObjectByLidnrJSON"
+                "url": "php/main.php?Action=Aanwezig.LedenAanwezigJSON"
             },
             "configAlternates": {
                 "headers": "object",
@@ -119,8 +119,9 @@
             "userConfig": {
                 "fn": "onJsonstoreLoad",
                 "implHandler": [
-                    "// toon hoe veel tijd nodig is geweest voor het laden \r",
-                    "console.log(sprintf(\"%s: storeLoad storeId=%s processing time=%d msec\", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));\t\r",
+                    "Ext.win.showLoading(false, store.storeId);\t// verwijder window met melding van \"ophalen data\"",
+                    "// toon hoe veel tijd nodig is geweest voor het laden",
+                    "console.log(sprintf(\"%s: storeLoad storeId=%s processing time=%d msec\", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));",
                     ""
                 ],
                 "name": "load",

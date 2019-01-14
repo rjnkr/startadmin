@@ -28,6 +28,7 @@ Ext.define('GeZC_StartAdministratie.view.StartInvoerWindow', {
         'Ext.grid.column.Column',
         'Ext.grid.View',
         'Ext.selection.CheckboxModel',
+        'Ext.form.field.Checkbox',
         'Ext.form.field.Hidden'
     ],
 
@@ -333,6 +334,23 @@ Ext.define('GeZC_StartAdministratie.view.StartInvoerWindow', {
                                     id: 'PapierenControle',
                                     width: 16,
                                     src: 'images/alert.gif'
+                                },
+                                {
+                                    xtype: 'checkboxfield',
+                                    x: 410,
+                                    id: 'StartInvoer_AlleenAanwezig',
+                                    submitValue: false,
+                                    validateOnChange: false,
+                                    listeners: {
+                                        change: {
+                                            fn: me.onStartInvoer_AlleenAanwezigChange,
+                                            scope: me
+                                        },
+                                        render: {
+                                            fn: me.onStartInvoer_AlleenAanwezigRender,
+                                            scope: me
+                                        }
+                                    }
                                 }
                             ]
                         },
@@ -721,7 +739,7 @@ Ext.define('GeZC_StartAdministratie.view.StartInvoerWindow', {
         Ext.QuickTips.register({
             target: component.getEl(),
             dismissDelay: 10000, // Hide after 10 seconds hover
-            text: 'Vul hier de gezagvoerder in uit het ledenbestand. <hr>Alternatief : Kies de naam van een zusterclub als een kist van de ander club start. Gebruik "Oprotkabel" voor een gestande vlieger.'
+            text: 'Vul hier de gezagvoerder in uit het ledenbestand. <hr>Alternatief : Kies de naam van een zusterclub als een kist van de ander club start. Gebruik "-Nieuw lid" voor vliegers die niet bekend zijn. Vul dan wel het OPMERKING veld.'
         });
     },
 
@@ -730,6 +748,18 @@ Ext.define('GeZC_StartAdministratie.view.StartInvoerWindow', {
         {
             Ext.StartlijstInvoerForm.onEnter();
         }
+    },
+
+    onStartInvoer_AlleenAanwezigChange: function(field, newValue, oldValue, eOpts) {
+        Ext.StartlijstInvoerForm.onStartInvoer_AlleenAanwezigChange(field, newValue, oldValue, eOpts);
+    },
+
+    onStartInvoer_AlleenAanwezigRender: function(component, eOpts) {
+        Ext.QuickTips.register({
+            target: component.getEl(),
+            dismissDelay: 10000, // Hide after 10 seconds hover
+            text: 'Indien aangevinkt, dan alleen aanwezige leden. Alle leden, wanneer vinkje uit staat.'
+        });
     },
 
     onStartInvoer_GezagvoerderNaamSpecialkey: function(field, e, eOpts) {

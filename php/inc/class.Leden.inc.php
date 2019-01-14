@@ -622,6 +622,29 @@
 			Debug(__FILE__, __LINE__, sprintf("LIDTYPE_ID=%s isVliegendLid=%s", $records[0]['LIDTYPE_ID'], $retVal));
 			return $retVal;			
 		}
+
+		function isDDWV($id)
+		{
+			Debug(__FILE__, __LINE__, sprintf("Leden.isClubVlieger(%s)", $id));	
+			
+			$retVal = false;
+			$query = sprintf("
+				SELECT
+					LIDTYPE_ID
+				FROM
+					ref_leden
+				WHERE
+					ID = '%d'", $id);
+					
+			parent::DbOpvraag($query);
+			$records = parent::DbData();
+			
+			if ($records[0]['LIDTYPE_ID'] == "625")        // 625 = DDWV
+				$retVal = true;
+				
+			Debug(__FILE__, __LINE__, sprintf("LIDTYPE_ID=%s isDDWV=%s", $records[0]['LIDTYPE_ID'], $retVal));
+			return $retVal;			
+		}		
 		
 		// Zoek welke leden het best overeenkomen met de ingegeven naar. 
 		function ZoekBesteLid($naam, &$records)
