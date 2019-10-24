@@ -14,6 +14,15 @@
         "title": "Logboek",
         "width": 581
     },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "id": "string",
+        "layout": "string",
+        "title": "string",
+        "width": "auto"
+    },
     "name": "MyWindow",
     "designerId": "3be0aba5-4155-4e9a-a7f1-36e5f62f37e0",
     "cn": [
@@ -27,6 +36,10 @@
             "userConfig": {
                 "store": "VliegtuigLogboek_Store",
                 "title": null
+            },
+            "configAlternates": {
+                "store": "store",
+                "title": "string"
             },
             "name": "MyGridPanel8",
             "designerId": "1e530add-c310-46c6-9cd7-b48155e973ab",
@@ -51,6 +64,9 @@
                     "userConfig": {
                         "dock": "bottom"
                     },
+                    "configAlternates": {
+                        "dock": "string"
+                    },
                     "name": "MyToolbar7",
                     "designerId": "94f914f5-b2bb-425f-a81f-7d130fbf2521",
                     "cn": [
@@ -69,6 +85,14 @@
                                 "layout|flex": null,
                                 "width": 150
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|flex": "number",
+                                "width": "auto"
+                            },
                             "name": "MyDateField",
                             "designerId": "0b44eb8d-9032-4215-b879-cf0b4358125b",
                             "cn": [
@@ -86,6 +110,12 @@
                                         ],
                                         "name": "change",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onLogboekDatumVanafChange",
                                     "designerId": "c14691f2-2c15-48eb-8a68-3abd4c0b6e72"
@@ -107,6 +137,14 @@
                                 "layout|flex": null,
                                 "width": 150
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|flex": "number",
+                                "width": "auto"
+                            },
                             "name": "MyDateField1",
                             "designerId": "05cf7a26-1a44-4eb9-a803-7a71c8245884",
                             "cn": [
@@ -125,6 +163,12 @@
                                         "name": "change",
                                         "scope": "me"
                                     },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
                                     "name": "onLogboekDatumTotChange",
                                     "designerId": "9e4c2e5a-ab07-47d0-8c19-d242b8fbdc98"
                                 }
@@ -142,6 +186,11 @@
                                 "id": "LogboekVliegtuigID",
                                 "layout|flex": null
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "layout|flex": "number"
+                            },
                             "name": "MyHiddenField3",
                             "designerId": "8c2ad7c8-f20e-4601-93b0-591c3e77c33b"
                         },
@@ -154,6 +203,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": 1
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
                             },
                             "name": "MySplitter",
                             "designerId": "c6798b51-6836-41db-9a4c-0c5c37acb487"
@@ -170,6 +222,12 @@
                                 "layout|flex": null,
                                 "text": "Totaal",
                                 "width": 75
+                            },
+                            "configAlternates": {
+                                "icon": "string",
+                                "layout|flex": "number",
+                                "text": "string",
+                                "width": "auto"
                             },
                             "name": "MyButton",
                             "designerId": "4431b63b-7239-47c5-a862-6111e3c7f8e3",
@@ -207,6 +265,12 @@
                                         "name": "click",
                                         "scope": "me"
                                     },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
                                     "name": "onButtonClick",
                                     "designerId": "35520e58-e31c-4c60-b93f-0ab1f586e4c2"
                                 }
@@ -225,6 +289,10 @@
                         "dataIndex": "DATUM",
                         "text": "Datum"
                     },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string"
+                    },
                     "name": "MyColumn70",
                     "designerId": "fb4d02e3-0bf5-40d3-9274-61d4d96de627"
                 },
@@ -240,6 +308,11 @@
                         "format": "0",
                         "text": "Totaal starts"
                     },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "format": "string",
+                        "text": "string"
+                    },
                     "name": "MyNumberColumn",
                     "designerId": "4c90a435-ac36-479e-9650-e858e6d8b1fb"
                 },
@@ -253,6 +326,10 @@
                     "userConfig": {
                         "dataIndex": "LIERSTARTS",
                         "text": "Lier starts"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string"
                     },
                     "name": "MyColumn68",
                     "designerId": "c7b55df7-a2f0-40bc-8dfc-d51259d36271",
@@ -282,6 +359,11 @@
                                     "    return value;"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "a5451f98-1301-4967-8979-683e1f168a1c"
                         }
@@ -297,6 +379,10 @@
                     "userConfig": {
                         "dataIndex": "SLEEPSTARTS",
                         "text": "Sleep starts"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string"
                     },
                     "name": "MyColumn66",
                     "designerId": "d76b62bb-6995-4c13-8988-8133dfe8b180",
@@ -326,6 +412,11 @@
                                     "    return value;"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "bd7a233e-562a-4643-9340-4c261d8783a9"
                         }
@@ -341,6 +432,10 @@
                     "userConfig": {
                         "dataIndex": "VLIEGTIJD",
                         "text": "Vliegtijd"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string"
                     },
                     "name": "MyColumn67",
                     "designerId": "2c515805-94ed-4c64-b2cb-54abbada4fe3",
@@ -367,6 +462,11 @@
                                     "return value.substring(0,5);"
                                 ]
                             },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
                             "name": "renderer",
                             "designerId": "e5cacd1e-9c8e-4667-abfa-5e8a80345d6b"
                         }
@@ -389,6 +489,12 @@
                 ],
                 "name": "afterrender",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onLogboekWindowAfterRender",
             "designerId": "4a481b2f-353a-4148-8624-5a1edbaf6499"

@@ -39,7 +39,6 @@
             "codeClass": null,
             "userConfig": {
                 "bodyPadding": 10,
-                "disabled": true,
                 "frameHeader": false,
                 "height": 393,
                 "id": "DaginfoForm",
@@ -1073,13 +1072,14 @@
                     "designerId": "cb813259-4c90-41d9-b5da-22bbb8fa748f",
                     "cn": [
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.ComboBox",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "displayField": "NAAM",
                                 "enableKeyEvents": null,
                                 "fieldLabel": "DDI",
                                 "formBind": null,
@@ -1090,6 +1090,8 @@
                                 "msgTarget": "side",
                                 "name": "OCHTEND_DDI",
                                 "selectOnFocus": true,
+                                "store": "DagInfo_Instructeurs_Store",
+                                "valueField": "ID",
                                 "width": 300
                             },
                             "configAlternates": {
@@ -1103,9 +1105,12 @@
                                 "msgTarget": "string",
                                 "name": "string",
                                 "selectOnFocus": "boolean",
-                                "width": "auto"
+                                "width": "auto",
+                                "displayField": "datafield",
+                                "store": "store",
+                                "valueField": "datafield"
                             },
-                            "name": "MyTextField3",
+                            "name": "MyComboBox7",
                             "designerId": "327f87b3-6021-41e6-abfe-c4f2282e3783",
                             "cn": [
                                 {
@@ -1135,23 +1140,26 @@
                             ]
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.ComboBox",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "displayField": "NAAM",
                                 "fieldLabel": "Instructeur",
                                 "formBind": null,
                                 "id": "TextboxInfoOchtendInstructeur",
                                 "labelAlign": "right",
                                 "labelWidth": 75,
-                                "layout|x": 300,
-                                "layout|y": 10,
+                                "layout|x": -4,
+                                "layout|y": 40,
                                 "msgTarget": "side",
                                 "name": "OCHTEND_INSTRUCTEUR",
                                 "selectOnFocus": true,
+                                "store": "DagInfo_Instructeurs_Store",
+                                "valueField": "ID",
                                 "width": 275
                             },
                             "configAlternates": {
@@ -1165,9 +1173,12 @@
                                 "msgTarget": "string",
                                 "name": "string",
                                 "selectOnFocus": "boolean",
-                                "width": "auto"
+                                "width": "auto",
+                                "displayField": "datafield",
+                                "store": "store",
+                                "valueField": "datafield"
                             },
-                            "name": "MyTextField4",
+                            "name": "MyComboBox8",
                             "designerId": "8ca7ebf3-83b7-4b4c-91fb-4f8779795307",
                             "cn": [
                                 {
@@ -1208,8 +1219,8 @@
                                 "fieldLabel": "Lierist",
                                 "id": "TextboxInfoOchtendLierist",
                                 "labelAlign": "right",
-                                "layout|x": -29,
-                                "layout|y": 40,
+                                "layout|x": 275,
+                                "layout|y": 10,
                                 "msgTarget": "side",
                                 "name": "OCHTEND_LIERIST",
                                 "selectOnFocus": true,
@@ -1318,13 +1329,14 @@
                             ]
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.ComboBox",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "displayField": "NAAM",
                                 "fieldLabel": "Startleider",
                                 "id": "TextboxInfoOchtendStartleider",
                                 "labelAlign": "right",
@@ -1333,6 +1345,8 @@
                                 "msgTarget": "side",
                                 "name": "OCHTEND_STARTLEIDER",
                                 "selectOnFocus": true,
+                                "store": "DagInfo_Startleiders_Store",
+                                "valueField": "ID",
                                 "width": 300
                             },
                             "configAlternates": {
@@ -1344,9 +1358,12 @@
                                 "msgTarget": "string",
                                 "name": "string",
                                 "selectOnFocus": "boolean",
-                                "width": "auto"
+                                "width": "auto",
+                                "displayField": "datafield",
+                                "store": "store",
+                                "valueField": "datafield"
                             },
-                            "name": "MyTextField7",
+                            "name": "MyComboBox9",
                             "designerId": "7505e1db-f1e4-40b0-909f-186c0663bcf6",
                             "cn": [
                                 {
@@ -1387,7 +1404,6 @@
                     "userConfig": {
                         "designer|snapToGrid": 10,
                         "height": 130,
-                        "hidden": true,
                         "id": "Daginfo_MiddagContainer",
                         "layout": "absolute",
                         "margin": 10,
@@ -1408,13 +1424,14 @@
                     "designerId": "df805227-74df-4650-8b44-48c402d1882f",
                     "cn": [
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.ComboBox",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "displayField": "NAAM",
                                 "fieldLabel": "DDI",
                                 "id": "TextboxInfoMiddagDDI",
                                 "labelAlign": "right",
@@ -1423,6 +1440,8 @@
                                 "msgTarget": "side",
                                 "name": "MIDDAG_DDI",
                                 "selectOnFocus": true,
+                                "store": "DagInfo_Instructeurs_Store",
+                                "valueField": "ID",
                                 "width": 300
                             },
                             "configAlternates": {
@@ -1434,9 +1453,12 @@
                                 "msgTarget": "string",
                                 "name": "string",
                                 "selectOnFocus": "boolean",
-                                "width": "auto"
+                                "width": "auto",
+                                "displayField": "datafield",
+                                "store": "store",
+                                "valueField": "datafield"
                             },
-                            "name": "MyTextField8",
+                            "name": "MyComboBox10",
                             "designerId": "ca5ef25d-fbdf-4da0-890d-80ceb8fced22",
                             "cn": [
                                 {
@@ -1466,22 +1488,25 @@
                             ]
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.ComboBox",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "displayField": "NAAM",
                                 "fieldLabel": "Instructeur",
                                 "id": "TextboxInfoMiddagInstructeur",
                                 "labelAlign": "right",
                                 "labelWidth": 75,
-                                "layout|x": 300,
-                                "layout|y": 10,
+                                "layout|x": -3,
+                                "layout|y": 40,
                                 "msgTarget": "side",
                                 "name": "MIDDAG_INSTRUCTEUR",
                                 "selectOnFocus": true,
+                                "store": "DagInfo_Instructeurs_Store",
+                                "valueField": "ID",
                                 "width": 275
                             },
                             "configAlternates": {
@@ -1494,9 +1519,12 @@
                                 "msgTarget": "string",
                                 "name": "string",
                                 "selectOnFocus": "boolean",
-                                "width": "auto"
+                                "width": "auto",
+                                "displayField": "datafield",
+                                "store": "store",
+                                "valueField": "datafield"
                             },
-                            "name": "MyTextField9",
+                            "name": "MyComboBox11",
                             "designerId": "43bcf43f-a732-4b50-8164-dd971b3fdce8",
                             "cn": [
                                 {
@@ -1536,8 +1564,8 @@
                                 "fieldLabel": "Lierist",
                                 "id": "TextboxInfoMiddagLierist",
                                 "labelAlign": "right",
-                                "layout|x": -28,
-                                "layout|y": 40,
+                                "layout|x": 275,
+                                "layout|y": 10,
                                 "msgTarget": "side",
                                 "name": "MIDDAG_LIERIST",
                                 "selectOnFocus": true,
@@ -1644,13 +1672,14 @@
                             ]
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.ComboBox",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "displayField": "NAAM",
                                 "fieldLabel": "Startleider",
                                 "id": "TextboxInfoMiddagStartleider",
                                 "labelAlign": "right",
@@ -1659,6 +1688,8 @@
                                 "msgTarget": "side",
                                 "name": "MIDDAG_STARTLEIDER",
                                 "selectOnFocus": true,
+                                "store": "DagInfo_Startleiders_Store",
+                                "valueField": "ID",
                                 "width": 300
                             },
                             "configAlternates": {
@@ -1670,9 +1701,12 @@
                                 "msgTarget": "string",
                                 "name": "string",
                                 "selectOnFocus": "boolean",
-                                "width": "auto"
+                                "width": "auto",
+                                "displayField": "datafield",
+                                "store": "store",
+                                "valueField": "datafield"
                             },
-                            "name": "MyTextField12",
+                            "name": "MyComboBox12",
                             "designerId": "f5fee5d7-984d-4e02-9bce-6f9a67dbe5e9",
                             "cn": [
                                 {

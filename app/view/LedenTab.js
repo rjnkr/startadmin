@@ -28,6 +28,7 @@ Ext.define('GeZC_StartAdministratie.view.LedenTab', {
         'Ext.form.field.Checkbox'
     ],
 
+    id: 'LedenTab',
     title: 'Leden',
 
     layout: {

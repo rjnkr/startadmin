@@ -1,0 +1,146 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoSync": true,
+        "designer|userClassName": "DagInfo_Startleiders_Store",
+        "model": "LedenAanwezig_Model",
+        "remoteSort": true,
+        "storeId": "DagInfo_Startleiders_Store"
+    },
+    "configAlternates": {
+        "autoSync": "boolean",
+        "designer|userClassName": "string",
+        "model": "model",
+        "remoteSort": "boolean",
+        "storeId": "string"
+    },
+    "name": "DagInfo_Instructeurs_Store1",
+    "designerId": "ba0b60e7-9c74-4c50-bbad-2f24359a25a6",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": null,
+                "simpleSortMode": true,
+                "url": "php/main.php?Action=Leden.LedenlijstKortJSON&_:startleiders=true"
+            },
+            "configAlternates": {
+                "extraParams": "object",
+                "simpleSortMode": "boolean",
+                "url": "string"
+            },
+            "name": "MyAjaxProxy20",
+            "designerId": "5686a0ee-4eef-4b3c-978f-ce91a86a51c1",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "idProperty": "ID",
+                        "root": "results"
+                    },
+                    "configAlternates": {
+                        "idProperty": "string",
+                        "root": "string"
+                    },
+                    "name": "MyJsonReader20",
+                    "designerId": "9074f2fb-a936-4274-9184-b94115409cde"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onAjaxproxyException",
+                        "implHandler": [
+                            "HandleStoreLoadException(proxy, response, operation, eOpts);\t// toon de gebruiker dat er een fout is opgetreden"
+                        ],
+                        "name": "exception",
+                        "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
+                    "name": "onAjaxproxyException",
+                    "designerId": "2710321e-145c-4867-9b35-819b3190c72b"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreLoad",
+                "implHandler": [
+                    "Ext.win.showLoading(false, store.storeId);\t// verwijder window met melding van \"ophalen data\"\r",
+                    "\r",
+                    "// toon hoe veel tijd nodig is geweest voor het laden \r",
+                    "console.log(sprintf(\"%s: storeLoad storeId=%s processing time=%d msec\", TijdStempel(), store.storeId, (new Date().getTime() - Ext.data.storeLoadStart[store.storeId])));\t\r",
+                    "\r",
+                    "this.laatsteAanpassingOpslaan();\r",
+                    "\r",
+                    "Ext.StartlijstInvoerForm.Copy_Vlieger_OpRekening_Store();\r",
+                    "Ext.StartlijstInvoerForm.Copy_Vlieger_Inzittende_Store();"
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onJsonstoreLoad",
+            "designerId": "f8c0401d-4a11-4b73-b274-9ec791958d46"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreBeforeLoad",
+                "implHandler": [
+                    "Ext.data.storeLoadStart[store.storeId] = new Date().getTime();\t// zet een begintijd om de performance te meten"
+                ],
+                "name": "beforeload",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onJsonstoreBeforeLoad",
+            "designerId": "e60787c6-293e-483e-84bf-090276f6ce95"
+        }
+    ]
+}

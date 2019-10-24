@@ -8,6 +8,9 @@
     "userConfig": {
         "designer|userClassName": "StartLijstVoorFlarm_Model"
     },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
     "designerId": "14aa88cd-703b-4ed8-b4da-d9535916d29b",
     "cn": [
         {
@@ -19,6 +22,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "VLIEGTUIG_ID"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField128",
             "designerId": "c1a75ba1-8517-40ac-9cf5-6039b00685f2"
@@ -33,6 +39,9 @@
             "userConfig": {
                 "name": "DAGNUMMER"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField129",
             "designerId": "590a6310-de3f-4fe4-acff-8b14589b68c3"
         },
@@ -45,6 +54,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "REG_CALL"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField130",
             "designerId": "bd11e94f-2090-4187-82a9-57a56c86bcc2"
@@ -59,6 +71,9 @@
             "userConfig": {
                 "name": "STARTTIJD"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField131",
             "designerId": "355abf76-bb11-4ca3-a725-8a1853ee6f34"
         },
@@ -71,6 +86,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "LANDINGSTIJD"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField132",
             "designerId": "dc0d748a-2551-4108-95d6-ceed3f3f45c5"

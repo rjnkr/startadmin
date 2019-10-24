@@ -27,6 +27,26 @@
         "width": 395,
         "x": null
     },
+    "configAlternates": {
+        "bodyBorder": "boolean",
+        "border": "auto",
+        "cls": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "frameHeader": "boolean",
+        "headerPosition": "string",
+        "height": "auto",
+        "id": "string",
+        "layout": "string",
+        "margin": "auto",
+        "modal": "boolean",
+        "plain": "boolean",
+        "style": "object",
+        "title": "string",
+        "titleCollapse": "boolean",
+        "width": "auto",
+        "x": "number"
+    },
     "designerId": "c20889bb-eb65-4a67-b582-2787952e2d2e",
     "cn": [
         {
@@ -52,6 +72,22 @@
                 "titleCollapse": true,
                 "width": null
             },
+            "configAlternates": {
+                "baseCls": "string",
+                "bodyBorder": "boolean",
+                "bodyPadding": "auto",
+                "border": "auto",
+                "cls": "string",
+                "container|align": "string",
+                "frame": "boolean",
+                "frameHeader": "boolean",
+                "height": "auto",
+                "id": "string",
+                "layout": "string",
+                "title": "string",
+                "titleCollapse": "boolean",
+                "width": "auto"
+            },
             "name": "MyForm12",
             "designerId": "329a0024-bb25-45a1-904e-c15658962da2",
             "cn": [
@@ -76,6 +112,18 @@
                         "title": null,
                         "width": 125
                     },
+                    "configAlternates": {
+                        "bodyStyle": "object",
+                        "designer|snapToGrid": "number",
+                        "frameHeader": "boolean",
+                        "hideCollapseTool": "boolean",
+                        "id": "string",
+                        "layout": "string",
+                        "overlapHeader": "boolean",
+                        "preventHeader": "boolean",
+                        "title": "string",
+                        "width": "auto"
+                    },
                     "name": "MyPanel28",
                     "designerId": "36f4784b-7a26-4571-8297-9d5152d6f185",
                     "cn": [
@@ -98,6 +146,16 @@
                                 ],
                                 "text": "Vliegtuig:",
                                 "width": 100
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "formBind": "boolean",
+                                "frame": "boolean",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "style": "object",
+                                "text": "string",
+                                "width": "auto"
                             },
                             "name": "MyLabel4",
                             "designerId": "06bd8749-2b58-4e0d-894a-6b7b51516d77"
@@ -122,6 +180,16 @@
                                 "text": "Startmethode:",
                                 "width": 100
                             },
+                            "configAlternates": {
+                                "dock": "string",
+                                "formBind": "boolean",
+                                "frame": "boolean",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "style": "object",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyLabel5",
                             "designerId": "34061697-3ac2-4351-8467-30d643063d08"
                         },
@@ -144,6 +212,16 @@
                                 ],
                                 "text": "Voorin:",
                                 "width": 100
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "formBind": "boolean",
+                                "frame": "boolean",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "style": "object",
+                                "text": "string",
+                                "width": "auto"
                             },
                             "name": "MyLabel6",
                             "designerId": "71db990d-8399-4b17-aa10-8600c492f8a0"
@@ -168,6 +246,16 @@
                                 "text": "Achterin:",
                                 "width": 100
                             },
+                            "configAlternates": {
+                                "dock": "string",
+                                "formBind": "boolean",
+                                "frame": "boolean",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "style": "object",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyLabel7",
                             "designerId": "2c21821e-74ff-4dc8-a599-06f5aef54f54"
                         },
@@ -190,6 +278,16 @@
                                 ],
                                 "text": "Soort vlucht:",
                                 "width": 100
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "formBind": "boolean",
+                                "frame": "boolean",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "style": "object",
+                                "text": "string",
+                                "width": "auto"
                             },
                             "name": "MyLabel8",
                             "designerId": "8987ab7e-954d-45a3-9c10-73a287b9b310"
@@ -214,6 +312,16 @@
                                 "text": "Op rekening:",
                                 "width": 100
                             },
+                            "configAlternates": {
+                                "dock": "string",
+                                "formBind": "boolean",
+                                "frame": "boolean",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "style": "object",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyLabel9",
                             "designerId": "1286e829-9d95-479e-b563-39b00f7f97c7"
                         }
@@ -237,6 +345,16 @@
                         "layout": "absolute",
                         "title": null,
                         "width": 260
+                    },
+                    "configAlternates": {
+                        "bodyStyle": "object",
+                        "designer|snapToGrid": "number",
+                        "frameHeader": "boolean",
+                        "height": "auto",
+                        "id": "string",
+                        "layout": "string",
+                        "title": "string",
+                        "width": "auto"
                     },
                     "name": "MyPanel29",
                     "designerId": "ebdeb27c-29e2-4dc3-90e2-bafb5de3c6e0",
@@ -263,6 +381,21 @@
                                 "readOnly": true,
                                 "width": 200
                             },
+                            "configAlternates": {
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "fieldStyle": "string",
+                                "hideEmptyLabel": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "readOnly": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField41",
                             "designerId": "75eaa114-7d93-4c0f-91b6-c915b3099953"
                         },
@@ -286,6 +419,20 @@
                                 "name": "STARTMETHODE_OMS",
                                 "readOnly": true,
                                 "width": 230
+                            },
+                            "configAlternates": {
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "fieldStyle": "string",
+                                "hideEmptyLabel": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "readOnly": "boolean",
+                                "width": "auto"
                             },
                             "name": "MyTextField42",
                             "designerId": "3f4de806-601d-449d-907e-f39a811aba33"
@@ -313,6 +460,22 @@
                                 "readOnly": true,
                                 "width": 200
                             },
+                            "configAlternates": {
+                                "cls": "string",
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "fieldStyle": "string",
+                                "hideEmptyLabel": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "readOnly": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField43",
                             "designerId": "914dfe31-d9d0-43d7-99aa-589c96a126c9",
                             "cn": [
@@ -331,6 +494,11 @@
                                         "implHandler": [
                                             "return Ext.StartlijstDetailWindow.ValiderenVlieger(value);"
                                         ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
                                     },
                                     "name": "validator",
                                     "designerId": "344147f1-d992-4422-a148-e624993253a8"
@@ -359,6 +527,21 @@
                                 "readOnly": true,
                                 "width": 200
                             },
+                            "configAlternates": {
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "fieldStyle": "string",
+                                "hideEmptyLabel": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "readOnly": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField44",
                             "designerId": "6afc6ff0-bded-4a2c-ab17-5a9200568671",
                             "cn": [
@@ -377,6 +560,11 @@
                                         "implHandler": [
                                             "return Ext.StartlijstDetailWindow.ValiderenInzittende(value);"
                                         ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
                                     },
                                     "name": "validator",
                                     "designerId": "d792e5dc-ee19-454e-a908-d35ae46aa31d"
@@ -404,6 +592,20 @@
                                 "readOnly": true,
                                 "width": 230
                             },
+                            "configAlternates": {
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "fieldStyle": "string",
+                                "hideEmptyLabel": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "readOnly": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField45",
                             "designerId": "864ea9e9-fd44-49d3-851a-18bbbea28514"
                         },
@@ -429,6 +631,21 @@
                                 "readOnly": true,
                                 "width": 200
                             },
+                            "configAlternates": {
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "fieldStyle": "string",
+                                "hideEmptyLabel": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "readOnly": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField46",
                             "designerId": "dcf2f4f4-a08f-4d94-96bc-dd1f948f5a09",
                             "cn": [
@@ -447,6 +664,11 @@
                                         "implHandler": [
                                             "return Ext.StartlijstDetailWindow.ValiderenOpRekening(value);"
                                         ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
                                     },
                                     "name": "validator",
                                     "designerId": "f51a85a2-8b93-43b9-96b6-806c7a39e1a3"
@@ -467,6 +689,13 @@
                                 "layout|y": 220,
                                 "text": "Wijzig"
                             },
+                            "configAlternates": {
+                                "hidden": "boolean",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string"
+                            },
                             "name": "MyButton40",
                             "designerId": "7d7ad64f-fb67-45b6-8c33-e7fc45b33246",
                             "cn": [
@@ -484,6 +713,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonClick",
                                     "designerId": "68891130-8a02-4ece-8921-6d0d18405586"
@@ -505,6 +740,14 @@
                                 "layout|y": 70,
                                 "text": ""
                             },
+                            "configAlternates": {
+                                "hidden": "boolean",
+                                "icon": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string"
+                            },
                             "name": "MyButton41",
                             "designerId": "fa47bb11-6cd4-4975-a5a9-b321386aa6be",
                             "cn": [
@@ -522,6 +765,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onStartDetailsEditVliegerClick",
                                     "designerId": "777f22ad-5ba8-4297-a333-ec4461d7bd0a"
@@ -543,6 +792,14 @@
                                 "layout|y": 100,
                                 "text": ""
                             },
+                            "configAlternates": {
+                                "hidden": "boolean",
+                                "icon": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string"
+                            },
                             "name": "MyButton42",
                             "designerId": "c4ee0d60-3c05-4d00-9e02-6e255f63f972",
                             "cn": [
@@ -560,6 +817,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onStartDetailsEditInzittendeClick",
                                     "designerId": "7cb4b58e-e41b-4d46-be2c-61a58e0b7997"
@@ -581,6 +844,14 @@
                                 "layout|y": 160,
                                 "text": ""
                             },
+                            "configAlternates": {
+                                "hidden": "boolean",
+                                "icon": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string"
+                            },
                             "name": "MyButton43",
                             "designerId": "06cd4838-ef66-4562-8418-76303db072d2",
                             "cn": [
@@ -598,6 +869,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onStartDetailsEditOpRekeningClick",
                                     "designerId": "4f534ab8-e675-4206-a6c2-1c4922398200"
@@ -619,6 +896,14 @@
                                 "src": "images/seat.png",
                                 "width": 16
                             },
+                            "configAlternates": {
+                                "height": "auto",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "src": "uri",
+                                "width": "auto"
+                            },
                             "name": "MyImg4",
                             "designerId": "7e5e3685-2dca-4b2e-a572-d4dd3f6fdd5f"
                         },
@@ -638,6 +923,15 @@
                                 "src": "images/seat.png",
                                 "width": 16
                             },
+                            "configAlternates": {
+                                "height": "auto",
+                                "hidden": "boolean",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "src": "uri",
+                                "width": "auto"
+                            },
                             "name": "MyImg5",
                             "designerId": "e10096de-d8a3-4b45-ad88-05c6b79fdd64"
                         },
@@ -652,6 +946,11 @@
                                 "fieldLabel": "Label",
                                 "id": "StartDetailsZitplaatsen",
                                 "name": "ZITPLAATSEN"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
                             },
                             "name": "MyHiddenField14",
                             "designerId": "977c5a95-b500-4057-9654-e6b3ecbed07e"
@@ -668,6 +967,11 @@
                                 "id": "StartDetailsZelfstart",
                                 "name": "ZELFSTART"
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
+                            },
                             "name": "MyHiddenField15",
                             "designerId": "a80355b7-5f91-4226-8c3c-1607fc4505da"
                         },
@@ -682,6 +986,11 @@
                                 "fieldLabel": "Label",
                                 "id": "StartDetailsOpRekeningType",
                                 "name": "LEDEN_OPREKENING_OMS"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
                             },
                             "name": "MyHiddenField16",
                             "designerId": "9a420bc1-7c41-47a4-89a8-36a9c4572d36"
@@ -698,6 +1007,11 @@
                                 "id": "StartDetailsVliegerType",
                                 "name": "LEDEN_VLIEGER_OMS"
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
+                            },
                             "name": "MyHiddenField17",
                             "designerId": "a1e366f0-afd4-434f-b9b8-79b7ea913d45"
                         },
@@ -712,6 +1026,11 @@
                                 "fieldLabel": "Label",
                                 "id": "StartDetailsInzittendeType",
                                 "name": "LEDEN_INZITTENDE_OMS"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
                             },
                             "name": "MyHiddenField18",
                             "designerId": "ed5448f3-020b-4964-9544-3c0c9a667990"
@@ -728,6 +1047,11 @@
                                 "id": "StartDetailsVliegerAlert",
                                 "name": "VliegerAlert"
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
+                            },
                             "name": "MyHiddenField19",
                             "designerId": "5f670f4a-ef01-4636-a565-dd860caa1eba"
                         },
@@ -742,6 +1066,11 @@
                                 "fieldLabel": "Label",
                                 "id": "StartDetailsOpRekeningAlert",
                                 "name": "OpRekeningAlert"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
                             },
                             "name": "MyHiddenField20",
                             "designerId": "b1a22c1e-d655-45f8-b953-bfc086a52b56"
@@ -758,6 +1087,11 @@
                                 "id": "StartDetailsID",
                                 "name": "ID"
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
+                            },
                             "name": "MyHiddenField21",
                             "designerId": "a1cff7f6-b2b5-48dd-9cf5-e62f9ad4ec70"
                         },
@@ -772,6 +1106,11 @@
                                 "fieldLabel": "Label",
                                 "id": "StartDetailsInzittendeID",
                                 "name": "InzittendeID"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
                             },
                             "name": "MyHiddenField22",
                             "designerId": "414c82b1-af68-49e5-8b04-94eae512a3c6"
@@ -788,6 +1127,11 @@
                                 "id": "StartDetailsOpRekeningID",
                                 "name": "OpRekeningID"
                             },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
+                            },
                             "name": "MyHiddenField23",
                             "designerId": "ccff4048-7bdd-4b7e-9902-00b0e1678fc7"
                         },
@@ -802,6 +1146,11 @@
                                 "fieldLabel": "Label",
                                 "id": "StartDetailsInzittendeAlert",
                                 "name": "InzittendeAlert"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "name": "string"
                             },
                             "name": "MyHiddenField24",
                             "designerId": "c972d91f-23a6-4663-bb4d-11a15b6f5740"
@@ -818,6 +1167,12 @@
                                 "id": "StartDetailsVliegerID",
                                 "inputId": null,
                                 "name": "VliegerID"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "inputId": "string",
+                                "name": "string"
                             },
                             "name": "MyHiddenField25",
                             "designerId": "60cbdce5-c3ac-49b5-a9b9-efc08859bf05"
@@ -840,6 +1195,12 @@
                 ],
                 "name": "show",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onWindowShow",
             "designerId": "c56d288e-3bd8-4883-923f-d265a124170e"

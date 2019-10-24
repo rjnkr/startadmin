@@ -43,6 +43,15 @@
 				}					
 			}	
 			
+			$in = false;
+			if (array_key_exists('_:in', $this->qParams))
+			{
+				if (strlen(trim($this->qParams['_:in'])) > 0)
+				{
+					$in = true;
+				}
+			}
+			
 			if (array_key_exists('_:query', $this->qParams))
 			{
 				if (strlen(trim($this->qParams['_:query'])) > 0)
@@ -51,17 +60,25 @@
 					$where = $where . "  OR (CALLSIGN LIKE ('%%" . trim($this->qParams['_:query']) . "%%'))) ";
 				}
 			}
+			$clubkist = false;
 			if (array_key_exists('_:clubkist', $this->qParams))
 			{
 				if ($this->qParams['_:clubkist'] == 'true')
-					$where = $where . " AND CLUBKIST='" . $this->qParams['_:clubkist'] . "'";
+					$clubkist = true;
 			}
 			if (array_key_exists('_:flarm', $this->qParams))
 			{
 				$where = $where . " AND FLARM_CODE IS NOT NULL";
-			}			
+			}	
 
-			$orderby = " ORDER BY CLUBKIST DESC, REGISTRATIE";
+			if (($clubkist == true) && ($in == true))
+				$where = $where . sprintf(" AND (CLUBKIST='true' OR ID IN(%s))",$this->qParams['_:in']);
+			else if (($clubkist == true) && ($in == false))	
+				$where = $where . " AND CLUBKIST='true'";
+			else if (($clubkist == false) && ($in == true))	
+				$where = $where . sprintf(" AND ID IN(%s)", $this->qParams['_:in']);
+				
+			$orderby = " ORDER BY CLUBKIST DESC, VOLGORDE, REGISTRATIE";
 			if ((array_key_exists('sort', $this->Data)) && (array_key_exists('dir', $this->Data)))
 			{
 				$orderby = sprintf(" ORDER BY %s %s ", $this->Data['sort'], $this->Data['dir']);

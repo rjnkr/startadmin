@@ -8,6 +8,65 @@
 			$this->dbTable = "ref_leden";
 		}
 		
+		function getLedenJSON()
+		{
+{
+			Debug(__FILE__, __LINE__, "Leden.GetObjectsCompleteJSON()");	
+			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));	
+			Debug(__FILE__, __LINE__, sprintf("qParams=%s", print_r($this->qParams, true)));	
+			
+			// 600 = Diverse (Bijvoorbeeld bedrijven- of jongerendag)
+			// 607 = Zusterclub
+			// 609 = Nieuw lid
+			// 612 = Penningmeester			
+			
+			$where = ' WHERE ID > 500 AND LIDTYPE_ID NOT IN (600, 607, 609, 612) ';
+
+			if (array_key_exists('_:toonDDWV', $this->qParams))
+			{
+				if ($this->qParams['_:toonDDWV'] == "false")
+					$where = $where . " AND LIDTYPE_ID != 625 ";  // 625 = DDWV'er
+			}
+			else
+			{
+				$where = $where . " AND LIDTYPE_ID != 625 ";  // 625 = DDWV'er
+			}
+			
+			$orderby = " ORDER BY ACHTERNAAM";	
+			
+			$query = "
+				SELECT 
+					%s
+				FROM
+					ledenlijst_view" . $where . $orderby;
+			
+			if (array_key_exists('_:LAATSTE_AANPASSING', $this->qParams))
+			{
+				$query  = sprintf($query, "MAX(LAATSTE_AANPASSING) AS LAATSTE_AANPASSING");
+				$la = $this->LaatsteAanpassing($query);
+				Debug(__FILE__, __LINE__, sprintf("LAATSTE_AANPASSING=%s", $la));	
+				echo $la;
+			}
+			else
+			{
+				$rquery = sprintf($query, "COUNT(*) AS total");
+				parent::DbOpvraag($rquery);
+				$total = parent::DbData();		// total amount of records in the database
+								
+				$limit = "";
+				if (array_key_exists('limit', $this->Data))
+				{
+					$limit = sprintf(" LIMIT %d , %d ", $this->Data['start'], $this->Data['limit']);
+				}			
+				$rquery = sprintf($query, "ID, NAAM, LIDNR, LIDTYPE, EMAIL, AVATAR, TELEFOON, NOODNUMMER, MOBIEL, INSTRUCTEUR, STARTLEIDER, HEEFT_BETAALD, AANWEZIG, LIERIST") . $limit;
+				parent::DbOpvraag($rquery);
+				
+				//Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));
+				echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';
+			}
+		}			
+		}
+		
 		// -------------------------------------------------------------------------------------------------------------------------
 		// JSON opvraag functies
 		
@@ -324,7 +383,7 @@
 				FROM  
 					ledenlijst_view AS L 
 				WHERE
-					1=1 AND %s
+					%s
 				ORDER BY NAAM";
 
 			$where = "1=1 ";
@@ -339,6 +398,22 @@
 					$where = "LIDTYPE_ID != 625 ";		// alleen clubbedrijf = geen ddwv vliegers (625)
 				}
 			}
+
+			if (array_key_exists('_:instructeurs', $this->qParams))
+			{
+				if ($this->qParams['_:instructeurs'] == 'true')
+					$where = $where . " AND INSTRUCTEUR='1'";
+			}
+			if (array_key_exists('_:lieristen', $this->qParams))
+			{
+				if ($this->qParams['_:lieristen'] == 'true')
+					$where = $where ." AND LIERIST='true'";
+			}
+			if (array_key_exists('_:startleiders', $this->qParams))
+			{
+				if ($this->qParams['_:startleiders'] == 'true')
+					$where = $where . " AND STARTLEIDER='1'";
+			}				
 			
 			if (array_key_exists('_:LAATSTE_AANPASSING', $this->qParams))
 			{
@@ -574,7 +649,7 @@
 				FROM
 					ref_leden
 				WHERE
-					INLOGNAAM = '%s'", $loginnaam);
+					INLOGNAAM = '%s' AND VERWIJDERD != 1", $loginnaam);
 					
 			parent::DbOpvraag($query);
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));
@@ -590,7 +665,7 @@
 				FROM
 					ref_leden
 				WHERE
-					LIDNR = '%s'", $lidnr);
+					LIDNR = '%s' AND VERWIJDERD != 1", $lidnr);
 					
 			parent::DbOpvraag($query);
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));

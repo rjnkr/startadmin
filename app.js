@@ -81,7 +81,9 @@ Ext.application({
         'StartLijst_VliegtuigenTreeview_Store',
         'VliegtuigLogboek_Store',
         'Export_GridStore',
-        'ControleStartlijstTijdelijk_Store'
+        'ControleStartlijstTijdelijk_Store',
+        'DagInfo_Instructeurs_Store',
+        'DagInfo_Startleiders_Store'
     ],
     views: [
         'WorkspaceStartAdmin',

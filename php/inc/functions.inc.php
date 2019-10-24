@@ -7,17 +7,17 @@ define('phpTab', "\t");
 	// Instanteer een class, maar laad het php bestand eerst
 	if (!function_exists('MaakObject'))
 	{
-			function MaakObject($className)
+		function MaakObject($className)
+		{
+			$includedChk = sprintf('%s_PHP_INCLUDED', strtoupper($className));
+			if (!IsSet($GLOBALS[$includedChk]))
 			{
-				$includedChk = sprintf('%s_PHP_INCLUDED', strtoupper($className));
-				if (!IsSet($GLOBALS[$includedChk]))
-				{
-						include_once('inc/class.' . $className . '.inc.php');
-						$GLOBALS[$includedChk] = 1;
-				}
-				$obj = new $className;
-				return $obj;
+				include_once('inc/class.' . $className . '.inc.php');
+				$GLOBALS[$includedChk] = 1;
 			}
+			$obj = new $className;
+			return $obj;
+		}
 	}
 
 	// De debug functie, schrijft niets als de globale setting UIT staat

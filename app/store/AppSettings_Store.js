@@ -98,6 +98,7 @@ Ext.define('GeZC_StartAdministratie.store.AppSettings_Store', {
                 Ext.getCmp('ButtonVerwijderenVliegtuig').hide();
 
                 h.child('#AanwezigTab').tab.hide();
+                h.child('#LedenTab').tab.hide();
             }
             else
             {
@@ -113,6 +114,7 @@ Ext.define('GeZC_StartAdministratie.store.AppSettings_Store', {
                 Ext.getCmp('ButtonVerwijderenVliegtuig').show();
 
                 h.child('#AanwezigTab').tab.show();
+                h.child('#LedenTab').tab.show();
             }
 
             if ((appSettings.isBeheerder) || (appSettings.isBeheerderDDWV))

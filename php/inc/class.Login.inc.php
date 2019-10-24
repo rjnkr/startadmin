@@ -1,4 +1,6 @@
 <?php
+require ("inc/PasswordHash.php");
+
 	class Login extends StartAdmin
 	{
 		private $_userID = null;			// Wie is er ingelogd
@@ -29,6 +31,7 @@
 				session_start();
 
 			$_SESSION['login']= $id;
+			$this->_userID = $id;
 			//session_write_close();
 		}
 
@@ -199,6 +202,39 @@
 			
 			$di = MaakObject('Daginfo');				
 			$diObj = $di->GetObject(false, $datum);
+
+			if (isset($diObj[0]['OCHTEND_DDI']))
+			{
+				if ($this->getUserFromSession() == $diObj[0]['OCHTEND_DDI']) 
+				{
+					Debug(__FILE__, __LINE__, sprintf("%d is ochtend DDI, return true", $this->getUserFromSession() ));
+					return true;
+				}
+			}
+			if (isset($diObj[0]['MIDDAG_DDI']))
+			{
+				if ($this->getUserFromSession() == $diObj[0]['MIDDAG_DDI'])
+				{
+					Debug(__FILE__, __LINE__, sprintf("%d is middag DDI, return true", $this->getUserFromSession() ));
+					return true;
+				}
+			}	
+			if (isset($diObj[0]['OCHTEND_INSTRUCTEUR']))
+			{
+				if ($this->getUserFromSession() == $diObj[0]['OCHTEND_INSTRUCTEUR']) 
+				{
+					Debug(__FILE__, __LINE__, sprintf("%d is ochtend instructeur, return true", $this->getUserFromSession() ));
+					return true;
+				}
+			}
+			if (isset($diObj[0]['MIDDAG_INSTRUCTEUR']))
+			{
+				if ($this->getUserFromSession() == $diObj[0]['MIDDAG_INSTRUCTEUR'])
+				{
+					Debug(__FILE__, __LINE__, sprintf("%d is middag instructeur, return true", $this->getUserFromSession() ));
+					return true;
+				}
+			}			
 			
 			$rooster = MaakObject('Rooster');				
 			$roosterObj = $rooster->GetObject($datum);		
@@ -244,6 +280,23 @@
 						
 			$di = MaakObject('Daginfo');				
 			$diObj = $di->GetObject(false, $datum);
+
+			if (isset($diObj[0]['OCHTEND_STARTLEIDER']))
+			{
+				if ($this->getUserFromSession() == $diObj[0]['OCHTEND_STARTLEIDER']) 
+				{
+					Debug(__FILE__, __LINE__, sprintf("%d is ochtend startleider, return true", $this->getUserFromSession() ));
+					return true;
+				}
+			}
+			if (isset($diObj[0]['MIDDAG_STARTLEIDER']))
+			{
+				if ($this->getUserFromSession() == $diObj[0]['MIDDAG_STARTLEIDER'])
+				{
+					Debug(__FILE__, __LINE__, sprintf("%d is middag startleider, return true", $this->getUserFromSession() ));
+					return true;
+				}
+			}			
 			
 			$rooster = MaakObject('Rooster');				
 			$roosterObj = $rooster->GetObject($datum);		
@@ -312,8 +365,9 @@
 		{		
 			global $app_settings;
 			global $sync_account;
+			global $sa_account;
 			
-			Debug(__FILE__, __LINE__, sprintf("verkrijgToegang(%s, %s)", $username, "????"));
+			Debug(__FILE__, __LINE__, sprintf("verkrijgToegang(%s, %s)", $username, "???"));
 			
 			if (($username == null) || ($password == null))
 			{				
@@ -330,6 +384,8 @@
 					$this->toegangGeweigerd();
 				}
 			}
+
+			Debug(__FILE__, __LINE__, sprintf("verkrijgToegang(%s, %s)", $username, $password));
 						
 			if ($username == $sync_account['username'])
 			{	
@@ -337,11 +393,21 @@
 								
 				if ($serverkey == $password)
 				{
-					Debug(__FILE__, __LINE__, sprintf("Sync account = true)", $username));
+					Debug(__FILE__, __LINE__, sprintf("Sync account = true", $username));
 					$this->setSessionUser("-1");	// -1 geeft aan dat het een sync account is	
 					return;
 				}
-				Debug(__FILE__, __LINE__, sprintf("Sync account = false)", $username));
+				Debug(__FILE__, __LINE__, sprintf("Sync account = false", $username));
+			}
+			else if ($username == $sa_account['username'])
+			{									
+				if ($sa_account['password'] == $password)
+				{
+					Debug(__FILE__, __LINE__, sprintf("sa account = true", $username));
+					$this->setSessionUser('strip');	
+					return;
+				}
+				Debug(__FILE__, __LINE__, sprintf("sa account = false", $username));
 			}
 			else
 			{
@@ -357,12 +423,27 @@
 						return;												
 					}
 
-					$key = sha1(strtolower ($username) . $password);
-					if ($lObj[0]['WACHTWOORD'] == $key)	
-					{		
-						Debug(__FILE__, __LINE__, sprintf("Toegang toegestaan (%s)", $username));	
-						$this->setSessionUser($lObj[0]['ID']);	
-						return;
+					if ($lObj[0]['LIDTYPE_ID'] == "625")			// 625 = DDWV
+					{
+						$phpass = new PasswordHash(10, true);
+						$ok= $phpass->CheckPassword($password, $lObj[0]['WACHTWOORD']);
+						
+						if($ok == true)
+						{
+							Debug(__FILE__, __LINE__, sprintf("Toegang toegestaan DDWV (%s)", $username));	
+							$this->setSessionUser($lObj[0]['ID']);	
+							return;							
+						}
+					}
+					else
+					{
+						$key = sha1(strtolower ($username) . $password);
+						if ($lObj[0]['WACHTWOORD'] == $key)	
+						{		
+							Debug(__FILE__, __LINE__, sprintf("Toegang toegestaan (%s)", $username));	
+							$this->setSessionUser($lObj[0]['ID']);	
+							return;
+						}
 					}
 				}
 			}

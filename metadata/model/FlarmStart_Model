@@ -9,6 +9,10 @@
         "designer|userClassName": "FlarmStart_Model",
         "idProperty": "ID"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
     "designerId": "d36dd04d-9392-4fde-b846-696741602e1c",
     "cn": [
         {
@@ -20,6 +24,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "ID"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField120",
             "designerId": "b753642a-2eaa-434f-b66a-377cb044b28f"
@@ -34,6 +41,9 @@
             "userConfig": {
                 "name": "DATUM"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField121",
             "designerId": "6f507f2a-c933-4d69-8ff2-758b5b46433b"
         },
@@ -46,6 +56,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "REG_CALL"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField122",
             "designerId": "03f6ddb1-2ab4-456d-8136-41e00c07fd4e"
@@ -60,6 +73,9 @@
             "userConfig": {
                 "name": "FLARM_CODE"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField123",
             "designerId": "e0810cca-30b4-431d-8bce-63c9b7f04f35"
         },
@@ -72,6 +88,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "STARTTIJD"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField124",
             "designerId": "c7148f9f-ccad-4d69-babc-f33a925af618"
@@ -86,6 +105,9 @@
             "userConfig": {
                 "name": "LANDINGSTIJD"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField125",
             "designerId": "ab3dd138-147b-41dd-8fcd-30017b9372c4"
         },
@@ -99,6 +121,9 @@
             "userConfig": {
                 "name": "VLIEGTUIG_ID"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField126",
             "designerId": "a15575f2-0b9f-46d7-b9fd-5ed74dd295dd"
         },
@@ -111,6 +136,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "BAAN"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField127",
             "designerId": "c61aad66-9315-4fab-8eaf-d655ebbab30b"

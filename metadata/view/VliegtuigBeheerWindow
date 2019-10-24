@@ -17,6 +17,16 @@
         "title": "Vliegtuig beheer",
         "width": 350
     },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "id": "string",
+        "modal": "boolean",
+        "resizable": "object",
+        "title": "string",
+        "width": "auto"
+    },
     "designerId": "80b86a11-18c7-4761-b30f-2d032c37d4fd",
     "cn": [
         {
@@ -37,6 +47,15 @@
                 "margin": null,
                 "title": ""
             },
+            "configAlternates": {
+                "baseCls": "string",
+                "cls": "string",
+                "defaults": "object",
+                "height": "auto",
+                "layout": "string",
+                "margin": "auto",
+                "title": "string"
+            },
             "name": "MyPanel19",
             "designerId": "1848726d-5101-4663-aab4-b428a3d0ed9e",
             "cn": [
@@ -51,6 +70,11 @@
                         "height": null,
                         "src": "images/glider_add.png",
                         "width": null
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "src": "uri",
+                        "width": "auto"
                     },
                     "name": "MyImg1",
                     "designerId": "e3a0a8bf-6df5-42a6-a3c6-9eb62e323f12"
@@ -72,6 +96,16 @@
                         "text": "Nieuw vliegtuig",
                         "width": null
                     },
+                    "configAlternates": {
+                        "border": "auto",
+                        "cls": "string",
+                        "dock": "string",
+                        "frame": "boolean",
+                        "id": "string",
+                        "padding": "auto",
+                        "text": "string",
+                        "width": "auto"
+                    },
                     "name": "MyLabel",
                     "designerId": "9b0c2fe1-01cd-414d-95d9-8c3310cf8c36"
                 }
@@ -92,6 +126,12 @@
                 "name": "show",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onVliegtuigBeheerWindowShow",
             "designerId": "6c7a39e0-9149-4386-9634-2b11f13d84fe"
         },
@@ -109,6 +149,13 @@
                 "trackResetOnLoad": true,
                 "url": "php/main.php?Action=Vliegtuigen.SaveObject"
             },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "id": "string",
+                "title": "string",
+                "trackResetOnLoad": "boolean",
+                "url": "string"
+            },
             "name": "MyForm1",
             "designerId": "5b7a0038-40a8-43fd-8bea-424b07b287d0",
             "cn": [
@@ -123,6 +170,11 @@
                         "fieldLabel": "Label",
                         "layout|anchor": "100%",
                         "name": "ID"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
                     },
                     "name": "MyHiddenField2",
                     "designerId": "670ae414-314b-4f55-b3a5-fd66b9d96a14"
@@ -152,6 +204,24 @@
                         "regexText": "Het formaat van de registratie klopt niet.",
                         "width": 180
                     },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "blankText": "string",
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "maxLengthText": "string",
+                        "minLength": "number",
+                        "minLengthText": "string",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "regex": "regex",
+                        "regexText": "string",
+                        "width": "auto"
+                    },
                     "name": "MyTextField16",
                     "designerId": "287d1895-b260-434b-8c33-3acb811c2421",
                     "cn": [
@@ -169,6 +239,12 @@
                                 ],
                                 "name": "change",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onVliegtuigBeheer_RegistratieChange",
                             "designerId": "8e954ad2-f78e-40f9-adbd-932917a83a7e"
@@ -190,6 +266,11 @@
                                     "config.plugins = ['clearbutton']; \r",
                                     "return config; "
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "processVliegtuigBeheer_Registratie",
                             "designerId": "5b1ce41b-b1d0-444e-9367-2b3a7951c40a"
@@ -217,6 +298,20 @@
                         "regexText": "Het formaat van het callsign klopt niet.",
                         "width": 160
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "maxLengthText": "string",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "regex": "regex",
+                        "regexText": "string",
+                        "width": "auto"
+                    },
                     "name": "MyTextField17",
                     "designerId": "b6761ac7-4fc2-495e-9a4e-2fce7776b370",
                     "cn": [
@@ -234,6 +329,12 @@
                                 ],
                                 "name": "change",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onVliegtuigBeheer_CallsignChange",
                             "designerId": "149f98f2-2b10-4b4e-9df7-8b46fdd52b94"
@@ -255,6 +356,11 @@
                                     "config.plugins = ['clearbutton']; \r",
                                     "return config; "
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "processVliegtuigBeheer_Callsign",
                             "designerId": "259b6cb7-c7b6-4b43-9454-7d479d7f4661"
@@ -290,6 +396,28 @@
                         "negativeText": "De waarde mag niet negatief zijn",
                         "width": 140
                     },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "blankText": "string",
+                        "decimalPrecision": "number",
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "inputType": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "maxLengthText": "string",
+                        "maxText": "string",
+                        "maxValue": "number",
+                        "minText": "string",
+                        "minValue": "number",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "nanText": "string",
+                        "negativeText": "string",
+                        "width": "auto"
+                    },
                     "name": "MyNumberField",
                     "designerId": "17095e73-eef9-4abb-b1c7-58ef53e197df"
                 },
@@ -312,6 +440,18 @@
                         "name": "FLARM_CODE",
                         "width": 160
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "maxLengthText": "string",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "width": "auto"
+                    },
                     "name": "MyTextField18",
                     "designerId": "b8dd73c4-f9a4-4ef6-8eb7-03a24a21d9df",
                     "cn": [
@@ -332,6 +472,11 @@
                                     "config.plugins = ['clearbutton']; \r",
                                     "return config; "
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "processVliegtuigBeheer_Flarmcode",
                             "designerId": "dc543dd6-c838-45c1-b936-8fa08f6aecdc"
@@ -358,6 +503,19 @@
                         "name": "CLUBKIST",
                         "uncheckedValue": "0"
                     },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "hideLabel": "boolean",
+                        "id": "string",
+                        "inputValue": "string",
+                        "labelSeparator": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "margin": "auto",
+                        "name": "string",
+                        "uncheckedValue": "string"
+                    },
                     "name": "MyCheckbox5",
                     "designerId": "fc2423e2-7c69-4f08-877b-209b11593603",
                     "cn": [
@@ -376,6 +534,12 @@
                                 ],
                                 "name": "change",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onVliegtuigBeheer_ClubkistChange",
                             "designerId": "64305435-6740-4d24-8f6c-0d423afa7b23"
@@ -402,6 +566,19 @@
                         "store": "Types_VliegtuigType_Store",
                         "valueField": "ID"
                     },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "margin": "auto",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "valueField": "datafield"
+                    },
                     "name": "MyComboBox7",
                     "designerId": "230506e7-5cf3-4da8-bf31-6e882eb5888a",
                     "cn": [
@@ -420,6 +597,11 @@
                                 "implHandler": [
                                     "return Ext.VliegtuigBeheer.ValiderenVliegtuigType();"
                                 ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
                             },
                             "name": "validator",
                             "designerId": "5564a53c-a240-4a1a-9e24-fb7ee9708b81"
@@ -446,6 +628,19 @@
                         "name": "ZELFSTART",
                         "uncheckedValue": "0"
                     },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "hideLabel": "boolean",
+                        "id": "string",
+                        "inputValue": "string",
+                        "labelSeparator": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "margin": "auto",
+                        "name": "string",
+                        "uncheckedValue": "string"
+                    },
                     "name": "MyCheckbox6",
                     "designerId": "23acf592-0c8d-4318-af87-64903e534d7d",
                     "cn": [
@@ -463,6 +658,12 @@
                                 ],
                                 "name": "change",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onVliegtuigBeheer_ZelfstarterChange",
                             "designerId": "c03a8efc-deaf-4e56-94fd-c015f9bca7fe"
@@ -489,6 +690,19 @@
                         "name": "TMG",
                         "uncheckedValue": "0"
                     },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "hideLabel": "boolean",
+                        "id": "string",
+                        "inputValue": "string",
+                        "labelSeparator": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "margin": "auto",
+                        "name": "string",
+                        "uncheckedValue": "string"
+                    },
                     "name": "MyCheckbox7",
                     "designerId": "871da5dc-c66b-4a03-9596-400150f46ee5",
                     "cn": [
@@ -507,6 +721,12 @@
                                 ],
                                 "name": "change",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onVliegtuigBeheer_TMGChange",
                             "designerId": "c6625850-8df5-466c-9959-84a57caac934"
@@ -533,6 +753,19 @@
                         "name": "SLEEPKIST",
                         "uncheckedValue": "0"
                     },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "hideLabel": "boolean",
+                        "id": "string",
+                        "inputValue": "string",
+                        "labelSeparator": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "margin": "auto",
+                        "name": "string",
+                        "uncheckedValue": "string"
+                    },
                     "name": "MyCheckbox8",
                     "designerId": "43053093-46dd-4597-9244-3d7f29679df9",
                     "cn": [
@@ -550,6 +783,12 @@
                                 ],
                                 "name": "change",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onVliegtuigBeheer_SleepkistChange",
                             "designerId": "5441875f-a5d1-4c6d-b62e-086ceffd779f"
@@ -573,6 +812,17 @@
                         "padding": "",
                         "text": "Opslaan",
                         "width": 80
+                    },
+                    "configAlternates": {
+                        "formBind": "boolean",
+                        "height": "auto",
+                        "icon": "string",
+                        "iconCls": "string",
+                        "id": "string",
+                        "margin": "auto",
+                        "padding": "auto",
+                        "text": "string",
+                        "width": "auto"
                     },
                     "name": "MyButton15",
                     "designerId": "e849722b-b9dd-4600-9a3c-40f07f58a20c",
@@ -649,6 +899,12 @@
                                 ],
                                 "name": "click",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onButtonClick1",
                             "designerId": "f003af43-cdd8-4c9b-874c-8ec071a75a41"

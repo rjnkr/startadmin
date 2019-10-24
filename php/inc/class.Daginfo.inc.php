@@ -249,9 +249,44 @@
 			
 			$id = intval($this->Data['ID']);
 			if ($id < 0)
+			{
+				// ivm privacy alles weggooien na 3 maanden
+				$query = sprintf("
+					UPDATE oper_daginfo SET
+						OCHTEND_DDI = null, 
+						OCHTEND_INSTRUCTEUR = null,
+						OCHTEND_LIERIST = null,
+						OCHTEND_HULPLIERIST = null,
+						OCHTEND_STARTLEIDER = null, 
+						MIDDAG_DDI = null,
+						MIDDAG_INSTRUCTEUR = null,
+						MIDDAG_LIERIST = null,
+						MIDDAG_HULPLIERIST = null,
+						MIDDAG_STARTLEIDER = null
+					WHERE 
+						((OCHTEND_DDI is not null)
+						OR (OCHTEND_INSTRUCTEUR is not null)
+						OR (OCHTEND_LIERIST is not null)
+						OR (OCHTEND_HULPLIERIST is not null)
+						OR (OCHTEND_STARTLEIDER is not null) 
+						OR (MIDDAG_DDI is not null)
+						OR (MIDDAG_INSTRUCTEUR is not null)
+						OR (MIDDAG_LIERIST is not null)
+						OR (MIDDAG_HULPLIERIST is not null)
+						OR (MIDDAG_STARTLEIDER is not null))
+						AND (DATUM < '%s')",  date("Y-m-d", strtotime("-3 Months")));
+
 				parent::DbToevoegen('oper_daginfo', $d);
+				parent::DbUitvoeren($query);
+
+				// gooi ook oude roosters weg
+				$roosterObj = MaakObject('Rooster');
+				$roosterObj->DeleteRooster();
+			}
 			else
+			{
 				parent::DbAanpassen('oper_daginfo', $id, $d);
+			}
 
 			echo '{"success":true,"errorCode":-1,"error":""}';
 		}

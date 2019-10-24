@@ -16,6 +16,15 @@
         "title": "Flarm starts",
         "width": 450
     },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "resizable": "object",
+        "title": "string",
+        "width": "auto"
+    },
     "designerId": "46581440-dcac-463c-a3e8-b87b32e86db1",
     "cn": [
         {
@@ -39,6 +48,12 @@
                 "name": "beforeshow",
                 "scope": "me"
             },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
             "name": "onWindowBeforeShow",
             "designerId": "4ae612b2-a362-4ebb-a927-9fce59616fe0"
         },
@@ -54,6 +69,12 @@
                 "id": "FlarmStartWindow",
                 "layout": "fit",
                 "title": null
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "id": "string",
+                "layout": "string",
+                "title": "string"
             },
             "name": "MyForm13",
             "designerId": "e8682e99-812d-48fd-967f-8849589bc15c",
@@ -72,6 +93,14 @@
                         "frameHeader": false,
                         "store": "FlarmStart_Store",
                         "title": ""
+                    },
+                    "configAlternates": {
+                        "enableColumnMove": "boolean",
+                        "enableColumnResize": "boolean",
+                        "forceFit": "boolean",
+                        "frameHeader": "boolean",
+                        "store": "store",
+                        "title": "string"
                     },
                     "name": "MyGridPanel14",
                     "designerId": "42a9cfdd-4696-4d7d-9d0f-682e83ffcb99",
@@ -98,6 +127,21 @@
                                 "store": "FlarmStart_Store",
                                 "width": 360
                             },
+                            "configAlternates": {
+                                "afterPageText": "string",
+                                "beforePageText": "string",
+                                "displayInfo": "boolean",
+                                "displayMsg": "string",
+                                "dock": "string",
+                                "emptyMsg": "string",
+                                "firstText": "string",
+                                "lastText": "string",
+                                "nextText": "string",
+                                "prevText": "string",
+                                "refreshText": "string",
+                                "store": "store",
+                                "width": "auto"
+                            },
                             "name": "MyPagingToolbar6",
                             "designerId": "5b3f24ac-4a19-4db3-bae4-0d640bd6bdc6"
                         },
@@ -110,6 +154,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "emptyText": "<div class=\"noData\" ></div>"
+                            },
+                            "configAlternates": {
+                                "emptyText": "string"
                             },
                             "name": "MyGridView14",
                             "designerId": "7bd0b3c9-beae-49be-a83e-a3c59e8dd77c"
@@ -126,6 +173,11 @@
                                 "flex": 5,
                                 "text": "Vliegtuig"
                             },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
+                            },
                             "name": "MyColumn81",
                             "designerId": "294f574c-7265-48d1-bbbe-01c2a82b8772"
                         },
@@ -140,6 +192,11 @@
                                 "dataIndex": "FLARM_CODE",
                                 "flex": 4,
                                 "text": "Flarm"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
                             },
                             "name": "MyColumn82",
                             "designerId": "8849e180-b41e-4729-adb3-c05d9b0abbda"
@@ -156,6 +213,11 @@
                                 "flex": 3,
                                 "text": "Start"
                             },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
+                            },
                             "name": "MyColumn83",
                             "designerId": "8ba58a18-f573-47bf-93bf-b8ee4fdf3b92"
                         },
@@ -170,6 +232,11 @@
                                 "dataIndex": "LANDINGSTIJD",
                                 "flex": 3,
                                 "text": "Landing"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
                             },
                             "name": "MyColumn84",
                             "designerId": "c1a6f820-f97e-4696-9102-239afabb1f58"
@@ -186,6 +253,11 @@
                                 "flex": 2,
                                 "text": "Baan"
                             },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
+                            },
                             "name": "MyColumn85",
                             "designerId": "cbeceb3a-df2b-4469-8a5c-1dfba24e086e"
                         },
@@ -198,6 +270,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dock": "bottom"
+                            },
+                            "configAlternates": {
+                                "dock": "string"
                             },
                             "name": "MyToolbar7",
                             "designerId": "d265630d-71a9-4db9-afad-a6f1ae72e959",
@@ -219,6 +294,17 @@
                                         "minWidth": 200,
                                         "size": 5,
                                         "width": 100
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "id": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|flex": "number",
+                                        "maxWidth": "number",
+                                        "minWidth": "number",
+                                        "size": "number",
+                                        "width": "auto"
                                     },
                                     "name": "MyTextField47",
                                     "designerId": "ec72b3e0-dde8-43ce-b83b-9d83a5961d69",
@@ -243,6 +329,12 @@
                                                 ],
                                                 "name": "change",
                                                 "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
                                             },
                                             "name": "onZoekenFlarmStartChange",
                                             "designerId": "1a44cfe7-0872-4d48-a595-65b4702f0a6f"
@@ -270,6 +362,12 @@
                                 ],
                                 "name": "itemdblclick",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onGridpanelItemDblClick",
                             "designerId": "21f45712-58c2-4f06-825d-6233a0b79b7d"

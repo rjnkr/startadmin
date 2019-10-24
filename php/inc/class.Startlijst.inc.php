@@ -205,6 +205,12 @@
 			{
 				$where = $where . sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d') OR (OP_REKENING_ID = '%d'))", $l->getUserFromSession(), $l->getUserFromSession(), $l->getUserFromSession());
 			}
+
+			if (array_key_exists('_:id', $this->qParams))			// vraag specifieke vlieger op
+			{
+				$where = $where . sprintf(" AND ((VLIEGER_ID = '%d') OR (INZITTENDE_ID = '%d'))", trim($this->qParams['_:id']), trim($this->qParams['_:id']));
+
+			}
 			
 			if (array_key_exists('_:verwijderMode', $this->qParams))
 			{
@@ -814,7 +820,7 @@
 				}			
 				$rquery = sprintf($query, "
 					ID,
-					DATE_FORMAT(DATUM, '%d-%m-%Y') AS DATUM,
+					DATUM,
 					REG_CALL,
 					STARTTIJD,
 					LANDINGSTIJD,
@@ -826,7 +832,114 @@
 				parent::DbOpvraag($rquery);			
 				echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';
 			}		
-		}		
+		}	
+
+		// example
+		//	{
+		//		"startsDrieMnd": "2",
+		//		"startsVorigJaar": "36",
+		//		"startsDitJaar": "2",
+		//		"urenDrieMnd": "1:42",
+		//		"urenDitJaar": "1:42",
+		//		"urenVorigJaar": "27:31",
+		//		"statusBarometer": "onbekend",
+		//		"startsBarometer": "38",
+		//		"urenBarometer": "29:13"
+		//	}
+		
+		function VliegerRecencyJSON()
+		{
+			Debug(__FILE__, __LINE__, "Startlijst.VliegerRecencyJSON()");
+			Debug(__FILE__, __LINE__, sprintf("qParams=%s", print_r($this->qParams, true)));	
+			
+			$retVal['startsDrieMnd'] = 0;
+			$retVal['startsVorigJaar'] = 0; 
+			$retVal['startsDitJaar'] = 0;
+
+			$retVal['urenDrieMnd'] = 0;
+			$retVal['urenDitJaar'] = 0; 
+			$retVal['urenVorigJaar'] = 0; 
+			$retVal['statusBarometer'] = 'onbekend'; 	// andere mogelijkheden: rood/geel/groen
+			$retVal['startsBarometer'] = 0; 	
+			$retVal['urenBarometer'] = 0; 	
+
+			if (!array_key_exists('_:id', $this->qParams))
+			{
+				echo '{"success":false,"errorCode":-1,"error":"Lid ID in aanroep"}';
+				return;
+			}
+
+			$where = sprintf("DATUM > '%d-01-01' AND STARTTIJD IS NOT NULL AND LANDINGSTIJD IS NOT NULL AND ", Date("Y")-1);
+			$where .= sprintf("(VLIEGER_ID = %s OR INZITTENDE_ID = %s)", $this->qParams['_:id'], $this->qParams['_:id']);
+
+			$query = "
+				SELECT
+					*
+				FROM
+					startlijst_view
+				WHERE
+					" . $where . " ORDER BY DATUM DESC";
+
+			parent::DbOpvraag($query);	
+
+			foreach (parent::DbData() as $vlucht)
+			{
+				$diff = abs(strtotime(date('Y-m-d')) - strtotime($vlucht['DATUM'])) / (60*60*24);  	// dif in dagen
+
+				if ($diff < (13*7)) // laaste drie maanden = 13 weken
+				{
+					$retVal['startsDrieMnd']++;				
+					$retVal['urenDrieMnd'] += intval(substr($vlucht['DUUR'],0,2)) * 60 + intval(substr($vlucht['DUUR'],3,2));
+				}
+
+				if ($diff < (52*7)) // laaste jaar = 52 weken
+				{
+					$retVal['startsBarometer']++;				
+					$retVal['urenBarometer'] += intval(substr($vlucht['DUUR'],0,2)) * 60 + intval(substr($vlucht['DUUR'],3,2));
+				}
+
+				if (substr($vlucht['DATUM'],0,4) == Date("Y"))	// Dit jaar
+				{
+					$retVal['startsDitJaar']++;
+					$retVal['urenDitJaar'] += intval(substr($vlucht['DUUR'],0,2)) * 60 + intval(substr($vlucht['DUUR'],3,2));; 
+				}
+				else	// Vorig jaar
+				{
+					$retVal['startsVorigJaar']++;
+					$retVal['urenVorigJaar'] +=intval(substr($vlucht['DUUR'],0,2)) * 60 + intval(substr($vlucht['DUUR'],3,2)); 
+				}
+			}
+
+
+			// uitrekenen barameter status
+			// getallen komen uit plaatje https://members.gliding.co.uk/wp-content/uploads/sites/3/2015/04/1430312045_currency-barometer.gif
+			// Zijn verhoudingen / pixels
+			// Grens rood / geel = 8,75
+			// Grens geel/groen = 2x 8,75 
+			// 5 uren = 4.1
+			// 5 starts = 3.2
+
+			$y1 = ($retVal['urenBarometer'] / 60) * 4.1 / 5;
+			$y2 = $retVal['startsBarometer'] * 3.2 / 5;
+
+			$gem = ($y1 + $y2) / 2;		// snijpunt van witte lijn in het plaatje
+
+			if ($gem < 8.75)
+				$retVal['statusBarometer'] = 'rood';	
+			else if ($gem < 2*8.75)
+				$retVal['statusBarometer'] = 'geel';
+			else
+				$retVal['statusBarometer'] = 'groen';
+
+
+			// tijden staan in minuten, moet naar hh:mm
+			$retVal['urenDrieMnd'] = intval($retVal['urenDrieMnd'] / 60) . ":" . sprintf("%02d",$retVal['urenDrieMnd'] %60);
+			$retVal['urenDitJaar'] = intval($retVal['urenDitJaar'] / 60) . ":" . sprintf("%02d",$retVal['urenDitJaar'] %60);
+			$retVal['urenVorigJaar'] = intval($retVal['urenVorigJaar'] / 60) . ":" . sprintf("%02d",$retVal['urenVorigJaar'] %60);
+			$retVal['urenBarometer'] = intval($retVal['urenBarometer'] / 60) . ":" . sprintf("%02d",$retVal['urenBarometer'] %60);
+
+			echo json_encode(array_map('PrepareJSON', $retVal));
+		}
 		
 		// -------------------------------------------------------------------------------------------------------------------------
 		// PHP interne functies
@@ -1105,7 +1218,7 @@
 		
 		// ------------------------------------------------------------------
 		// Creeer een start vanuit de code voor lid/vliegtuig (bijvoorbeeld als iemand overland gaat)
-		function CreeerStart($LidID, $VliegtuigID)
+		function CreeerStart($LidID, $VliegtuigID, $StartMethode)
 		{
 			$record['VLIEGTUIG_ID'] = $VliegtuigID;
 			$record['VLIEGER_ID'] = $LidID;
@@ -1119,21 +1232,9 @@
 			$record['INZITTENDENAAM'] 	= null;
 			$record['VLIEGERNAAM'] 		= null;
 			$record['SLEEPKIST_ID'] 	= null;
-			
-			$di = MaakObject('Daginfo');
-			
-			$diObj = $di->GetObject();
-			
-			if ($diObj[0]['ID'] != -1)		// Daginfo is niet ingevuld
-			{
-				$record['STARTMETHODE_ID'] = $diObj[0]['STARTMETHODE_ID'];
-			}
-			else
-			{
-				// we mogen de velden niet leeg laten, dus doen we een best guess
-				$record['STARTMETHODE_ID'] = 550; 		// 550 = 'Lierstart m.b.v. GeZC lier'
-			}
-			
+		
+			$record['STARTMETHODE_ID'] = $StartMethode;
+				
 			$record['SOORTVLUCHT_ID'] =  $this->sVlucht($record);
 			parent::DbToevoegen('oper_startlijst', $record);
 		}
@@ -1200,20 +1301,27 @@
 		{
 			Debug(__FILE__, __LINE__, "Startlijst.SaveStartTijd()");
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));				
-			
-			$l = MaakObject('Login');
-			if ($l->magSchrijven() == false)
-			{	
-				Debug(__FILE__, __LINE__, "Geen schrijfrechten");
-				$l->toegangGeweigerd();
-			}
-			
+
 			if (!array_key_exists('ID', $this->Data))
 			{
 				echo '{"success":false,"errorCode":-1,"error":"Geen ID in dataset"}';
 				return;
 			}
-				
+			$id = $this->Data['ID'];
+
+			$l = MaakObject('Login');
+			if ($l->magSchrijven() == false)
+			{	
+				$UserID = $l->getUserFromSession();
+				$start = GetObject($id);
+
+				if ($start[0]['VLIEGER_ID'] != $UserID)			// mag geen starttijd voor iemand anders invullen
+				{
+					Debug(__FILE__, __LINE__, "Geen schrijfrechten");
+					$l->toegangGeweigerd();
+				}
+			}
+			
 			$d['STARTTIJD'] = null;
 			
 			if (array_key_exists('STARTTIJD', $this->Data))
@@ -1231,7 +1339,7 @@
 			}
 					
 			$vlucht = $this->GetObject($this->Data['ID']);
-			parent::DbAanpassen('oper_startlijst', $this->Data['ID'], $d);
+			parent::DbAanpassen('oper_startlijst', $id, $d);
 			
 			echo '{"success":true,"errorCode":-1,"error":""}';
 		}	
@@ -1242,26 +1350,33 @@
 		{
 			Debug(__FILE__, __LINE__, "Startlijst.SaveLandingsTijd()");
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($this->Data, true)));				
-			
-			$l = MaakObject('Login');
-			if ($l->magSchrijven() == false)
-			{	
-				Debug(__FILE__, __LINE__, "Geen schrijfrechten");
-				$l->toegangGeweigerd();
-			}
-			
+
 			if (!array_key_exists('ID', $this->Data))
 			{
 				echo '{"success":false,"errorCode":-1,"error":"Geen ID in dataset"}';
 				return;
 			}
-				
+			$id = $this->Data['ID'];
+
+			$l = MaakObject('Login');
+			if ($l->magSchrijven() == false)
+			{	
+				$UserID = $l->getUserFromSession();
+				$start = $this->GetObject($id);
+
+				if ($start[0]['VLIEGER_ID'] != $UserID)			// mag geen landingstijd voor iemand anders invullen
+				{
+					Debug(__FILE__, __LINE__, "Geen schrijfrechten");
+					$l->toegangGeweigerd();
+				}
+			}
+							
 			$d['LANDINGSTIJD'] = null;
 			
 			if (array_key_exists('LANDINGSTIJD', $this->Data))
 				$d['LANDINGSTIJD'] = $this->Data['LANDINGSTIJD'];
 					
-			parent::DbAanpassen('oper_startlijst', $this->Data['ID'], $d);
+			parent::DbAanpassen('oper_startlijst', $id, $d);
 			
 			echo '{"success":true,"errorCode":-1,"error":""}';
 		}	
@@ -1766,7 +1881,55 @@
 		}
 	
 		function VliegtuigLogboekJSON()
-		{
+		{	
+			$privacyCheck = true;
+			
+			$l = MaakObject('Login');
+
+			if ($l->isBeheerder() == true)
+				$privacyCheck = false;
+
+			if ($l->isBeheerderDDWV() == true)
+				$privacyCheck = false;
+			
+			if ($l->isLocal() == true)
+				$privacyCheck = false;
+			
+			if ($privacyCheck == true)
+			{
+				// Club vliegtuigen, mag iedereen zien
+				$rv = MaakObject('Vliegtuigen');
+				$rvObj = $rv->GetObject($this->qParams['_:logboekVliegtuigID']);
+				
+				if ($rvObj[0]['CLUBKIST'] == 1)
+					$privacyCheck = false;
+			}
+			
+			if ($privacyCheck == true)
+			{
+				// controleer op deze gebruiker in de laatste 6 maanden gevlogen heeft op deze kist
+				$query = sprintf("
+						SELECT 
+							count(*) as aantal
+						FROM 
+							oper_startlijst 
+						WHERE
+							STARTTIJD IS NOT NULL	AND						
+							VLIEGTUIG_ID = %s 		AND 
+							VLIEGER_ID = %s 		AND 
+							STR_TO_DATE(DATUM, '%%Y-%%m-%%d'), NOW()- INTERVAL 6 MONTH", $this->qParams['_:logboekVliegtuigID'], $l->getUserFromSession());
+			
+				parent::DbOpvraag($query);
+				$vluchten = parent::DbData();
+				
+				if (intval($vluchten[0]["aantal"]) == 0)
+				{
+					// Nee, dus geen toegang tot logboek
+					echo "[]";
+					return;
+				}
+			}				
+			
 			$where = sprintf ("AND VLIEGTUIG_ID=%d",$this->qParams['_:logboekVliegtuigID']);
 		
 			if (array_key_exists('_:logboekDatumVanaf', $this->qParams))
@@ -1945,7 +2108,7 @@
 				WHERE
 					" . $where . $orderby;
 			
-			$fields = "sv.*,
+			$fields = "sv.*,  
 					sv.BAAN AS BAAN,
 					LedenVlieger.LIDNR AS VLIEGERLIDNR,
 					TypesVlieger.OMSCHRIJVING AS VLIEGERLIDTYPE,
@@ -1964,7 +2127,6 @@
 			}			
 			$rquery = sprintf($query, $fields) . $limit;
 			parent::DbOpvraag($rquery);			
-			
 
 			Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));	
 			

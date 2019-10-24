@@ -15,6 +15,16 @@
         "title": "Start gegevens",
         "width": 443
     },
+    "configAlternates": {
+        "ID": "number",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "id": "string",
+        "modal": "boolean",
+        "title": "string",
+        "width": "auto"
+    },
     "designerId": "38eafbb4-752e-4195-965f-50bf1f556f5e",
     "customConfigs": [
         {
@@ -44,6 +54,19 @@
                 "url": "php/main.php?Action=Startlijst.VerwijderObject",
                 "width": null
             },
+            "configAlternates": {
+                "autoRender": "boolean",
+                "bodyPadding": "auto",
+                "frameHeader": "boolean",
+                "height": "auto",
+                "id": "string",
+                "layout": "string",
+                "maxHeight": "number",
+                "minHeight": "number",
+                "title": "string",
+                "url": "string",
+                "width": "auto"
+            },
             "name": "MyForm7",
             "designerId": "85e83d77-2168-4bac-81bc-082c97aa5aeb",
             "cn": [
@@ -67,6 +90,19 @@
                         "name": "OPMERKING",
                         "width": 375
                     },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "blankText": "string",
+                        "fieldLabel": "string",
+                        "growMax": "number",
+                        "height": "auto",
+                        "id": "string",
+                        "labelAlign": "string",
+                        "labelWidth": "number",
+                        "msgTarget": "string",
+                        "name": "string",
+                        "width": "auto"
+                    },
                     "name": "MyTextField25",
                     "designerId": "59b430b9-525b-4ec7-9426-f9d190d409af",
                     "cn": [
@@ -88,6 +124,12 @@
                                 ],
                                 "name": "specialkey",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onStartVerwijder_OpmerkingSpecialkey",
                             "designerId": "3abb84a6-bcc9-423e-9488-5dee9a0d9897"
@@ -112,6 +154,17 @@
                         "text": "Verwijderen",
                         "width": 80
                     },
+                    "configAlternates": {
+                        "formBind": "boolean",
+                        "height": "auto",
+                        "icon": "string",
+                        "iconCls": "string",
+                        "id": "string",
+                        "margin": "auto",
+                        "padding": "auto",
+                        "text": "string",
+                        "width": "auto"
+                    },
                     "name": "MyButton26",
                     "designerId": "c88ef919-e079-4c66-a4c7-721692fa1755",
                     "cn": [
@@ -129,6 +182,12 @@
                                 ],
                                 "name": "click",
                                 "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
                             },
                             "name": "onButtonClick",
                             "designerId": "b760a5c9-15a3-42fc-81a0-118c653bd46b"
@@ -150,6 +209,14 @@
                         "name": "ID",
                         "width": 50
                     },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hideEmptyLabel": "boolean",
+                        "id": "string",
+                        "labelWidth": "number",
+                        "name": "string",
+                        "width": "auto"
+                    },
                     "name": "MyHiddenField12",
                     "designerId": "914f7556-5dec-4378-917e-2f10f9ae4e9d"
                 }
@@ -169,6 +236,12 @@
                 ],
                 "name": "show",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onStartVerwijderWindowShow",
             "designerId": "ef15242d-61cb-4b6c-a34c-f3b205d525f0"

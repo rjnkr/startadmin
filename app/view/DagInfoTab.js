@@ -43,7 +43,6 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                 {
                     xtype: 'form',
                     flex: 1,
-                    disabled: true,
                     height: 393,
                     id: 'DaginfoForm',
                     bodyPadding: 10,
@@ -318,7 +317,7 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                             title: 'Ochtend',
                             items: [
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'combobox',
                                     x: -29,
                                     y: 10,
                                     id: 'TextboxInfoOchtendDDI',
@@ -328,6 +327,9 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                     msgTarget: 'side',
                                     name: 'OCHTEND_DDI',
                                     selectOnFocus: true,
+                                    displayField: 'NAAM',
+                                    store: 'DagInfo_Instructeurs_Store',
+                                    valueField: 'ID',
                                     listeners: {
                                         change: {
                                             fn: me.onTextboxInfoOchtendDDIChange,
@@ -336,9 +338,9 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                     }
                                 },
                                 {
-                                    xtype: 'textfield',
-                                    x: 300,
-                                    y: 10,
+                                    xtype: 'combobox',
+                                    x: -4,
+                                    y: 40,
                                     id: 'TextboxInfoOchtendInstructeur',
                                     width: 275,
                                     fieldLabel: 'Instructeur',
@@ -347,6 +349,9 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                     msgTarget: 'side',
                                     name: 'OCHTEND_INSTRUCTEUR',
                                     selectOnFocus: true,
+                                    displayField: 'NAAM',
+                                    store: 'DagInfo_Instructeurs_Store',
+                                    valueField: 'ID',
                                     listeners: {
                                         change: {
                                             fn: me.onTextboxInfoOchtendInstructeurChange,
@@ -356,8 +361,8 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    x: -29,
-                                    y: 40,
+                                    x: 275,
+                                    y: 10,
                                     id: 'TextboxInfoOchtendLierist',
                                     width: 300,
                                     fieldLabel: 'Lierist',
@@ -392,7 +397,7 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                     }
                                 },
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'combobox',
                                     x: -29,
                                     y: 70,
                                     id: 'TextboxInfoOchtendStartleider',
@@ -402,6 +407,9 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                     msgTarget: 'side',
                                     name: 'OCHTEND_STARTLEIDER',
                                     selectOnFocus: true,
+                                    displayField: 'NAAM',
+                                    store: 'DagInfo_Startleiders_Store',
+                                    valueField: 'ID',
                                     listeners: {
                                         change: {
                                             fn: me.onTextboxInfoOchtendStartleiderChange,
@@ -414,7 +422,6 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                         {
                             xtype: 'panel',
                             height: 130,
-                            hidden: true,
                             id: 'Daginfo_MiddagContainer',
                             margin: 10,
                             width: 675,
@@ -422,7 +429,7 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                             title: 'Middag',
                             items: [
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'combobox',
                                     x: -28,
                                     y: 10,
                                     id: 'TextboxInfoMiddagDDI',
@@ -432,6 +439,9 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                     msgTarget: 'side',
                                     name: 'MIDDAG_DDI',
                                     selectOnFocus: true,
+                                    displayField: 'NAAM',
+                                    store: 'DagInfo_Instructeurs_Store',
+                                    valueField: 'ID',
                                     listeners: {
                                         change: {
                                             fn: me.onTextboxInfoMiddagDDIChange,
@@ -440,9 +450,9 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                     }
                                 },
                                 {
-                                    xtype: 'textfield',
-                                    x: 300,
-                                    y: 10,
+                                    xtype: 'combobox',
+                                    x: -3,
+                                    y: 40,
                                     id: 'TextboxInfoMiddagInstructeur',
                                     width: 275,
                                     fieldLabel: 'Instructeur',
@@ -451,6 +461,9 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                     msgTarget: 'side',
                                     name: 'MIDDAG_INSTRUCTEUR',
                                     selectOnFocus: true,
+                                    displayField: 'NAAM',
+                                    store: 'DagInfo_Instructeurs_Store',
+                                    valueField: 'ID',
                                     listeners: {
                                         change: {
                                             fn: me.onTextboxInfoMiddagInstructeurChange,
@@ -460,8 +473,8 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    x: -28,
-                                    y: 40,
+                                    x: 275,
+                                    y: 10,
                                     id: 'TextboxInfoMiddagLierist',
                                     width: 300,
                                     fieldLabel: 'Lierist',
@@ -496,7 +509,7 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                     }
                                 },
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'combobox',
                                     x: -28,
                                     y: 70,
                                     id: 'TextboxInfoMiddagStartleider',
@@ -506,6 +519,9 @@ Ext.define('GeZC_StartAdministratie.view.DagInfoTab', {
                                     msgTarget: 'side',
                                     name: 'MIDDAG_STARTLEIDER',
                                     selectOnFocus: true,
+                                    displayField: 'NAAM',
+                                    store: 'DagInfo_Startleiders_Store',
+                                    valueField: 'ID',
                                     listeners: {
                                         change: {
                                             fn: me.onTextboxInfoMiddagStartleiderChange,

@@ -9,6 +9,7 @@
         "container|align": "stretch",
         "designer|userAlias": "ledentab",
         "designer|userClassName": "LedenTab",
+        "id": "LedenTab",
         "layout": "vbox",
         "title": "Leden"
     },
@@ -17,7 +18,8 @@
         "designer|userAlias": "string",
         "designer|userClassName": "string",
         "layout": "string",
-        "title": "string"
+        "title": "string",
+        "id": "string"
     },
     "name": "MyPanel12",
     "designerId": "7732724d-d588-433f-91bd-fea97d2f8703",

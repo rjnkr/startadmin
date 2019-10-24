@@ -9,6 +9,10 @@
         "designer|userClassName": "Rooster_Model",
         "idProperty": "ID"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
     "designerId": "3d6da0f3-a21b-40f6-933d-adea022ad47f",
     "cn": [
         {
@@ -21,6 +25,10 @@
             "userConfig": {
                 "name": "OCHTEND_DDI",
                 "type": null
+            },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
             },
             "name": "MyField161",
             "designerId": "bf3fd0f1-135a-4373-8b87-b1e77e11f3cc"
@@ -36,6 +44,10 @@
                 "name": "OCHTEND_INSTRUCTEUR",
                 "type": null
             },
+            "configAlternates": {
+                "name": "string",
+                "type": "string"
+            },
             "name": "MyField162",
             "designerId": "54e423af-ce23-4416-9042-c37cffc367fe"
         },
@@ -48,6 +60,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "OCHTEND_LIERIST"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField163",
             "designerId": "7145e26b-3194-4832-8bf5-4efce362c232"
@@ -62,6 +77,9 @@
             "userConfig": {
                 "name": "OCHTEND_HULPLIERIST"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField164",
             "designerId": "74fbea7c-5bea-482a-b263-236e22e98bf5"
         },
@@ -74,6 +92,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "OCHTEND_STARTLEIDER"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField165",
             "designerId": "c046841f-70d6-470b-84e0-19f021dca994"
@@ -88,6 +109,9 @@
             "userConfig": {
                 "name": "MIDDAG_DDI"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField166",
             "designerId": "efbbd8f3-d411-47a1-bb15-0c675dc5c65f"
         },
@@ -100,6 +124,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "MIDDAG_INSTRUCTEUR"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField167",
             "designerId": "e48df981-73e1-4995-8acd-e34636671aae"
@@ -114,6 +141,9 @@
             "userConfig": {
                 "name": "MIDDAG_LIERIST"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField168",
             "designerId": "b07eb5f4-4a13-47b3-a09a-bb03296bb696"
         },
@@ -127,6 +157,9 @@
             "userConfig": {
                 "name": "MIDDAG_HULPLIERIST"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField169",
             "designerId": "d451b3e7-5a7a-44c7-b101-dee85d2dc020"
         },
@@ -139,6 +172,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "MIDDAG_STARTLEIDER"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField170",
             "designerId": "6c90205e-a494-46c0-91eb-7ebf4aa144e1"

@@ -11,6 +11,12 @@
         "model": "Types_Model",
         "storeId": "MyJsonStore30"
     },
+    "configAlternates": {
+        "autoSync": "boolean",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
     "designerId": "e7eed5c7-afc5-4a06-b3bd-32fd4dd04281",
     "cn": [
         {
@@ -22,6 +28,9 @@
             "codeClass": null,
             "userConfig": {
                 "url": "php/main.php?Action=Types.GetObjectsJSON&_:TYPEGROUP_ID=6"
+            },
+            "configAlternates": {
+                "url": "string"
             },
             "name": "MyAjaxProxy22",
             "designerId": "d3a5cf80-283e-4f74-9b00-10e20ccc4f32",
@@ -35,6 +44,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "idProperty": "ID"
+                    },
+                    "configAlternates": {
+                        "idProperty": "string"
                     },
                     "name": "MyJsonReader22",
                     "designerId": "7f477d69-f2b2-419a-8001-395555f8fa8d"
@@ -53,6 +65,12 @@
                         ],
                         "name": "exception",
                         "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
                     },
                     "name": "onAjaxproxyException",
                     "designerId": "42a95721-6809-4cb4-a10e-87608cd1d2c0"
@@ -74,6 +92,12 @@
                 ],
                 "name": "load",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onJsonstoreLoad",
             "designerId": "a82c3a9a-dd1e-47bc-a611-000001383096"

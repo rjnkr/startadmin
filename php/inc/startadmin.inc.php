@@ -51,11 +51,11 @@ abstract class StartAdmin
 	
 	// Functie wordt gebruikt door sync process om een object op te haden uit de database. 
 	// De betreffende class heeft de dbTable gezet in de constructor, het ID veld is de unieke sleutel om het record op te halen
-	function Sync_HaalObject()
+	function SyncHaalObject()
 	{		
 		$id = $_GET["ID"];
 		
-		Debug(__FILE__, __LINE__, sprintf("StartAdmin.Sync_HaalObject(%s, %d)", $this->dbTable, $id));
+		Debug(__FILE__, __LINE__, sprintf("StartAdmin.SyncHaalObject(%s, %d)", $this->dbTable, $id));
 		
 		$query = sprintf("SELECT * FROM %s WHERE ID = '%s'", $this->dbTable, $id);
 		$this->DbOpvraag($query);
@@ -65,9 +65,9 @@ abstract class StartAdmin
 
 	// Haal op welke ID zijn aangepast
 	// De betreffende class heeft de dbTable gezet in de constructor
-	function Sync_Samenvatting()
+	function SyncSamenvatting()
 	{
-		Debug(__FILE__, __LINE__, sprintf("StartAdmin.Sync_Samenvatting(%s)",$this->dbTable));
+		Debug(__FILE__, __LINE__, sprintf("StartAdmin.SyncSamenvatting(%s)",$this->dbTable));
 		
 		$query = sprintf("SELECT ID, UNIX_TIMESTAMP(LAATSTE_AANPASSING) AS LAATSTE_AANPASSING FROM %s ", $this->dbTable);
 		
@@ -95,9 +95,9 @@ abstract class StartAdmin
 	
 	// Haal de checksum op van een setje records
 	// De betreffende class heeft de dbTable gezet in de constructor
-	function Sync_Checksum()
+	function SyncChecksum()
 	{		
-		Debug(__FILE__, __LINE__, sprintf("StartAdmin.Sync_Checksum(%s)", $this->dbTable));
+		Debug(__FILE__, __LINE__, sprintf("StartAdmin.SyncChecksum(%s)", $this->dbTable));
 		
 		$where = '';
 		if (array_key_exists('_:datum', $this->qParams))
@@ -119,11 +119,11 @@ abstract class StartAdmin
 	
 	// Het syncronisatie proces moet een bestaan record aanpassen
 	// De betreffende class heeft de dbTable gezet in de constructor
-	function Sync_Record()
+	function SyncRecord()
 	{
 		$id = $_POST['ID'];
 		
-		Debug(__FILE__, __LINE__, sprintf("StartAdmin.Sync_Record(%s, %d)", $this->dbTable, $id));
+		Debug(__FILE__, __LINE__, sprintf("StartAdmin.SyncRecord(%s, %d)", $this->dbTable, $id));
 		Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($_POST, true)));
 		
 		global $db;

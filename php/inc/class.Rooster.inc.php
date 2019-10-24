@@ -180,5 +180,25 @@
 			parent::DbToevoegen('oper_rooster', $d);
 			Debug(__FILE__, __LINE__, sprintf("rooster toegevoegd id=%d", $id));
 		}	
+
+		function DeleteRooster()
+		{
+			// ivm privacy alles weggooien na 1 week
+			$query = sprintf("
+				DELETE FROM oper_rooster
+				WHERE 
+					((OCHTEND_DDI is not null)
+					OR (OCHTEND_INSTRUCTEUR is not null)
+					OR (OCHTEND_LIERIST is not null)
+					OR (OCHTEND_HULPLIERIST is not null)
+					OR (OCHTEND_STARTLEIDER is not null) 
+					OR (MIDDAG_DDI is not null)
+					OR (MIDDAG_INSTRUCTEUR is not null)
+					OR (MIDDAG_LIERIST is not null)
+					OR (MIDDAG_HULPLIERIST is not null)
+					OR (MIDDAG_STARTLEIDER is not null))
+					AND (DATUM < '%s')",  date("Y-m-d", strtotime("-7 days")));
+		//	parent::DbUitvoeren(query);
+		}
 	}
 ?>

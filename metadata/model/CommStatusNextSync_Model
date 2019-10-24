@@ -8,6 +8,9 @@
     "userConfig": {
         "designer|userClassName": "CommStatusNextSync_Model"
     },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
     "designerId": "15edeb54-6e24-48bd-8b38-80995471989b",
     "cn": [
         {
@@ -19,6 +22,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "tekst"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField22",
             "designerId": "9b349cf9-709d-4f2c-af55-daa242016767"
@@ -33,6 +39,9 @@
             "userConfig": {
                 "name": "localNextSync"
             },
+            "configAlternates": {
+                "name": "string"
+            },
             "name": "MyField23",
             "designerId": "51a86afd-5b03-4967-9cd5-d7723dd825ab"
         },
@@ -45,6 +54,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "remoteNextSync"
+            },
+            "configAlternates": {
+                "name": "string"
             },
             "name": "MyField24",
             "designerId": "ba182655-8fdb-4f1e-96b6-b94139abe9ee"

@@ -272,8 +272,16 @@
 				}			
 				$rquery = sprintf($query, "*");
 				parent::DbOpvraag($rquery  . $orderby . $limit);
-				Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r(parent::DbData(), true)));
-				echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', parent::DbData())).'}';
+				$records = parent::DbData();
+
+				// Toevoegen volgorde nummer (op basis van binnekomst)
+				for ($volgorde = 0; $volgorde < count($records); $volgorde++)
+				{
+					$records[$volgorde]['VOLGORDE'] = $volgorde + 1;
+				}
+
+				Debug(__FILE__, __LINE__, sprintf("Data=%s", print_r($records, true)));
+				echo '{"total":"'.$total[0]['total'].'","results":'.json_encode(array_map('PrepareJSON', $records)).'}';
 			}
 		}
 		
@@ -331,6 +339,20 @@
 			}
 			$r['VOORKEUR_VLIEGTUIG_ID'] = null;
 			$r['VOORKEUR_VLIEGTUIG_TYPE'] = null;
+
+			$di = MaakObject('Daginfo');
+			
+			$diObj = $di->GetObject();
+			
+			if ($diObj[0]['ID'] != -1)		// Daginfo is niet ingevuld
+			{
+				$STARTMETHODE_ID = $diObj[0]['STARTMETHODE_ID'];
+			}
+			else
+			{
+				// we mogen de velden niet leeg laten, dus doen we een best guess
+				$STARTMETHODE_ID = 550;
+			}
 			
 			if (array_key_exists('VOORKEUR_VLIEGTUIG_ID', $this->Data))
 			{
@@ -343,6 +365,9 @@
 				
 			if (array_key_exists('VOORKEUR_VLIEGTUIG_TYPE', $this->Data))
 				$r['VOORKEUR_VLIEGTUIG_TYPE'] =  $this->Data["VOORKEUR_VLIEGTUIG_TYPE"];
+			
+			if (array_key_exists('STARTMETHODE', $this->Data))
+				$STARTMETHODE =  $this->Data["STARTMETHODE"];
 							
 
 			if (!$this->IsAangemeldVandaag($this->Data["LID_ID"], null))	// is nog niet aangemeld
@@ -358,7 +383,7 @@
 				if ($r['VOORKEUR_VLIEGTUIG_ID'] != null)
 				{
 					$sl = MaakObject('Startlijst');
-					$sl->CreeerStart($r['LID_ID'],$r['VOORKEUR_VLIEGTUIG_ID']);
+					$sl->CreeerStart($r['LID_ID'],$r['VOORKEUR_VLIEGTUIG_ID'], $STARTMETHODE);
 				}
 			}
 			else	// blijkbaar is lid al aangemeld, maar nog wel update doen voor voorkeur type/kist
@@ -380,8 +405,9 @@
 					$aanmelding = $this->GetObject($id);
 
 					// alleen updaten als er iets gewijzigd is
-					if (($aanmelding[0]['VOORKEUR_VLIEGTUIG_TYPE'] != $r['VOORKEUR_VLIEGTUIG_TYPE']) ||	
-						($aanmelding[0]['VOORKEUR_VLIEGTUIG_ID'] != $r['VOORKEUR_VLIEGTUIG_ID']))
+					if (($aanmelding[0]['VOORKEUR_VLIEGTUIG_TYPE'] != $r['VOORKEUR_VLIEGTUIG_TYPE']) 	||	
+						($aanmelding[0]['VOORKEUR_VLIEGTUIG_ID'] != $r['VOORKEUR_VLIEGTUIG_ID']) 		||
+						($aanmelding[0]['OPMERKING'] != $r['OPMERKING']))
 					{
 						$db->DbAanpassen('oper_aanwezig', $id, $r);
 					}	

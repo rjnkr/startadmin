@@ -1,5 +1,5 @@
 ALTER TABLE `ref_vliegtuigen` ADD `VOLGORDE` INT NOT NULL AFTER `SLEEPKIST`;
-
+//---------------------------------------------------------------------------------------
 USE `sadb`;
 CREATE 
      OR REPLACE ALGORITHM = UNDEFINED 
@@ -49,3 +49,31 @@ VIEW `ledenaanwezig_view` AS
         JOIN `ledenlijst_view` `l` ON ((`a`.`LID_ID` = `l`.`ID`)))
     WHERE
         (`a`.`DATUM` = CAST(NOW() AS DATE));
+
+
+//----------------------------------------------------------------------------------
+
+delimiter //
+CREATE FUNCTION `RijNummer`(reset BIT) RETURNS int
+    NO SQL
+    NOT DETERMINISTIC
+     begin
+      IF reset THEN
+        SET @var := 0;
+      ELSE
+        SET @var := IFNULL(@var,0) + 1;
+      END IF;
+      return @var;
+     end
+     //
+delimiter ;
+
+//----------------------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW country_view (country, name, price, row_num) 
+AS SELECT country, name, price, func_inc_var_session(0) 
+FROM country
+JOIN (SELECT func_inc_var_session(1)) r
+
+//----------------------------------------------------------------------------------
+

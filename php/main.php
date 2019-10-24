@@ -31,6 +31,11 @@ if(!empty($_GET))
 				$obj = MaakObject($class);	// Maak de class aan
 				eval("\$obj->$method();");	// voer de method uit
 			}
+			else
+			{
+				header('HTTP/1.1 500 Wrong functional call');
+				exit;
+			}
 		}		
 	}
 	else if (array_key_exists('Config', $_GET))	// Vertel de client wat de configuratie is
@@ -43,6 +48,7 @@ if(!empty($_GET))
 		$app_settings['isBeheerder'] = $l->isBeheerder();
 		$app_settings['isBeheerderDDWV'] = $l->isBeheerderDDWV();
 		$app_settings['isLocal'] = $l->isLocal();
+		$app_settings['Vliegveld'] = $vliegveld;
 
 		echo json_encode($app_settings);	
 	}
@@ -58,6 +64,11 @@ if(!empty($_GET))
 		{
 			$obj = MaakObject('CommStatus');
 			eval("\$obj->$method();");
+		}
+		else
+		{
+			header('HTTP/1.1 500 Wrong functional call');
+			exit;
 		}
 	}
 }

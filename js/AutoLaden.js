@@ -20,6 +20,8 @@ function InitStores()
 {
 	Ext.data.StoreManager.lookup('Startlijst_Vlieger_Store').slimLaden(null, false);
 	Ext.data.StoreManager.lookup('Aanmelden_Vliegtuig_Store').slimLaden(null, false);
+	Ext.data.StoreManager.lookup('DagInfo_Instructeurs_Store').slimLaden(null, false);
+	Ext.data.StoreManager.lookup('DagInfo_Startleiders_Store').slimLaden(null, false);
 	Ext.data.StoreManager.lookup('Daginfo_Store').slimLaden(null, false);
 	Ext.data.StoreManager.lookup('Types_Banen_Store').slimLaden(null, false);
 	Ext.data.StoreManager.lookup('Types_Club_Store').slimLaden(null, false);

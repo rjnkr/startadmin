@@ -10,6 +10,11 @@
         "model": "CommStatusDetails_Model",
         "storeId": "MyJsonStore26"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
     "designerId": "0a1895ae-5d36-4b08-beb9-8c054a3b3fdc",
     "cn": [
         {
@@ -29,6 +34,17 @@
                 "sortParam": "undefined",
                 "startParam": "undefined",
                 "url": "php/main.php?CommStatus=StatusDetails"
+            },
+            "configAlternates": {
+                "directionParam": "string",
+                "filterParam": "string",
+                "groupParam": "string",
+                "limitParam": "string",
+                "noCache": "boolean",
+                "pageParam": "string",
+                "sortParam": "string",
+                "startParam": "string",
+                "url": "string"
             },
             "name": "MyAjaxProxy24",
             "designerId": "fb4cc06b-6ba2-4c14-ba9b-35ebc95e3f92",
@@ -61,6 +77,12 @@
                         ],
                         "name": "exception",
                         "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
                     },
                     "name": "onAjaxproxyException",
                     "designerId": "ce76284a-be64-4c6f-99c8-f65ae5cc0981"

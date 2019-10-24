@@ -10,6 +10,11 @@
         "model": "CommStatusNextSync_Model",
         "storeId": "MyJsonStore27"
     },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
     "designerId": "a04e771c-7ea9-4392-a25e-77e5377285d7",
     "cn": [
         {
@@ -29,6 +34,17 @@
                 "sortParam": "undefined",
                 "startParam": "undefined",
                 "url": "php/main.php?CommStatus=StatusNextSync"
+            },
+            "configAlternates": {
+                "directionParam": "string",
+                "filterParam": "string",
+                "groupParam": "string",
+                "limitParam": "string",
+                "noCache": "boolean",
+                "pageParam": "string",
+                "sortParam": "string",
+                "startParam": "string",
+                "url": "string"
             },
             "name": "MyAjaxProxy23",
             "designerId": "2b6a02bd-ddcc-4e76-8cdf-2b74690ebbef",
@@ -61,6 +77,12 @@
                         ],
                         "name": "exception",
                         "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
                     },
                     "name": "onAjaxproxyException",
                     "designerId": "fe76637d-cd0c-4203-8661-9b38df808e74"

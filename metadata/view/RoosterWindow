@@ -17,6 +17,16 @@
         "title": "Rooster",
         "width": 656
     },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "id": "string",
+        "modal": "boolean",
+        "resizable": "object",
+        "title": "string",
+        "width": "auto"
+    },
     "designerId": "2953f153-ba40-4aad-8d70-12b61d12ac09",
     "cn": [
         {
@@ -33,6 +43,13 @@
                 "layout": "table",
                 "title": ""
             },
+            "configAlternates": {
+                "baseCls": "string",
+                "cls": "string",
+                "height": "auto",
+                "layout": "string",
+                "title": "string"
+            },
             "name": "MyPanel24",
             "designerId": "a7cf4ff6-128d-49d5-ba83-a8328d8c5d5d",
             "cn": [
@@ -47,6 +64,11 @@
                         "height": null,
                         "src": "images/rooster.png",
                         "width": null
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "src": "uri",
+                        "width": "auto"
                     },
                     "name": "MyImg3",
                     "designerId": "b704cace-9eab-4c79-ad13-eaaf8970f74b"
@@ -68,6 +90,16 @@
                         "text": "Rooster",
                         "width": null
                     },
+                    "configAlternates": {
+                        "border": "auto",
+                        "cls": "string",
+                        "dock": "string",
+                        "frame": "boolean",
+                        "id": "string",
+                        "padding": "auto",
+                        "text": "string",
+                        "width": "auto"
+                    },
                     "name": "MyLabel3",
                     "designerId": "398a1eb9-66d0-4359-a4ba-e79aedf32ed7"
                 }
@@ -88,6 +120,14 @@
                 "title": "",
                 "url": null
             },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "defaults": "object",
+                "frameHeader": "boolean",
+                "id": "string",
+                "title": "string",
+                "url": "string"
+            },
             "name": "MyForm9",
             "designerId": "5724f390-c449-4e9a-80b6-db75638f59df",
             "cn": [
@@ -106,6 +146,15 @@
                         "margin": 10,
                         "title": "Ochtend",
                         "width": 606
+                    },
+                    "configAlternates": {
+                        "border": "auto",
+                        "designer|snapToGrid": "number",
+                        "height": "auto",
+                        "layout": "string",
+                        "margin": "auto",
+                        "title": "string",
+                        "width": "auto"
                     },
                     "name": "MyPanel25",
                     "designerId": "8b3c9561-f2e7-4d2f-9056-01c6f3f90a62",
@@ -132,6 +181,21 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "disabled": "boolean",
+                                "disabledCls": "string",
+                                "enableKeyEvents": "boolean",
+                                "fieldLabel": "string",
+                                "formBind": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField31",
                             "designerId": "458e8c46-d8d6-410b-80b7-bd0c087d04be"
                         },
@@ -151,6 +215,15 @@
                                 "text": "",
                                 "width": 20
                             },
+                            "configAlternates": {
+                                "icon": "string",
+                                "iconCls": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton28",
                             "designerId": "67278442-7472-4c90-afed-f27968104718",
                             "cn": [
@@ -168,6 +241,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonCopyOchtendDDIClick",
                                     "designerId": "1c3b50ff-8997-4fb0-ae92-813d1d6fca48"
@@ -195,6 +274,20 @@
                                 "selectOnFocus": true,
                                 "width": 270
                             },
+                            "configAlternates": {
+                                "disabled": "boolean",
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "formBind": "boolean",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField32",
                             "designerId": "b140e0b0-c87b-4224-9321-c90e276ea796"
                         },
@@ -214,6 +307,15 @@
                                 "text": "",
                                 "width": 20
                             },
+                            "configAlternates": {
+                                "icon": "string",
+                                "iconCls": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton29",
                             "designerId": "84af9d7c-3f6f-4c6d-bb82-70df302ef5a0",
                             "cn": [
@@ -231,6 +333,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonCopyOchtendInstructeurClick",
                                     "designerId": "2bda7659-dcea-49e7-9ab6-69dce0d1105d"
@@ -256,6 +364,18 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "disabled": "boolean",
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField33",
                             "designerId": "98216cbe-6102-490f-b939-7356b31aac00"
                         },
@@ -275,6 +395,15 @@
                                 "text": "",
                                 "width": 20
                             },
+                            "configAlternates": {
+                                "icon": "string",
+                                "iconCls": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton30",
                             "designerId": "30be2984-cb7f-4c81-9bf6-cea065e4b501",
                             "cn": [
@@ -292,6 +421,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonCopyOchtendLieristClick",
                                     "designerId": "188a1182-f2a8-4ed9-a781-d0833c62a1f1"
@@ -318,6 +453,19 @@
                                 "selectOnFocus": true,
                                 "width": 270
                             },
+                            "configAlternates": {
+                                "disabled": "boolean",
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField34",
                             "designerId": "2493c7c3-713e-46a9-9b70-f8b4b54f13fe"
                         },
@@ -337,6 +485,15 @@
                                 "text": "",
                                 "width": 20
                             },
+                            "configAlternates": {
+                                "icon": "string",
+                                "iconCls": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton31",
                             "designerId": "2820614c-80ba-45a0-95b8-819077e51468",
                             "cn": [
@@ -354,6 +511,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonCopyOchtendHulpLieristClick",
                                     "designerId": "99935120-7cf1-4a60-81cb-79d67ceeea50"
@@ -379,6 +542,18 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "disabled": "boolean",
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField35",
                             "designerId": "5056ed04-3bd1-48ea-a428-f478fdc3d0dc"
                         },
@@ -398,6 +573,15 @@
                                 "text": "",
                                 "width": 20
                             },
+                            "configAlternates": {
+                                "icon": "string",
+                                "iconCls": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton32",
                             "designerId": "283c03ac-01cc-46f3-ae0e-8d5769ede5c3",
                             "cn": [
@@ -415,6 +599,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonCopyOchtendStartleiderClick",
                                     "designerId": "87101bae-2736-4aec-975c-7226ff075cea"
@@ -437,6 +627,14 @@
                         "margin": 10,
                         "title": "Middag",
                         "width": 607
+                    },
+                    "configAlternates": {
+                        "designer|snapToGrid": "number",
+                        "height": "auto",
+                        "layout": "string",
+                        "margin": "auto",
+                        "title": "string",
+                        "width": "auto"
                     },
                     "name": "MyPanel26",
                     "designerId": "8ffa4267-9268-4252-9490-98ed2ced1e81",
@@ -461,6 +659,19 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "disabled": "boolean",
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "msgTarget": "string",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField36",
                             "designerId": "099d4041-ec6a-4d4b-976d-441a2b1a355c"
                         },
@@ -480,6 +691,15 @@
                                 "text": "",
                                 "width": 20
                             },
+                            "configAlternates": {
+                                "icon": "string",
+                                "iconCls": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton33",
                             "designerId": "854bf686-789c-4f82-91e4-febf8163ddf9",
                             "cn": [
@@ -497,6 +717,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonCopyMiddagDDIClick",
                                     "designerId": "8804e9eb-2115-46ee-b38f-e9b41ec4f4e6"
@@ -523,6 +749,19 @@
                                 "selectOnFocus": true,
                                 "width": 270
                             },
+                            "configAlternates": {
+                                "disabled": "boolean",
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField37",
                             "designerId": "9966cc60-3b9e-4927-8ef3-6f1c743f265e"
                         },
@@ -542,6 +781,15 @@
                                 "text": "",
                                 "width": 20
                             },
+                            "configAlternates": {
+                                "icon": "string",
+                                "iconCls": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton34",
                             "designerId": "caa94a25-8ab6-44c4-b46f-dff292beee2f",
                             "cn": [
@@ -559,6 +807,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonCopyMiddagLieristClick",
                                     "designerId": "cbaafb25-8826-46ca-8401-69a486a60546"
@@ -584,6 +838,18 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "disabled": "boolean",
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField38",
                             "designerId": "ecf871f2-0dd1-44e4-bb2d-698633c76b77"
                         },
@@ -603,6 +869,15 @@
                                 "text": "",
                                 "width": 20
                             },
+                            "configAlternates": {
+                                "icon": "string",
+                                "iconCls": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton35",
                             "designerId": "6c224538-59b5-4e8b-81ae-d597d54005c0",
                             "cn": [
@@ -620,6 +895,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonCopyMiddagStartleiderClick",
                                     "designerId": "8498cc64-b965-4e27-ac3e-8c2eba2802d2"
@@ -646,6 +927,19 @@
                                 "selectOnFocus": true,
                                 "width": 270
                             },
+                            "configAlternates": {
+                                "disabled": "boolean",
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField39",
                             "designerId": "7327750c-c291-4379-a323-c6f41ff319c7"
                         },
@@ -665,6 +959,15 @@
                                 "text": "",
                                 "width": 20
                             },
+                            "configAlternates": {
+                                "icon": "string",
+                                "iconCls": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton36",
                             "designerId": "96e37a4c-0860-49f9-8e55-757fa570f87a",
                             "cn": [
@@ -682,6 +985,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonCopyMiddagInstructeurClick",
                                     "designerId": "2f1e4864-9e1d-401e-8543-97c1c61b97c9"
@@ -707,6 +1016,18 @@
                                 "selectOnFocus": true,
                                 "width": 300
                             },
+                            "configAlternates": {
+                                "disabled": "boolean",
+                                "disabledCls": "string",
+                                "fieldLabel": "string",
+                                "id": "string",
+                                "labelAlign": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "selectOnFocus": "boolean",
+                                "width": "auto"
+                            },
                             "name": "MyTextField40",
                             "designerId": "5f83988a-aee5-46ac-932a-2af4007df8ef"
                         },
@@ -726,6 +1047,15 @@
                                 "text": "",
                                 "width": 20
                             },
+                            "configAlternates": {
+                                "icon": "string",
+                                "iconCls": "string",
+                                "id": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto"
+                            },
                             "name": "MyButton37",
                             "designerId": "8a8bbdc7-f587-4d6c-8058-e75610505a56",
                             "cn": [
@@ -743,6 +1073,12 @@
                                         ],
                                         "name": "click",
                                         "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
                                     },
                                     "name": "onButtonCopyMiddagHulpLieristClick",
                                     "designerId": "0bd35ee1-697f-41a6-ba54-659225e45d3b"
@@ -791,6 +1127,12 @@
                 ],
                 "name": "show",
                 "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
             },
             "name": "onRoosterWindowShow",
             "designerId": "013f1178-76b2-4364-a138-03e40c4f87a1"
